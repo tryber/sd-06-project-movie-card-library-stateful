@@ -12,15 +12,14 @@ class MovieLibrary extends Component {
     this.onClick = this.onClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this)
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-    }
-
+    };
   }
 
   onClick(event) {
@@ -44,9 +43,12 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={this.state.searchText} onSearchTextChange={this.onSearchTextChange}
-          selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.onSelectedGenreChange}
-          bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.onBookmarkedChange}
+        <SearchBar searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
         />
         <MovieList movies={this.props.movies} />
         <AddMovie onClick={this.onClick} />

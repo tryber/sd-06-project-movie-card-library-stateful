@@ -10,14 +10,14 @@ class SearchBar extends Component {
       <form data-testid="search-bar-form" htmlFor="my-form">
         <label htmlFor="my-form" data-testid="text-input-label">
           Inclui o texto:
-          <input type="text" value={searchText} onChange={onSearchTextChange}
-            data-testid="text-input"
+          <input type="text" data-testid="text-input"
+            value={searchText} onChange={onSearchTextChange}
           />
         </label>
         <label htmlFor="my-form" data-testid="checkbox-input-label">
           Mostrar somente favoritos
-          <input type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}
-            data-testid="checkbox-input"
+          <input type="checkbox" data-testid="checkbox-input"
+            checked={bookmarkedOnly} onChange={onBookmarkedChange}
           />
         </label>
         <label htmlFor="my-form" data-testid="select-input-label">
