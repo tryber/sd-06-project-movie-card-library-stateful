@@ -23,7 +23,8 @@ class MovieLibrary extends React.Component {
   listFilter(criteria, filter) {
     const { state } = this;
     console.log(filter);
-    const filteredMovies = state.movies.filter(movie => movie[criteria].includes(filter)).map(movie => movie);
+    const filteredMovies = state.movies
+      .filter(movie => movie[criteria].includes(filter)).map(movie => movie);
     console.log(filteredMovies);
   }
 
@@ -47,8 +48,9 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange, onClickAddMovie,
-      state: { searchText, bookmarkedOnly, selectedGenre, movies, } } = this;
+    const {onSearchTextChange, onBookmarkedChange, onSelectedGenreChange, onClickAddMovie} = this;
+    const {searchText, bookmarkedOnly, selectedGenre, movies} = this.state;
+
     return (
     <div>
       <MovieList movies={movies} />
