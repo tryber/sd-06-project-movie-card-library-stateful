@@ -2,33 +2,38 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly } = this.props;
-    const { onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+  renderSelect() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-        <form data-testid="search-bar-form">
-          <label data-testid="text-input-label" htmlFor="include">Inclui o texto:
-          <input data-testid="text-input" type="text" value={searchText} id="include"
-            onChange={onSearchTextChange}
-          />
-          </label>
-          <label data-testid="checkbox-input-label" HtmlFor="favorite">
-            Mostrar somente favoritos
-          <input data-testid="checkbox-input" type="radio" checked={bookmarkedOnly}
-            onChange={onBookmarkedChange} id="favorite"
-          />
-          </label>
-          <label data-testid="select-input-label" htmlFor="gender">
-            Filtrar por gênero
-          <select data-testid="select-input" value={selectedGenre}
-            onChange={onSelectedGenreChange} id="gender">
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-          </label>
-        </form>
+      <select value={selectedGenre} onChange={onSelectedGenreChange} data-testid="select-input">
+        <option value="" data-testid="select-option" id="select-genre">Todos</option>
+        <option value="action" data-testid="select-option">Ação</option>
+        <option value="comedy" data-testid="select-option">Comédia</option>
+        <option value="thriller" data-testid="select-option">Suspense</option>
+      </select>
+    );
+  }
+
+  render() {
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
+    return (
+      <form data-testid="search-bar-form">
+        <label data-testid="text-input-label" htmlFor="include">Inclui o texto:
+        <input data-testid="text-input" type="text" value={searchText} id="include"
+          onChange={onSearchTextChange}
+        />
+        </label>
+        <label data-testid="checkbox-input-label" HtmlFor="favorite">
+          Mostrar somente favoritos
+        <input data-testid="checkbox-input" type="radio" checked={bookmarkedOnly}
+          onChange={onBookmarkedChange} id="favorite"
+        />
+        </label>
+        <label data-testid="select-input-label" htmlFor="gender">
+          Filtrar por gênero
+        {this.renderSelect()}
+        </label>
+      </form>
     );
   }
 }

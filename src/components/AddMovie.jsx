@@ -51,7 +51,7 @@ class AddMovie extends Component {
 }
 
 AddMovie.defaultProps = {
-  onclick: '',
+  onClick: '',
   callback: '',
 };
 
