@@ -17,17 +17,18 @@ class App extends React.Component {
     }
   }
 
-  onSearchTextChange() {
-
+  onSearchTextChange({ target: { value } }) {
+    this.setState({ searchText: value });
   }
 
-  onBookmarkedChange() {
-
+  onBookmarkedChange({ target: { checked } }) {
+    this.setState({ bookmarkedOnly: checked });
   }
 
-  onSelectedGenreChange() {
-
+  onSelectedGenreChange({ target: { value } }) {
+    this.setState({ selectedGenre: value });
   }
+
   render() {
     return (
       <div className="App">
