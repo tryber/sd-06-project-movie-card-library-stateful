@@ -1,9 +1,10 @@
-
 import React, { Component } from 'react';
 
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
+
+
 
 class MovieLibrary extends Component {
   // constructor() {
@@ -21,6 +22,8 @@ class MovieLibrary extends Component {
 
   // }
   render() {
+    const { movies } = this.props;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -33,6 +36,8 @@ class MovieLibrary extends Component {
           selectedGenre={'Genre'}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />, */}
+        <MovieList movies={movies}/>
+        <AddMovie movies={movies} />
       </div>
     );
   }
