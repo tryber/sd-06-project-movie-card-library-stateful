@@ -5,6 +5,7 @@ import AddSelect from './AddSelect';
 
 class SearchBar extends React.Component {
   render() {
+    const { onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <AddInput
@@ -19,10 +20,9 @@ class SearchBar extends React.Component {
           onChange={this.props.onBookmarkedChange} data-testid="checkbox-input"
         />
         <AddSelect
-          id="movie-type" value={this.props.selectedGenre} callback={this.props.onSelectedGenreChange}
+          id="movie-type" value={this.props.selectedGenre} callback={onSelectedGenreChange}
           label="Filtrar por gênero" testid="select-input" optionId="select-option" options={[
-            [ "", "Todos" ], [ "action", "Ação" ], [ "comedy", "Comédia" ],
-            [ ["thriller"], [ "Suspense" ] ]
+            ['', 'Todos'], ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']
           ]}
         />
       </form>
