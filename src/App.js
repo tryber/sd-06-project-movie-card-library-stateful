@@ -3,13 +3,13 @@ import './App.css';
 import movies from './data';
 
 import Header from './components/Header';
-import MovieList from './components/MovieList';
+import MovieLibrary from './components/MovieLibrary';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <MovieList key={1} movies={movies} />
+      <MovieLibrary movies={movies}/>
     </div>
   );
 }
