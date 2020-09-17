@@ -4,9 +4,12 @@ import './App.css';
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 
-function App() {
+class App extends React.Component {
   constructor() {
-    super();
+    super()
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: '',
@@ -25,20 +28,21 @@ function App() {
   onSelectedGenreChange() {
 
   }
-
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar
-        searchText={this.state.searchText}
-        onSearchTextChange={onSearchTextChange}
-        bookmarkedOnly={this.state.bookmarkedOnly}
-        onBookmarkedChange={onBookmarkedChange}
-        selectedGenre={this.state.selectedGenre}
-        onSelectedGenreChange={onSelectedGenreChange}
-      />
-    </div>
-  );
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
+        />
+      </div>
+    )
+  }
 }
 
 export default App;
