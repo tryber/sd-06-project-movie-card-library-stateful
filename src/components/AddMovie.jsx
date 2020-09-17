@@ -25,46 +25,46 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { onClick } = this.props
+    const { onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
-        <label htmlFor="" data-testid="title-input-label">
+      <form htmlFor="this-form" data-testid="add-movie-form">
+        <label htmlFor="this-form" data-testid="title-input-label">
           Título
-          <input data-testid="title-input" onChange={this.handleChange}
-          value={this.state.title} type="text" name="title"
+          <input data-testid="title-input" type="text" name="title"
+            onChange={this.handleChange} value={this.state.title}
           />
         </label>
-        <label htmlFor="" data-testid="subtitle-input-label">
+        <label htmlFor="this-form" data-testid="subtitle-input-label">
         Subtítulo
           <input data-testid="subtitle-input" onChange={this.handleChange}
-          value={this.state.subtitle} type="text" name="subtitle"
+            value={this.state.subtitle} type="text" name="subtitle"
           />
         </label>
-        <label htmlFor="" data-testid="image-input-label">
+        <label htmlFor="this-form" data-testid="image-input-label">
         Imagem
-          <input data-testid="image-input" onChange={this.handleChange}
-          value={this.state.imagePath} type="text" name="imagePath"
+          <input data-testid="image-input" type="text" name="imagePath"
+            onChange={this.handleChange} value={this.state.imagePath}
           />
         </label>
-        <label htmlFor="" data-testid="storyline-input-label">
+        <label htmlFor="this-form" data-testid="storyline-input-label">
           Sinopse
-          <textarea data-testid="storyline-input" onChange={this.handleChange}
-          value={this.state.storyline} type="text" name="storyline"
+          <textarea data-testid="storyline-input" type="text" name="storyline"
+            value={this.state.storyline} onChange={this.handleChange}
           />
         </label>
-        <label htmlFor="" data-testid="rating-input-label">
+        <label htmlFor="this-form" data-testid="rating-input-label">
           Avaliação
           <input data-testid="rating-input" onChange={this.handleChange}
-          value={this.state.rating} type="number" name="rating"
+            value={this.state.rating} type="number" name="rating"
           />
         </label>
-        <label htmlFor="" data-testid="genre-input-label">
+        <label htmlFor="this-form" data-testid="genre-input-label">
           Gênero
           <select value={this.state.genre} data-testid="genre-input" 
-          onChange={this.handleChange} name="genre">
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
+            onChange={this.handleChange} name="genre">
+              <option data-testid="genre-option" value="action">Ação</option>
+              <option data-testid="genre-option" value="comedy">Comédia</option>
+              <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
         <button data-testid="send-button"
