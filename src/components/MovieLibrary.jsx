@@ -28,15 +28,15 @@ class MovieLibrary extends Component {
     console.log('click');
   }
 
-  onSearchTextChange( {target} ) {
+  onSearchTextChange({ target }) {
     this.setState({ searchText: target.value });
   }
 
-  onSelectedGenreChange( {target} ) {
+  onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
   }
 
-  onBookmarkedChange( {target} ) {
+  onBookmarkedChange({ target }) {
     this.setState({ bookmarkedOnly: target.checked });
   }
 

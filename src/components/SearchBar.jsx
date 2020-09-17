@@ -1,13 +1,13 @@
-// implement SearchBar component here
-import PropTypes from 'prop-types';
-import React, { Component, useCallback } from 'react';
+import React, { Component } from 'react';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-    selectedGenre, onSelectedGenreChange } = this.props;
+    const {
+      searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange,
+    } = this.props;
     return (
-      <form data-testid="search-bar-form">
+      <form data-testid="search-bar-form" for="" htmlFor="">
         <label htmlFor="" data-testid="text-input-label">
           Inclui o texto:
           <input type="text" value={searchText} onChange={onSearchTextChange}
@@ -17,17 +17,17 @@ class SearchBar extends Component {
         <label htmlFor="" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input type="checkbox" data-testid="checkbox-input"
-          checked={bookmarkedOnly} onChange={onBookmarkedChange} 
+            checked={bookmarkedOnly} onChange={onBookmarkedChange}
           />
         </label>
         <label htmlFor="" data-testid="select-input-label">
           Filtrar por gênero
-        <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
-          <option value="" data-testid="select-option">Todos</option>
-          <option value="action" data-testid="select-option">Ação</option>
-          <option value="comedy" data-testid="select-option">Comédia</option>
-          <option value="thriller" data-testid="select-option">Suspense</option>
-        </select>
+          <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
+            <option value="" data-testid="select-option">Todos</option>
+            <option value="action" data-testid="select-option">Ação</option>
+            <option value="comedy" data-testid="select-option">Comédia</option>
+            <option value="thriller" data-testid="select-option">Suspense</option>
+          </select>
         </label>
       </form>
     );
