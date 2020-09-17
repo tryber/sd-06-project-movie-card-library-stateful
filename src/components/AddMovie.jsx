@@ -21,17 +21,17 @@ class AddMovie extends Component {
     return (
       <div>
         <form>
-          <label data-testid="title-input-label" htmlFor="">Título</label>
+          <label data-testid="title-input-label" htmlFor="title">Título</label>
           <input data-testid="title-input" value={this.state.title} type="text" />
-          <label data-testid="subtitle-input-label" htmlFor="">Subtítulo</label>
+          <label data-testid="subtitle-input-label" htmlFor="subtitle">Subtítulo</label>
           <input data-testid="subtitle-input" value={this.state.subtitle} type="text" />
-          <label data-testid="image-input-label" htmlFor="">Imagem</label>
+          <label data-testid="image-input-label" htmlFor="image">Imagem</label>
           <input data-testid="image-input" value={this.state.imagePath} type="text" />
-          <label data-testid="storyline-input-label" htmlFor="">Sinopse</label>
+          <label data-testid="storyline-input-label" htmlFor="sinopse">Sinopse</label>
           <textarea data-testid="storyline-input" value={this.state.storyline} />
-          <label data-testid="rating-input-label" htmlFor="">Avaliação</label>
+          <label data-testid="rating-input-label" htmlFor="avaliator">Avaliação</label>
           <input data-testid="rating-input" value={this.state.rating} type="number" />
-          <label data-testid="genre-input-label" htmlFor="">Gênero</label>
+          <label data-testid="genre-input-label" htmlFor="gender">Gênero</label>
           <select data-testid="genre-input" value={this.state.genre}>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -44,8 +44,7 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = {
-  onclick: PropTypes.string,
-}
+AddMovie.propTypes = { onclick: PropTypes.string.isRequired,
+ callback: PropTypes.string };
 
 export default AddMovie;
