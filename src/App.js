@@ -5,8 +5,8 @@ import movies from './data';
 import SearchBar from './components/SearchBar'
 import MovieList from './components/MovieList';
 // import MovieCard from './components/MovieCard';
-
 // import Rating from './components/Rating';
+
 function App() {
   return (
     <div className="App">
@@ -16,5 +16,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
