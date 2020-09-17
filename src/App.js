@@ -3,6 +3,7 @@ import './App.css';
 
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie'
 
 class App extends React.Component {
   constructor() {
@@ -29,6 +30,10 @@ class App extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
+  onChangeAddMovie() {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -41,6 +46,7 @@ class App extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
+        <AddMovie onChange={this.onChangeAddMovie}/>
       </div>
     )
   }
