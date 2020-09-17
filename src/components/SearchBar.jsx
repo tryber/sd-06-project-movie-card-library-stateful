@@ -12,7 +12,7 @@ class SearchBar extends Component {
           </label>
           <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
             Mostrar somente favoritos
-            <input data-testid="checkbox-input" type="checkbox" checked={bookmarkedOnly} />
+            <input data-testid="checkbox-input" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
           </label>
         </form>
       </div>
