@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import AddMovieComponent from './AddMovieComponent'
 
 class AddMovie extends Component {
   constructor() {
