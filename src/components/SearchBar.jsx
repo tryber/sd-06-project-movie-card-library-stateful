@@ -14,15 +14,17 @@ class SearchBar extends React.Component {
 
   renderText() {
     return (
-      <label
-        htmlFor="text-input" data-testid="text-input-label">Inclui o texto:
-      </label>
-      <input
-        type="text"
-        value={this.props.searchText}
-        onChange={this.props.onSearchTextChange}
-        data-testid="text-input"
-      />
+      <div>
+        <label
+          htmlFor="text-input" data-testid="text-input-label">Inclui o texto:
+        </label>
+        <input
+          type="text"
+          value={this.props.searchText}
+          onChange={this.props.onSearchTextChange}
+          data-testid="text-input"
+        />
+      </div>
     )
   }
 
