@@ -1,7 +1,41 @@
 import React from 'react';
-import propTypes from 'prop-types'
+import propTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+
+
+  renderFirstInput() {
+    return(
+      <label data-testid="text-input-label" htmlFor="text">Inclui o texto:
+      <input type="text" value={searchText} 
+        onChange={onSearchTextChange} data-testid="text-input" id="text" 
+      />
+      </label>
+    )
+  }
+
+  renderSecondInput() {
+    <label data-testid="checkbox-input-label" htmlFor="checkbox">Mostrar somente favoritos
+      <input type="checkbox" checked={bookmarkedOnly} 
+        onChange={onBookmarkedChange} data-testid="checkbox-input"
+        id="checkbox"
+      />
+    </label>
+  }
+
+  renderThirdInput() {
+    <label data-testid="select-input-label" htmlFor="select">Filtrar por gênero
+      <select value={selectedGenre} 
+        onChange={onSelectedGenreChange} data-testid="select-input"
+      >
+        <option value="" data-testid="select-option">Todos</option>
+        <option value="action" data-testid="select-option">Ação</option>
+        <option value="comedy" data-testid="select-option">Comédia</option>
+        <option value="thriller" data-testid="select-option">Suspense</option> 
+      </select>
+    </label>
+  }
+
   render() {
     const {
       searchText,
@@ -10,29 +44,17 @@ class SearchBar extends React.Component {
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange
-    } = this.props
+    } = this.props;
+
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" for="text">Inclui o texto:</label>
-        <input type="text" value={this.props.searchText} 
-          onChange={this.props.onSearchTextChange} data-testid="text-input" id="text" 
-        />
 
-        <label data-testid="checkbox-input-label" for="checkbox">Mostrar somente favoritos</label>
-        <input type="checkbox" checked={this.props.bookmarkedOnly} 
-          onChange={this.props.onBookmarkedChange} data-testid="checkbox-input"
-          id="checkbox"
-        />
+        {this.renderFirstInput()}
 
-        <label data-testid="select-input-label">Filtrar por gênero</label>
-        <select value={this.props.selectedGenre} 
-          onChange={this.props.onSelectedGenreChange} data-testid="select-input"
-        >
-          <option value="" data-testid="select-option">Todos</option>
-          <option value="action" data-testid="select-option">Ação</option>
-          <option value="comedy" data-testid="select-option">Comédia</option>
-          <option value="thriller" data-testid="select-option">Suspense</option> 
-        </select>
+        {this.renderSecondInput()}
+
+        {this.renderThirdInput()}
+        
       </form>
     )
   }

@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from './components/SearchBar'
-import AddMovie from './components/AddMovie'
+import SearchBar from './components/SearchBar';
+import AddMovie from './components/AddMovie';
 import './App.css';
 
 
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
-      <AddMovie onClick={() => console.log('teste')} />
+      <AddMovie />
     </div>
   );
 }
