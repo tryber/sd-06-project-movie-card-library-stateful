@@ -24,7 +24,7 @@ class App extends Component {
 
   onSearchTextChange({ target }) {
     const movieName = target.value.toLowerCase();
-    const nameFiltered = movies.find(item => (
+    const nameFiltered = movies.find((item) => (
       item.title.toLowerCase().split(' ').includes(movieName)
     ));
 
@@ -41,19 +41,19 @@ class App extends Component {
     if (target.checked === true) {
       this.setState({
         bookmarkedOnly: true,
-        filterMovieByName: [movies[0]]
+        filterMovieByName: [movies[0]],
       });
     } else {
       this.setState({
         bookmarkedOnly: false,
-        filterMovieByName: movies
+        filterMovieByName: movies,
       });
     }
   }
 
   onSelectedGenreChange({ target }) {
     const genreOption = target.value;
-    const genreFiltered = movies.find(item => item.genre === genreOption);
+    const genreFiltered = movies.find((item) => item.genre === genreOption);
 
     if (genreFiltered === undefined) {
       this.setState({ filterMovieByName: movies });
@@ -69,7 +69,9 @@ class App extends Component {
         <SearchBar
           onSearchTextChange={this.onSearchTextChange} searchText={this.state.searchText}
           onBookmarkedChange={this.onBookmarkedChange} bookmarkedOnly={this.state.bookmarkedOnly}
-          onSelectedGenreChange={this.onSelectedGenreChange} selectedGenre={this.state.selectedGenre} />
+          onSelectedGenreChange={this.onSelectedGenreChange}
+          selectedGenre={this.state.selectedGenre}
+        />
         <MovieList movies={this.state.filterMovieByName} />
       </div>
     );
