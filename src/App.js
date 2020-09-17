@@ -1,6 +1,6 @@
 import React from 'react';
-import MovieList from './components/MovieList';
-// import MovieLibrary from './components/MovieLibrary';
+// import MovieList from './components/MovieList';
+import MovieLibrary from './components/MovieLibrary';
 import movies from './data';
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <MovieList movies={movies} />
+      <MovieLibrary movies={movies} />
     </div>
   );
 }
