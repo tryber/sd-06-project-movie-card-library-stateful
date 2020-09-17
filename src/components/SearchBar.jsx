@@ -16,31 +16,36 @@ class SearchBar extends React.Component {
     return (
       <form data-testid="search-bar-form">
 
-        <label htmlFor="text-input" data-testid="text-input-label">Inclui o texto:</label>
-        <input type="text"
-          value={this
-          .props
-          .searchText} onChange={this
-          .props
-          .onSearchTextChange} data-testid="text-input"
+        <label
+          htmlFor="text-input" data-testid="text-input-label">Inclui o texto:
+        </label>
+        <input
+          type="text"
+          value={this.props.searchText} 
+          onChange={this.props.onSearchTextChange} 
+          data-testid="text-input"
         />
 
-        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
-        <input type="checkbox"
-        data-testid="checkbox-input"
-          checked={this
-            .props
-            .bookmarkedOnly} onChange={this
-            .props
-            .onBookmarkedChange}
+        <label
+          htmlFor="checkbox-input"
+          data-testid="checkbox-input-label">Mostrar somente favoritos
+        </label>
+
+        <input 
+          type="checkbox"
+          data-testid="checkbox-input"
+          checked={this.props.bookmarkedOnly}
+          onChange={this.props.onBookmarkedChange}
         />
 
-        <label htmlFor="select-option" data-testid="select-input-label">Filtrar por gênero</label>
-        <select value={this
-          .props
-          .selectedGenre} onChange={this
-          .props
-          .onSelectedGenreChange} data-testid="select-input"
+        <label
+          htmlFor="select-option"
+          data-testid="select-input-label">Filtrar por gênero
+        </label>
+        <select
+          value={this.props.selectedGenre}
+          onChange={this.props.onSelectedGenreChange}
+          data-testid="select-input"
         >
           <option value="" data-testid="select-option">Todos</option>
           <option value="action" data-testid="select-option">Ação</option>
