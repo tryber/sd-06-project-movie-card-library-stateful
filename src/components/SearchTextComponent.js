@@ -14,7 +14,7 @@ class SearchTextComponent extends React.Component {
             value={searchText}
             onChange={onSearchTextChange}
           />
-         </label>
+        </label>
         <label htmlFor="my-form" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
