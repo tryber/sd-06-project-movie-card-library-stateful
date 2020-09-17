@@ -33,7 +33,7 @@ const beforeEachUnitTest = () => {
 describe('Verifica o componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
-  it.skip('Será validado se o componente `SearchBar` renderiza com sucesso', () => {
+  it('Será validado se o componente `SearchBar` renderiza com sucesso', () => {
     searchBar();
   });
 });
@@ -42,7 +42,7 @@ describe('Verifica o Form dentro do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Renderiza 1, e apenas 1, form dentro de `SearchBar` com sucesso', () => {
+  it('Renderiza 1, e apenas 1, form dentro de `SearchBar` com sucesso', () => {
     const { getAllByTestId } = searchBar();
     const form = getAllByTestId('search-bar-form');
     expect(form).toHaveLength(1);
@@ -53,13 +53,13 @@ describe('Verifica o input de texto do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
-  it.skip('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
+  it('Será validado que 1, e apenas 1, input de texto é renderizado dentro do forms', () => {
     const { getAllByTestId } = searchBar();
     const textInput = getAllByTestId('text-input');
     expect(textInput).toHaveLength(1);
   });
 
-  it.skip('Será validado que o input de texto contém a label "Inclui o texto"', () => {
+  it('Será validado que o input de texto contém a label "Inclui o texto"', () => {
     const { getAllByTestId } = searchBar();
     const textInputLabel = getAllByTestId('text-input-label');
     expect(textInputLabel).toHaveLength(1);
