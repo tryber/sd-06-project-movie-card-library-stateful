@@ -6,7 +6,7 @@ class SearchTextComponent extends React.Component {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
-       <label htmlFor="my-form" data-testid="text-input-label">
+        <label htmlFor="my-form" data-testid="text-input-label">
           Inclui o texto:
           <input
             type="text"
@@ -14,7 +14,7 @@ class SearchTextComponent extends React.Component {
             value={searchText}
             onChange={onSearchTextChange}
           />
-        </label>
+         </label>
         <label htmlFor="my-form" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
