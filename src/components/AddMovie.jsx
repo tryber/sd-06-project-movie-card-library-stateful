@@ -55,6 +55,6 @@ AddMovie.defaultProps = {
   callback: '',
 };
 
-AddMovie.propTypes = { onClick: PropTypes.string.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.string };
 
 export default AddMovie;
