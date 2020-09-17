@@ -30,7 +30,7 @@ const beforeEachUnitTest = () => {
   };
 };
 
-describe.skip('Verifica o componente <SearchBar />', () => {
+describe('Verifica o componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
   it('Será validado se o componente `SearchBar` renderiza com sucesso', () => {
@@ -38,7 +38,7 @@ describe.skip('Verifica o componente <SearchBar />', () => {
   });
 });
 
-describe.skip('Verifica o Form dentro do componente <SearchBar />', () => {
+describe('Verifica o Form dentro do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
