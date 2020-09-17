@@ -8,7 +8,14 @@ class SearchBar extends Component {
     return(
       <div>
         <form data-testid="search-bar-form">
-
+          <label data-testid="text-input-label">
+            Inclui o texto:
+            <input type="text " data-testid="text-input" value={searchText} onChange={onSearchTextChange} />
+          </label>
+          <label data-testid="checkbox-input-label">
+            Mostrar somente Favoritos:
+            <input type="checkbox" data-testid="checkbox-input" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          </label>
         </form>
       </div>
     );
@@ -17,7 +24,7 @@ class SearchBar extends Component {
 
 SearchBar.propTypes = {
   searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
+  onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
