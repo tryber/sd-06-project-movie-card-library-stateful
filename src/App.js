@@ -4,16 +4,25 @@ import './App.css';
 import Header from './components/Header';
 
 function App() {
+  const {
+    searchText,
+    onSearchTextChange,
+    bookmarkedOnly,
+    onBookmarkedChange,
+    selectedGenre,
+    onSelectedGenreChange,
+  } = this.props;
+  
   return (
     <div className="App">
       <Header />
       <SearchBar
-        searchText={this.props.searchText}
-        onSearchTextChange={this.props.onSearchTextChange}
-        bookmarkedOnly={this.props.bookmarkedOnly}
-        onBookmarkedChange={this.props.onBookmarkedChange}
-        selectedGenre={this.props.selectedGenre}
-        onSelectedGenreChange={this.props.onSelectedGenreChange}
+        searchText={searchText}
+        onSearchTextChange={onSearchTextChange}
+        bookmarkedOnly={bookmarkedOnly}
+        onBookmarkedChange={onBookmarkedChange}
+        selectedGenre={selectedGenre}
+        onSelectedGenreChange={onSelectedGenreChange}
       />
     </div>
   );
