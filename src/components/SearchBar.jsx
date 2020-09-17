@@ -38,7 +38,8 @@ class SearchBar extends React.Component {
           {this.SelectRender()}
         </label>
       </form>
-    )}; 
+    );
+  }
 }
 
 SearchBar.propTypes = {
