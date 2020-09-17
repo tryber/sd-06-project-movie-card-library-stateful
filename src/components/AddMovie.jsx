@@ -19,7 +19,7 @@ class AddMovie extends React.Component {
     this.setState({[target.id]: target.value});
   }
 
-  callbackHandler = () => {
+  callbackHandler() {
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
