@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    //const { movies } = this.props;
+    // const { movies } = this.props;
     return (
       <div>
         <SearchBar />
@@ -23,6 +23,8 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.defaultProps = { movies: '' };
 
 MovieLibrary.propTypes = { movies: PropTypes.string };
 
