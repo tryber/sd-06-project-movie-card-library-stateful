@@ -18,14 +18,15 @@ class AddMovie extends React.Component {
     };
 
     this.hdInput = this.hdInput.bind(this);
-    this.cbkHandler = this.cbkHandler.bind(this);
+    this.btnHandler = this.btnHandler.bind(this);
   }
 
   hdInput({ target }) {
-    this.setState({ [target.id]: target.value });
+    const id = (target.id === 'image') ? 'imagePath' : target.id;
+    this.setState({ [id]: target.value });
   }
 
-  cbkHandler() {
+  btnHandler() {
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
@@ -39,20 +40,20 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const genreOptions = [['action', 'Ação'],['comedy', 'Comédia'],['thriller', 'Suspense']];
+    const genreOptions = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
     const handler = this.hdInput;
     return (
       <form data-testid="add-movie-form">
         <AddInput id="title" label="Título" callback={handler} value={title} />
         <AddInput id="subtitle" label="Subtítulo" callback={handler} value={subtitle} />
-        <AddInput id="imagePath" label="Imagem" callback={handler} value={imagePath} />
+        <AddInput id="image" label="Imagem" callback={handler} value={imagePath} />
         <AddTxt id="storyline" label="Sinopse" callback={handler} value={storyline} />
         <AddInpNum id="rating" label="Avaliação" callback={handler} value={rating} />
         <AddSelect
           id="genre" value={genre} callback={handler} label="Gênero" optionId="genre-option"
           options={genreOptions}
         />
-        <button type="button" data-testid="send-button" onClick={this.cbkHandler}>
+        <button type="button" data-testid="send-button" onClick={this.btnHandler}>
           Adicionar filme</button>
       </form>
     );

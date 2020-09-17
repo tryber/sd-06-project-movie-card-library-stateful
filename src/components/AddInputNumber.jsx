@@ -14,7 +14,10 @@ class AddInpNum extends React.Component {
 
 AddInpNum.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   label: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
 };
