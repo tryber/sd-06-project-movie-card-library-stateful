@@ -4,35 +4,27 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
   render() {
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange
+      searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange,
     } = this.props;
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" for="includes">
+        <label data-testid="text-input-label" htmlFor="includes">
           Inclui o texto:
           <input type="text"
-            id="includes"
-            value={searchText}
-            onChange={onSearchTextChange}
-            data-testid="text-input"
+            id="includes" value={searchText}
+            onChange={onSearchTextChange} data-testid="text-input"
           />
         </label>
-        <label data-testid="checkbox-input-label" for="show-favorite">
+        <label data-testid="checkbox-input-label" htmlFor="show-favorite">
           Mostrar somente favoritos
-          <input type="checkbox"
-            onChange={onBookmarkedChange}
-            checked={bookmarkedOnly}
-            data-testid="checkbox-input"
-            id="show-favorite"
+          <input
+            type="checkbox" onChange={onBookmarkedChange} checked={bookmarkedOnly}
+            data-testid="checkbox-input" id="show-favorite"
           />
         </label>
-        <label data-testid="select-input-label" for="select-genre">
+        <label data-testid="select-input-label" htmlFor="select-genre">
           Filtrar por gênero
           <select value={selectedGenre} onChange={onSelectedGenreChange} data-testid="select-input">
             <option value="" data-testid="select-option" id="select-genre">Todos</option>
@@ -42,7 +34,7 @@ class SearchBar extends React.Component {
           </select>
         </label>
       </form>
-    )
+    );
   }
 }
 
