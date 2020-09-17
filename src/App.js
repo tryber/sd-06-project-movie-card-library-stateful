@@ -12,7 +12,7 @@ function App() {
     selectedGenre,
     onSelectedGenreChange,
   } = this.props;
-  
+
   return (
     <div className="App">
       <Header />
