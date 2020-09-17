@@ -74,9 +74,9 @@ class AddMovie extends React.Component {
   renderSubtitle() {
     return (
       <input
-            id="subtitle" name="subtitle" value={this.state.subtitle}
-            data-testid="subtitle-input" onChange={this.refreshSubtitle}
-          />
+        id="subtitle" name="subtitle" value={this.state.subtitle}
+        data-testid="subtitle-input" onChange={this.refreshSubtitle}
+      />
     );
   }
 
@@ -97,6 +97,28 @@ class AddMovie extends React.Component {
         onChange={this.refreshStoryline} value={this.state.storyline}
       />
     );
+  }
+
+  renderRating() {
+    return (
+      <input
+        type="number" id="rating" name="rating"
+        value={this.state.rating} data-testid="rating-input" onChange={this.refreshRating}
+      />
+    );
+  }
+
+  renderGenre() {
+    return (
+      <select
+        id="genre" value={this.state.genre} data-testid="genre-input"
+        name="genre" onChange={this.refreshGenre}
+      >
+        <option value="action" data-testid="genre-option">Ação</option>
+        <option value="comedy" data-testid="genre-option">Comédia</option>
+        <option value="thriller" data-testid="genre-option">Suspense</option>
+      </select>
+    )
   }
 
   render() {
@@ -120,21 +142,11 @@ class AddMovie extends React.Component {
         </label><br /><br />
         <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
-          <input
-            type="number" id="rating" name="rating"
-            value={this.state.rating} data-testid="rating-input" onChange={this.refreshRating}
-          />
+          {this.renderRating()}
         </label><br /><br />
         <label data-testid="genre-input-label" htmlFor="genre">
           Gênero
-          <select
-            id="genre" value={this.state.genre} data-testid="genre-input"
-            name="genre" onChange={this.refreshGenre}
-          >
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
-          </select>
+          {this.renderGenre()}
         </label><br /><br />
         <button data-testid="send-button" onClick={this.button}>Adicionar filme</button>
       </form>
