@@ -25,24 +25,18 @@ class App extends React.Component {
   onSearchTextChange({ target }) {
     const { name, value } = target;
 
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   onBookmarkedChange({ target }) {
     const { name, checked } = target;
 
-    this.setState({
-      [name]: checked,
-    });
+    this.setState({ [name]: checked });
   }
 
   onSelectedGenreChange({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({ [name]: value });
   }
 
   render() {
