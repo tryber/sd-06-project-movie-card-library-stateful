@@ -120,7 +120,7 @@ class AddMovie extends Component {
   }
 
   renderGenero() {
-    const { genre } = this.props;
+    const { genre } = this.state;
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
       Gênero
@@ -143,12 +143,18 @@ class AddMovie extends Component {
         {this.renderStoryline()}
         {this.renderRate()}
         {this.renderGenero()}
-        <button type="button" data-testid="send-button" onClick={() => onClick(this.reset())}>Adicionar filme</button>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={() => onClick(this.reset())}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
