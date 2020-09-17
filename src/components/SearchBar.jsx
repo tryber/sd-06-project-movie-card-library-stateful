@@ -9,15 +9,13 @@ class SearchBar extends Component {
       <form data-testid="search-bar-form" >
         <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:</label>
         <input
-          data-testid="text-input" value={searchText} onChange={onSearchTextChange}
-        />
+          data-testid="text-input" value={searchText} onChange={onSearchTextChange} />
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
             Mostrar somente favoritos
         </label>
         <input
           data-testid="checkbox-input" type="checkbox"
-          checked={bookmarkedOnly} onChange={onBookmarkedChange}
-        />
+          checked={bookmarkedOnly} onChange={onBookmarkedChange} />
         <label data-testid="select-input-label" htmlFor="select-input" >
           Filtrar por gênero
         </label>
@@ -30,7 +28,8 @@ class SearchBar extends Component {
       </form >
     );
   }
-  getDefaultProps = () => {
+
+  getDefaultProps() {
     return {
       searchText: '',
       onSearchTextChange: '', 
