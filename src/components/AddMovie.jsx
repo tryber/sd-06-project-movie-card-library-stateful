@@ -44,42 +44,29 @@ class AddMovie extends Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-
-          <label data-testid="title-input-label">
-            Título
+          <label data-testid="title-input-label"> Título
             <input data-testid="title-input" type="text" name="title" value={this.state.title} onChange={this.handleChange}/>
           </label>
-
-          <label data-testid="subtitle-input-label">
-            Subtítulo
+          <label data-testid="subtitle-input-label"> Subtítulo
             <input data-testid="subtitle-input" type="text" name="subtitle" value={this.state.subtitle} onChange={this.handleChange}/>
           </label>
-
-          <label data-testid="image-input-label">
-            Imagem
+          <label data-testid="image-input-label"> Imagem
             <input type="text" data-testid="image-input" name="imagePath" value={this.state.imagePath} onChange={this.handleChange}/>
           </label>
-
-          <label data-testid="storyline-input-label">
-            Sinopse
+          <label data-testid="storyline-input-label"> Sinopse
             <textarea data-testid="storyline-input" name="storyline" value={this.state.storyline} onChange={this.handleChange}></textarea>
           </label>
-
-          <label data-testid="rating-input-label">
-            Avaliação
+          <label data-testid="rating-input-label"> Avaliação
             <input data-testid="rating-input" type="number" name="rating" value={this.state.rating} onChange={this.handleChange}/>
           </label>
-
-          <label data-testid="genre-input-label">
-            Gênero
+          <label data-testid="genre-input-label"> Gênero
             <select data-testid="genre-input" type="select" value={this.state.genre} name="genre" onChange={this.handleChange}>
               <option data-testid="genre-option" value="action">Ação</option>
               <option data-testid="genre-option" value="comedy">Comédia</option>
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
-
-            <button data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
           </label>
+          <button data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
         </form>
       </div>
     )
