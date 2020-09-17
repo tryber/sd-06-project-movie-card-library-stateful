@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AddInput from './AddInput';
 import AddSelect from './AddSelect';
+import AddTxt from './AddTextarea';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -15,11 +16,11 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    this.handleTextInput = this.handleTextInput.bind(this);
+    this.hdInput = this.hdInput.bind(this);
     this.cbkHandler = this.cbkHandler.bind(this);
   }
 
-  handleTextInput({ target }) {
+  hdInput({ target }) {
     this.setState({ [target.id]: target.value });
   }
 
@@ -36,36 +37,25 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-          <AddInput
-            id="title" label="Título" inputType="text" testid="title-input"
-            callback={this.handleTextInput} value={this.state.title}
-          />
-          <AddInput
-            id="subtitle" label="Subtítulo" inputType="text" testid="subtitle-input"
-            callback={this.handleTextInput} value={this.state.subtitle}
-          />
-          <AddInput
-            id="imagePath" label="Imagem" inputType="text" testid="image-input"
-            callback={this.handleTextInput} value={this.state.imagePath}
-          />
-          <label data-testid="storyline-input-label" htmlFor="storyline">Sinopse
-            <textarea
-              id="storyline" value={this.state.storyline} data-testid="storyline-input"
-              onChange={this.handleTextInput}
-            />
-          </label>
-          <AddInput
-            id="rating" label="Avaliação" inputType="number" testid="rating-input"
-            callback={this.handleTextInput} value={this.state.rating}
-          />
-          <AddSelect
-            id="genre" value={this.state.genre} callback={this.handleTextInput}
-            label="Gênero" testid="genre-input" optionId="genre-option"
-            options={[ ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense'], ]}
-          />
-        <button type="button" data-testid="send-button" onClick={this.cbkHandler}>Adicionar filme</button>
+        <AddInput id="title" label="Título" inputType="text"
+          callback={this.hdInput} value={title} />
+        <AddInput id="subtitle" label="Subtítulo" inputType="text"
+          callback={this.hdInput} value={subtitle} />
+        <AddInput id="imagePath" label="Imagem" inputType="text"
+          callback={this.hdInput} value={imagePath} />
+        <AddTxt id="storyline" label="Sinopse" callback={this.hdInput} value={storyline} />
+        <AddInput
+          id="rating" label="Avaliação" inputType="number"
+          callback={this.hdInput} value={rating} />
+        <AddSelect
+          id="genre" value={genre} callback={this.hdInput} label="Gênero" optionId="genre-option"
+          options={[ ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense'], ]}
+        />
+        <button type="button" data-testid="send-button" onClick={this.cbkHandler}>
+          Adicionar filme</button>
       </form>
     )
   }

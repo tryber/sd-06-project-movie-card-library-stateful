@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class AddSelect extends React.Component {
   render() {
-    const { label, value, id, testid, callback, optionId, options } = this.props;
+    const { label, value, id, callback, optionId, options } = this.props;
     return (
-      <label data-testid={`${testid}-label`} htmlFor={id}>
+      <label data-testid={`${id}-input-label`} htmlFor={id}>
         {label}
-        <select id={id} value={value} onChange={callback} data-testid={testid}>
+        <select id={id} value={value} onChange={callback} data-testid={`${id}-input`}>
           {options.map((option) => (
             <option key={option[0]} data-testid={optionId} value={option[0]}>{option[1]}</option>
           ))}
