@@ -1,0 +1,43 @@
+.filter-form {
+  margin: 16px auto 0;
+  padding: 12px;
+  text-align: center;
+  width: 85%;
+}
+
+.filter-form .input-container {
+  margin: 8px 0;
+}
+
+.filter-form .input-container input {
+  border-radius: 5px;
+  border: 1px solid #343a40;
+  padding: 4px;
+  margin: 12px 0 12px 8px;
+}
+
+.filter-form .filters {
+  display: flex;
+  align-items: center;
+}
+
+.filter-form .filters .check-box-container {
+  display: flex;
+  align-items: center;
+  font-size: 90%;
+  flex-basis: 60%;
+}
+
+.filter-form .filters .check-box-container label {
+  margin-left: 8px;
+}
+
+.filter-form .filters .select-container {
+  display: flex;
+  align-items: center;
+  font-size: 90%;
+}
+
+.filter-form .filters .select-container label {
+  margin-left: 8px;
+}
