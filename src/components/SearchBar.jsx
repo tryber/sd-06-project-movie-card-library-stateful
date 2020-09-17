@@ -24,14 +24,14 @@ class SearchBar extends React.Component {
             type="text" id="includes" value={searchText}
             onChange={onSearchTextChange} data-testid="text-input"
           />
-        </label>
+        </label><br />
         <label data-testid="checkbox-input-label" htmlFor="show-favorite">
           Mostrar somente favoritos
           <input
             type="checkbox" onChange={onBookmarkedChange} checked={bookmarkedOnly}
             data-testid="checkbox-input" id="show-favorite"
           />
-        </label>
+        </label><br />
         <label data-testid="select-input-label" htmlFor="select-genre">
           Filtrar por gênero
           {this.renderSelect()}
