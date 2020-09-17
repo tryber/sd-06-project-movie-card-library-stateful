@@ -6,7 +6,7 @@ class AddMovie extends Component {
     super();
 
     this.onClick = this.onClick.bind(this);
-    
+
     this.state = {
       subtitle: '',
       title: '',
@@ -18,7 +18,7 @@ class AddMovie extends Component {
   }
 
   onClick() {
-    console.log('oi');
+    this.console.log('oi');
   }
 
   render() {
@@ -55,8 +55,6 @@ AddMovie.defaultProps = {
   callback: '',
 };
 
-AddMovie.propTypes = {
-  onClick: PropTypes.string.isRequired,
-};
+AddMovie.propTypes = { onClick: PropTypes.string.isRequired };
 
 export default AddMovie;
