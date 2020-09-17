@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AddMovieInput from './AddMovieInput';
+import AddInput from './AddInput';
+import AddSelect from './AddSelect';
 
 class SearchBar extends React.Component {
   render() {
     return (
       <form data-testid="search-bar-form">
-        <AddMovieInput
+        <AddInput
           labelTestid="text-input-label" id="text-input" label="Inclui o texto" inputType="text"
           testid="text-input" callback={this.props.onSearchTextChange}
           value={this.props.searchText}
@@ -17,7 +18,16 @@ class SearchBar extends React.Component {
           type="checkbox" checked={this.props.bookmarkedOnly} id="fav-checkbox"
           onChange={this.props.onBookmarkedChange} data-testid="checkbox-input"
         />
-        <label data-testid="select-input-label" htmlFor="movie-type">
+        <AddSelect
+          id="movie-type" value={this.props.selectedGenre} callback={this.props.onSelectedGenreChange}
+          labelTestid="select-input-label" label="Filtrar por gênero"
+          testid="select-input" optionId="select-option"
+          options={[
+            [ "", "Todos" ], [ "action", "Ação" ], [ "comedy", "Comédia" ],
+            [ ["thriller"], [ "Suspense" ] ]
+          ]}
+        />
+        {/* <label data-testid="select-input-label" htmlFor="movie-type">
           Filtrar por gênero</label>
         <select
           id="movie-type" value={this.props.selectedGenre}
@@ -27,7 +37,7 @@ class SearchBar extends React.Component {
           <option data-testid="select-option" value="action">Ação</option>
           <option data-testid="select-option" value="comedy">Comédia</option>
           <option data-testid="select-option" value="thriller">Suspense</option>
-        </select>
+        </select> */}
       </form>
     );
   }
