@@ -5,12 +5,6 @@ import './App.css';
 import Header from './components/Header';
 
 function App() {
-  constructor() {
-    super();
-
-    
-  }
-
   const {
     searchText, onSearchTextChange, bookmarkedOnly,
     onBookmarkedChange, selectedGenre, onSelectedGenreChange,
@@ -27,7 +21,7 @@ function App() {
         selectedGenre={selectedGenre}
         onSelectedGenreChange={onSelectedGenreChange}
       />
-      <AddMovie onClick={onClick} />
+      <AddMovie onClick={this.props.onClick} />
     </div>
   );
 }
