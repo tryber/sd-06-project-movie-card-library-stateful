@@ -3,17 +3,17 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie.';
 
-class MovieCard extends React.Component {
+class MovieLibrary extends React.Component {
   constructor() {
     super();
 
     this.state = {
-        searchText: '',
-        bookmarkedOnly: false,
-        selectedGenre: '',
-        movies: { movies }
+    searchText: '',
+    bookmarkedOnly: false,
+    selectedGenre: '',
+    movies: { movies },
     };
-}
+  }
   render() {
     return (
     <div>
@@ -21,8 +21,8 @@ class MovieCard extends React.Component {
       <MovieList />
       <AddMovie />
     </div>
-        );
-    }
+    );
+  }
 }
 
 export default MovieLibrary;
