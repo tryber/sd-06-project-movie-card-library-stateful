@@ -5,7 +5,7 @@ import SearchBar from './SearchBar';
 class MovieLibrary extends React.Component {
   render() {
     return (
-      <div>Essa div é do MovieLibrary
+      <div>
         <SearchBar />
         <MovieList movies={this.props.movies} />
       </div>
