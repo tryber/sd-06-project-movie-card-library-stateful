@@ -12,7 +12,8 @@ class SearchBar extends Component {
       <div>
         <label
           data-testid="text-input-label"
-          htmlFor="text">
+          htmlFor="text"
+          >
           Inclui o texto:
           <input
             data-testid="text-input"
@@ -36,7 +37,8 @@ class SearchBar extends Component {
       <div>
         <label
           data-testid="checkbox-input-label"
-          htmlFor="checkbox">
+          htmlFor="checkbox"
+          >
           Mostrar somente favoritos:
           <input
             data-testid="checkbox-input"
@@ -60,13 +62,15 @@ class SearchBar extends Component {
       <div>
         <label
           data-testid="select-input-label"
-          htmlFor="select">
+          htmlFor="select"
+          >
           Filtrar por gênero:
           <select
             data-testid="select-input"
             id="select"
-            value={selectedGenre} 
-            onChange={onSelectedGenreChange}>
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
+            >
             <option data-testid="select-option" value=""> Todos </option>
             <option data-testid="select-option" value="action"> Ação </option>
             <option data-testid="select-option" value="comedy"> Comédia </option>
