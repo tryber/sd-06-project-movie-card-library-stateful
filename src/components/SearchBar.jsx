@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   renderSelect() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
 
-    return(
+    return (
       <label data-testid="select-input-label">
         Filtrar por gênero
         <select data-testid="select-input" onChange={onSelectedGenreChange} value={selectedGenre}>
@@ -14,7 +15,7 @@ class SearchBar extends Component {
           <option data-testid="select-option" value="thriller">Suspense</option>
         </select>
       </label>
-    )
+    );
   }
 
   render() {
@@ -42,8 +43,18 @@ class SearchBar extends Component {
         </label>
         {this.renderSelect()}
       </form>
-    )
+    );
   }
 }
 
 export default SearchBar;
+
+SearchBar.PropTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
+
