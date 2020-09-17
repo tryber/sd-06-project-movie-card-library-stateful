@@ -63,11 +63,11 @@ class AddMovie extends React.Component {
 
   renderTitle() {
     return (
-          <input
-            type="text"
-            name="title" value={this.state.title} data-testid="title-input"
-            onChange={this.refreshTitle} id="title"
-          />
+      <input
+        type="text"
+        name="title" value={this.state.title} data-testid="title-input"
+        onChange={this.refreshTitle} id="title"
+      />
     );
   }
 
@@ -81,10 +81,22 @@ class AddMovie extends React.Component {
   }
 
   renderImage() {
-    <input
-      type="text" name="imagePath" id="image-path" value={this.state.imagePath}
-      data-testid="image-input" onChange={this.refreshImage}
-    />
+    return (
+      <input
+        type="text" name="imagePath" id="image-path" value={this.state.imagePath}
+        data-testid="image-input" onChange={this.refreshImage}
+      />
+    );
+  }
+
+  renderStoryline() {
+    return (
+      <textarea
+        id="storyline" name="storyline"
+        data-testid="storyline-input"
+        onChange={this.refreshStoryline} value={this.state.storyline}
+      />
+    );
   }
 
   render() {
@@ -92,23 +104,19 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title" >
           Título
-          {this.renderTitle}
+          {this.renderTitle()}
         </label><br /><br />
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
           Subtítulo
-          {this.renderSubtitle}
+          {this.renderSubtitle()}
         </label><br /><br />
         <label data-testid="image-input-label" htmlFor="image-path">
           Imagem
-          {this.renderImage}
+          {this.renderImage()}
         </label><br /><br />
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
-          <textarea
-            id="storyline" name="storyline"
-            data-testid="storyline-input"
-            onChange={this.refreshStoryline} value={this.state.storyline}
-          />
+          {this.renderStoryline()}
         </label><br /><br />
         <label data-testid="rating-input-label" htmlFor="rating">
         Avaliação
