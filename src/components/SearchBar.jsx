@@ -4,36 +4,23 @@ import PropTypes from 'prop-types';
 class SearchBar extends Component {
   render() {
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,onSelectedGenreChange,
     } = this.props;
 
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label">Inclui o texto:</label>
+          <label htmlFor="text-input" data-testid="text-input-label">Inclui o texto:</label>
           <input
-            type="text"
-            data-testid="text-input"
-            value={searchText}
-            onChange={onSearchTextChange}
+            type="text" data-testid="text-input" alue={searchText} onChange={onSearchTextChange}
           />
-          <label data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
           <input
-            type="checkbox"
-            data-testid="checkbox-input"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
+            type="checkbox" data-testid="checkbox-input" hecked={bookmarkedOnly} onChange={onBookmarkedChange}
           />
-          <label data-testid="select-input-label">Filtrar por gênero</label>
+          <label htmlFor="select-input" data-testid="select-input-label">Filtrar por gênero</label>
           <select
-            data-testid="select-input"
-            value={selectedGenre}
-            onChange={onSelectedGenreChange}
+            data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}
           >
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
