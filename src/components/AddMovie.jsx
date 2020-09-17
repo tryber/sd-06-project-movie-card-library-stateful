@@ -5,7 +5,7 @@ import AddMovieInput from './AddMovieInput';
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.state ={
+    this.state = {
       subtitle: '',
       title: '',
       imagePath: '',
@@ -17,7 +17,7 @@ class AddMovie extends React.Component {
 
   handleTextInput = ({ target }) => {
     this.setState({[target.id]: target.value });
-  }
+  };
 
   callbackHandler = () => {
     this.props.onClick(this.state);
