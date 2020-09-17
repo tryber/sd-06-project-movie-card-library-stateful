@@ -8,9 +8,9 @@ class AddSelect extends React.Component {
       <label data-testid={`${testid}-label`} htmlFor={id}>
         {label}
         <select id={id} value={value} onChange={callback} data-testid={testid}>
-          {options.map((option) => {
-            return <option key={option[0]} data-testid={optionId} value={option[0]}>{option[1]}</option>
-          })}
+          {options.map((option) => (
+            <option key={option[0]} data-testid={optionId} value={option[0]}>{option[1]}</option>
+          ))}
         </select>
       </label>
     )
