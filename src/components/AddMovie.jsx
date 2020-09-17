@@ -54,7 +54,7 @@ class AddMovie extends React.Component {
         onChange={this.atualiza}/>
 
         <label data-testid="rating-input-label">Avaliação</label>
-        <inpu data-testid="rating-input" type="number" value={this.state.rating}
+        <input data-testid="rating-input" type="number" value={this.state.rating}
         onChange={this.atualiza}/>
 
         <label data-testid="genre-input-label">Gênero</label>
