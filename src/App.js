@@ -8,12 +8,12 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar
-        searchText={props.searchText}
-        onSearchTextChange={props.onSearchTextChange}
-        bookmarkedOnly={props.bookmarkedOnly}
-        onBookmarkedChange={props.onBookmarkedChange}
-        selectedGenre={props.selectedGenre}
-        onSelectedGenreChange={props.onSelectedGenreChange}
+        searchText={this.props.searchText}
+        onSearchTextChange={this.props.onSearchTextChange}
+        bookmarkedOnly={this.props.bookmarkedOnly}
+        onBookmarkedChange={this.props.onBookmarkedChange}
+        selectedGenre={this.props.selectedGenre}
+        onSelectedGenreChange={this.props.onSelectedGenreChange}
       />
     </div>
   );
