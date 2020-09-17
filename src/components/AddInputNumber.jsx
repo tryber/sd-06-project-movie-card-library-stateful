@@ -17,7 +17,7 @@ AddInpNum.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]),
+  ]).isRequired,
   label: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
 };
