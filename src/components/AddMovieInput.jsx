@@ -5,10 +5,9 @@ class AddMovieInput extends React.Component {
   render() {
     const { labelTestid, label, value, id, inputType, testid, callback } = this.props;
     return (
-          <label data-testid={labelTestid}>
-            {label}
-            <input type={inputType} id={id} value={value} data-testid={testid} onChange={callback} />
-          </label>
+      <label data-testid={labelTestid} htmlFor={id}>{label}
+        <input type={inputType} id={id} value={value} data-testid={testid} onChange={callback} />
+      </label>
     )
   }
 }

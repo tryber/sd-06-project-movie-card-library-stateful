@@ -40,19 +40,18 @@ class AddMovie extends React.Component {
           <AddMovieInput labelTestid="image-input-label" id="imagePath" label="Imagem" inputType="text" testid="image-input" callback={this.handleTextInput} value={this.state.imagePath} />
         </fieldset>
         <fieldset>
-          <label data-testid="storyline-input-label">Sinopse
+          <label data-testid="storyline-input-label" htmlFor="storyline">Sinopse
             <textarea id="storyline" value={this.state.storyline} data-testid="storyline-input" onChange={this.handleTextInput} />
           </label>
         </fieldset>
         <fieldset>
           <AddMovieInput labelTestid="rating-input-label" id="rating" label="Avaliação" inputType="number" testid="rating-input" callback={this.handleTextInput} value={this.state.rating} />
-          <label data-testid="genre-input-label">Gênero
+          <label data-testid="genre-input-label" htmlFor="genre">Gênero</label>
             <select id="genre" value={this.state.genre} onChange={this.handleTextInput} data-testid="genre-input">
               <option data-testid="genre-option" value="action">Ação</option>
               <option data-testid="genre-option" value="comedy">Comédia</option>
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
-          </label>
         </fieldset>
         <button type="button" data-testid="send-button" onClick={this.callbackHandler}>Adicionar filme</button>
       </form>
