@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import SearchBar from './SearchBar';
 import PropTypes from 'prop-types';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -25,7 +25,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.string.isRequired
-}
+  movies: PropTypes.string,
+};
 
 export default MovieLibrary;
