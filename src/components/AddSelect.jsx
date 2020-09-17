@@ -26,7 +26,6 @@ AddSelect.propTypes = {
     PropTypes.number,
   ]).isRequired,
   label: PropTypes.string.isRequired,
-  testid: PropTypes.string.isRequired,
   callback: PropTypes.func.isRequired,
 };
 
