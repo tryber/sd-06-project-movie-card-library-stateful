@@ -82,3 +82,42 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.cubo {
+  animation: loop 10s linear infinite;
+  float: left;
+  margin-left: 150px;
+  margin-top: -60px;
+  transform-style: preserve-3d;
+  width: 60px;
+}
+
+.cubo img {
+  opacity: 0.5;
+  position: absolute;
+}
+
+.cubo img:nth-child( 1 ) {
+  transform: rotateY(0deg) translateZ(50px);
+}
+
+.cubo img:nth-child( 2 ) {
+  transform: rotateY(90deg) translateZ(50px);
+}
+
+.cubo img:nth-child( 3 ) {
+  transform: rotateY(180deg) translateZ(50px);
+}
+
+.cubo img:nth-child( 4 ) {
+  transform: rotateY(-90deg) translateZ(50px);
+}
+
+@keyframes loop {
+
+  from {
+    transform: rotateY(0deg); }
+
+  to {
+    transform: rotateY(360deg); }
+}
