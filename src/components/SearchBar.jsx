@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   renderSelect() {
-    const { selectedGenre, onSelectedGenreChange } = this.props
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <select
         id="filtrarGenero"value={selectedGenre} onChange={onSelectedGenreChange}
