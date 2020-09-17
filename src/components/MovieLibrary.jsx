@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-
-
 
 class MovieLibrary extends Component {
   // constructor() {
@@ -36,11 +34,13 @@ class MovieLibrary extends Component {
           selectedGenre={'Genre'}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />, */}
-        <MovieList movies={movies}/>
+        <MovieList movies={movies} />
         <AddMovie movies={movies} />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.shape.isRequired };
 
 export default MovieLibrary;
