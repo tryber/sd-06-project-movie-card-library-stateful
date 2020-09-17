@@ -2,34 +2,41 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+  renderSelect() {
+    const { selectedGenre, onSelectedGenreChange, } = this.props;
+    return(
+      <select value={selectedGenre} onChange={onSelectedGenreChange} data-testid="select-input">
+        <option value="" data-testid="select-option" id="select-genre">Todos</option>
+        <option value="action" data-testid="select-option">Ação</option>
+        <option value="comedy" data-testid="select-option">Comédia</option>
+        <option value="thriller" data-testid="select-option">Suspense</option>
+      </select>
+    );
+  }
+
   render() {
     const {
-      searchText, onSearchTextChange, bookmarkedOnly,
-      onBookmarkedChange, selectedGenre, onSelectedGenreChange,
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
     } = this.props;
-
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="includes">
           Inclui o texto:
           <input
-            type="text" id="includes" value={searchText} onChange={onSearchTextChange} data-testid="text-input"
+            type="text" id="includes" value={searchText}
+            onChange={onSearchTextChange} data-testid="text-input"
           />
         </label>
         <label data-testid="checkbox-input-label" htmlFor="show-favorite">
           Mostrar somente favoritos
           <input
-            type="checkbox" onChange={onBookmarkedChange} checked={bookmarkedOnly} data-testid="checkbox-input" id="show-favorite"
+            type="checkbox" onChange={onBookmarkedChange}
+            checked={bookmarkedOnly} data-testid="checkbox-input" id="show-favorite"
           />
         </label>
         <label data-testid="select-input-label" htmlFor="select-genre">
           Filtrar por gênero
-          <select value={selectedGenre} onChange={onSelectedGenreChange} data-testid="select-input">
-            <option value="" data-testid="select-option" id="select-genre">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
+          {this.renderSelect()}
         </label>
       </form>
     );
