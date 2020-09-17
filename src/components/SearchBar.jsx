@@ -19,8 +19,8 @@ class SearchBar extends Component {
         </div>
 
         <div className="checkbox-container">
-          <label
-            htmlFor="check" data-testid="checkbox-input-label">Mostrar somente favoritos
+          <label htmlFor="check" data-testid="checkbox-input-label">
+            Mostrar somente favoritos
           </label>
           <input
             name="check" id="check" data-testid="checkbox-input" type="checkbox"
