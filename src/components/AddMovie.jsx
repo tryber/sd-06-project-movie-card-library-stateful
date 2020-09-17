@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types'; 
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -72,7 +72,7 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
 
     return (
-      <form data-testid="add-movie-form" onChange={this.handleChange}>        
+      <form data-testid="add-movie-form" onChange={this.handleChange}>
         {this.renderInfos()}
         <label htmlFor="storyline-input" data-testid="storyline-input-label">
           Sinopse
