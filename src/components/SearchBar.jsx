@@ -41,7 +41,7 @@ class SearchBar extends Component {
           data-testid="checkbox-input"
         />
       </label>
-    )
+    );
   }
 
   render() {
