@@ -38,7 +38,7 @@ class SearchBar extends Component {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label
-      htmlFor="select-input" data-testid="select-input-label"
+        htmlFor="select-input" data-testid="select-input-label"
       >
         Filtrar por gênero
         <select
