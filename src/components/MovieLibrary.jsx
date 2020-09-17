@@ -8,6 +8,13 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleClick (event) {
+    event.preventDefault();
+    console.log(this.state);
   }
 
   render() {
@@ -16,7 +23,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.handleClick} />
       </div>
     );
   }

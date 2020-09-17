@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import Rating from './Rating';
 
-class MovieCard extends React.Component {
+class MovieCard extends Component {
   render() {
     const { movie } = this.props;
     const { title, subtitle, storyline, rating, imagePath } = movie;
