@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
-    const { searchText = '', onSearchTextChange = '', bookmarkedOnly = false, onBookmarkedChange = '',
-      selectedGenre = '', onSelectedGenreChange = '' } = this.props;
+    const { searchText = 'Movie', onSearchTextChange = 'callback', bookmarkedOnly = false, onBookmarkedChange = 'calback', selectedGenre = 'Genre', onSelectedGenreChange = 'callback' } = this.props;
 
     return (
       <form data-testid="search-bar-form" >
