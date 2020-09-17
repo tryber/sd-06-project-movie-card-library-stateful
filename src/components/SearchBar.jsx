@@ -28,17 +28,6 @@ class SearchBar extends Component {
       </form >
     );
   }
-
-  getDefaultProps() {
-    return {
-      searchText: '',
-      onSearchTextChange: '', 
-      bookmarkedOnly: false,
-      onBookmarkedChange: '',
-      selectedGenre: '',
-      onSelectedGenreChange: '', 
-    }
-  }
 }
 
 SearchBar.propTypes = {
@@ -48,6 +37,15 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
+};
+
+SearchBar.defaultProps = {
+  searchText: 'movie',
+  onSearchTextChange: 'callback',
+  bookmarkedOnly: false,
+  onBookmarkedChange: 'callback',
+  selectedGenre: 'genre',
+  onSelectedGenreChange: 'callback',
 };
 
 export default SearchBar;
