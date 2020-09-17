@@ -19,7 +19,7 @@ class AddMovie extends React.Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
-  
+
   renderFirstPart() {
     return (
       <div>
@@ -27,21 +27,21 @@ class AddMovie extends React.Component {
           Título
           <input
             value={this.state.title} data-testid="title-input" name="title"
-            onChange={this.handleChange} type="text" id="title" 
+            onChange={this.handleChange} type="text" id="title"
           />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
           Subtítulo
           <input
             value={this.state.subtitle} data-testid="subtitle-input" name="subtitle"
-            onChange={this.handleChange} type="text" id="subtitle" 
+            onChange={this.handleChange} type="text" id="subtitle"
           />
         </label>
         <label data-testid="image-input-label" htmlFor="img">
           Imagem
           <input
             value={this.state.imagePath} data-testid="image-input" name="imagePath"
-            onChange={this.handleChange} type="text" id="img" 
+            onChange={this.handleChange} type="text" id="img"
           />
         </label>
       </div>
@@ -70,14 +70,14 @@ class AddMovie extends React.Component {
           Sinopse
           <textarea
             value={this.state.storyline} data-testid="storyline-input" name="storyline"
-            onChange={this.handleChange} id="sinopse" 
+            onChange={this.handleChange} id="sinopse"
           />
         </label>
         <label data-testid="rating-input-label" htmlFor="aval">
           Avaliação
           <input
             value={this.state.rating} data-testid="rating-input" name="rating"
-            onChange={this.handleChange} type="number" id="aval" 
+            onChange={this.handleChange} type="number" id="aval"
           />
         </label>
         <label data-testid="genre-input-label" htmlFor="select">
