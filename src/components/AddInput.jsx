@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class AddInput extends React.Component {
   render() {
-    const { labelTestid, label, value, id, inputType, testid, callback } = this.props;
+    const { label, value, id, inputType, testid, callback } = this.props;
     return (
-      <label data-testid={labelTestid} htmlFor={id}>{label}
+      <label data-testid={testid + '-label'} htmlFor={id}>{label}
         <input type={inputType} id={id} value={value} data-testid={testid} onChange={callback} />
       </label>
     )

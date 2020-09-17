@@ -35,9 +35,9 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <fieldset>
-          <AddInput labelTestid="title-input-label" id="title" label="Título" inputType="text" testid="title-input" callback={this.handleTextInput} value={this.state.title} />
-          <AddMovieInput labelTestid="subtitle-input-label" id="subtitle" label="Subtítulo" inputType="text" testid="subtitle-input" callback={this.handleTextInput} value={this.state.subtitle} />
-          <AddInput labelTestid="image-input-label" id="imagePath" label="Imagem" inputType="text" testid="image-input" callback={this.handleTextInput} value={this.state.imagePath} />
+          <AddInput id="title" label="Título" inputType="text" testid="title-input" callback={this.handleTextInput} value={this.state.title} />
+          <AddMovieInput id="subtitle" label="Subtítulo" inputType="text" testid="subtitle-input" callback={this.handleTextInput} value={this.state.subtitle} />
+          <AddInput id="imagePath" label="Imagem" inputType="text" testid="image-input" callback={this.handleTextInput} value={this.state.imagePath} />
         </fieldset>
         <fieldset>
           <label data-testid="storyline-input-label" htmlFor="storyline">Sinopse
@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
           </label>
         </fieldset>
         <fieldset>
-          <AddInput labelTestid="rating-input-label" id="rating" label="Avaliação" inputType="number" testid="rating-input" callback={this.handleTextInput} value={this.state.rating} />
+          <AddInput id="rating" label="Avaliação" inputType="number" testid="rating-input" callback={this.handleTextInput} value={this.state.rating} />
           <label data-testid="genre-input-label" htmlFor="genre">Gênero</label>
             <select id="genre" value={this.state.genre} onChange={this.handleTextInput} data-testid="genre-input">
               <option data-testid="genre-option" value="action">Ação</option>
