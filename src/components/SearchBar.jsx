@@ -12,37 +12,42 @@ class SearchBar extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  render() {
+  renderText() {
     return (
-      <form data-testid="search-bar-form">
+      <label
+        htmlFor="text-input" data-testid="text-input-label">Inclui o texto:
+      </label>
+      <input
+        type="text"
+        value={this.props.searchText}
+        onChange={this.props.onSearchTextChange}
+        data-testid="text-input"
+      />
+    )
+  }
 
-        <label
-          htmlFor="text-input" data-testid="text-input-label">Inclui o texto:
-        </label>
-        <input
-          type="text"
-          value={this.props.searchText} 
-          onChange={this.props.onSearchTextChange} 
-          data-testid="text-input"
-        />
+  renderCheckBox() {
+    return(
+      <label
+        htmlFor="checkbox-input"
+        data-testid="checkbox-input-label">Mostrar somente favoritos
+      </label>
 
-        <label
-          htmlFor="checkbox-input"
-          data-testid="checkbox-input-label">Mostrar somente favoritos
-        </label>
-
-        <input 
-          type="checkbox"
-          data-testid="checkbox-input"
-          checked={this.props.bookmarkedOnly}
-          onChange={this.props.onBookmarkedChange}
-        />
-
-        <label
-          htmlFor="select-option"
-          data-testid="select-input-label">Filtrar por gênero
-        </label>
-        <select
+      <input
+        type="checkbox"
+        data-testid="checkbox-input"
+        checked={this.props.bookmarkedOnly}
+        onChange={this.props.onBookmarkedChange}
+      />
+    )
+  }
+        
+  renderSelect() {
+    return(
+      <label
+        htmlFor="select-option"
+        data-testid="select-input-label">Filtrar por gênero
+          <select
           value={this.props.selectedGenre}
           onChange={this.props.onSelectedGenreChange}
           data-testid="select-input"
@@ -52,8 +57,19 @@ class SearchBar extends React.Component {
           <option value="comedy" data-testid="select-option">Comédia</option>
           <option value="thriller" data-testid="select-option">Suspense</option>
         </select>
-
-      </form>
+      </label>
+    )
+  }
+      
+  render() {
+    return (
+      <div>
+        <form data-testid="search-bar-form">
+          {this.renderText()}
+          {this.renderCheckBox()}
+          {this.renderSelect()}
+        </form>
+      </div>
     );
   }
 }
