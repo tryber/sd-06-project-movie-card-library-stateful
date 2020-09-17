@@ -9,7 +9,7 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    this.onClick = this.onClick.bind(this);
+    //  this.onClick = this.onClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -24,7 +24,6 @@ class MovieLibrary extends Component {
 
   onClick(event) {
     event.preventDefault();
-    this.state;
     console.log('click');
   }
 

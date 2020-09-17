@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 class SearchBar extends Component {
@@ -39,5 +40,14 @@ class SearchBar extends Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
 
 export default SearchBar;
