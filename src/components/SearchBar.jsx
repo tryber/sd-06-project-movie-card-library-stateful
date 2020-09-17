@@ -32,13 +32,18 @@ class SearchBar extends Component {
   }
 }
 
+SearchBar.defaultProps = {
+  searchText: 'movie',
+  onSearchTextChange: 'callback',
+};
+
 SearchBar.propTypes = {
-  searchText: propTypes.string,
-  onSearchTextChange: propTypes.func,
-  bookmarkedOnly: propTypes.bool,
-  onBookmarkedChange: propTypes.func,
-  selectedGenre: propTypes.string,
-  onSelectedGenreChange: propTypes.func,
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
 };
 
 export default SearchBar;
