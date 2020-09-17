@@ -5,7 +5,7 @@ import MovieLibrary from './components/MovieLibrary';
 
 class App extends Component {
 
-  render(){
+  render() {
     return (
       <div className="App">
         <div>
