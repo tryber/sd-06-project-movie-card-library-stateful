@@ -8,25 +8,25 @@ class SearchBar extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label" htmlFor="include">Inclui o texto:</label>
+          <label data-testid="text-input-label" htmlFor="include">Inclui o texto:
           <input data-testid="text-input" type="text" value={searchText} id="include"
-            onChange={onSearchTextChange}
-          />
+          onChange={onSearchTextChange}/>
+          </label>
           <label data-testid="checkbox-input-label" HtmlFor="favorite">
-            Mostrar somente favoritos</label>
+            Mostrar somente favoritos
           <input data-testid="checkbox-input" type="radio" checked={bookmarkedOnly}
-            onChange={onBookmarkedChange} id="favorite"
-          />
+          onChange={onBookmarkedChange} id="favorite"/>
+          </label>
           <label data-testid="select-input-label" htmlFor="gender">
-            Filtrar por gênero</label>
+            Filtrar por gênero
           <select data-testid="select-input" value={selectedGenre}
-            onChange={onSelectedGenreChange} id="gender"
-          >
+          onChange={onSelectedGenreChange} id="gender">
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
             <option data-testid="select-option" value="comedy">Comédia</option>
             <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
+          </label>
         </form>
       </div>
     );
