@@ -2,49 +2,88 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  render() {
+  renderText() {
     const {
       searchText,
       onSearchTextChange,
+    } = this.props;
+
+    return (
+      <div>
+        <label
+          data-testid="text-input-label"
+          htmlFor="text">
+          Inclui o texto:
+          <input
+            data-testid="text-input"
+            id="text"
+            type="text"
+            value={searchText}
+            onChange={onSearchTextChange}
+          />
+        </label>
+      </div>
+    );
+  }
+
+  renderCheckBox() {
+    const {
       bookmarkedOnly,
       onBookmarkedChange,
+    } = this.props;
+
+    return (
+      <div>
+        <label
+          data-testid="checkbox-input-label"
+          htmlFor="checkbox">
+          Mostrar somente favoritos:
+          <input
+            data-testid="checkbox-input"
+            id="checkbox"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
+        </label>
+      </div>
+    );
+  }
+
+  renderSelect() {
+    const {
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
 
     return (
       <div>
+        <label
+          data-testid="select-input-label"
+          htmlFor="select">
+          Filtrar por gênero:
+          <select
+            data-testid="select-input"
+            id="select"
+            value={selectedGenre} 
+            onChange={onSelectedGenreChange}>
+            <option data-testid="select-option" value=""> Todos </option>
+            <option data-testid="select-option" value="action"> Ação </option>
+            <option data-testid="select-option" value="comedy"> Comédia </option>
+            <option data-testid="select-option" value="thriller"> Suspense </option>
+          </select>
+        </label>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
         <form data-testid="search-bar-form">
-          <label
-            data-testid="text-input-label"
-          > Inclui o texto:
-            <input
-              data-testid="text-input"
-              type="text"
-              value={searchText} onChange={onSearchTextChange}
-            />
-          </label>
-          <label
-            data-testid="checkbox-input-label"
-          >Mostrar somente favoritos:
-            <input 
-              data-testid="checkbox-input"
-              type="checkbox"
-              checked={bookmarkedOnly} onChange={onBookmarkedChange}
-            />
-          </label>
-          <label
-            data-testid="select-input-label"
-          >Filtrar por gênero:
-            <select data-testid="select-input"
-              value={selectedGenre} onChange={onSelectedGenreChange}
-            >
-              <option data-testid="select-option" value="">Todos</option>
-              <option data-testid="select-option" value="action">Ação</option>
-              <option data-testid="select-option" value="comedy">Comédia</option>
-              <option data-testid="select-option" value="thriller">Suspense</option>
-            </select>
-          </label>
+          {this.renderText()}
+          {this.renderCheckBox()}
+          {this.renderSelect()}
         </form>
       </div>
     );
