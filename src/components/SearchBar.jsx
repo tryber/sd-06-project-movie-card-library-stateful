@@ -2,11 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+  renderSelect() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <label htmlFor="select-options" data-testid="select-input-label">Filtrar por gênero
+        <select data-testid="select-input" id="select-options"
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
+        >
+          <option data-testid="select-option" value="">Todos</option>
+          <option data-testid="select-option" value="action">Ação</option>
+          <option data-testid="select-option" value="comedy">Comédia</option>
+          <option data-testid="select-option" value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
   render() {
     const {
-      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="id-text" data-testid="text-input-label">Inclui o texto:
@@ -20,17 +34,7 @@ class SearchBar extends React.Component {
             onChange={onBookmarkedChange}
           />
         </label>
-        <label htmlFor="select-options" data-testid="select-input-label">Filtrar por gênero
-          <select data-testid="select-input" id="select-options"
-            value={selectedGenre}
-            onChange={onSelectedGenreChange}
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </label>
+        {this.renderSelect()}
       </form>
     );
   }
