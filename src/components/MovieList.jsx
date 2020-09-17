@@ -15,8 +15,4 @@ class MovieList extends React.Component {
   }
 }
 
-MovieList.defaultProps = { movies: [{}, {}] };
-
-MovieList.propTypes = { movies: PropTypes.element };
-
 export default MovieList;
