@@ -1,4 +1,4 @@
-// implement MovieLibrary component here
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import MovieList from './MovieList';
@@ -9,7 +9,7 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    //  this.onClick = this.onClick.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -24,6 +24,7 @@ class MovieLibrary extends Component {
 
   onClick(event) {
     event.preventDefault();
+    this.setState({ searchText: 'click' });
     console.log('click');
   }
 
@@ -57,5 +58,7 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.array.isRequired };
 
 export default MovieLibrary;
