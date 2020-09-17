@@ -33,12 +33,23 @@ class SearchBar extends Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  searchText: propTypes.string,
+  onSearchTextChange: propTypes.func,
+  bookmarkedOnly: propTypes.bool,
+  onBookmarkedChange: propTypes.func,
+  selectedGenre: propTypes.string,
+  onSelectedGenreChange: propTypes.func,
 };
 
 export default SearchBar;
+
+// getDefaultProps = () => {
+//     return {
+//       searchText: '',
+//       onSearchTextChange: '', 
+//       bookmarkedOnly: false,
+//       onBookmarkedChange: '',
+//       selectedGenre: '',
+//       onSelectedGenreChange: '', 
+//     }
+//   }
