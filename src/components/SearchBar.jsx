@@ -14,6 +14,11 @@ class SearchBar extends Component {
             data-testid="text-input"
           />
         </label>
+        <label htmlFor="" data-testid="checkbox-input-label">
+          Mostrar somente favoritos
+          <input data-testid="checkbox-input" checked={bookmarkedOnly} onChange={onBookmarkedChange} 
+          />
+        </label>
         <label htmlFor="" data-testid="select-input-label">
           Filtrar por gênero
         <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
