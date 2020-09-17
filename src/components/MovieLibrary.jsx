@@ -12,8 +12,8 @@ class MovieLibrary extends React.Component {
   //     selectedGenre: '',
   //     movies: this.props.movies,
   //   };
-    // this.troca = this.troca.bind(this);
-    // this.buttonTroca = this.buttonTroca.bind(this);
+  // this.troca = this.troca.bind(this);
+  // this.buttonTroca = this.buttonTroca.bind(this);
   // }
 
   render() {
