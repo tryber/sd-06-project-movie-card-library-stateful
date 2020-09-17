@@ -19,6 +19,9 @@ class AddMovie extends React.Component {
     this.refreshRating = this.refreshRating.bind(this);
     this.button = this.button.bind(this);
     this.refreshGenre = this.refreshGenre.bind(this);
+    this.renderTitle = this.renderTitle.bind(this);
+    this.renderSubtitle = this.renderSubtitle.bind(this);
+    this.renderImage = this.renderImage.bind(this);
   }
 
   refreshTitle(event) {
@@ -58,30 +61,46 @@ class AddMovie extends React.Component {
     });
   }
 
-  render() {
+  renderTitle() {
     return (
-      <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title" >
-          Título
           <input
             type="text"
             name="title" value={this.state.title} data-testid="title-input"
             onChange={this.refreshTitle} id="title"
           />
-        </label><br /><br />
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-          <input
+    );
+  }
+
+  renderSubtitle() {
+    return (
+      <input
             id="subtitle" name="subtitle" value={this.state.subtitle}
             data-testid="subtitle-input" onChange={this.refreshSubtitle}
           />
+    );
+  }
+
+  renderImage() {
+    <input
+      type="text" name="imagePath" id="image-path" value={this.state.imagePath}
+      data-testid="image-input" onChange={this.refreshImage}
+    />
+  }
+
+  render() {
+    return (
+      <form data-testid="add-movie-form">
+        <label data-testid="title-input-label" htmlFor="title" >
+          Título
+          {this.renderTitle}
+        </label><br /><br />
+        <label data-testid="subtitle-input-label" htmlFor="subtitle">
+          Subtítulo
+          {this.renderSubtitle}
         </label><br /><br />
         <label data-testid="image-input-label" htmlFor="image-path">
           Imagem
-          <input
-            type="text" name="imagePath" id="image-path" value={this.state.imagePath}
-            data-testid="image-input" onChange={this.refreshImage} 
-          />
+          {this.renderImage}
         </label><br /><br />
         <label data-testid="storyline-input-label" htmlFor="storyline">
           Sinopse
@@ -115,6 +134,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propType = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
