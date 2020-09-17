@@ -24,6 +24,7 @@ class MovieLibrary extends Component {
 
   onClick(event) {
     event.preventDefault();
+    this.state;
     console.log('click');
   }
 
@@ -43,7 +44,8 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={this.state.searchText}
+        <SearchBar
+          searchText={this.state.searchText}
           onSearchTextChange={this.onSearchTextChange}
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
