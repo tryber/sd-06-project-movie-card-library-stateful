@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
-      selectedGenre, onSelectedGenreChange} = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <form data-testid="search-bar-form" >
@@ -45,17 +44,10 @@ SearchBar.propTypes = {
 SearchBar.defaultProps = {
   searchText: 'movie',
   onSearchTextChange: 'callback',
+  bookmarkedOnly: false,
+  onBookmarkedChange: 'callback',
+  selectedGenre: 'genre',
+  onSelectedGenreChange: 'callback'
 };
 
 export default SearchBar;
-
-// getDefaultProps = () => {
-//     return {
-//       searchText: '',
-//       onSearchTextChange: '', 
-//       bookmarkedOnly: false,
-//       onBookmarkedChange: '',
-//       selectedGenre: '',
-//       onSelectedGenreChange: '', 
-//     }
-//   }
