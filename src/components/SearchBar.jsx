@@ -8,7 +8,11 @@ class SearchBar extends Component {
       onSelectedGenreChange,
     } = this.props;
     return (
-      <select id="select" value={selectedGenre} onChange={onSelectedGenreChange} data-testid="select-input" >
+      <select
+        value={selectedGenre}
+        onChange={onSelectedGenreChange}
+        data-testid="select-input"
+      >
         <option data-testid="select-option" value="">Todos</option>
         <option data-testid="select-option" value="action">Ação</option>
         <option data-testid="select-option" value="comedy">Comédia</option>
@@ -18,23 +22,26 @@ class SearchBar extends Component {
   }
 
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-    } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="input1" data-testid="text-input-label">
-          Inclui o texto:
-          <input id="input1"value={searchText} onChange={onSearchTextChange} data-testid="text-input" type="text" />
-        </label>
-        <label htmlFor="input2" data-testid="checkbox-input-label">
+        <label htmlFor="text-input" data-testid="text-input-label">Inclui o texto:</label>
+        <input
+          value={searchText}
+          onChange={onSearchTextChange}
+          data-testid="text-input"
+          type="text"
+        />
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
-          <input id="input2" data-testid="checkbox-input-label" checked={bookmarkedOnly} onChange={onBookmarkedChange} type="checkbox" />
         </label>
-        <label htmlFor="select" data-testid="select-input-label">Filtrar por gênero</label>
+        <input
+          data-testid="checkbox-input"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+          type="checkbox"
+        />
+        <label htmlFor="select-input" data-testid="select-input-label">Filtrar por gênero</label>
         {this.renderSelect()}
       </form>
     );
