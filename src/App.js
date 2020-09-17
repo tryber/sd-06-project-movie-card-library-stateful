@@ -22,11 +22,28 @@ class App extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange() {}
+  onSearchTextChange({ target }) {
+    const { name, value } = target;
 
-  onBookmarkedChange() {}
+    this.setState({
+      [name]: value,
+    });
+  }
 
-  onSelectedGenreChange() {}
+  onBookmarkedChange({ target }) {
+    const { name, checked } = target;
+
+    this.setState({
+      [name]: checked,
+    });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { name, value } = target;
+    this.setState({
+      [name]: value,
+    });
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
