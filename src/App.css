@@ -1,20 +1,20 @@
 body {
-  background-color: whitesmoke;
+  background-color: gray;
   box-sizing: border-box;
   font-size: 16px;
 }
 
 .movie-card-header {
   align-items: center;
-  background: linear-gradient(rgb(61, 61, 61), gray, white, gray, rgb(61, 61, 61));
-  border: 5px groove rgb(207, 207, 207);
+  background: repeating-linear-gradient(black, gray, white, gray, black);
+  border: 6px groove gray;
   display: flex;
   height: 100px;
   justify-content: center;
 }
 
 .page-title {
-  color: black;
+  color: #1e1f20;
   font-size: 28px;
   font-weight: 500;
   text-align: center;
@@ -30,14 +30,21 @@ body {
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 3px;
+  box-shadow: inset 200px 0 50px rgba(2, 2, 0, 1);
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 400px;
   margin: 5px;
   overflow: hidden;
+  perspective: 200px;
+  transition: 0.5s;
   width: 300px;
 }
 
+.movie-card:hover {
+  box-shadow: inset 20px 0 50px rgba(2, 2, 0, 1);
+  transform: perspective(200px) rotate(-10deg);
+}
 
 .movie-card-image {
   width: 100%;
@@ -49,13 +56,14 @@ body {
 }
 
 .movie-card-title {
+  color: #6c757d;
   font-size: 24px;
   font-weight: 500;
   margin: 0 0 12px;
 }
 
 .movie-card-subtitle {
-  color: #6c757d;
+  color: #030303;
   font-size: 16px;
   font-weight: 500;
   margin: 0 0 8px;
@@ -76,8 +84,8 @@ body {
 }
 
 .movie-card-rating {
-  background-color: rgba(0, 0, 0, 0.03);
-  border-top: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: rgba(2, 2, 0, 0.03);
+  border-top: 1px solid rgba(2, 2, 0, 0.125);
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
