@@ -5,7 +5,7 @@ class AddInput extends React.Component {
   render() {
     const { label, value, id, callback } = this.props;
     return (
-      <label data-testid={`${testid}-label`} htmlFor={id}>{label}
+      <label data-testid={`${id}-input-label`} htmlFor={id}>{label}
         <input type="text" id={id} value={value} data-testid={`${id}-input`} onChange={callback} />
       </label>
     );

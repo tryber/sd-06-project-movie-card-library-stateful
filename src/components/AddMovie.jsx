@@ -39,13 +39,12 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-    const genreOptions = [ ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense'], ];
+    const genreOptions = [['action', 'Ação'],['comedy', 'Comédia'],['thriller', 'Suspense']];
     const handler = this.hdInput;
     return (
       <form data-testid="add-movie-form">
         <AddInput id="title" label="Título" callback={handler} value={title} />
-        <AddInput id="subtitle" label="Subtítulo" callback={handler} value={subtitle}
-        />
+        <AddInput id="subtitle" label="Subtítulo" callback={handler} value={subtitle} />
         <AddInput id="imagePath" label="Imagem" callback={handler} value={imagePath} />
         <AddTxt id="storyline" label="Sinopse" callback={handler} value={storyline} />
         <AddInpNum id="rating" label="Avaliação" callback={handler} value={rating} />
@@ -56,12 +55,10 @@ class AddMovie extends React.Component {
         <button type="button" data-testid="send-button" onClick={this.cbkHandler}>
           Adicionar filme</button>
       </form>
-    )
+    );
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
