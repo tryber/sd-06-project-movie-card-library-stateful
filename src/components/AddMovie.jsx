@@ -40,7 +40,7 @@ class AddMovie extends Component{
         </label>
 
         <label data-testid="storyline-input-label">Sinopse
-          <textarea name="storyline" value={this.state.storyline} onChange={this.handleChange}></textarea>
+          <textarea data-testid="storyline-input" name="storyline" value={this.state.storyline} onChange={this.handleChange}></textarea>
         </label>
 
         <label data-testid="rating-input-label">Avaliação
@@ -55,7 +55,7 @@ class AddMovie extends Component{
           </select>
         </label>
 
-        <button data-testid="send-button" onClick={onClick}>Adicionar filme</button>
+        <button data-testid="send-button" onClick={() => onClick(this.state)}>Adicionar filme</button>
         
         
       </form>
