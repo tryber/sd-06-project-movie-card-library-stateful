@@ -51,7 +51,7 @@ beforeEach(() => {
 });
 
 
-describe.skip('Verifica o componente <AddMovie />', () => {
+describe('Verifica o componente <AddMovie />', () => {
   it('Será validado se o componente renderiza', () => {
     render(<AddMovie onClick={() => jest.fn()} />);
   });
