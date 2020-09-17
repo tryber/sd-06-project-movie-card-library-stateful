@@ -26,7 +26,7 @@ class AddMovie extends React.Component {
     // const { handleChange} = this.props;
     const { title } = this.state;
     return (
-      <form>
+      <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">Título
         <input
           data-testid="title-input"
