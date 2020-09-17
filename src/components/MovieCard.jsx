@@ -1,4 +1,5 @@
-import React from 'react';
+import PropTypes from 'prop-types';
+import React, { Component } from 'react';
 
 import Rating from './Rating';
 
@@ -19,5 +20,25 @@ class MovieCard extends React.Component {
     );
   }
 }
+
+MovieCard.defaultProps = {
+  movie: {
+    title: 'title',
+    subtitle: 'subtitle',
+    storyline: 'storyline',
+    rating: 'rating',
+    imagePath: 'imagePath',
+  },
+};
+
+MovieCard.propTypes = {
+  movie: {
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.string,
+    imagePath: PropTypes.string,
+  },
+};
 
 export default MovieCard;
