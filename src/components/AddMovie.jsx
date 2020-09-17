@@ -6,7 +6,7 @@ class AddMovie extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    // this.addMovie = this.addMovie.bind(this);
+    this.addMovie = this.addMovie.bind(this);
 
 
     this.state = {
@@ -27,20 +27,20 @@ class AddMovie extends React.Component {
     }))
   }
 
-  // addMovie() {
-  //   const callBack = this.props.onClick
+  addMovie() {
+    const callBack = this.props.onClick
 
-  //   callBack(this.state)
+    callBack(this.state)
 
-  //   this.setState(() => ({
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   }))
-  // }
+    this.setState(() => ({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    }))
+  }
 
   render() {
     return (
