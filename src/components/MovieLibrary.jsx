@@ -1,25 +1,25 @@
 
 import React, { Component } from 'react';
 
-import MovieList from './MovieList';
+// import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
+// import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-  }
+  // constructor() {
+  //   super();
+    // this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  // }
 
-  onSearchTextChange() {
-  }
-  onBookmarkedChange() {
-  }
-  onSelectedGenreChange() {
+  // onSearchTextChange() {
+  // }
+  // onBookmarkedChange() {
+  // }
+  // onSelectedGenreChange() {
 
-  }
+  // }
   render() {
     return (
       <div>
@@ -27,7 +27,7 @@ class MovieLibrary extends Component {
         <SearchBar
           searchText={'text'}
           onSearchTextChange={this.onSearchTextChange}
-          bookmarkedOnly={true}
+          bookmarkedOnly={'true'}
           onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={'Genre'}
           onSelectedGenreChange={this.onSelectedGenreChange}
