@@ -28,8 +28,6 @@ class App extends Component {
       item.title.toLowerCase().split(' ').includes(movieName)
     ));
 
-    console.log(nameFiltered);
-
     if (nameFiltered === undefined) {
       this.setState({ filterMovieByName: movies });
     } else {

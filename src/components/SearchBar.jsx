@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Select from './Select';
 
 class SearchBar extends Component {
   render() {
@@ -18,33 +19,17 @@ class SearchBar extends Component {
         </div>
 
         <div className="checkbox-container">
-          <label htmlFor="check" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+          <label
+            htmlFor="check" data-testid="checkbox-input-label">Mostrar somente favoritos
+          </label>
           <input
             name="check" id="check" data-testid="checkbox-input" type="checkbox"
             onChange={onBookmarkedChange} checked={bookmarkedOnly}
           />
         </div>
-        < Select onSelectedGenreChange={onSelectedGenreChange} selectedGenre={selectedGenre} />
+        <Select onSelectedGenreChange={onSelectedGenreChange} selectedGenre={selectedGenre} />
       </fieldset>
     );
-  }
-}
-
-class Select extends Component {
-  render() {
-    const { onSelectedGenreChange, selectedGenre } = this.props;
-
-    return (
-      <div className="checkbox-container">
-        <label data-testid="select-input-label">Filtrar por gênero</label>
-        <select data-testid="select-input" onChange={onSelectedGenreChange} value={selectedGenre}>
-          <option data-testid="select-option" value="">Todos</option>
-          <option data-testid="select-option" value="action">Ação</option>
-          <option data-testid="select-option" value="comedy">Comédia</option>
-          <option data-testid="select-option" value="thriller">Suspense</option>
-        </select>
-      </div>
-    )
   }
 }
 
