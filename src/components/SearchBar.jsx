@@ -31,8 +31,8 @@ class SearchBar extends Component {
           </select>
         </form>
       </div>
-    )
-  };
+    );
+  }
 }
 
 SearchBar.propTypes = {

@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 
 class MovieLibrary extends Component {
   constructor() {
-    super()
+    super();
 
     this.state = {
       searchText: '',
@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
+    //const { movies } = this.props;
     return (
       <div>
         <SearchBar />

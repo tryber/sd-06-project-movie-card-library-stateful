@@ -15,6 +15,10 @@ class AddMovie extends Component {
     };
   }
 
+  onClick () {
+    console.log('oi')
+  }
+
   render() {
     const { onClick, callback } = this.props;
 
@@ -44,7 +48,14 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onclick: PropTypes.string.isRequired,
- callback: PropTypes.string };
+AddMovie.defaultProps = {
+  onclick: '',
+  callback: ''
+}
+
+AddMovie.propTypes = {
+  onclick: PropTypes.string.isRequired,
+  callback: PropTypes.string
+};
 
 export default AddMovie;
