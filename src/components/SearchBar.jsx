@@ -2,13 +2,21 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly,
-    onBookmarkedChange, onSelectedGenreChange, selectedGenre } = this.props;
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+      selectedGenre 
+    } = this.props;
     return (
       <form data-testid="search-bar-form" action="GET">
         <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:
-          <input data-testid="text-input" type="text" name="text-input" id="text-input"
-            onChange={onSearchTextChange} value={searchText} />
+          <input
+          data-testid="text-input" type="text" name="text-input" id="text-input"
+          onChange={onSearchTextChange} value={searchText}
+          />
         </label>
         <label data-testid="checkbox-input-label"
         htmlFor="checkbox-input">Mostrar somente favoritos
