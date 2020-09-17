@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GenreSelection from './GenreSelection';
-import FavoritesCheck from './FavoritesCheck';
-import SearchText from './SearchText';
+import GenreSelection from './search-bar-components/GenreSelection';
+import FavoritesCheck from './search-bar-components/FavoritesCheck';
+import SearchText from './search-bar-components/SearchText';
 
 class SearchBar extends React.Component {
   render() {
