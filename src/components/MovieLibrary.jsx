@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
-
-// import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor(props) {
-  //   super(props);
-  // }
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.message = 'Funcionou!';
+  }
+
+  onClick() {
+    console.log(this.message);
+  }
 
   render() {
     return (
@@ -15,7 +19,7 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar />
         {/* <MovieList movies={this.props.movies} /> */}
-        {/* <AddMovie /> */}
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }

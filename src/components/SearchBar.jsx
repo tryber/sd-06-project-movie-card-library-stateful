@@ -2,13 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
-
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   renderSearch() {
     const { searchText, onSearchTextChange } = this.props;
