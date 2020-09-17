@@ -16,7 +16,6 @@ class AddMovie extends React.Component {
   }
 
   handleTextInput = ({ target }) => this.setState({[target.id]: target.value});
-  };
 
   callbackHandler = () => {
     this.props.onClick(this.state);
