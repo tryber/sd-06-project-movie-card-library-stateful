@@ -7,7 +7,9 @@ class SearchBar extends Component {
     
     return(
       <div>
+        <form data-testid="search-bar-form">
 
+        </form>
       </div>
     );
   }
