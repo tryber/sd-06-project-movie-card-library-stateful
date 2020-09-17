@@ -1,5 +1,5 @@
 import React from 'react';
-
+// import SearchBar from './SearchBar';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
@@ -8,6 +8,7 @@ class MovieList extends React.Component {
 
     return (
       <div data-testid="movie-list" className="movie-list">
+        {/* <SearchBar /> */}
         {movies.map((movie) => <MovieCard key={movie.title} movie={movie} />)}
       </div>
     );
