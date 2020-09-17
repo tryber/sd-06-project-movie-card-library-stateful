@@ -13,14 +13,16 @@ class SearchBar extends React.Component {
         />
         <label data-testid="checkbox-input-label" htmlFor="fav-checkbox">
           Mostrar somente favoritos</label>
-        <input type="checkbox" checked={this.props.bookmarkedOnly} id="fav-checkbox"
+        <input
+          type="checkbox" checked={this.props.bookmarkedOnly} id="fav-checkbox"
           onChange={this.props.onBookmarkedChange} data-testid="checkbox-input"
         />
         <label data-testid="select-input-label" htmlFor="movie-type">
           Filtrar por gênero</label>
         <select
           id="movie-type" value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange} data-testid="select-input">
+          onChange={this.props.onSelectedGenreChange} data-testid="select-input"
+        >
           <option data-testid="select-option" value="">Todos</option>
           <option data-testid="select-option" value="action">Ação</option>
           <option data-testid="select-option" value="comedy">Comédia</option>
@@ -32,12 +34,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

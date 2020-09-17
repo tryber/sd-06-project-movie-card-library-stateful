@@ -16,12 +16,12 @@ AddMovieInput.propTypes = {
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
-  ]),
-  lalbelTestid: PropTypes.string,
-  label: PropTypes.string,
-  inputType: PropTypes.string,
-  testid: PropTypes.string,
-  callback: PropTypes.func,
+  ]).isRequired,
+  lalbelTestid: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  inputType: PropTypes.string.isRequired,
+  testid: PropTypes.string.isRequired,
+  callback: PropTypes.func.isRequired,
 };
 
 export default AddMovieInput;
