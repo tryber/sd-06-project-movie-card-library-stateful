@@ -13,7 +13,7 @@ class AddSelect extends React.Component {
           ))}
         </select>
       </label>
-    )
+    );
   }
 }
 

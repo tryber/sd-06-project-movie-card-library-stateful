@@ -22,7 +22,7 @@ class SearchBar extends React.Component {
         <AddSelect
           id="movie-type" value={this.props.selectedGenre} callback={onSelectedGenreChange}
           label="Filtrar por gênero" testid="select-input" optionId="select-option" options={[
-            ['', 'Todos'], ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']
+            ['', 'Todos'], ['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense'],
           ]}
         />
       </form>

@@ -8,11 +8,12 @@ class AddInput extends React.Component {
       <label data-testid={`${testid}-label`} htmlFor={id}>{label}
         <input type={inputType} id={id} value={value} data-testid={testid} onChange={callback} />
       </label>
-    )
+    );
   }
 }
 
 AddInput.propTypes = {
+  id: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number,
