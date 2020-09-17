@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import AddMovieInput from './AddMovieInput';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -34,36 +35,18 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <fieldset>
-          <label data-testid="title-input-label">
-            Título
-            <input type="text" id="title" value={this.state.title} data-testid="title-input" onChange={this.handleTextInput} />
-          </label>
-          <label data-testid="subtitle-input-label">
-            Subtítulo
-            <input type="text" id="subtitle" value={this.state.subtitle} data-testid="subtitle-input" onChange={this.handleTextInput} />
-          </label>
+          <AddMovieInput labelTestid="title-input-label" id="title" label="Título" inputType="text" testid="title-input" callback={this.handleTextInput} value={this.state.title} />
+          <AddMovieInput labelTestid="subtitle-input-label" id="subtitle" label="Subtítulo" inputType="text" testid="subtitle-input" callback={this.handleTextInput} value={this.state.subtitle} />
+          <AddMovieInput labelTestid="image-input-label" id="imagePath" label="Imagem" inputType="text" testid="image-input" callback={this.handleTextInput} value={this.state.imagePath} />
         </fieldset>
         <fieldset>
-          <label data-testid="image-input-label">
-            Imagem
-            <input type="text" id="imagePath" value={this.state.imagePath} data-testid="image-input" onChange={this.handleTextInput} />
-          </label>
-        </fieldset>
-        <fieldset>
-          <label data-testid="storyline-input-label">
-            Sinopse
+          <label data-testid="storyline-input-label">Sinopse
             <textarea id="storyline" value={this.state.storyline} data-testid="storyline-input" onChange={this.handleTextInput} />
           </label>
         </fieldset>
         <fieldset>
-          <label data-testid="rating-input-label">
-            Avaliação
-            <input type="number" id="rating" value={this.state.rating} data-testid="rating-input" onChange={this.handleTextInput} />
-          </label>
-        </fieldset>
-        <fieldset>
-          <label data-testid="genre-input-label">
-            Gênero
+          <AddMovieInput labelTestid="rating-input-label" id="rating" label="Avaliação" inputType="number" testid="rating-input" callback={this.handleTextInput} value={this.state.rating} />
+          <label data-testid="genre-input-label">Gênero
             <select id="genre" value={this.state.genre} onChange={this.handleTextInput} data-testid="genre-input">
               <option data-testid="genre-option" value="action">Ação</option>
               <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -71,15 +54,13 @@ class AddMovie extends React.Component {
             </select>
           </label>
         </fieldset>
-        <button type="button" data-testid="send-button" onClick={this.callbackHandler}>
-          Adicionar filme
-        </button>
+        <button type="button" data-testid="send-button" onClick={this.callbackHandler}>Adicionar filme</button>
       </form>
     )
   }
 }
 
-AddMovie.PropTypes = {
+AddMovie.propTypes = {
   onClick: PropTypes.func,
 };
 
