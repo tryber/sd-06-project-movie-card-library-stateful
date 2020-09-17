@@ -6,7 +6,7 @@ class SearchBar extends Component {
       <div>
         <p>Search Bar</p>
         <form action="" data-testid="search-bar-form">
-          <input type="text" name="" id=""/>
+          <input type="text" name="" id="" data-testid="text-input"/>
         </form>
       </div>
     )
