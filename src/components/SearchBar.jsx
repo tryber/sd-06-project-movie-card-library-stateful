@@ -5,7 +5,8 @@ class SearchBar extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <input />
+          <label data-testid="text-input-label">Inclui o texto:</label>
+          <input data-testid="text-input" />
         </form>
       </div>
     );
