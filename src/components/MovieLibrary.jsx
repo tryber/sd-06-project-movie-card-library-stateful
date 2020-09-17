@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -10,7 +11,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: [],
-    }
+    };
   }
 
   render() {
@@ -21,6 +22,10 @@ class MovieLibrary extends Component {
       </div>
     );
   }
+}
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.string.isRequired
 }
 
 export default MovieLibrary;
