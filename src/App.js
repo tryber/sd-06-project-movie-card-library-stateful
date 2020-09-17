@@ -11,6 +11,7 @@ class App extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClickAddMovie = this.onClickAddMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: '',
@@ -30,7 +31,7 @@ class App extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
-  onChangeAddMovie() {
+  onClickAddMovie() {
 
   }
 
@@ -46,7 +47,7 @@ class App extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <AddMovie onChange={this.onChangeAddMovie}/>
+        <AddMovie onClick={this.onClickAddMovie}/>
       </div>
     )
   }
