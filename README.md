@@ -141,9 +141,6 @@ Esse componente renderizará uma barra com filtros acima da listagem de cartões
 O que será validado: 
   - Será validado se o componente `SearchBar` renderiza com sucesso 
 
-
-
-
 #### Renderize um formulário dentro de `SearchBar`
 
 Dentro desse formulário haverá campos usados na filtragem de cartões.
