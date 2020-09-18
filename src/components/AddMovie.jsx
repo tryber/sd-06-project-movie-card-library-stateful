@@ -58,7 +58,7 @@ class AddMovie extends Component {
           handleChange={this.handleChange}
         />
         <AddMovieComponentPartThree
-          value={this.state.name}
+          value={this.state.rating}
           handleChange={this.handleChange}
         />
         <AddMovieComponentPartFour
