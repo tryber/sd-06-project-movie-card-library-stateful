@@ -17,7 +17,7 @@ class AddMovie extends Component {
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
-  };
+  }
   handleCLick() {
     const { onClick } = this.props;
     onClick(this.state);
@@ -32,29 +32,34 @@ class AddMovie extends Component {
   }
   render() {
     return (
-      <form data-testid="add-movie-form"> 
+      <form data-testid="add-movie-form">
         <label data-testid="title-input-label">Título
-          <input name="title" data-testid="title-input" value={this.state.title}
+          <input name="title" data-testid="title-input"
+            value={this.state.title}
             onChange={this.handleChange}
           />
         </label>
         <label data-testid="subtitle-input-label">Subtítulo
-          <input name="subtitle" data-testid="subtitle-input" value={this.state.subtitle}
-          onChange={this.handleChange}
+          <input name="subtitle" data-testid="subtitle-input"
+            value={this.state.subtitle}
+            onChange={this.handleChange}
           />
         </label>
         <label data-testid="image-input-label">Imagem
-          <input name="imagePath" data-testid="image-input" value={this.state.imagePath}
+          <input name="imagePath" data-testid="image-input"
+            value={this.state.imagePath}
             onChange={this.handleChange}
           />
         </label>
         <label data-testid="storyline-input-label">Sinopse
-          <textarea data-testid="storyline-input" name="storyline" value={this.state.storyline}
+          <textarea data-testid="storyline-input" name="storyline"
+            value={this.state.storyline}
             onChange={this.handleChange}
           />
         </label>
         <label data-testid="rating-input-label">Avaliação
-          <input name="rating" data-testid="rating-input" type="number" value={this.state.rating}
+          <input name="rating" data-testid="rating-input" type="number"
+            value={this.state.rating}
             onChange={this.handleChange}
           />
         </label>

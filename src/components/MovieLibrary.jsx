@@ -1,14 +1,14 @@
 import React from 'react';
-import AddMovie from './AddMovie'
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  render () {
+  render() {
     return (
       <div>
         <AddMovie />
       </div>
 
-    )
+    );
   }
 }
 
