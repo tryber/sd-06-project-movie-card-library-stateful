@@ -64,7 +64,7 @@ class MovieLibrary extends Component {
   render() {
     const filteredMovies = this.filterMovies();
     return (
-      <div  className="search-bar-container">
+      <div className="search-bar-container">
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
