@@ -16,7 +16,7 @@ class AddMovie extends Component {
         <Rating onSelectedInputChange={onSelectedInputChange} rating={rating} />
         <Select onSelectedInputChange={onSelectedInputChange} genre={genre} />
       </fieldset>
-    )
+    );
   }
 }
 
