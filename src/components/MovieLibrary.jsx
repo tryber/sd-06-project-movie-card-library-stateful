@@ -19,7 +19,7 @@ class MovieLibrary extends React.Component {
   componentWillMount() {
     this.setState(({ movies: this.props.movies }));
   }
-  
+
   onSearchTextChange({ target }) {
     this.setState(() => ({ searchText: target.value }));
   }
@@ -37,12 +37,12 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
-      searchText={this.state.searchText}
-      onSearchTextChange={this.onSearchTextChange}
-      bookmarkedOnly={this.state.bookmarkedOnly}
-      onBookmarkedChange={this.onBookmarkedChange}
-      selectedGenre={this.state.selectedGenre}
-      onSelectedGenreChange={this.onSelectedGenreChange}
+        searchText={this.state.searchText}
+        onSearchTextChange={this.onSearchTextChange}
+        bookmarkedOnly={this.state.bookmarkedOnly}
+        onBookmarkedChange={this.onBookmarkedChange}
+        selectedGenre={this.state.selectedGenre}
+        onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
         <AddMovie />
