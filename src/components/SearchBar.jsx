@@ -2,17 +2,50 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
+  renderTextInput() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+
+    return(
+    <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
+      Mostrar somente favoritos
+      <input
+        data-testid="checkbox-input"
+        htmlFor="checkbox-input"
+        type="checkbox"
+        checked={bookmarkedOnly}
+        onChange={onBookmarkedChange}
+      />
+    </label>
+    );
+  }
+
   renderSelect() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <label data-testid="select-input-label" htmlFor="select-input">
         Filtrar por gênero
-        <select data-testid="select-input" htmlFor="select-input" onChange={onSelectedGenreChange} value={selectedGenre}>
-          <option data-testid="select-option" htmlFor="select-input" value="">Todos</option>
-          <option data-testid="select-option" htmlFor="select-input" value="action">Ação</option>
-          <option data-testid="select-option" htmlFor="select-input" value="comedy">Comédia</option>
-          <option data-testid="select-option" htmlFor="select-input" value="thriller">Suspense</option>
+        <select
+          data-testid="select-input"
+          htmlFor="select-input"
+          onChange={onSelectedGenreChange}
+          value={selectedGenre}>
+          <option
+            data-testid="select-option"   htmlFor="select-input" value="">
+            Todos
+          </option>
+          <option
+            data-testid="select-option"   htmlFor="select-input" value="action">
+            Ação
+          </option>
+          <option
+            data-testid="select-option"   htmlFor="select-input"  value="comedy">
+            Comédia
+          </option>
+          <option
+            data-testid="select-option"   htmlFor="select-input" value="thriller">
+            Suspense
+          </option>
         </select>
       </label>
     );
@@ -23,16 +56,7 @@ class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="text-input">
-          Inclui o texto:
-          <input
-            data-testid="text-input"
-            htmlFor="text-input"
-            onChange={onSearchTextChange}
-            type="text"
-            value={searchText}
-          />
-        </label>
+        {this.renderTextInput()}
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
           <input
