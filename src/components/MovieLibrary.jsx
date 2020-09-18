@@ -17,8 +17,7 @@
 //     const { movies } = this.props;
 //     return (
 //       <div>
-//         <SearchBar searchText={this.searchText} 
-//         bookmarkedOnly={this.bookmarkedOnly} selectedGenre={this.selectedGenre} 
+//         <SearchBar searchText={this.searchText} bookmarkedOnly={this.bookmarkedOnly} selectedGenre={this.selectedGenre} 
 //         />
 //         {/* <MovieList movies={movies}/> */}
 //       </div>
