@@ -25,15 +25,20 @@ class MovieLibrary extends React.Component {
     if (value !== '') {
       this.setState(() => ({
         [name]: value,
-        movies: this.props.movies.filter((movie) => movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value)),
-        bookmarked: false,
+        movies: this.props.movies.filter((movie) => {
+          const title = movie.title;
+          const subtitle = movie.subtitle;
+          const story = movie.storyline;
+          return title.includes(value) || subtitle.includes(value) || story.includes(value);
+        }),
+        bookmarkedOnly: false,
         selectedGenre: '',
       }));
     } else {
       this.setState(() => ({
         [name]: value,
         movies: this.props.movies,
-        bookmarked: false,
+        bookmarkedOnly: false,
         selectedGenre: '',
       }));
     }
@@ -82,9 +87,18 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
+    const objPropsSearchBar = {
+      searchText: this.state.searchText,
+      onSearchTextChange: this.handleSearchChange,
+      bookmarkedOnly: this.state.bookmarkedOnly,
+      onBookmarkedChange: this.handleBookmarkedChange,
+      selectedGenre: this.state.selectedGenre,
+      onSelectedGenreChange: this.handleSelectGenreChange,
+    };
+
     return (
       <div>
-        <SearchBar searchText={this.state.searchText} onSearchTextChange={this.handleSearchChange} bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.handleBookmarkedChange} selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.handleSelectGenreChange} />
+        <SearchBar objProps={objPropsSearchBar} />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.addNewMovie} />
       </div>

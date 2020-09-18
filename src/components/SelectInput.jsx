@@ -3,10 +3,11 @@ import PropTypes from 'prop-types';
 
 class SelectInput extends React.Component {
   render() {
-    const { labelText, name, value, handle, inputId, labelId, options } = this.props;
+    const { label, name, value, handle, inputId, labelId, options } = this.props.objProps;
+
     return (
       <div>
-        <label htmlFor={name} data-testid={labelId} >{labelText}</label>
+        <label htmlFor={name} data-testid={labelId} >{label}</label>
         <select name={name} value={value} onChange={handle} data-testid={inputId}>
           {options.map((option) => <option key={option.value} data-testid={`${name}-option`} value={option.value}>{option.label}</option>)}
         </select>
@@ -18,21 +19,25 @@ class SelectInput extends React.Component {
 export default SelectInput;
 
 SelectInput.defaultProps = {
-  labelText: '',
-  name: '',
-  value: {},
-  handle: undefined,
-  inputId: '',
-  options: [],
-  labelId: '',
+  objProps: {
+    label: '',
+    name: '',
+    value: {},
+    handle: undefined,
+    inputId: '',
+    options: [],
+    labelId: '',
+  },
 };
 
 SelectInput.propTypes = {
-  labelText: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.objectOf(PropTypes.string),
-  handle: PropTypes.func,
-  inputId: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.object),
-  labelId: PropTypes.string,
+  objProps: PropTypes.shape(
+    PropTypes.string,
+    PropTypes.string,
+    PropTypes.objectOf(PropTypes.string),
+    PropTypes.func,
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.object),
+    PropTypes.string,
+  ),
 };

@@ -3,11 +3,11 @@ import PropTypes from 'prop-types';
 
 class Button extends React.Component {
   render() {
-    const { labelText, value, handle, inputId } = this.props;
+    const { label, value, handle, inputId } = this.props.objProps;
 
     return (
       <div>
-        <button value={value} onClick={handle} data-testid={inputId}>{labelText}</button>
+        <button value={value} onClick={handle} data-testid={inputId}>{label}</button>
       </div>
     );
   }
@@ -16,15 +16,19 @@ class Button extends React.Component {
 export default Button;
 
 Button.defaultProps = {
-  labelText: '',
-  value: {},
-  handle: undefined,
-  inputId: '',
+  objProps: {
+    label: '',
+    value: {},
+    handle: undefined,
+    inputId: '',
+  },
 };
 
 Button.propTypes = {
-  labelText: PropTypes.string,
-  value: PropTypes.objectOf(PropTypes.string),
-  handle: PropTypes.func,
-  inputId: PropTypes.string,
+  objProps: PropTypes.shape(
+    PropTypes.string,
+    PropTypes.objectOf(PropTypes.string),
+    PropTypes.func,
+    PropTypes.string,
+  ),
 };

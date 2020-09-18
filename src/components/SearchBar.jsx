@@ -4,23 +4,70 @@ import Input from './Input.jsx';
 import SelectInput from './SelectInput.jsx';
 
 class SearchBar extends React.Component {
-  render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
-    const options = [
+  constructor() {
+    super();
+    this.preparePropsToSearchInput = this.preparePropsToSearchInput.bind(this);
+    this.preparePropsToBookmarkedInput = this.preparePropsToBookmarkedInput.bind(this);
+    this.preparePropsToGenreInput = this.preparePropsToGenreInput.bind(this);
+  }
+
+  preparePropsToSearchInput() {
+    const { searchText, onSearchTextChange } = this.props.objProps;
+    return ({
+      type: 'text',
+      name: 'searchText',
+      value: searchText,
+      handle: onSearchTextChange,
+      inputId: 'text-input',
+      labelId: 'label-text-input',
+      label: 'Inclui o texto',
+      checked: '',
+    });
+  }
+
+  preparePropsToBookmarkedInput() {
+    const { onBookmarkedChange, bookmarkedOnly } = this.props.objProps;
+    return ({
+      type: 'checkbox',
+      name: 'bookmarkedOnly',
+      value: bookmarkedOnly,
+      handle: onBookmarkedChange,
+      inputId: 'checkbox-input',
+      labelId: 'label-checkbox-input',
+      label: 'Mostrar somente favoritos',
+      checked: bookmarkedOnly,
+    });
+  }
+
+  preparePropsToGenreInput() {
+    const { selectedGenre, onSelectedGenreChange } = this.props.objProps;
+    const optionsToSelect = [
       { label: 'Todos', value: '' },
       { label: 'Ação', value: 'action' },
       { label: 'Comédia', value: 'comedy' },
       { label: 'Suspense', value: 'thriller' },
     ];
 
+    return ({
+      name: 'selectedGenre',
+      value: selectedGenre,
+      handle: onSelectedGenreChange,
+      inputId: 'select-input',
+      labelId: 'label-select-input',
+      label: 'Filtrar por gênero',
+      options: optionsToSelect,
+    });
+  }
+
+  render() {
+    const objToSearchInput = this.preparePropsToSearchInput();
+    const objToBookmarkedInput = this.preparePropsToBookmarkedInput();
+    const objToGenreInput = this.preparePropsToGenreInput();
     return (
       <form data-testid="search-bar-form">
-
-        <Input type="text" name="searchText" value={searchText} handle={onSearchTextChange} inputId="text-input" labelText="Inclui o texto" labelId="text-input-label" checked="" />
-
-        <Input type="checkbox" name="bookmarkedOnly" value={bookmarkedOnly} handle={onBookmarkedChange} inputId="checkbox-input" labelText="Mostrar somente favoritos" labelId="checkbox-input-label" checked={bookmarkedOnly} />
-
-        <SelectInput name="selectedGenre" value={selectedGenre} handle={onSelectedGenreChange} inputTestId="select-input" labelText="Filtrar por gênero" labelTestId="select-input-label" options={options} />
+        <Input objProps={objToSearchInput} />
+        <Input objProps={objToBookmarkedInput} />
+        <SelectInput objProps={objToGenreInput} />
       </form>
     );
   }
@@ -29,19 +76,23 @@ class SearchBar extends React.Component {
 export default SearchBar;
 
 SearchBar.defaultProps = {
-  searchText: '',
-  onSearchTextChange: '',
-  bookmarkedOnly: false,
-  onBookmarkedChange: '',
-  selectedGenre: '',
-  onSelectedGenreChange: '',
+  objProps: {
+    searchText: '',
+    onSearchTextChange: '',
+    bookmarkedOnly: false,
+    onBookmarkedChange: '',
+    selectedGenre: '',
+    onSelectedGenreChange: '',
+  },
 };
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string,
-  onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.bool,
-  onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.string,
-  onSelectedGenreChange: PropTypes.func,
+  objProps: PropTypes.shape(
+    PropTypes.string,
+    PropTypes.func,
+    PropTypes.bool,
+    PropTypes.func,
+    PropTypes.string,
+    PropTypes.func,
+  ),
 };

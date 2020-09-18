@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 class TextArea extends React.Component {
   render() {
-    const { labelText, name, value, handle, inputId, labelId } = this.props;
+    const { label, name, value, handle, inputId, labelId } = this.props.objProps;
     return (
       <div>
-        <label htmlFor={name} data-testid={labelId} >{labelText}</label>
+        <label htmlFor={name} data-testid={labelId} >{label}</label>
         <textarea name={name} value={value} onChange={handle} data-testid={inputId} />
       </div>
     );
@@ -16,19 +16,23 @@ class TextArea extends React.Component {
 export default TextArea;
 
 TextArea.defaultProps = {
-  labelText: '',
-  name: '',
-  value: {},
-  handle: undefined,
-  inputId: '',
-  labelId: '',
+  objProps: {
+    label: '',
+    name: '',
+    value: {},
+    handle: undefined,
+    inputId: '',
+    labelId: '',
+  },
 };
 
 TextArea.propTypes = {
-  labelText: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.objectOf(PropTypes.string),
-  handle: PropTypes.func,
-  inputId: PropTypes.string,
-  labelId: PropTypes.string,
+  objProps: PropTypes.shape(
+    PropTypes.string,
+    PropTypes.string,
+    PropTypes.objectOf(PropTypes.string),
+    PropTypes.func,
+    PropTypes.string,
+    PropTypes.string,
+  ),
 };

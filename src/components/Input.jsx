@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 
 class Input extends React.Component {
   render() {
-    const { labelText, type, name, value, checked, handle, inputId, labelId } = this.props;
+    const { label: lb, type: tp, name: nm, value: val, checked: chk } = this.props.objProps;
+    const { handle: hd, inputId: iptId, labelId: lbId } = this.props.objProps;
 
     return (
       <div>
-        <label htmlFor={name} data-testid={labelId} >{labelText}</label>
-        <input type={type} name={name} value={value} onChange={handle} data-testid={inputId} checked={checked} />
+        <label htmlFor={nm} data-testid={lbId} >{lb}</label>
+        <input type={tp} name={nm} value={val} onChange={hd} data-testid={iptId} checked={chk} />
       </div>
     );
   }
@@ -17,25 +18,27 @@ class Input extends React.Component {
 export default Input;
 
 Input.defaultProps = {
-  labelText: '',
-  type: '',
-  name: '',
-  value: '',
-  checked: false,
-  handle: '',
-  inputId: '',
-  labelId: '',
-  options: [],
+  objProps: {
+    label: '',
+    type: '',
+    name: '',
+    value: '',
+    checked: false,
+    handle: '',
+    inputId: '',
+    labelId: '',
+  },
 };
 
 Input.propTypes = {
-  labelText: PropTypes.string,
-  type: PropTypes.string,
-  name: PropTypes.string,
-  value: PropTypes.string,
-  checked: PropTypes.bool,
-  handle: PropTypes.func,
-  inputId: PropTypes.string,
-  labelId: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.object),
+  objProps: PropTypes.shape(
+    PropTypes.string,
+    PropTypes.string,
+    PropTypes.string,
+    PropTypes.string,
+    PropTypes.bool,
+    PropTypes.func,
+    PropTypes.string,
+    PropTypes.string,
+  ),
 };
