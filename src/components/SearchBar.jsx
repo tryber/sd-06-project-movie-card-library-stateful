@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SelectInput from './SelectInput';
 
 class SearchBar extends Component {
   render() {
@@ -28,15 +29,13 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
           />
         </label>
-        <label data-testid="select-input-label">
-          Filtrar por gênero
-          <select value={selectedGenre} onChange={onSelectedGenreChange} data-testid="select-input">
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
+        <SelectInput
+          id="select-input"
+          labelText="Filtrar por gênero"
+          onChange={onSelectedGenreChange}
+          optionId="select-option"
+          value={selectedGenre}
+        />
       </form>
     );
   }
