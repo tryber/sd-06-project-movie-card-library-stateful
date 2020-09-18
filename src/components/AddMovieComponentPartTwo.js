@@ -3,9 +3,9 @@ import React from 'react';
 
 class AddMovieComponentPartTwo extends React.Component {
   render() {
-    const { imagePath, storyline, handleChange } = this.props;
+    const { value, handleChange } = this.props;
     return (
-      <div>
+      <div className="image-storyline-div">
         <label htmlFor="this-form" data-testid="image-input-label">Imagem
           <input
             data-testid="image-input"
@@ -13,7 +13,7 @@ class AddMovieComponentPartTwo extends React.Component {
             name="imagePath"
             id="imagem"
             onChange={handleChange}
-            value={imagePath}
+            value={value}
           />
         </label>
         <label htmlFor="this-form" data-testid="storyline-input-label">Sinopse
@@ -22,7 +22,7 @@ class AddMovieComponentPartTwo extends React.Component {
             type="text"
             id="textarea"
             name="storyline"
-            value={storyline}
+            value={value}
             onChange={handleChange}
           />
         </label>
@@ -32,8 +32,7 @@ class AddMovieComponentPartTwo extends React.Component {
 }
 
 AddMovieComponentPartTwo.propTypes = {
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

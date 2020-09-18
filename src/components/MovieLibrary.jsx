@@ -82,8 +82,6 @@ class MovieLibrary extends Component {
   }
 }
 
-// ✕ Será validado se é possível adicionar um novo filme a lista de filmes (263ms)
-
 MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
 
 export default MovieLibrary;

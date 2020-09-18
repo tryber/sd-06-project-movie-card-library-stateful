@@ -5,7 +5,7 @@ class AddMovieComponentPartFour extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <div>
+      <div className="genre-div">
         <label htmlFor="this-form" data-testid="genre-input-label">
           Gênero
           <select

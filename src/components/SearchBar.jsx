@@ -38,5 +38,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
-//  100%
+
 export default SearchBar;

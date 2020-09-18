@@ -5,7 +5,7 @@ class AddMovieComponentPartOne extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
-      <div>
+      <div className="title-subtitle-div">
         <label htmlFor="this-form" data-testid="title-input-label">Título
           <input
             data-testid="title-input"

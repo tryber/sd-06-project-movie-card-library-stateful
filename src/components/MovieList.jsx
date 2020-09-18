@@ -13,5 +13,5 @@ class MovieList extends React.Component {
     );
   }
 }
-//  100%
+
 export default MovieList;
