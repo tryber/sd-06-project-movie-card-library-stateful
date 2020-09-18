@@ -1,26 +1,25 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
 
+const inputText = {
+  type: 'text',
+  value: 'searchText',
+  onChange: 'onSearchChange',
+};
+
+const inputCheckBox = {
+  type: 'checkbox',
+  checked: 'bookMarkedOnly',
+  onChange: 'onBookMarkedChange',
+};
+
+const inputSelect = {
+  type: 'select',
+  value: '',
+  onChange: 'onSelectedGenreChange',
+}
 class SearchBar extends Component {
   render() {
-    const inputText = {
-      type: 'text',
-      value: 'searchText',
-      onChange: 'onSearchChange',
-    };
-
-    const inputCheckBox = {
-      type: 'checkbox',
-      checked: 'bookMarkedOnly',
-      onChange: 'onBookMarkedChange',
-    };
-
-    const inputSelect = {
-      type: 'select',
-      value: '',
-      onChange: 'onSelectedGenreChange',
-    }
-
     return (
       <div className="search-bar">
         <section className="form" data-testid="search-bar-form">
