@@ -1,5 +1,5 @@
 import React from 'react';
-// import propTypes from 'prop-types';
+import propTypes from 'prop-types';
 import MovieList from './MovieList';
 // import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
@@ -15,7 +15,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies
+      movies: props.movies,
     };
   }
 
@@ -34,18 +34,18 @@ class MovieLibrary extends React.Component {
   moviesFilter() {
     let movieArray = this.state.movies;
     if (this.state.bookmarkedOnly === true) {
-      movieArray = movieArray.filter((movie) => movie.bookmarked === true).map(movie => movie);
+      movieArray = movieArray.filter((movie) => movie.bookmarked === true).map((movie) => movie);
     }
     if (this.state.selectedGenre !== '') {
       movieArray = movieArray.filter((movie) => movie.genre === this.state.selectedGenre)
-      .map(movie => movie);
+      .map((movie) => movie);
     }
     if (this.state.searchText !== '') {
       movieArray = movieArray.filter((movie) => (
         movie.title.includes(this.state.searchText) ||
         movie.subtitle.includes(this.state.searchText) ||
         movie.storyline.includes(this.state.searchText)
-      )).map(movie => movie);
+      )).map((movie) => movie);
     }
     return movieArray;
   }
@@ -66,6 +66,15 @@ class MovieLibrary extends React.Component {
   }
 }
 
-// MovieLibrary.propTypes = { movies: propTypes.a.isRequired };
-
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
+  }).isRequired),
+};
 export default MovieLibrary;
