@@ -15,11 +15,11 @@ class SearchBar extends Component {
   }
 
   CheckBox() {
-    const { bookMarkedOnly, onBookMarkedChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <input
-        data-testid="checkbox-input" type="checkbox" checked={bookMarkedOnly}
-        onChange={onBookMarkedChange}
+        data-testid="checkbox-input" type="checkbox" checked={bookmarkedOnly}
+        onChange={onBookmarkedChange}
       />
     );
   }
@@ -71,8 +71,8 @@ function getDefaulProps() {
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
-  bookMarkedOnly: PropTypes.bool,
-  onBookMarkedChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
 };
