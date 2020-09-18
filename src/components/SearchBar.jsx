@@ -80,8 +80,8 @@ SearchBar.propTypes = {
 SearchBar.defaultProps = {
   searchText: '',
   onSearchTextChange: getDefaulProps,
-  bookMarkedOnly: false,
-  onBookMarkedChange: getDefaulProps,
+  bookmarkedOnly: false,
+  onBookmarkedChange: getDefaulProps,
   selectedGenre: '',
   onSelectedGenreChange: getDefaulProps,
 };
