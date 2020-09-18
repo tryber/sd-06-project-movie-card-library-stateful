@@ -82,8 +82,8 @@ class MovieLibrary extends React.Component {
     }
   }
 
-  addNewMovie(newMovieState) {
-    this.setState(() => ({ movies: this.state.movies.concat(newMovieState) }));
+  addNewMovie(newMovie) {
+    this.setState(() => ({ movies: this.state.movies.push(newMovie) }));
   }
 
   render() {
@@ -95,7 +95,14 @@ class MovieLibrary extends React.Component {
     const sg = this.state.selectedGenre;
     return (
       <div>
-        <SearchBar searchText={ss} onSearchTextChange={hs} bookmarkedOnly={sb} onBookmarkedChange={hb} selectedGenre={sg} onSelectedGenreChange={hg} />
+        <SearchBar
+          searchText={ss}
+          onSearchTextChange={hs}
+          bookmarkedOnly={sb}
+          onBookmarkedChange={hb}
+          selectedGenre={sg}
+          onSelectedGenreChange={hg}
+        />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.addNewMovie} />
       </div>
