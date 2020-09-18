@@ -7,9 +7,9 @@ class Select extends Component {
 
     return (
       <div className="checkbox-container">
-        <label htmlFor="options" data-testid="select-input-label">Filtrar por gênero</label>
+        <label htmlFor="selectedGenre" data-testid="select-input-label">Filtrar por gênero</label>
         <select
-          name="options" id="options" data-testid="select-input"
+          name="selectedGenre" id="options" data-testid="select-input"
           onChange={onSelectedGenreChange} value={selectedGenre}
         >
           <option data-testid="select-option" value="">Todos</option>
