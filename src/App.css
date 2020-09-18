@@ -135,6 +135,6 @@ body {
   border: 7px ridge rgb(156, 156, 156);
   display: flex;
   justify-content: space-between;
-  padding: 5px 10px 0 10px;
+  padding: 5px 10px 0;
   vertical-align: auto;
 }
