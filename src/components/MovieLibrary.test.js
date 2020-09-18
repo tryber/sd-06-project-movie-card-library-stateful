@@ -42,7 +42,7 @@ describe('Verifica o componente <MovieLibrary />', () => {
   });
 });
 
-describe('Verifica o estado inicial do component <MovieLibrary />', () => {
+describe.only('Verifica o estado inicial do component <MovieLibrary />', () => {
 
   
   it('Será validado se o `searchText` é inicializado com uma string vazia', () => {
