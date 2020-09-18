@@ -1,142 +1,50 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React from 'react';
+import propTypes from 'prop-types';
+import TitleInput from './TitleInput';
+import SubtitleInput from './SubtitleInput';
+import GenreInput from './GenreInput';
+import ImageInput from './ImageInput';
+import Storyline from './Storyline';
+import RatingInput from './RatingInput';
 
-class AddMovie extends Component {
+class AddMovie extends React.Component {
+  constructor() {
+    super();
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  }
+
   render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.props.data;
-    const { onSelectedInputChange } = this.props;
-    /* const { onClick } = this.props; */
-
+    const { onClick } = this.props;
+    const { subtitle, title, imagePath, storyline, rating, genre } = this.state;
     return (
-      <fieldset data-testid="title-input-label">
-        <Title onSelectedInputChange={onSelectedInputChange} title={title} />
-        <Subtitle onSelectedInputChange={onSelectedInputChange} subtitle={subtitle} />
-        <Image onSelectedInputChange={onSelectedInputChange} imagePath={imagePath} />
-        <Storyline onSelectedInputChange={onSelectedInputChange} storyline={storyline} />
-        <Rating onSelectedInputChange={onSelectedInputChange} rating={rating} />
-        <Select onSelectedInputChange={onSelectedInputChange} genre={genre} />
-      </fieldset>
+      <div>
+        <form data-testid="add-movie-form">
+          <TitleInput value={title} handleChange={this.handleChange} />
+          <SubtitleInput value={subtitle} handleChange={this.handleChange} />
+          <ImageInput value={imagePath} handleChange={this.handleChange} />
+          <Storyline value={storyline} handleChange={this.handleChange} />
+          <RatingInput rating={rating} handleChange={this.handleChange} />
+          <GenreInput value={genre} handleChange={this.handleChange} />
+          <button type="submit" data-testid="send-button" onClick={onClick}>Adicionar filme</button>
+        </form>
+      </div>
     );
   }
 }
 
-function Title(props) {
-  return (
-    <div>
-      <label htmlFor="title" data-testid="title-input-label">Título</label>
-      <input
-        name="title" id="title" type="text" data-testid="title-input"
-        onChange={props.onSelectedInputChange} value={props.title}
-      />
-    </div>
-  );
-}
-
-function Subtitle(props) {
-  return (
-    <div>
-      <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
-      <input
-        name="subtitle" id="subtitle" type="text" data-testid="subtitle-input"
-        onChange={props.onSelectedInputChange} value={props.subtitle}
-      />
-    </div>
-  );
-}
-
-function Image(props) {
-  return (
-    <div>
-      <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
-      <input
-        name="imagePath" id="imagePath" type="text" data-testid="image-input"
-        onChange={props.onSelectedInputChange} value={props.imagePath}
-      />
-    </div>
-  );
-}
-
-function Storyline(props) {
-  return (
-    <div>
-      <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
-      <input
-        name="storyline" id="storyline" type="text" data-testid="storyline-input"
-        onChange={props.onSelectedInputChange} value={props.storyline}
-      />
-    </div>
-  );
-}
-
-function Rating(props) {
-  return (
-    <div>
-      <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
-      <input
-        name="rating" id="rating" type="text" data-testid="rating-input"
-        onChange={props.onSelectedInputChange} value={props.rating}
-      />
-    </div>
-  );
-}
-
-function Select(props) {
-  return (
-    <div>
-      <label htmlFor="genre" data-testid="select-input-label">Gênero</label>
-      <select
-        name="genre" id="genre" data-testid="select-input"
-        onChange={props.onSelectedInputChange} value={props.genre}
-      >
-        <option data-testid="genre-option" value="action">Ação</option>
-        <option data-testid="genre-option" value="comedy">Comédia</option>
-        <option data-testid="genre-option" value="thriller">Suspense</option>
-      </select>
-    </div>
-  );
-}
-
-AddMovie.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-
-  data: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-  }).isRequired,
-};
-
-Title.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,
-};
-
-Subtitle.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-  subtitle: PropTypes.string.isRequired,
-};
-
-Image.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-  imagePath: PropTypes.string.isRequired,
-};
-
-Storyline.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-  storyline: PropTypes.string.isRequired,
-};
-
-Rating.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-  rating: PropTypes.string.isRequired,
-};
-
-Select.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-  genre: PropTypes.string.isRequired,
-};
+AddMovie.propTypes = { onClick: propTypes.func.isRequired };
 
 export default AddMovie;
