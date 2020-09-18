@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
@@ -17,7 +18,7 @@ class MovieLibrary extends Component {
 
     };
   }
-  
+
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value });
   }
@@ -51,6 +52,12 @@ class MovieLibrary extends Component {
       </div>
     );
   }
+}
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.objectOf(
+      PropTypes.oneOf([PropTypes.string, PropTypes.number]))).isRequired
 }
 
 export default MovieLibrary;
