@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies
+      movies: props.movies,
     };
 
     this.onClick = this.onClick.bind(this);
@@ -21,30 +21,59 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  onClick (estados) {
-    console.log(estados);
+  onClick(estados) {
+    this.setState((prevState) => ({ movie: prevState.movies.push(estados) }));
   }
 
-  onSearchTextChange () {
-
-  }
-
-  onBookmarkedChange () {
-    this.setState((prevState, props) => (
-      (!prevState.bookmarkedOnly)
+  onSearchTextChange({ target }) {
+    const { value } = target;
+    this.setState((prevState) => (
+      (value !== '')
       ? {
-          bookmarkedOnly: true, 
-          movies: prevState.movies.filter((movie) => movie.bookmarked)
-        }
+        searchText: value,
+        movies: prevState.movies
+          .filter((movie) => movie.title.includes(value) ||
+          movie.subtitle.includes(value) ||
+          movie.storyline.includes(value)),
+      }
       : {
-          bookmarkedOnly: false,
-          movies: props.movies
-        }
+        searchText: '',
+        movies: this.props.movies,
+      }
     ));
   }
 
-  onSelectedGenreChange () {
+  onBookmarkedChange() {
+    this.setState((prevState, props) => (
+      (!prevState.bookmarkedOnly)
+      ? {
+        bookmarkedOnly: true,
+        movies: ((prevState.movies === [])
+          ? prevState.movies.filter((movie) => movie.bookmarked)
+          : this.props.movies.filter((movie) => movie.bookmarked)),
+      }
+      : {
+        bookmarkedOnly: false,
+        movies: props.movies,
+      }
+    ));
+  }
 
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState((prevState, props) => (
+      (value !== '')
+      ? {
+        selectedGenre: value,
+        movies: ((prevState.movies === [])
+          ? prevState.movies.filter((movie) => movie.genre === value)
+          : this.props.movies.filter((movie) => movie.genre === value)),
+      }
+      : {
+        selectedGenre: '',
+        movies: props.movies,
+      }
+    ));
   }
 
   render() {
@@ -60,10 +89,12 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(Object).isRequired };
 
 export default MovieLibrary;
