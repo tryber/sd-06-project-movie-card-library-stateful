@@ -21,6 +21,14 @@ class SearchBar extends Component {
             <input
           type="checkbox"
           name="" id="checkbox-input" data-testid="checkbox-input" checked value={bookmarkedOnly} onChange={onBookmarkedChange} />
+
+          <label for="gender" data-testid="select-input-label">Filtrar por gênero</label>
+          <select name="gender" id="gender" form="genderform" data-testid="select-input" >
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+          </select>
         </form>
       </div>
     )
