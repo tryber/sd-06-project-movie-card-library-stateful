@@ -100,6 +100,22 @@ class AddMovie extends Component {
     );
   }
 
+  renderRatingInputLabel() {
+    return (
+      <label data-testid="rating-input-label" htmlFor="rating-input-label">
+      Avaliação:
+      <input
+        type="number"
+        name="rating"
+        value={this.state.rating}
+        onChange={this.onChange}
+        data-testid="rating-input"
+        id="rating-input-label"
+      />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form action="" data-testid="add-movie-form">
@@ -107,6 +123,7 @@ class AddMovie extends Component {
         <div>{this.renderSubtitleInputLabel()}</div>
         <div>{this.renderImageInputLabel()}</div>
         <div>{this.renderStorylineInputLabel()}</div>
+        <div>{this.renderRatingInputLabel()}</div>
       </form>
     );
   }
