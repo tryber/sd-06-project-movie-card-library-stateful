@@ -7,7 +7,7 @@ class SearchBar extends React.Component {
   render() {
     const { onSelectedGenreChange, onSearchTextChange, searchText } = this.props;
     return (
-      <form data-testid="search-bar-form" id="search-bar">
+      <form data-testid="search-bar-form" className="search-bar">
         <AddInput
           id="text" label="Inclui o texto" callback={onSearchTextChange} value={searchText}
         />
