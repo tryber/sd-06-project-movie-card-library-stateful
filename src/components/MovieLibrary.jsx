@@ -44,27 +44,27 @@ class MovieLibrary extends React.Component {
 
   listFilterText(filter) {
     const { movies } = this.props;
-    this.setState({movies: movies.filter((movie) => {
-        const { title, subtitle, storyline } = movie;
-        return (title.includes(filter) || subtitle.includes(filter) || storyline.includes(filter));
-    }).map((movie) => movie)});
+    this.setState({ movies: movies.filter((movie) => {
+      const { title, subtitle, storyline } = movie;
+      return (title.includes(filter) || subtitle.includes(filter) || storyline.includes(filter));
+    }).map((movie) => movie) });
   }
 
   listFilterBookmarked(filter) {
     const { movies } = this.props;
-    this.setState({movies: movies
+    this.setState({ movies: movies
       .filter((movie) => movie.bookmarked === filter)
-      .map((movie) => movie)});
+      .map((movie) => movie) });
   }
 
   listFilterGenre(filter) {
     const { movies } = this.props;
     if (filter === '') {
-      this.setState({movies: movies});
+      this.setState({ movies: movies });
     } else {
-    this.setState({movies: movies
-      .filter((movie) => movie.genre === filter)
-      .map((movie) => movie)});
+      this.setState({ movies: movies
+        .filter((movie) => movie.genre === filter)
+        .map((movie) => movie) });
     }
   }
 
@@ -99,6 +99,6 @@ MovieLibrary.PropTypes = {
     bookmarked: PropTypes.bool.isRequired,
     genre: PropTypes.string.isRequired,
   }).isRequired,
-}
+};
 
 export default MovieLibrary;
