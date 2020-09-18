@@ -8,7 +8,14 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar searchText="" onSearchTextChange="" bookmarkedOnly="" onBookmarkedChange="" selectedGenre="" onSelectedGenreChange="" />
+      <SearchBar
+        searchText=""
+        onSearchTextChange=""
+        bookmarkedOnly=""
+        onBookmarkedChange=""
+        selectedGenre=""
+        onSelectedGenreChange=""
+      />
     </div>
   );
 }
