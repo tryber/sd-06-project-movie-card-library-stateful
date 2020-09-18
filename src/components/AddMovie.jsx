@@ -200,7 +200,7 @@ AddMovie.propTypes = {
   // genre: propTypes.string,
   // onChange: propTypes.func,
   // submit: propTypes.func,
-  // onClick: propTypes.func,
+  onClick: propTypes.func,
 };
 
 export default AddMovie;
