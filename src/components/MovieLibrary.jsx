@@ -73,9 +73,7 @@ class MovieLibrary extends React.Component {
       bookmarked: false,
       genre: data.genre,
     };
-    const movies = this.state.movies;
-    movies.push(newMovie);
-    this.setState({ movies });
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
   }
 
   render() {
