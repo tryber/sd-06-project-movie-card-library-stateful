@@ -5,9 +5,15 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.myOnClick = this.myOnClick.bind(this);
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: this.props.movies,
+    };
   }
 
   myOnClick() {
@@ -15,7 +21,6 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.props;
 
     return (
       <div>
@@ -29,8 +34,8 @@ class MovieLibrary extends Component {
           selectedGenre={'Genre'}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />, */}
-        <MovieList movies={movies} />
-        <AddMovie onClick={this.myOnClick} movies={movies} />
+        <MovieList movies={this.state.movies} />
+        <AddMovie onClick={this.myOnClick} />
       </div>
     );
   }

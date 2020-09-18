@@ -29,7 +29,7 @@ class AddMovie extends React.Component {
   }
 
   returnState() {
-    this.props.myOnClick(this.state);
+    this.props.onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -131,6 +131,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { myOnClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
