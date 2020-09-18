@@ -2,11 +2,9 @@ import React from 'react';
 import PropType from 'prop-types';
 
 class SearchBar extends React.Component {
-
   onSearchTextChange = ({ target }) => this.setState({ [target.name]: target.value });
   onBookmarkedChange = ({ target }) => this.setState({ [target.name]: target.checked });
   onSelectedGenreChange = ({ target }) => this.setState({ [target.name]: target.value });
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, onBookmarkedChange, onSelectedGenreChange, onSearchTextChange } = this.props;
     return (
@@ -26,9 +24,8 @@ class SearchBar extends React.Component {
         </label>
         <label data-testid="select-input-label" htmlFor="select-input">
           Filtrar por gênero:
-          <select
-            data-testid="select-input" onChange={onSelectedGenreChange} value={selectedGenre} name="selectedGenre"
-          >
+          <select data-testid="select-input" onChange={onSelectedGenreChange} value={selectedGenre}
+            name="selectedGenre">
             <option data-testid="select-option" value="">Todos</option>
             <option data-testid="select-option" value="action">Ação</option>
             <option data-testid="select-option" value="comedy">Comédia</option>

@@ -4,10 +4,8 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
-
     this.onClickHandler = this.onClickHandler.bind(this);
     this.onChangeHandler = this.onChangeHandler.bind(this);
-
     this.state = {
       title: '',
       subtitle: '',
@@ -17,12 +15,10 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
-
   onChangeHandler({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
-  
   onClickHandler() {
     const { onClick } = this.props;
     onClick(this.state);
@@ -34,32 +30,35 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    console.log('botão clicando');
   }
-
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
           Título:
-          <input type="text" data-testid="title-input" value={title} onChange={this.onChangeHandler} name="title" />
+          <input type="text" data-testid="title-input" value={title}
+            onChange={this.onChangeHandler} name="title" />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo:
-          <input type="text" data-testid="subtitle-input" value={subtitle} onChange={this.onChangeHandler} name="subtitle" />
+          <input type="text" data-testid="subtitle-input" value={subtitle}
+            onChange={this.onChangeHandler} name="subtitle" />
         </label>
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem:
-          <input type="text" data-testid="image-input" value={imagePath} onChange={this.onChangeHandler} name="imagePath" />
+          <input type="text" data-testid="image-input" value={imagePath}
+          onChange={this.onChangeHandler} name="imagePath" />
         </label>
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse:
-          <textarea data-testid="storyline-input" value={storyline} onChange={this.onChangeHandler} name="storyline" />
+          <textarea data-testid="storyline-input" value={storyline}
+            onChange={this.onChangeHandler} name="storyline" />
         </label>
         <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação:
-          <input type="number" data-testid="rating-input" value={rating} onChange={this.onChangeHandler} min="0" max="5" name="rating" />
+          <input type="number" data-testid="rating-input" value={rating}
+            onChange={this.onChangeHandler} min="0" max="5" name="rating" />
         </label>
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero:
