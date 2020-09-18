@@ -30,14 +30,28 @@ class MovieLibrary extends Component {
 
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value });
+    const inputValue = target.value.toLowerCase();
+    const movieTitle = this.props.movies.filter((value) => value.title.toLowerCase() === inputValue);
+    // const submovieTitle = this.props.movies.filter((value) => value.subtitle.toLowerCase() === frase);
+    // const sinopse = this.props.movies.filter((value) => value.storyline.toLowerCase() === frase);
+    if(target.value === '' || movieTitle.length === 0) this.setState({ movies: this.props.movies});
+    else this.setState({ movies: movieTitle});
   }
 
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
+    const gengerValue = target.value;
+    const movieGender = this.props.movies.filter((value) => value.genre === gengerValue);
+    if(movieGender.length === 0) this.setState({ movies: this.props.movies});
+    else this.setState({ movies: movieGender});
   }
 
   onBookmarkedChange({ target }) {
     this.setState({ bookmarkedOnly: target.checked });
+    const favorites = target.checked;
+    const favMovies = this.props.movies.filter((value) => value.bookmarked === true);
+    if(!favorites) this.setState({ movies: this.props.movies});
+    else this.setState({ movies: favMovies});
   }
 
   render() {
@@ -52,22 +66,16 @@ class MovieLibrary extends Component {
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick} />
       </div>
     );
   }
 }
-// ✕ Será validado se a barra de buscas filtra os filmes por titulo (71ms)
-// ✕ Será validado se a barra de buscas filtra os filmes por subtítulo (123ms)
-// ✕ Será validado se a barra de buscas filtra os filmes por sinopse (44ms)
-// ✓ Será validado se a lista de filmes é renderizada sem filtragens se a barra de
-//  buscar estiver vazia (19ms)
-// ✕ Será validado que é possivel filtrar por favoritos (30ms)
-// ✕ Será validado que é possivel filtrar por categoria (34ms)
-// Verifica se o componente <MovieLibrary /> renderiza o componente <AddMovie />
-// ✓ Será validado se o componente `AddMovie` é renderizado com sucesso (21ms)
-// ✕ Será validado se é possível adicionar um novo filme a lista de filmes (205ms)
+// ✕ Será validado se a barra de buscas filtra os filmes por titulo (90ms)
+// ✕ Será validado se a barra de buscas filtra os filmes por subtítulo (125ms)
+// ✕ Será validado se a barra de buscas filtra os filmes por sinopse (51ms)
+// ✕ Será validado se é possível adicionar um novo filme a lista de filmes (263ms)
 
 MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
 
