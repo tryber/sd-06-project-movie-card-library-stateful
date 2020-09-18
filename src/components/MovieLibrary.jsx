@@ -3,11 +3,10 @@ import propTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -39,20 +38,9 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  filterMovies() {
-    const { bookmarkedOnly, selectedGenre, searchText, movies } = this.state;
-    //if (bookmarkedOnly) return movies.filter((movie) => movie.bookmarked === true);
-    if (selectedGenre !== '') return movies.filter((movie) => movie.genre === selectedGenre);
-
-    return movies;
-  }
-
-  addMovie() {
-
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    console.log(this.state.movies);
     return (
       <div>
         <SearchBar
@@ -64,10 +52,9 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList
-          movies={movies}
+          movies={this.state.movies}
         />
         <AddMovie
-          onClick={this.addMovie}
         />
       </div>
     );
