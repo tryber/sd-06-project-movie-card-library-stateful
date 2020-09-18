@@ -24,7 +24,13 @@ class MovieLibrary extends Component {
   }
 
   handleBookmarkedChange() {
-    console.log('bom dia');
+    if (this.state.bookmarkedOnly === false) {
+    this.setState(({bookmarkedOnly: true}))
+    const filtered = this.state.movies.filter(el => el.bookmarked === true);
+    this.setState(({movies: filtered}))
+  } else {
+      this.setState(({bookmarkedOnly: false, movies: data}));
+  }
   }
 
   handleGenreChange({ target }) {
