@@ -23,8 +23,12 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  onClickAddMovie() {
-    return (<div>{this.state.searchText}</div>);
+  onClickAddMovie(newMovie) {
+    let movieList = this.state.movie;
+    movieList.push(newMovie);
+    this.setState({
+      movie: movieList,
+    })
   }
 
   onSearchTextChange({ target: { value } }) {
