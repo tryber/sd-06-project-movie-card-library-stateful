@@ -47,7 +47,7 @@ class MovieLibrary extends React.Component {
   }
 
   filterText(movies, text) {
-    lowText = text.toLowerCase();
+    const lowText = text.toLowerCase();
     if (lowText !== '') {
       return movies.filter((movie) => (
           movie.title.toLowerCase().search(lowText)
