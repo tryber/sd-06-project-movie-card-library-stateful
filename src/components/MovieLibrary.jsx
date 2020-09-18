@@ -52,7 +52,7 @@ class MovieLibrary extends React.Component {
   }
 
   addClick(movie) {
-    this.setState({ movies: this.state.movies.concat(movie)});
+    this.setState({ movies: this.state.movies.concat(movie) });
   }
   render() {
     const selectedMovies = this.moviesFilter();
