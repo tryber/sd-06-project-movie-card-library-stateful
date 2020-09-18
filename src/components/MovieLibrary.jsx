@@ -8,9 +8,8 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar value={this.state.estadoFavorito} handleChange={this.handleChange} />
+        <SearchBar />
         <AddMovie />
-        <MovieList />
       </div>
     );
   }
