@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './AddMovie.css'
+import './AddMovie.css';
 
 class AddMovie extends React.Component {
   constructor() {
