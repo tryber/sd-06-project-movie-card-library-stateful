@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -12,13 +13,26 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
+      genre: 'action',
     };
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
+  }
+
+  inputButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   renderTitleInput() {
@@ -86,9 +100,23 @@ class AddMovie extends React.Component {
     );
   }
 
-  render() {
-    const { onClick } = this.props;
+  renderGenreInput() {
+    return (
+      <select
+        data-testid="genre-input"
+        id="genreInput"
+        name="genre"
+        value={this.state.genre}
+        onChange={this.handleChange}
+      >
+        <option value="action" data-testid="genre-option">Ação</option>
+        <option value="comedy" data-testid="genre-option">Comédia</option>
+        <option value="thriller" data-testid="genre-option">Suspense</option>
+      </select>
+    );
+  }
 
+  render() {
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="titleInput">
@@ -111,9 +139,16 @@ class AddMovie extends React.Component {
           Avaliação
           {this.renderRatingInput()}
         </label>
+        <label data-testid="genre-input-label" htmlFor="genreInput">
+          Gênero
+          {this.renderGenreInput()}
+        </label>
+        <button onClick={this.inputButton} data-testid="send-button">Adicionar filme</button>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
