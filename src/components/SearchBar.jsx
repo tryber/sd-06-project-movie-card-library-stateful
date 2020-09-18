@@ -22,7 +22,6 @@ class SearchBar extends Component {
 
 export default SearchBar;
 
-SearchBar.defaultProps = { search: {} };
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
