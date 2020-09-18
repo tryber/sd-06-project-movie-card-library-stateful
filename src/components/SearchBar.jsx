@@ -60,6 +60,14 @@ class SearchBar extends Component {
   }
 }
 
+function getDefaulProps() {
+  return {
+    onSearchTextChange: this.onSearchTextChange.bind(this),
+    onBookmarkedChange: this.onBookmarkedChange.bind(this),
+    onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
+  }
+}
+
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
@@ -71,11 +79,11 @@ SearchBar.propTypes = {
 
 SearchBar.defaultProps = {
   searchText: '',
-  onSearchTextChange: undefined,
+  onSearchTextChange: getDefaulProps,
   bookMarkedOnly: false,
-  onBookMarkedChange: undefined,
+  onBookMarkedChange: getDefaulProps,
   selectedGenre: '',
-  onSelectedGenreChange: undefined,
+  onSelectedGenreChange: getDefaulProps,
 };
 
 export default SearchBar;

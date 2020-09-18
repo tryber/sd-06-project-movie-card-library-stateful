@@ -18,3 +18,5 @@ function App() {
 }
 
 export default App;
+
+/* https://stackoverflow.com/questions/35436162/how-to-set-defaultprops-for-function */
