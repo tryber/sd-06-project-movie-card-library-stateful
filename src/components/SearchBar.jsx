@@ -1,13 +1,11 @@
 // implement SearchBar component here
 import React from 'react';
-import '../App.css';
+import './App.css';
 
 class SearchBar extends React.Component {
     constructor() {
         super();
-
         this.handleChange = this.handleChange.bind(this);
-
         this.state = {
             searchText: '',
             onSearchTextChange: 'callback',
@@ -17,7 +15,6 @@ class SearchBar extends React.Component {
             onSelectedGenreChange: 'callback',
         };
     }
-
     handleChange({ target }) {
         const { name, value } = target;
 
