@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import SearchBar from './SearchBar';
-import MovieList from './MovieList'
-import AddMovie from './AddMovie'
+import MovieList from './MovieList';
+import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   render() {
@@ -11,12 +12,14 @@ class MovieLibrary extends Component {
     return (
       <div>
         <SearchBar />
-        <MovieList movies={movies}/>
+        <MovieList movies={movies} />
         <AddMovie />
       </div>
     );
   }
 
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.shape({ title: PropTypes.string }).isRequired };
 
 export default MovieLibrary;
