@@ -14,22 +14,22 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies,
     };
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.handleCheckChange = this.handleCheckChange.bind(this);
-    this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
   }
 
-  handleTextChange({ target }) {
+  onSearchTextChange({ target }) {
     const { value } = target;
     this.setState({ searchText: value });
   }
 
-  handleCheckChange({ target }) {
+  onBookmarkedChange({ target }) {
     const { value } = target.checked;
     this.setState({ bookmarkedOnly: value })
   }
 
-  handleGenreChange({ target }) {
+  onSelectedGenreChange({ target }) {
     const { value } = target;
     this.setState({ selectedGenre: value })
   }
@@ -39,11 +39,11 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={this.state.searchText}
-          handleTextChange={this.handleTextChange}
+          onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          handleCheckChange={this.handleCheckChange}
+          onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={this.state.selectedGenre}
-          handleGenreChange={this.handleGenreChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies}/>
         <AddMovie />
