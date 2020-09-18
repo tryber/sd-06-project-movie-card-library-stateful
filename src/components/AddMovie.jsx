@@ -77,8 +77,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { resetState } = this.props;
-
     return (
       <form data-testid="add-movie-form" onChange={this.handleChange}>
         {this.renderInfos()}
@@ -97,7 +95,9 @@ class AddMovie extends React.Component {
           />
         </label>
         {this.renderSelect()}
-        <button data-testid="send-button" type="button" onClick={this.resetState}>Adicionar filme</button>
+        <button
+          data-testid="send-button" type="button"
+          onClick={this.resetState}>Adicionar filme</button>
       </form>
     );
   }
