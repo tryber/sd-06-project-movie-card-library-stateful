@@ -17,7 +17,7 @@ const inputSelect = {
   type: 'select',
   value: '',
   onChange: 'onSelectedGenreChange',
-}
+};
 class SearchBar extends Component {
   render() {
     return (

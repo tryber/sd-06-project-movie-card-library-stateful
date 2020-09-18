@@ -20,7 +20,7 @@ function App() {
       onBookMarkedOnly={search.onBookMarkedOnly}
       selectedGenre={search.selectedGenre}
       onSelectedGenre={search.onSelectedGenre} */}
-      <MovieList movies={movies}/>
+      <MovieList movies={movies} />
     </div>
   );
 }

@@ -1,14 +1,14 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
 
-const titleInput = { onChange: 'AddMovie.setState(title)' }
-const subTitleInput = { onChange: 'AddMovie.setState(subtitle)' }
-const imageInput = { onChange: 'AddMovie.setState(imagePath)' }
-const storylineInput = { onChange: 'AddMovie.setState(storyline)' }
+const titleInput = { onChange: 'AddMovie.setState(title)' };
+const subTitleInput = { onChange: 'AddMovie.setState(subtitle)' };
+const imageInput = { onChange: 'AddMovie.setState(imagePath)' };
+const storylineInput = { onChange: 'AddMovie.setState(storyline)' };
 const ratingInput = {
   type: 'number',
   onChange: 'AddMovie.setState(rating)'
-}
+};
 
 class AddMovie extends Component {
   constructor() {
@@ -46,7 +46,7 @@ class AddMovie extends Component {
           <button data-testid="send-button">Adicionar filme</button>
         </section>
       </div>
-    )
+    );
   }
 }
 
