@@ -50,7 +50,6 @@ beforeEach(() => {
   sendButton = queryByTestId('send-button');
 });
 
-
 describe('Verifica o componente <AddMovie />', () => {
   it('Será validado se o componente renderiza', () => {
     render(<AddMovie onClick={() => jest.fn()} />);
