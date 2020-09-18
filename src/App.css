@@ -44,7 +44,7 @@ body {
   padding: 48px 30px;
 }
 
-#add-movie-form {
+.add-movie-form {
   color: oldlace;
   margin: auto;
   min-width: 300px;
@@ -53,7 +53,7 @@ body {
   width: 30%;
 }
 
-#add-movie-form label {
+.add-movie-form label {
   display: block;
 }
 
