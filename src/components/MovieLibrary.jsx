@@ -10,7 +10,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: movies,
-    }
+    };
   }
   render() {
     return (<span>Ok</span>);
