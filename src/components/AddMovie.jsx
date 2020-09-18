@@ -8,6 +8,7 @@ class AddMovie extends Component {
     this.renderSubtitleInput = this.renderSubtitleInput.bind(this);
     this.renderImagePathInput = this.renderImagePathInput.bind(this);
     this.renderStorylineInput = this.renderStorylineInput.bind(this);
+    this.renderRatingInput = this.renderRatingInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
@@ -88,6 +89,21 @@ class AddMovie extends Component {
     );
   }
 
+  renderRatingInput() {
+    return (
+      <label data-testid="rating-input-label" htmlFor="rating">
+        Avaliação
+        <input
+          data-testid="rating-input"
+          name="rating"
+          onChange={this.handleChange}
+          type="number"
+          value={this.state.rating}
+        />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
@@ -95,6 +111,7 @@ class AddMovie extends Component {
         {this.renderSubtitleInput()}
         {this.renderImagePathInput()}
         {this.renderStorylineInput()}
+        {this.renderRatingInput()}
       </form>
     );
   }
