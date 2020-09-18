@@ -1,16 +1,17 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import PropTypes from 'prop-types';
 
 
 class MovieLibrary extends Component {
   constructor(props) {
     super();
 
+    this.getMovieDefaultState = this.getMovieDefaultState.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.getMovieDefaultState = this.getMovieDefaultState.bind(this);
 
     this.state = {
       movies: props.movies,
@@ -20,7 +21,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  getMovieDefaultState() { this.setState({ movies: this.props.movies }) }
+  getMovieDefaultState() { this.setState({ movies: this.props.movies }); }
 
   onSearchTextChange({ target }) {
     const { name, value } = target;
@@ -34,11 +35,14 @@ class MovieLibrary extends Component {
       const storylineString = item.storyline.toLowerCase().split(' ');
 
       if (titleString.includes(stringToBeFound) || subtitleString.includes(stringToBeFound) ||
-        storylineString.includes(stringToBeFound))
+        storylineString.includes(stringToBeFound)) {
         return item;
+      }
+
+      return '';
     });
 
-    if (nameFiltered === undefined) {
+    if (nameFiltered === '') {
       this.getMovieDefaultState();
     } else {
       this.setState({ movies: [nameFiltered] });
@@ -47,17 +51,13 @@ class MovieLibrary extends Component {
 
   onBookmarkedChange({ target }) {
     const { name, checked } = target;
-    const bookmarked = this.state.movies.filter(item => item.bookmarked === true)
+    this.setState({ [name]: checked });
+
+    const bookmarked = this.state.movies.filter((item) => item.bookmarked === true);
 
     if (checked === true) {
-      this.setState({
-        [name]: checked,
-        movies: bookmarked,
-      });
+      this.setState({ movies: bookmarked });
     } else {
-      this.setState({
-        [name]: checked,
-      });
       this.getMovieDefaultState();
     }
   }
@@ -90,5 +90,7 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieList.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
