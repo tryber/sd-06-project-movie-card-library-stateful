@@ -1,58 +1,46 @@
-// import React, { Component } from 'react'
-// import SeachBar from './SearchBar'
-// import AddMovie from './AddMovie'
-// // import movies from '../data'
+import React, { Component } from 'react';
+import SeachBar from './SearchBar';
+import AddMovie from './AddMovie';
+import movies from '../data';
+import MovieList from './MovieList';
 
-// class MovieLibrary extends Component {
-//   constructor() {
-//     super()
+class MovieLibrary extends Component {
+  constructor() {
+    super();
 
-//     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
-//     this.state = {
-//       searchText: "",
-//       bookmarkedOnly: false,
-//       selectedGenre: "",
-//       movies: ""
-//     }
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      // movies: movies,
+    };
+  }
 
-//   }
+  handleChange({ target }) {
+    this.setState({ [target.name]: target.value });
+  }
 
-//   onSearchTextChange({ target }) {
-//     this.setState({
-//       [target.name]: target.value
-//     });
-//   }
+  render() {
+    // const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
-//   onBookmarkedChange({ target }) {
-//     this.setState({
-//       [target.name]: target.value
-//     });
-//   }
+    return (
+      <div>
+        <SeachBar
+          searchText={searchText}
+          onSearchTextChange={this.handleChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.handleChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.handleChange}
+        />
+        <MovieList movies={movies} />
+        <AddMovie />
+      </div>
+    );
+  }
+}
 
-//   onSelectedGenreChange({ target }) {
-//     this.setState({
-//       [target.name]: target.value
-//     });
-//   }
-
-//   render() {
-//     const { movies } = this.props;
-
-//     return (
-//       <div>
-//         <SeachBar
-//           searchText={this.state.searchText}
-//           onSearchTextChange={this.onSearchTextChange}
-//           bookmarkedOnly={this.state.bookmarkedOnly}
-//           onBookmarkedChange={this.onBookmarkedChange}
-//           selectedGenre={this.state.selectedGenre}
-//           onSelectedGenreChange={this.onSelectedGenreChange}
-//         />
-//         <AddMovie />
-//       </div>
-//     )
-//   };
-// }
-
-// export default MovieLibrary;
+export default MovieLibrary;
