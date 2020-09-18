@@ -22,6 +22,7 @@ class AddMovie extends React.Component {
   }
 
   rendererTitleInput() {
+    const { title } = this.state;
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
       Título
@@ -29,7 +30,7 @@ class AddMovie extends React.Component {
           name="title"
           data-testid="title-input"
           type="text"
-          value={this.state.title}
+          value={title}
           onChange={this.handleChange}
         />
       </label>
@@ -37,6 +38,7 @@ class AddMovie extends React.Component {
   }
 
   rendererSubTitleInput() {
+    const { subtitle } = this.state;
     return (
       <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
       Subtítulo
@@ -44,7 +46,7 @@ class AddMovie extends React.Component {
           name="subtitle"
           data-testid="subtitle-input"
           type="text"
-          value={this.state.subtitle}
+          value={subtitle}
           onChange={this.handleChange}
         />
       </label>
@@ -52,6 +54,7 @@ class AddMovie extends React.Component {
   }
 
   rendererimageInput() {
+    const { imagePath } = this.state;
     return (
       <label htmlFor="image-input" data-testid="image-input-label">
       Imagem
@@ -59,7 +62,7 @@ class AddMovie extends React.Component {
           name="imagePath"
           data-testid="image-input"
           type="text"
-          value={this.state.imagePath}
+          value={imagePath}
           onChange={this.handleChange}
         />
       </label>
@@ -67,6 +70,7 @@ class AddMovie extends React.Component {
   }
 
   rendererStoryLineInput() {
+    const { storyline } = this.state;
     return (
       <label htmlFor="storyline-input" data-testid="storyline-input-label">
       Sinopse
@@ -74,7 +78,7 @@ class AddMovie extends React.Component {
           name="storyline"
           data-testid="storyline-input"
           type="text"
-          value={this.state.storyline}
+          value={storyline}
           onChange={this.handleChange}
         />
       </label>
@@ -82,6 +86,7 @@ class AddMovie extends React.Component {
   }
 
   rendererRatingInput() {
+    const { rating } = this.state;
     return (
       <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
@@ -89,7 +94,7 @@ class AddMovie extends React.Component {
           name="rating"
           data-testid="rating-input"
           type="number"
-          value={this.state.rating}
+          value={rating}
           onChange={this.handleChange}
         />
       </label>
@@ -97,13 +102,14 @@ class AddMovie extends React.Component {
   }
 
   rendererGenreInput() {
+    const { genre } = this.state;
     return (
       <label htmlFor="genre-input" data-testid="genre-input-label">
       Gênero
         <select
           name="genre"
           data-testid="genre-input"
-          value={this.state.genre}
+          value={genre}
           onChange={this.handleChange}
         >
           <option data-testid="genre-option" value="action">Ação</option>
