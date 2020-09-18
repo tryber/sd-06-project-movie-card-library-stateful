@@ -7,27 +7,33 @@ class SearchBar extends Component {
   SearchText() {
     const { searchText, onSearchTextChange } = this.props;
     return (
-      <input data-testid="text-input" type="text" value={searchText} onChange={onSearchTextChange} />
-    )
+      <input
+      data-testid="text-input" type="text" value={searchText} onChange={onSearchTextChange}
+      />
+    );
   }
 
   CheckBox() {
     const { bookMarkedOnly, onBookMarkedChange } = this.props;
     return (
-      <input data-testid="checkbox-input" type="checkbox" checked={bookMarkedOnly} onChange={onBookMarkedChange} />
-    )
+      <input
+      data-testid="checkbox-input" type="checkbox" checked={bookMarkedOnly} onChange={onBookMarkedChange}
+      />
+    );
   }
 
   SelectGenre() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
+      <select
+      data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}
+      >
         <option data-testid="select-option" value="">Todos</option>
         <option data-testid="select-option" value="action">Ação</option>
         <option data-testid="select-option" value="comedy">Comédia</option>
         <option data-testid="select-option" value="thriller">Suspense</option>
       </select>
-    )
+    );
   }
 
   render() {
@@ -59,7 +65,7 @@ SearchBar.propTypes = {
   onBookMarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
-}
+};
 
 SearchBar.defaultProps = {
   searchText: '',
@@ -68,6 +74,6 @@ SearchBar.defaultProps = {
   onBookMarkedChange: undefined,
   selectedGenre: '',
   onSelectedGenreChange: undefined,
-}
+};
 
 export default SearchBar;
