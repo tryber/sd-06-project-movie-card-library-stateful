@@ -12,31 +12,14 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
-    }
-    this.handleChanges = this.handleChanges.bind(this);
-  }
-
-  handleChanges({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({ [name]: value });
+      movies,
+    };
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-
     return (
       <div>
-        <SearchBar
-          searchText={searchText}
-          onSearchTextChange={this.handleChanges}
-          bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.handleChanges}
-          selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.handleChanges}
-        />
+        <SearchBar />
         <AddMovie />
         <MovieList movies={movies} />
       </div>
