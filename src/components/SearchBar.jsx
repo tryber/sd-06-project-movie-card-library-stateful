@@ -28,7 +28,7 @@ class SearchBar extends Component {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <select
-      data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}
+        data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}
       >
         <option data-testid="select-option" value="">Todos</option>
         <option data-testid="select-option" value="action">Ação</option>
