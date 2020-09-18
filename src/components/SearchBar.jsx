@@ -20,7 +20,8 @@ class SearchBar extends React.Component {
             <input type="text" {...inputSearch} data-testid="text-input" />
           </label>
           <label htmlFor="checkedbox" data-testid="checkbox-input-label">
-            <input id="checkedbox" type="checkbox" checked="bookmarkedOnly" onChange="onBookmarkedChange" data-testid="checkbox-input" />
+            <input id="checkedbox" type="checkbox" checked="bookmarkedOnly"
+              onChange="onBookmarkedChange" data-testid="checkbox-input" />
           </label>
           <label htmlFor="select" data-testid="select-input-label">
             <select id="select" value="selectedGenre">
