@@ -20,7 +20,7 @@ class AddMovie extends Component {
 
   handleChange({ target }) {
     const { name } = target;
-    this.setState({ [name]: target.value, });
+    this.setState({ [name]: target.value });
   }
 
   handleClick() {
