@@ -13,7 +13,7 @@ class MovieLibrary extends Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this)
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this)
 
-    this.filterSelect = this.filterSelect.bind(this)
+    // this.filterSelect = this.filterSelect.bind(this)
 
     this.state = {
       searchText: '',
@@ -57,8 +57,8 @@ class MovieLibrary extends Component {
     
   }
 
-  onClick() {
-
+  onClick(state) {
+    this.setState({movies: this.state.movies.concat(state)})
   }
 
   render() {
