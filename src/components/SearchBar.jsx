@@ -3,12 +3,46 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+
+  renderSearch() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
+      <label htmlFor="searchtext" data-testid="text-input-label">
+        Inclui o texto:
+        <input
+          name="searchText"
+          type="text"
+          value={searchText}
+          onChange={onSearchTextChange}
+          data-testid="text-input"
+        />
+      </label>
+    );
+  }
+
+  renderFavorite() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    return (
+      <label htmlFor="checkbox" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
+        <input
+          name="bookmarkedOnly"
+          type="checkbox"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+          data-testid="checkbox-input"
+        />
+      </label>
+    );
+  }
+
   renderSelect() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label htmlFor="select" data-testid="select-input-label">
       Filtrar por gênero
         <select
+          name="selectedGenre"
           value={selectedGenre}
           onChange={onSelectedGenreChange}
           data-testid="select-input"
@@ -23,29 +57,10 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="searchtext" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            name="searchText"
-            type="text"
-            value={searchText}
-            onChange={onSearchTextChange}
-            data-testid="text-input"
-          />
-        </label>
-        <label htmlFor="checkbox" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            name="bookmarkedOnly"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-            data-testid="checkbox-input"
-          />
-        </label>
+        {this.renderSearch()}
+        {this.renderFavorite()}
         {this.renderSelect()}
       </form>
     );
