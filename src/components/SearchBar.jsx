@@ -1,3 +1,7 @@
+/* eslint-disable react/jsx-closing-tag-location */
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable react/jsx-one-expression-per-line */
+/* eslint-disable react/jsx-wrap-multilines */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Input from './Input';
@@ -5,30 +9,30 @@ import SelectInput from './SelectInput';
 
 export default class SearchBar extends Component {
   render() {
-    return (
-      <form data-testid="search-bar-form">
-        <Input
-          type="text"
-          id="text-input"
-          onChange={this.props.onSearchTextChange}
-          value={this.props.searchText}
-          labelText="Inclui o texto"
-        />
-        <Input
-          type="checkbox"
-          id="checkbox-input"
-          onChange={this.props.onBookmarkedChange}
-          value={this.props.bookmarkedOnly}
-          labelText="Mostrar somente favoritos"
-        />
-        <SelectInput
-          id="select-input"
-          onChange={this.props.onSelectedGenreChange}
-          value={this.props.selectedGenre}
-          labelText="Filtrar por gênero"
-        />
-      </form>
-    );
+    return (<form data-testid="search-bar-form">
+      <Input
+        type="text"
+        id="text-input"
+        name="searchText"
+        onChange={this.props.onSearchTextChange}
+        value={this.props.searchText}
+        labelText="Inclui o texto"
+      />
+      <Input
+        type="checkbox"
+        id="checkbox-input"
+        name="bookmarkedOnly"
+        onChange={this.props.onBookmarkedChange}
+        value={this.props.bookmarkedOnly}
+        labelText="Mostrar somente favoritos"
+      />
+      <SelectInput
+        id="select-input"
+        name="selectedGenre"
+        onChange={this.props.onSelectedGenreChange}
+        value={this.props.selectedGenre}
+        labelText="Filtrar por gênero"
+      /></form>);
   }
 }
 
