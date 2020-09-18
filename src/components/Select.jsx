@@ -24,3 +24,12 @@ class Select extends Component {
 }
 
 export default Select;
+
+Select.defaultProps = {
+  selectedGenre: {},
+  onSelectedGenreChange: {},
+};
+Select.propTypes = {
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};

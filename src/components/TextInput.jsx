@@ -19,3 +19,12 @@ class TextInput extends Component {
 }
 
 export default TextInput;
+
+SearchBar.defaultProps = {
+  searchText: {},
+  onSearchTextChange: {},
+};
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+};
