@@ -24,11 +24,9 @@ class MovieLibrary extends React.Component {
   }
 
   onClickAddMovie(newMovie) {
-    let moviesList = this.state.movies;
+    const moviesList = this.state.movies;
     moviesList.push(newMovie);
-    this.setState({
-      movies: moviesList,
-    });
+    this.setState({ movies: moviesList });
   }
 
   onSearchTextChange({ target: { value } }) {
@@ -115,7 +113,7 @@ MovieLibrary.defaultProps = {
   movies: {
     genre: 'unknown',
     bookmarked: false,
-  }
-}
+  },
+};
 
 export default MovieLibrary;
