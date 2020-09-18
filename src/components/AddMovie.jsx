@@ -34,37 +34,38 @@ class AddMovie extends Component {
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">Título
-          <input name="title" data-testid="title-input"
-            value={this.state.title}
+          <input
+            name="title" data-testid="title-input" value={this.state.title}
             onChange={this.handleChange}
           />
         </label>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo
-          <input name="subtitle" data-testid="subtitle-input"
-            value={this.state.subtitle}
+          <input
+            name="subtitle" data-testid="subtitle-input" value={this.state.subtitle}
             onChange={this.handleChange}
           />
         </label>
         <label htmlFor="imagePath"data-testid="image-input-label">Imagem
-          <input name="imagePath" data-testid="image-input"
-            value={this.state.imagePath}
+          <input
+            name="imagePath" data-testid="image-input" value={this.state.imagePath}
             onChange={this.handleChange}
           />
         </label>
         <label htmlFor="sotryLine" data-testid="storyline-input-label">Sinopse
-          <textarea data-testid="storyline-input" name="storyline"
-            value={this.state.storyline}
+          <textarea
+            data-testid="storyline-input" name="storyline" value={this.state.storyline}
             onChange={this.handleChange}
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">Avaliação
-          <input name="rating" data-testid="rating-input" type="number"
-            value={this.state.rating}
+          <input
+            name="rating" data-testid="rating-input" type="number" value={this.state.rating}
             onChange={this.handleChange}
           />
         </label>
         <label htmlFor="genre" data-testid="genre-input-label">Gênero
-          <select name="genre" value={this.state.genre} data-testid="genre-input"
+          <select
+            name="genre" value={this.state.genre} data-testid="genre-input"
             onChange={this.handleChange}
           >
             <option data-testid="genre-option" value="action">Ação</option>
