@@ -34,12 +34,11 @@ class MovieLibrary extends Component {
     const movieTitle = this.props.movies.filter((value) =>
     value.title.toLowerCase().includes(inputValue) ||
     value.subtitle.toLowerCase().includes(inputValue) ||
-    value.storyline.toLowerCase().includes(inputValue)
+    value.storyline.toLowerCase().includes(inputValue),
     );
     if (target.value === '' || movieTitle.length === 0) this.setState({ movies: this.props.movies });
     else this.setState({ movies: movieTitle });
   }
-  
 
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
