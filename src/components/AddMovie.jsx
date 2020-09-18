@@ -18,7 +18,7 @@ class AddMovie extends React.Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
-  
+
   renderFirstPart() {
     return (
       <div>
@@ -59,7 +59,7 @@ class AddMovie extends React.Component {
       </select>
     );
   }
-  
+
   render() {
     const onClick = this.props;
     return (

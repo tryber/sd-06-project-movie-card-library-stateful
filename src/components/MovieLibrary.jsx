@@ -1,6 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import MovieList from './MovieList';
+//import MovieList from './MovieList';
 
 
 class MovieLibrary extends React.Component {
@@ -13,6 +13,7 @@ class MovieLibrary extends React.Component {
       movies: this.props.movies,
     }
   };
+
   render() {
     const movies = this.props;
     return (

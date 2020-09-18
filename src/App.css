@@ -136,5 +136,5 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 5px 10px 0 10px;
-  vertical-align: center;
+  vertical-align: auto;
 }
