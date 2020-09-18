@@ -10,6 +10,7 @@ class MovieLibrary extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
+    this.AddMovieList = this.AddMovieList.bind(this);
     this.state = {
       searchText:'',
       bookmarkedOnly: false,
@@ -27,7 +28,7 @@ class MovieLibrary extends Component {
   handleGenreChanges() {
   };
 
-  AddMovieList = (title, subtitle, imagePath, storyline, rating, genre) => {
+  AddMovieList(title, subtitle, imagePath, storyline, rating, genre) {
     this.setState(() => {
       this.state.movies.push({
         title,
