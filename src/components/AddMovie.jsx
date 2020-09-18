@@ -3,7 +3,13 @@ import React, {Component} from 'react';
 class AddMovie extends Component {
   constructor() {
     super();
-    this.onChange = this.onChange.bind(this)
+    this.onChange = this.onChange.bind(this);
+    this.titleInput = this.titleInput.bind(this);
+    this.subtitleInput = this.subtitleInput.bind(this);
+    this.imageInput = this.imageInput.bind(this);
+    this.storylineInput = this.storylineInput.bind(this);
+    this.ratingInput = this.ratingInput.bind(this);
+    this.genreInput = this.genreInput.bind(this);
     this.state = {
       subtitle: "",
       title: "",
@@ -12,14 +18,14 @@ class AddMovie extends Component {
       rating: 0,
       genre: "action",
     }
-  };
+  }
 
   onChange({ target }) {
     const { name } = target;
     this.setState(({[name]: target.value}));
   };
 
-  titleInput = () => {
+  titleInput() {
     return (
       <label data-testid="title-input-label">Título
         <input type="text"
@@ -31,7 +37,7 @@ class AddMovie extends Component {
     )
   };
 
-  subtitleInput = () => {
+  subtitleInput() {
     return (
       <label data-testid="subtitle-input-label">Subtítulo
         <input type="text"
@@ -43,7 +49,7 @@ class AddMovie extends Component {
     )
   };
 
-  imageInput = () => {
+  imageInput() {
     return (
       <label data-testid="image-input-label">Imagem
         <input type="text"
@@ -55,7 +61,7 @@ class AddMovie extends Component {
     )
   };
 
-  storylineInput = () => {
+  storylineInput() {
     return (
       <label data-testid="storyline-input-label">Sinopse
         <textarea type="text"
@@ -67,7 +73,7 @@ class AddMovie extends Component {
     )
   };
 
-  ratingInput = () => {
+  ratingInput() {
     return (
       <label data-testid="rating-input-label">Avaliação
         <input type="number"
@@ -79,7 +85,7 @@ class AddMovie extends Component {
     )
   };
 
-  genreInput = () => {
+  genreInput() {
     return (
       <label data-testid="genre-input-label">Gênero
         <select value={this.state.genre} data-test-id="genre-input" name="genre"
