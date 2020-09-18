@@ -63,7 +63,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.onBookmarkedChange}
-         />
+        />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick} />
       </div>
@@ -71,6 +71,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default MovieLibrary;
