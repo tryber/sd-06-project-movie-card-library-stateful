@@ -101,7 +101,7 @@ class AddMovie extends Component {
       <button data-testid="send-button" onClick={this.saveNewMovie}>
         Adicionar filme
       </button>
-    )
+    );
   }
 
   render() {
@@ -113,7 +113,7 @@ class AddMovie extends Component {
         {this.subtitle()}
         <label data-testid="image-input-label" htmlFor="image-input">Imagem</label>
         {this.image()}
-        <label data-testid="storyline-input-label">Sinopse</label>
+        <label data-testid="storyline-input-label" htmlFor="storyline-input">Sinopse</label>
         {this.story()}
         <label data-testid="rating-input-label" htmlFor="rating-input">Avaliação</label>
         {this.rating()}
