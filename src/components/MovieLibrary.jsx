@@ -1,22 +1,21 @@
 import React from 'react';
 // import propTypes from 'prop-types';
-// import MovieList from './MovieList';
+import MovieList from './MovieList';
 // import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 
-
 class MovieLibrary extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
-    const movies = this.props;
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.moviesFilter = this.moviesFilter.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies,
+      movies: props.movies
     };
   }
 
@@ -26,14 +25,33 @@ class MovieLibrary extends React.Component {
 
   onBookmarkedChange(e) {
     this.setState({ bookmarkedOnly: e.target.checked });
-    // if (this.state.bookmarkedOnly === true) movies.filter((movie) => movie.bookmarked === true);
   }
 
   onSelectedGenreChange(e) {
     this.setState({ selectedGenre: e.target.value });
   }
 
+  moviesFilter() {
+    let movieArray = this.state.movies;
+    if (this.state.bookmarkedOnly === true) {
+      movieArray = movieArray.filter((movie) => movie.bookmarked === true).map(movie => movie);
+    }
+    if (this.state.selectedGenre !== '') {
+      movieArray = movieArray.filter((movie) => movie.genre === this.state.selectedGenre)
+      .map(movie => movie);
+    }
+    if (this.state.searchText !== '') {
+      movieArray = movieArray.filter((movie) => (
+        movie.title.includes(this.state.searchText) ||
+        movie.subtitle.includes(this.state.searchText) ||
+        movie.storyline.includes(this.state.searchText)
+      )).map(movie => movie);
+    }
+    return movieArray;
+  }
+
   render() {
+    const selectedMovies = this.moviesFilter();
     return (
       <div>
         <SearchBar
@@ -42,6 +60,7 @@ class MovieLibrary extends React.Component {
           onBookmarkedChange={this.onBookmarkedChange}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
+        <MovieList movies={selectedMovies} />
       </div>
     );
   }
