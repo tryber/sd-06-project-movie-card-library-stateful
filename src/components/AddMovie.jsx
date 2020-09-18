@@ -6,13 +6,6 @@ class AddMovie extends Component {
     super();
     this.reset = this.reset.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.title = this.title.bind(this);
-    this.subtitle = this.subtitle.bind(this);
-    this.imagePath = this.imagePath.bind(this);
-    this.storyline = this.storyline.bind(this);
-    this.rating = this.rating.bind(this);
-    this.genre = this.genre.bind(this);
-    this.button = this.button.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -24,7 +17,6 @@ class AddMovie extends Component {
   }
 
   reset() {
-    this.props.onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -186,17 +178,15 @@ class AddMovie extends Component {
 
   render() {
     return (
-      <div>
-        <form data-testid="add-movie-form">
-          {this.title()}
-          {this.subtitle()}
-          {this.imagePath()}
-          {this.storyline()}
-          {this.rating()}
-          {this.genre()}
-          {this.button()}
-        </form>
-      </div>
+      <form data-testid="add-movie-form">
+        {this.title()}
+        {this.subtitle()}
+        {this.imagePath()}
+        {this.storyline()}
+        {this.rating()}
+        {this.genre()}
+        {this.button()}
+      </form>
     );
   }
 }
