@@ -31,8 +31,8 @@ Selects.propTypes = {
   labTitle: PropTypes.string,
   selectName: PropTypes.string,
   selectValue: PropTypes.string,
-  optValue: PropTypes.array,
-  optTitle: PropTypes.array,
+  optValue: PropTypes.arrayOf(),
+  optTitle: PropTypes.arrayOf(),
   change: PropTypes.func,
 };
 

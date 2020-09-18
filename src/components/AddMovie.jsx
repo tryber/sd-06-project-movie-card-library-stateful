@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Selects from './select';
 import Inputs from './inputs';
+import Button from './button';
 
 class AddMovie extends Component {
   constructor() {
@@ -61,11 +62,10 @@ class AddMovie extends Component {
           labTitle={'Gênero'} selectName={'genre'} selectValue={genre} change={hand}
           optValue={['action', 'comedy', 'thriller']} optTitle={['Ação', 'Comédia', 'Suspense']}
         />
-        <button
-          data-testid="send-button" onClick={() => { this.handleClick(onClick); }} >Adicionar filme
-        </button>
+        <Button click={() => this.handleClick(onClick)} />
       </form>
-    )}
+    );
+  }
 }
 
 AddMovie.propTypes = { onClick: PropTypes.func };
