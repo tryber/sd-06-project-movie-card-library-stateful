@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -6,10 +7,10 @@ import AddMovie from './AddMovie';
 export default class MovieLibrary extends Component {
   constructor() {
     super();
-    this.onClick = this.onClick.bind(this);
+    this.onClickk = this.onClickk.bind(this);
   }
 
-  onClick() {
+  onClickk() {
     return true;
   }
 
@@ -19,8 +20,10 @@ export default class MovieLibrary extends Component {
       <div>
         <SearchBar />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClickk} />
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.shape.isRequired };
