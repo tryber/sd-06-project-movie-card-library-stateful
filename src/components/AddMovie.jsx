@@ -53,10 +53,27 @@ class AddMovie extends Component {
     );
   }
 
+  renderSubtitleInputLabel() {
+    return (
+      <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
+      Subtítulo:
+      <input
+        type="text"
+        name="subtitle"
+        value={this.state.subtitle}
+        onChange={this.onChange}
+        data-testid="subtitle-input"
+        id="subtitle-input-label"
+      />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form action="" data-testid="add-movie-form">
         <div>{this.renderTitleInputLabel()}</div>
+        <div>{this.renderSubtitleInputLabel()}</div>
       </form>
     );
   }
