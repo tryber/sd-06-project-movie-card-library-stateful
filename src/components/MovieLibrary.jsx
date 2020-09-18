@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -21,22 +22,16 @@ export default class MovieLibrary extends Component {
 
   onSearchTextChange({ target }) {
     const { name, value } = target;
-    console.log(name)
-    console.log(value)
     this.setState({ [name]: value });
   }
 
   onBookmarkedChange({ target }) {
     const { name, checked } = target;
-    console.log(name)
-    console.log(checked)
     this.setState({ [name]: checked });
   }
 
   onSelectedGenreChange({ target }) {
     const { name, value } = target;
-    console.log(name)
-    console.log(value)
     this.setState({ [name]: value });
   }
 
@@ -59,3 +54,5 @@ export default class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };

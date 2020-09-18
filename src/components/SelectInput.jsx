@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 
 export default class SelectInput extends Component {
   render() {
-    const { id, name, value, onChange, labelText } = this.props;
+    const { id, name, value, onChange, labelText, addMovie } = this.props;
+    const options = addMovie ? 'genre' : 'select';
     return (
       <label htmlFor={id} data-testid={`${id}-label`}>
         {labelText}
@@ -15,15 +16,19 @@ export default class SelectInput extends Component {
           value={value}
           selected={value}
         >
-          <option data-testid="select-option" value="">Todos</option>
-          <option data-testid="select-option" value="action">Ação</option>
-          <option data-testid="select-option" value="comedy">Comédia</option>
-          <option data-testid="select-option" value="thriller">Suspense</option>
+          { !addMovie && (
+            <option data-testid={`${options}-option`} value="">Todos</option>
+          )}
+          <option data-testid={`${options}-option`} value="action">Ação</option>
+          <option data-testid={`${options}-option`} value="comedy">Comédia</option>
+          <option data-testid={`${options}-option`} value="thriller">Suspense</option>
         </select>
       </label>
     );
   }
 }
+
+SelectInput.defaultProps = { addMovie: undefined };
 
 SelectInput.propTypes = {
   id: PropTypes.string.isRequired,
@@ -31,4 +36,5 @@ SelectInput.propTypes = {
   value: PropTypes.string.isRequired,
   labelText: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
+  addMovie: PropTypes.number,
 };
