@@ -81,3 +81,8 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.search-bar-form {
+  display: inline-grid;
+  margin-top: 10px;
+}
