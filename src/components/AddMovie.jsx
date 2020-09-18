@@ -37,15 +37,10 @@ class AddMovie extends React.Component {
     );
   }
 
-  render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
+  renderSelect() {
+    const { genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        {this.renderInput('Título', 'title-input-label', 'title', 'title-input', title, 'type')};
-        {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', subtitle, 'type')};
-        {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', imagePath, 'type')};
-        {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', storyline, 'textarea')};
-        {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', rating, 'number')};
+      <div>
         <label data-testid="genre-input-label" htmlFor="genre">
 Gênero
           <select
@@ -60,6 +55,26 @@ Gênero
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+      </div>
+    );
+  }
+
+  render() {
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    return (
+      <form data-testid="add-movie-form">
+        {this.renderInput('Título', 'title-input-label', 'title', 'title-input', title, 'type')}
+;
+        {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', subtitle, 'type')}
+;
+        {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', imagePath, 'type')}
+;
+        {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', storyline, 'textarea')}
+;
+        {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', rating, 'number')}
+;
+        {this.renderSelect()}
+;
       </form>
     );
   }
