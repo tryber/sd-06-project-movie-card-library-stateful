@@ -164,7 +164,7 @@ describe('Verifica o input de avaliação do componente <AddMovie />', () => {
   });
 });
 
-describe.skip('Verifica o select de gênero do componente <AddMovie />', () => {
+describe('Verifica o select de gênero do componente <AddMovie />', () => {
   const options = [
     { value: 'action', text: 'Ação' },
     { value: 'comedy', text: 'Comédia' },
