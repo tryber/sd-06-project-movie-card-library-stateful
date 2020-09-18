@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import movies from '../data';
+// import movies from '../data';
 
 class MovieLibrary extends Component {
   // AQUI
@@ -38,8 +38,8 @@ class MovieLibrary extends Component {
         onBookmarkedChange={onBookmarkedChange}
         selectedGenre={selectedGenre}
         onSelectedGenreChange={onSelectedGenreChange} */}
-         <AddMovie
-          onClick= {() => console.log('hi')}
+        <AddMovie
+          onClick ={() => console.log('hi')}
          />
         <MovieList movies={movies} />
       </div>

@@ -85,8 +85,10 @@ class AddMovie extends Component {
             data-testid="image-input" onChange={this.newImage}
           />
           </label>
-          <label data-testid="storyline-input-label"
-          htmlFor="storyline-input-label">
+          <label
+            data-testid="storyline-input-label"
+            htmlFor="storyline-input-label"
+          >
             Sinopse
           <textarea
             value={this.state.storyline} data-testid="storyline-input" onChange={this.newStoryLine}
@@ -101,10 +103,10 @@ class AddMovie extends Component {
           </label>
           <label data-testid="genre-input-label" htmlFor="genre-input-label">
             Gênero
-          <select value={this.state.genre} data-testid="genre-input" onChange={this.newGenre}>
-          <option value="action" data-testid="genre-option">Ação</option>
-          <option value="comedy" data-testid="genre-option">Comédia</option>
-          <option value="thriller" data-testid="genre-option">Suspense</option>
+            <select value={this.state.genre} data-testid="genre-input" onChange={this.newGenre}>
+            <option value="action" data-testid="genre-option">Ação</option>
+            <option value="comedy" data-testid="genre-option">Comédia</option>
+            <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
           </label>
           <button data-testid="send-button" onClick={this.clickButton}>Adicionar filme</button>
