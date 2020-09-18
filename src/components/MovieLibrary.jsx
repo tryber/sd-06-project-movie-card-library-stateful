@@ -15,40 +15,35 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies
-    }
+      movies: this.props.movies,
+    };
+  }
+
+  onClick(newCard) {
+    this.setState({movies: this.state.movies.concat(newCard)});
   }
 
   masterHandler({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    
-    this.setState({
-      [name]: value
-    });
-  }
-
-  onClick(newCard) {
-    this.setState({
-      movies: this.state.movies.concat(newCard)
-    })
+    this.setState({ [name]: value });
   }
 
   filter() {
     let card = this.state.movies;
     const { selectedGenre, searchText, bookmarkedOnly } = this.state;
-    if(searchText !== '') {
-      card = card.filter(movie => (
+    if (searchText !== '') {
+      card = card.filter((movie) => (
         movie.title.includes(searchText) ||
         movie.subtitle.includes(searchText) ||
         movie.storyline.includes(searchText)
       ));
     }
-    if(bookmarkedOnly === true) {
-      card = card.filter(movie => movie.bookmarked === true)
+    if (bookmarkedOnly === true) {
+      card = card.filter((movie) => movie.bookmarked === true);
     }
-    if(selectedGenre !== '') {
-      card = card.filter(movie => movie.genre === selectedGenre)
+    if (selectedGenre !== '') {
+      card = card.filter((movie) => movie.genre === selectedGenre);
     }
     return card;
   }
@@ -56,9 +51,9 @@ class MovieLibrary extends React.Component {
   render() {
     const filtered = this.filter();
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    return(
+    return (
       <div>
-        <SearchBar 
+        <SearchBar
           searchText={searchText}
           onSearchTextChange={this.masterHandler}
           bookmarkedOnly={bookmarkedOnly}
