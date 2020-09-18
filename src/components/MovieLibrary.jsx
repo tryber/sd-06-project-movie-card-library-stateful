@@ -76,9 +76,7 @@ class MovieLibrary extends Component {
   }
 
   onClick(movie) {
-    this.setState(previous => ({
-      movies: [...previous.movies, movie]
-    }));
+    this.setState((previous) => ({ movies: [...previous.movies, movie] }));
   }
 
   getMovieDefaultState() { this.setState({ movies: this.props.movies }); }

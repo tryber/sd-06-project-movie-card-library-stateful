@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends Component {
   constructor() {
     super();
+
     this.resetPropsValue = this.resetPropsValue.bind(this);
     this.inputChange = this.inputChange.bind(this);
 
@@ -18,12 +19,7 @@ class AddMovie extends Component {
   }
 
   inputChange({ target }) {
-    let { name, value } = target;
-
-    if (name === 'rating') {
-      value = Number(value);
-    }
-
+    const { name, value } = target;
     this.setState({ [name]: value });
   }
 
@@ -141,6 +137,8 @@ function Button(props) {
   );
 }
 
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+
 Title.propTypes = {
   inputChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
@@ -171,8 +169,6 @@ Select.propTypes = {
   genre: PropTypes.string.isRequired,
 };
 
-Button.propTypes = {
-  resetPropsValue: PropTypes.func.isRequired,
-};
+Button.propTypes = { resetPropsValue: PropTypes.func.isRequired };
 
 export default AddMovie;
