@@ -136,7 +136,7 @@ Esse componente renderizará uma barra com filtros acima da listagem de cartões
   - `bookmarkedOnly`, um boolean
   - `onBookmarkedChange`, uma callback
   - `selectedGenre`, uma string
-  - `onSelectedGenreChange`, uma callback
+  - `onSelectedGenreChange`, uma callback.
 
 O que será validado: 
   - Será validado se o componente `SearchBar` renderiza com sucesso 
