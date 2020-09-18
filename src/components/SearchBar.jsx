@@ -11,7 +11,7 @@ class SearchBar extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <TextInput searchText={searchText} onSearchTextChange={onSearchTextChange}/>
+          <TextInput searchText={searchText} onSearchTextChange={onSearchTextChange} />
           <label
             htmlFor="check"
             data-testid="checkbox-input-label"
