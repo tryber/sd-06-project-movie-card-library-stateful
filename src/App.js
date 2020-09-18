@@ -21,7 +21,7 @@ function App() {
         selectedGenre={selectedGenre}
         onSelectedGenreChange={onSelectedGenreChange}
       />
-      <AddMovie onClick={this.props.onClick} />
+      <AddMovie />
     </div>
   );
 }

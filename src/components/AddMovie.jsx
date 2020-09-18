@@ -11,7 +11,7 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
 
   render() {
