@@ -3,7 +3,10 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props
+
+    const {
+      searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange
+    } = this.props
 
     return (
       <div>
@@ -12,6 +15,11 @@ class SearchBar extends React.Component {
           "Inclui o texto:"
           <input data-testid="text-input" value={searchText} onChange={onSearchTextChange} />
           </label>
+          <label data-testid="text-input-label">
+          Mostrar somente favoritos
+          <input data-testid="text-input" value={searchText} onChange={onSearchTextChange} />
+          </label>
+          
         </form>
       </div>
     );
