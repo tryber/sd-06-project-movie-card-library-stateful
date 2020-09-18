@@ -17,7 +17,7 @@ class MovieLibrary extends React.Component {
     this.refreshBookmarkedOnly = this.refreshBookmarkedOnly.bind(this);
     this.refreshSelectedGenre = this.refreshSelectedGenre.bind(this);
     this.onClick = this.onClick.bind(this);
-  }  
+  }
 
   onClick(newMovie) {
     this.setState({ movies: this.state.movies.concat(newMovie) });
