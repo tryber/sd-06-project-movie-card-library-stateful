@@ -3,19 +3,19 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   renderTextInput() {
-    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
 
-    return(
-    <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
-      Mostrar somente favoritos
-      <input
-        data-testid="checkbox-input"
-        htmlFor="checkbox-input"
-        type="checkbox"
-        checked={bookmarkedOnly}
-        onChange={onBookmarkedChange}
-      />
-    </label>
+    return (
+      <label data-testid="text-input-label" htmlFor="text-input">
+        Inclui o texto:
+        <input
+          data-testid="text-input"
+          htmlFor="text-input"
+          onChange={onSearchTextChange}
+          type="text"
+          value={searchText}
+        />
+      </label>
     );
   }
 
