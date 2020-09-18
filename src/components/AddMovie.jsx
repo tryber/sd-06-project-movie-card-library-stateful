@@ -1,4 +1,10 @@
 import React from 'react';
+import TitleAddMovie from './TitleAddMovie';
+import SubtitleAddMovie from './SubtitleAddMovie';
+import ImageAddMovie from './ImageAddMovie';
+import StorylineAddMovie from './StorylineAddMovie';
+import RatingAddMovie from './RatingAddMovie';
+import SelectAddMovie from './SelectAddMovie';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -33,64 +39,18 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
 
-        <label data-testid="title-input-label" htmlFor="input-text-title">
-          Título
-          <input
-            type="text"
-            name="title"
-            data-testid="title-input"
-            value={title}
-            onChange={this.handlerChange}
-            id="input-text-title"
-          />
-        </label>
+        <TitleAddMovie title={title} handlerChange={this.handlerChange} />
 
-        <label data-testid="subtitle-input-label" htmlFor="input-text-subtitle">
-        Subtítulo
-          <input
-            type="text"
-            name="subtitle"
-            data-testid="subtitle-input"
-            value={subtitle}
-            onChange={this.handlerChange}
-            id="input-text-subtitle"
-          />
-        </label>
+        <SubtitleAddMovie subtitle={subtitle} handlerChange={this.handlerChange} />
 
-        <label data-testid="image-input-label" htmlFor="input-text-image">
-        Imagem
-          <input
-            type="text"
-            name="imagePath"
-            data-testid="image-input"
-            value={imagePath}
-            onChange={this.handlerChange}
-            id="input-text-image"
-          />
-        </label>
+        <ImageAddMovie imagePath={imagePath} handlerChange={this.handlerChange} />
 
-        <label data-testid="storyline-input-label" htmlFor="input-textarea">
-          Sinopse
-          <textarea
-            name="storyline"
-            data-testid="storyline-input"
-            value={storyline}
-            onChange={this.handlerChange}
-            id="input-textarea"
-          />
-        </label>
+        <StorylineAddMovie storyline={storyline} handlerChange={this.handlerChange} />
 
-        <label data-testid="rating-input-label" htmlFor="input-number">
-          Avaliação
-          <input
-            type="number"
-            name="rating"
-            data-testid="rating-input"
-            value={rating}
-            onChange={this.handlerChange}
-            id="input-number"
-          />
-        </label>
+        <RatingAddMovie rating={rating} handlerChange={this.handlerChange} />
+
+        <SelectAddMovie genre={genre} handlerChange={this.handlerChange} />
+
       </form>
     );
   }
