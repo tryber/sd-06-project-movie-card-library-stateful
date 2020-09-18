@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 class Selects extends Component {
   render() {
     const {
-      labTitle, selectName, selectValue, optValue, optTitle, change,
+      labTitle, selectName, selectValue,
+      optValue, optTitle, change,
     } = this.props;
 
     return (

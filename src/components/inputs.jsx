@@ -20,14 +20,14 @@ class Inputs extends Component {
 
 Inputs.propTypes = {
   value: PropTypes.string,
-  tilte: PropTypes.string,
+  title: PropTypes.string,
   text: PropTypes.string,
   change: PropTypes.func,
 };
 
 Inputs.defaultProps = {
   value: '',
-  tilte: '',
+  title: '',
   text: '',
   change: '',
 };

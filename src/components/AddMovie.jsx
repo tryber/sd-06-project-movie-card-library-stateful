@@ -65,8 +65,7 @@ class AddMovie extends Component {
           data-testid="send-button" onClick={() => { this.handleClick(onClick); }} >Adicionar filme
         </button>
       </form>
-    );
-  }
+    )}
 }
 
 AddMovie.propTypes = { onClick: PropTypes.func };
