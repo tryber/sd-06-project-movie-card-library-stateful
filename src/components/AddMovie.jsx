@@ -26,7 +26,7 @@ class AddMovie extends Component {
   title() {
     return (
       <input
-        data-testid="title-input" type="text" value={this.state.title} 
+        data-testid="title-input" type="text" value={this.state.title}
         onChange={this.handleChange} name="title"
       />
     );
@@ -52,7 +52,7 @@ class AddMovie extends Component {
 
   story() {
     return (
-      <textarea 
+      <textarea
         data-testid="storyline-input" value={this.state.storyline}
         onChange={this.handleChange} name="storyline"
       />
@@ -65,23 +65,20 @@ class AddMovie extends Component {
         data-testid="rating-input" type="number" value={this.state.rating}
         onChange={this.handleChange} name="rating"
       />
-    )
+    );
   }
 
   genre() {
-    return(
+    return (
       <select name="genre" data-testid="genre-input" onChange={this.handleChange}>
         <option data-testid="genre-option" value="action">Ação</option>
         <option data-testid="genre-option" value="comedy">Comédia</option>
         <option data-testid="genre-option" value="thriller">Suspense</option>
       </select>
-    )
+    );
   }
 
-  saveNewMovie(event) {
-    event.preventDefault();
-    const { onClick } = this.props;
-    onClick(this.state);
+  resetState() {
     this.setState({
       subtitle: '',
       title: '',
@@ -92,9 +89,16 @@ class AddMovie extends Component {
     });
   }
 
+  saveNewMovie(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.resetState();
+  }
+
   saveButton() {
-    return(
-      <button data-testid="send-button" onClick={this.saveNewMovie} type="submit">
+    return (
+      <button data-testid="send-button" onClick={this.saveNewMovie}>
         Adicionar filme
       </button>
     )
@@ -117,7 +121,7 @@ class AddMovie extends Component {
         {this.genre()}
         {this.saveButton()}
       </form>
-    )
+    );
   }
 }
 
