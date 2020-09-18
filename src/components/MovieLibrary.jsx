@@ -8,11 +8,10 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: '',
-    }
+    };
   }
   render() {
-    const { movies } = this.props;
-    return <div></div>
+    return
   }
 }
 
