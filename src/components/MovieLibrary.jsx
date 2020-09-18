@@ -31,27 +31,26 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value });
     const inputValue = target.value.toLowerCase();
-    const movieTitle = this.props.movies.filter((value) => value.title.toLowerCase() === inputValue);
-    // const submovieTitle = this.props.movies.filter((value) => value.subtitle.toLowerCase() === frase);
-    // const sinopse = this.props.movies.filter((value) => value.storyline.toLowerCase() === frase);
-    if(target.value === '' || movieTitle.length === 0) this.setState({ movies: this.props.movies});
-    else this.setState({ movies: movieTitle});
+    const movieTitle = this.props.movies.filter((value) =>
+      value.title.toLowerCase() === inputValue);
+    if (target.value === '' || movieTitle.length === 0) this.setState({ movies: this.props.movies });
+    else this.setState({ movies: movieTitle });
   }
 
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
     const gengerValue = target.value;
     const movieGender = this.props.movies.filter((value) => value.genre === gengerValue);
-    if(movieGender.length === 0) this.setState({ movies: this.props.movies});
-    else this.setState({ movies: movieGender});
+    if (movieGender.length === 0) this.setState({ movies: this.props.movies});
+    else this.setState({ movies: movieGender });
   }
 
   onBookmarkedChange({ target }) {
     this.setState({ bookmarkedOnly: target.checked });
     const favorites = target.checked;
     const favMovies = this.props.movies.filter((value) => value.bookmarked === true);
-    if(!favorites) this.setState({ movies: this.props.movies});
-    else this.setState({ movies: favMovies});
+    if (!favorites) this.setState({ movies: this.props.movies });
+    else this.setState({ movies: favMovies });
   }
 
   render() {
