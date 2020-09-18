@@ -5,8 +5,8 @@ class AddMovie extends Component {
   constructor() {
     super()
 
-    this.newTitle = this.newTitle.bind(this)
-    this.newSubTitle = this.newSubTitle.bind(this)
+    // this.newTitle = this.newTitle.bind(this)
+    // this.newSubTitle = this.newSubTitle.bind(this)
 
 
     this.state = {
