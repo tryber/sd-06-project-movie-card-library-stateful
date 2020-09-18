@@ -21,10 +21,10 @@ class MovieLibrary extends Component {
   handleTextChange() {
   };
 
-  handleBookmarkedChange = () => {
+  handleBookmarkedChange() {
   };
 
-  handleGenreChange = () => {
+  handleGenreChanges() {
   };
 
   AddMovieList = (title, subtitle, imagePath, storyline, rating, genre) => {

@@ -10,6 +10,7 @@ class AddMovie extends Component {
     this.storylineInput = this.storylineInput.bind(this);
     this.ratingInput = this.ratingInput.bind(this);
     this.genreInput = this.genreInput.bind(this);
+    this.buttonFunc = this.buttonFunc.bind(this);
     this.state = {
       subtitle: "",
       title: "",
@@ -98,7 +99,7 @@ class AddMovie extends Component {
     )
   };
 
-  buttonFunc = (event) => {
+  buttonFunc(event) {
     event.preventDefault();
     const {
       title,
