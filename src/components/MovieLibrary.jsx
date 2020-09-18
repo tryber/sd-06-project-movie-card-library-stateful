@@ -1,5 +1,6 @@
 // implement MovieLibrary component here
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -7,7 +8,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
+    let { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -38,6 +39,15 @@ class MovieLibrary extends React.Component {
     console.log('oi');
   }
 
+  filterMovies() {
+    // if (bookmarkedOnly) {
+    //   movies.filter((movie) => movie.)
+    // }
+    // if (this.state.searchText !== '') {
+      
+    // }
+  }
+
   render() {
     return (
       <div>
@@ -55,5 +65,9 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape(PropTypes.object)),
+};
 
 export default MovieLibrary;
