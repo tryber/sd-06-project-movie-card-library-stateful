@@ -6,7 +6,7 @@ body {
 
 .movie-card-header {
   align-items: center;
-  background: repeating-linear-gradient(black, gray, white, gray, black);
+  background: linear-gradient(rgb(60, 60, 60), gray, rgb(230, 230, 230), gray, rgb(60, 60, 60));
   border: 6px groove gray;
   display: flex;
   height: 100px;
@@ -33,7 +33,7 @@ body {
   box-shadow: inset 200px 0 50px rgba(2, 2, 0, 1);
   display: flex;
   flex-direction: column;
-  height: 400px;
+  height: 450px;
   margin: 5px;
   overflow: hidden;
   perspective: 200px;
@@ -42,8 +42,8 @@ body {
 }
 
 .movie-card:hover {
-  box-shadow: inset 20px 0 50px rgba(2, 2, 0, 1);
-  transform: perspective(200px) rotate(-10deg);
+  box-shadow: inset 5px 5px 35px rgb(255, 255, 255);
+  transform: perspective(200px) rotate(-5deg);
   z-index: 9;
 }
 
@@ -137,4 +137,39 @@ body {
   justify-content: space-between;
   padding: 5px 10px 0;
   vertical-align: auto;
+}
+
+.addMovie {
+  border: 7px ridge rgb(156, 156, 156);
+  display: flex;
+  margin-bottom: 20px;
+  padding: 5px 10px 0;
+  vertical-align: auto;
+}
+
+.labels {
+  padding: 10px;
+}
+
+.inputs {
+  padding: 10px;
+  width: 100%;
+}
+
+.tipoInput {
+  width: 90%;
+}
+
+.btnAdicionar {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 15px;
+  background: linear-gradient(rgb(60, 60, 60), gray, rgb(230, 230, 230), gray, rgb(60, 60, 60));
+  box-shadow: 1px 1px 5px white;
+  cursor: pointer;
+}
+  
+.btnAdicionar:hover {
+  background: linear-gradient(rgb(80, 80, 80), rgb(150, 150, 150), white, rgb(150, 150, 150), rgb(80, 80, 80));
+  box-shadow: 5px 5px 35px rgb(255, 255, 255);
 }
