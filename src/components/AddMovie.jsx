@@ -165,9 +165,10 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <div>
-        <button 
-          data-testid="send-button" type="button" 
-          onClick={() => { 
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={() => {
             onClick(this.state);
             this.reset();
           }}
