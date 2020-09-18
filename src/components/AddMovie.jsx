@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import details from './add-movie-components/details';
 import TextInput from './add-movie-components/TextInput';
 import TextareaInput from './add-movie-components/TextareaInput';
