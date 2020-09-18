@@ -105,8 +105,9 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie data={this.state}
-          onClick={this.onClick} onSelectedInputChange={this.onSelectedInputChange}
+        <AddMovie
+          data={this.state} onClick={this.onClick}
+          onSelectedInputChange={this.onSelectedInputChange}
         />
       </div>
     );
