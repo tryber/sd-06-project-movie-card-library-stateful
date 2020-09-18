@@ -8,7 +8,8 @@ class SearchBar extends Component {
     const { searchText, onSearchTextChange } = this.props;
     return (
       <input
-      data-testid="text-input" type="text" value={searchText} onChange={onSearchTextChange}
+        data-testid="text-input" type="text" value={searchText}
+        onChange={onSearchTextChange}
       />
     );
   }
@@ -17,7 +18,8 @@ class SearchBar extends Component {
     const { bookMarkedOnly, onBookMarkedChange } = this.props;
     return (
       <input
-      data-testid="checkbox-input" type="checkbox" checked={bookMarkedOnly} onChange={onBookMarkedChange}
+        data-testid="checkbox-input" type="checkbox" checked={bookMarkedOnly}
+        onChange={onBookMarkedChange}
       />
     );
   }
