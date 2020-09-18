@@ -33,7 +33,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    this.setState({ movies: this.state.movies.concat(newMovie)});
+    this.setState({ movies: this.state.movies.concat(newMovie) });
   }
 
   refreshBookmarkedOnly(event) {
