@@ -20,7 +20,7 @@ class TitleAddMovie extends React.Component {
   }
 }
 
-TitleAddMovie.propTypes ={
+TitleAddMovie.propTypes = {
   title: PropTypes.string.isRequired,
   handlerChange: PropTypes.func.isRequired,
 };

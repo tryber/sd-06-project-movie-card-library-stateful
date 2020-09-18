@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class CheckboxSearchBar extends React.Component {
   render() {
@@ -17,5 +18,10 @@ class CheckboxSearchBar extends React.Component {
     );
   }
 }
+
+CheckboxSearchBar.propTypes = {
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+};
 
 export default CheckboxSearchBar;
