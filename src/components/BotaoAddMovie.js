@@ -5,7 +5,13 @@ class BotaoAddMovie extends React.Component {
   render() {
     const { handlerClick } = this.props;
     return (
-      <button type="button" data-testid="send-button" onClick={handlerClick}>Adicionar filme</button>
+      <button
+        type="button"
+        data-testid="send-button"
+        onClick={handlerClick}
+      >
+        Adicionar filme
+      </button>
     );
   }
 }
