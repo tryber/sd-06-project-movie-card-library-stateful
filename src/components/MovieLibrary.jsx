@@ -16,6 +16,7 @@ class MovieLibrary extends React.Component {
     this.refreshSearchText = this.refreshSearchText.bind(this);
     this.refreshBookmarkedOnly = this.refreshBookmarkedOnly.bind(this);
     this.refreshSelectedGenre = this.refreshSelectedGenre.bind(this);
+    this.onClick = this.onClick.bind(this);
   }
 
   refreshSelectedGenre(event) {
@@ -31,9 +32,9 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  // onClick() {
-
-  // }
+  onClick(newMovie) {
+    this.setState({ movies: this.state.movies.concat(newMovie)});
+  }
 
   refreshBookmarkedOnly(event) {
     this.setState({ bookmarkedOnly: event.target.checked }, () => {
