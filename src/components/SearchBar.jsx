@@ -17,6 +17,7 @@ class SearchBar extends Component {
             value={searchText}
             onChange={onSearchTextChange}
           />
+          <input type="checkbox" name="" id="" data-testid="checkbox-input" />
         </form>
       </div>
     )
