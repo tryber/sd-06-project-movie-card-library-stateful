@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data'
+import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -18,14 +20,7 @@ class MovieLibrary extends Component {
     };
   }
 
-
-
-  add(movie) {
-    this.setState({
-        movies: [...this.state.movies, movie]
-      }
-    )
-  }
+  add(movie) {this.setState({ movies: [...this.state.movies, movie] })};
 
   render() {
     const { movies } = this.props;
@@ -43,5 +38,7 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.string };
 
 export default MovieLibrary;

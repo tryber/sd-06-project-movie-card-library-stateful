@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-  constructor () {
-    super()
-  }
-  
   renderSelect() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
