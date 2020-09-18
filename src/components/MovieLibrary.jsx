@@ -7,24 +7,11 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor() {
     super();
-
-    // this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onClick = this.onClick.bind(this);
-
+    this.myOnClick = this.myOnClick.bind(this);
   }
 
-  // onSearchTextChange() {
-  // }
-  // onBookmarkedChange() {
-  // }
-  // onSelectedGenreChange() {
-
-  // }
-
-  onClick() {
-    return 1;
+  myOnClick() {
+    console.log('teste');
   }
 
   render() {
@@ -43,7 +30,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />, */}
         <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick} movies={movies} />
+        <AddMovie onClick={this.myOnClick} movies={movies} />
       </div>
     );
   }
