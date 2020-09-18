@@ -2,9 +2,20 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+  constructor() {
+    super();
+    this.renderFirstInput = this.renderFirstInput.bind(this);
+    this.renderSecondInput = this.renderSecondInput.bind(this);
+    this.renderThirdInput = this.renderThirdInput.bind(this);
+  }
 
 
   renderFirstInput() {
+    const {
+      searchText,
+      onSearchTextChange,
+    } = this.props;
+
     return(
       <label data-testid="text-input-label" htmlFor="text">Inclui o texto:
       <input type="text" value={searchText} 
@@ -15,37 +26,42 @@ class SearchBar extends React.Component {
   }
 
   renderSecondInput() {
-    <label data-testid="checkbox-input-label" htmlFor="checkbox">Mostrar somente favoritos
-      <input type="checkbox" checked={bookmarkedOnly} 
-        onChange={onBookmarkedChange} data-testid="checkbox-input"
-        id="checkbox"
-      />
-    </label>
+    const {
+      bookmarkedOnly,
+      onBookmarkedChange,
+    } = this.props;
+    
+    return(
+      <label data-testid="checkbox-input-label" htmlFor="checkbox">Mostrar somente favoritos
+        <input type="checkbox" checked={bookmarkedOnly} 
+          onChange={onBookmarkedChange} data-testid="checkbox-input"
+          id="checkbox"
+        />
+      </label>
+    )
   }
 
   renderThirdInput() {
-    <label data-testid="select-input-label" htmlFor="select">Filtrar por gênero
-      <select value={selectedGenre} 
-        onChange={onSelectedGenreChange} data-testid="select-input"
-      >
-        <option value="" data-testid="select-option">Todos</option>
-        <option value="action" data-testid="select-option">Ação</option>
-        <option value="comedy" data-testid="select-option">Comédia</option>
-        <option value="thriller" data-testid="select-option">Suspense</option> 
-      </select>
-    </label>
-  }
-
-  render() {
     const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange
     } = this.props;
 
+    return(
+      <label data-testid="select-input-label" htmlFor="select">Filtrar por gênero
+        <select value={selectedGenre} 
+          onChange={onSelectedGenreChange} data-testid="select-input"
+        >
+          <option value="" data-testid="select-option">Todos</option>
+          <option value="action" data-testid="select-option">Ação</option>
+          <option value="comedy" data-testid="select-option">Comédia</option>
+          <option value="thriller" data-testid="select-option">Suspense</option> 
+        </select>
+      </label>
+    )
+  }
+
+  render() {
     return (
       <form data-testid="search-bar-form">
 
