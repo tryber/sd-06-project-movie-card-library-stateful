@@ -18,9 +18,11 @@ class AddMovie extends Component {
           <input data-testid="image-input" />
         </label>
         <label data-testid="storyline-input-label">
+          Sinopse
           <textarea data-testid="storyline-input" />
         </label>
         <label data-testid="rating-input-label">
+          Avaliação
           <textarea data-testid="rating-input" />
         </label>
         <label data-testid="genre-input-label">
