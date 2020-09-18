@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import AddMovieComponentPartOne from './AddMovieComponentPartOne';
 import AddMovieComponentPartTwo from './AddMovieComponentPartTwo';
 import AddMovieComponentPartThree from './AddMovieComponentPartThree';
-import AddMovieComponentPartFour from './AddMovieComponentPartFour';
 
 class AddMovie extends Component {
   constructor() {
@@ -39,11 +38,16 @@ class AddMovie extends Component {
           value={this.state.nome}
           handleChange={this.handleChange}
         />
+        <label htmlFor="this-form" data-testid="rating-input-label">Avaliação
+          <input
+            data-testid="rating-input"
+            onChange={this.handleChange}
+            value={this.state.rating}
+            type="number"
+            name="rating"
+          />
+        </label>
         <AddMovieComponentPartThree
-          value={this.state.nome}
-          handleChange={this.handleChange}
-        />
-        <AddMovieComponentPartFour
           value={this.state.nome}
           handleChange={this.handleChange}
         />

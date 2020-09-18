@@ -1,30 +1,33 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class AddMovieComponentPartThree extends React.Component {
+class AddMovieComponentPartFour extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
       <div>
-        <label htmlFor="this-form" data-testid="rating-input-label">
-          Avaliação
-          <input
-            data-testid="rating-input"
-            onChange={handleChange}
+        <label htmlFor="this-form" data-testid="genre-input-label">
+          Gênero
+          <select
             value={value}
-            type="number"
-            name="rating"
-          />
+            data-testid="genre-input"
+            onChange={handleChange}
+            name="genre"
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </label>
-
       </div>
     );
   }
 }
 
-AddMovieComponentPartThree.propTypes = {
+AddMovieComponentPartFour.propTypes = {
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
-export default AddMovieComponentPartThree;
+
+export default AddMovieComponentPartFour;
