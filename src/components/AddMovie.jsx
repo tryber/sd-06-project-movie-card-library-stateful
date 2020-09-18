@@ -73,7 +73,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="avaliacao" data-testid="rating-input-label">
           Avaliação
-         <textarea
+          <textarea
             id="avaliacao"
             type="number"
             name="name"
@@ -84,7 +84,7 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="genero" data-testid="genre-input-label">
           Gênero
-            <select id="genero" value="genre" data-testid="genre-input">
+          <select id="genero" value="genre" data-testid="genre-input">
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -93,7 +93,7 @@ class AddMovie extends React.Component {
 
         </label>
       </form>
-    )
+    );
   }
 
 }

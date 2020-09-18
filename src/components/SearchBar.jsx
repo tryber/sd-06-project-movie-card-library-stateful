@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
             />
           </label>
           <label htmlFor="select" data-testid="select-input-label">
-            <select id="select" value="selectedGenre">
+            <select onChange="onSelectedGenreChange" id="select" value="selectedGenre">
               <option value="" data-testid="select-option">Todos</option>
               <option value="action" data-testid="select-option">Ação</option>
               <option value="comedy" data-testid="select-option">Comédia</option>
