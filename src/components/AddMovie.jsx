@@ -4,7 +4,7 @@ import React from 'react';
 
 class AddMovie extends React.Component {
   constructor() {
-    super()
+    super();
 
     this.eventTitle = this.eventTitle.bind(this);
 
@@ -21,12 +21,8 @@ class AddMovie extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({
-      [name]: value,
-
-    });
+    this.setState({ [name]: value });
   }
-
 
   render() {
     return (
