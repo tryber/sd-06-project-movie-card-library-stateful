@@ -30,10 +30,6 @@ class SearchBar extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          {/* <label data-testid="text-input-label" htmlFor="text-input-label">
-            Inclui o texto
-            <textarea data-testid="text-input" onChange={onSearchTextChange} value={searchText} />
-          </label> */}
           {this.functionNeededTwo()}
           <br />
           <label data-testid="checkbox-input-label" htmlFor="checkbox-input-label">
