@@ -45,7 +45,7 @@ class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        {this.renderTextInput}
+        {this.renderTextInput()}
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
           <input
