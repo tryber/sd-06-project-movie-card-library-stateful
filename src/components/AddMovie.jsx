@@ -21,9 +21,7 @@ class AddMovie extends Component {
   handleChange({ target }) {
     const { name, value } = target;
 
-    this.setState({
-      [name]: value,
-    })
+    this.setState({ [name]: value });
   }
 
   handleClick(callback) {
@@ -62,18 +60,13 @@ class AddMovie extends Component {
           <option data-testid="genre-option" value="comedy" >Comédia</option>
           <option data-testid="genre-option" value="thriller" >Suspense</option>
         </select>
-        <button data-testid="send-button" onClick={() => {this.handleClick(onClick)}} >Adicionar filme</button>
+        <button data-testid="send-button" onClick={() => { this.handleClick(onClick); }} >Adicionar filme</button>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func,
-}
-
-AddMovie.defaultProps = {
-  onClick: 'Callback',
-}
+AddMovie.propTypes = { onClick: PropTypes.func };
+AddMovie.defaultProps = { onClick: 'Callback' };
 
 export default AddMovie;
