@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+
 export default class MovieLibrary extends Component {
   constructor() {
     super();
@@ -14,7 +15,7 @@ export default class MovieLibrary extends Component {
   onClick() {
     return true;
   }
-  
+
   render() {
     const { movies } = this.props;
 
@@ -22,11 +23,11 @@ export default class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        <MovieList movies={movies}/>
-        <AddMovie onClick={this.onClick}/>
+        <MovieList movies={movies} />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
 }
 
-MovieList.propTypes = { movies: PropTypes.shape.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.shape.isRequired };
