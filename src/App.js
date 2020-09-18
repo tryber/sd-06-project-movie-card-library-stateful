@@ -11,7 +11,6 @@ function App() {
       <Header />
       <SearchBar />
       <AddMovie />
-      <MovieLibrary />
     </div>
   );
 }

@@ -12,6 +12,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
+    
     this.onChange = this.props.onChange.bind(this);
   }
 
@@ -19,17 +20,6 @@ class AddMovie extends React.Component {
     const { name } = target;
 
     this.setState({ [name]: target.value });
-  }
-
-  buttonClick(event) {
-    this.setState({
-      title: event.target.value,
-      subtitle: event.target.value,
-      imagePath: event.target.value,
-      storyline: event.target.value,
-      rating: event.target.value,
-      genre: event.target.value,
-    });
   }
 
   renderTitleInput() {
@@ -157,17 +147,15 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <div>
-        <form data-testid="">
-          {this.renderTitleInput()}
-          {this.renderSubtitleInput()}
-          {this.renderImageInput()}
-          {this.renderStorylineTextarea()}
-          {this.renderRantingInput()}
-          {this.renderGenderSelect()}
-          {this.renderButton()}
-        </form>
-      </div>
+      <form data-testid="add-movie-form">
+        {this.renderTitleInput()}
+        {this.renderSubtitleInput()}
+        {this.renderImageInput()}
+        {this.renderStorylineTextarea()}
+        {this.renderRantingInput()}
+        {this.renderGenderSelect()}
+        {this.renderButton()}
+      </form>
     );
   }
 }
