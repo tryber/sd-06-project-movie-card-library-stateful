@@ -25,16 +25,6 @@ class AddMovieComponentPartTwo extends React.Component {
             onChange={handleChange}
           />
         </label>
-        <label htmlFor="this-form" data-testid="rating-input-label">
-          Avaliação
-          <input
-            data-testid="rating-input"
-            onChange={handleChange}
-            value={value}
-            type="number"
-            name="rating"
-          />
-        </label>
       </div>
     );
   }

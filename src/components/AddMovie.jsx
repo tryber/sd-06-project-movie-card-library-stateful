@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import AddMovieComponentPartOne from './AddMovieComponentPartOne';
 import AddMovieComponentPartTwo from './AddMovieComponentPartTwo';
 import AddMovieComponentPartThree from './AddMovieComponentPartThree';
+import AddMovieComponentPartFour from './AddMovieComponentPartFour';
 
 class AddMovie extends Component {
   constructor() {
@@ -39,6 +40,10 @@ class AddMovie extends Component {
           handleChange={this.handleChange}
         />
         <AddMovieComponentPartThree
+          value={this.state.nome}
+          handleChange={this.handleChange}
+        />
+        <AddMovieComponentPartFour
           value={this.state.nome}
           handleChange={this.handleChange}
         />
