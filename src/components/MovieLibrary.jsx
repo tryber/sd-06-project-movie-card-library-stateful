@@ -24,14 +24,6 @@ class MovieLibrary extends React.Component {
 
   }
 
-  listFilter(criteria, filter) {
-    const { state } = this;
-    console.log(filter);
-    const filteredMovies = state.movies
-      .filter((movie) => movie[criteria].includes(filter)).map((movie) => movie);
-    console.log(filteredMovies);
-  }
-
   onSearchTextChange({ target: { value } }) {
     this.setState(() => ({ searchText: value }));
     this.listFilter('title', this.state.searchText);
@@ -45,6 +37,14 @@ class MovieLibrary extends React.Component {
   onSelectedGenreChange({ target: { value } }) {
     this.setState({ selectedGenre: value });
     this.listFilter('genre', this.state.selectedGenre);
+  }
+
+  listFilter(criteria, filter) {
+    const { state } = this;
+    console.log(filter);
+    const filteredMovies = state.movies
+      .filter((movie) => movie[criteria].includes(filter)).map((movie) => movie);
+    console.log(filteredMovies);
   }
 
   render() {

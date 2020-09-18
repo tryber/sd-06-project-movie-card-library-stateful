@@ -115,7 +115,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { handleClick, selectRender, titleRender, subtitleRender, onChange } = this;
+    const { handleClick, selectRender, titleRender, subtitleRender } = this;
     const { imageRender, storylineRender, ratingRender } = this;
     return (
       <form data-testid="add-movie-form" action="">
