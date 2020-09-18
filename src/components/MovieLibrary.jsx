@@ -19,6 +19,15 @@ class MovieLibrary extends Component {
     };
   }
 
+  handleTextChange() {
+  }
+
+  handleBookmarkedChange() {
+  }
+
+  handleGenreChange() {
+  }
+
   AddMovieList(title, subtitle, imagePath, storyline, rating, genre) {
     this.setState(() => {
       this.state.movies.push({
