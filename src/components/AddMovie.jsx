@@ -69,11 +69,28 @@ class AddMovie extends Component {
     );
   }
 
+  renderImageInputLabel() {
+    return (
+      <label data-testid="image-input-label" htmlFor="image-input-label">
+      Imagem:
+      <input
+        type="text"
+        name="imagePath"
+        value={this.state.imagePath}
+        onChange={this.onChange}
+        data-testid="image-input"
+        id="image-input-label"
+      />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form action="" data-testid="add-movie-form">
         <div>{this.renderTitleInputLabel()}</div>
         <div>{this.renderSubtitleInputLabel()}</div>
+        <div>{this.renderImageInputLabel()}</div>
       </form>
     );
   }
