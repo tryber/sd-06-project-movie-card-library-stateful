@@ -8,8 +8,8 @@ class SearchBar extends Component {
     return (
       <label data-testid="text-input-label" htmlFor="text-input-label">
         Inclui o texto
-        <textarea 
-        data-testid="text-input" onChange={onSearchTextChange} value={searchText} 
+        <input
+          type="text" data-testid="text-input" onChange={onSearchTextChange} value={searchText}
         />
       </label>
     );
