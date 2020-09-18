@@ -6,7 +6,6 @@ class AddMovie extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    this.renderTitleInput = this.renderTitleInput.bind(this);
 
     this.state = {
       subtitle: '',
@@ -144,7 +143,13 @@ class AddMovie extends React.Component {
           Gênero
           {this.renderGenreInput()}
         </label>
-        <button type="button" onClick={this.inputButton} data-testid="send-button">Adicionar filme</button>
+        <button
+          type="button"
+          onClick={this.inputButton}
+          data-testid="send-button"
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
