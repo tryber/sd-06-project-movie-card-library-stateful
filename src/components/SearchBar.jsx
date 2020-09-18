@@ -41,7 +41,7 @@ class SearchBar extends Component {
   }
 
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
 
     return (
       <form data-testid="search-bar-form">
