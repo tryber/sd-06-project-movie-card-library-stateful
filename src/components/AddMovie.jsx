@@ -9,6 +9,9 @@ class AddMovie extends React.Component {
     this.selectRender = this.selectRender.bind(this);
     this.titleRender = this.titleRender.bind(this);
     this.subtitleRender = this.subtitleRender.bind(this);
+    this.imageRender = this.imageRender.bind(this);
+    this.storylineRender = this.storylineRender.bind(this);
+    this.ratingRender = this.ratingRender.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -57,8 +60,8 @@ class AddMovie extends React.Component {
   }
 
   titleRender() {
-    const { title } = this.state
-    const { onChange } = this; 
+    const { title } = this.state;
+    const { onChange } = this;
     return (
       <input
         type="text" name="title" id="title-input" value={title}
@@ -78,9 +81,42 @@ class AddMovie extends React.Component {
     );
   }
 
+  imageRender() {
+    const { imagePath } = this.state;
+    const { onChange } = this;
+    return (
+      <input
+        type="text" name="imagePath" id="image-input" value={imagePath}
+        data-testid="image-input" onChange={onChange}
+      />
+    );
+  }
+
+  storylineRender() {
+    const { storyline } = this.state;
+    const { onChange } = this;
+    return (
+      <textarea
+        name="storyline" id="storyline-input" cols="30" value={storyline}
+        rows="10" data-testid="storyline-input" onChange={onChange}
+      />
+    );
+  }
+
+  ratingRender() {
+    const { rating } = this.state;
+    const { onChange } = this;
+    return (
+      <input
+        type="number" name="rating" id="rating-input" value={rating}
+        data-testid="rating-input" onChange={onChange}
+      />
+    );
+  }
+
   render() {
-    const { subtitle, imagePath, storyline, rating } = this.state;
     const { handleClick, selectRender, titleRender, subtitleRender, onChange } = this;
+    const { imageRender, storylineRender, ratingRender } = this;
     return (
       <form data-testid="add-movie-form" action="">
         <label data-testid="title-input-label" htmlFor="title-input">Título</label>
@@ -88,20 +124,11 @@ class AddMovie extends React.Component {
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">Subtítulo</label>
         {subtitleRender()}
         <label data-testid="image-input-label" htmlFor="image-input">Imagem</label>
-        <input
-          type="text" name="imagePath" id="image-input" value={imagePath}
-          data-testid="image-input" onChange={onChange}
-        />
+        {imageRender()}
         <label data-testid="storyline-input-label" htmlFor="storyline-input">Sinopse</label>
-        <textarea
-          name="storyline" id="storyline-input" cols="30" value={storyline}
-          rows="10" data-testid="storyline-input" onChange={onChange}
-        />
+        {storylineRender()}
         <label data-testid="rating-input-label" htmlFor="rating-input">Avaliação</label>
-        <input
-          type="number" name="rating" id="rating-input" value={rating}
-          data-testid="rating-input" onChange={onChange}
-        />
+        {ratingRender()}
         <label data-testid="genre-input-label" htmlFor="genre-input">Gênero</label>
         {selectRender()}
         <button data-testid="send-button" onClick={handleClick}>Adicionar filme</button>
