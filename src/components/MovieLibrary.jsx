@@ -18,6 +18,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onSave = this.onSave.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -35,7 +36,7 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
-  onClick() {
+  onSave() {
     console.log('oi');
   }
 
@@ -51,13 +52,14 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.onClick} />
+        <AddMovie onSave={this.onSave} />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(
-  PropTypes.shape(PropTypes.object)).isRequired, };
+MovieLibrary.propTypes = { 
+  movies: PropTypes.arrayOf(
+    PropTypes.shape(PropTypes.object)).isRequired };
 
 export default MovieLibrary;

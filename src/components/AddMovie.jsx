@@ -20,7 +20,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
   render() {
-    const { onClick } = this.props;
+    const { onSave } = this.props;
     return (
       <form
         data-testid="add-movie-form"
@@ -86,12 +86,12 @@ class AddMovie extends React.Component {
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
 
-        <button onClick={onClick} data-testid="send-button">Adicionar filme</button>
+        <button onClick={onSave} data-testid="send-button">Adicionar filme</button>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired, };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
