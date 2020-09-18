@@ -5,6 +5,8 @@ class AddMovie extends Component {
     super();
 
     this.renderTitleInput = this.renderTitleInput.bind(this);
+    this.renderSubtitleInput = this.renderSubtitleInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       subtitle: '',
@@ -20,7 +22,7 @@ class AddMovie extends Component {
     const { name, value } = target;
 
     return (
-      this.setState = { [name]: value }
+      this.setState({ [name]: value })
     );
   }
 
@@ -39,10 +41,26 @@ class AddMovie extends Component {
     );
   }
 
+  renderSubtitleInput() {
+    return (
+      <label data-testid="subtitle-input-label" htmlFor="subtitle">
+        Subtítulo
+        <input
+          data-testid="subtitle-input"
+          name="subtitle"
+          onChange={this.handleChange}
+          type="text"
+          value={this.state.subtitle}
+        />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
         {this.renderTitleInput()}
+        {this.renderSubtitleInput()}
       </form>
     );
   }
