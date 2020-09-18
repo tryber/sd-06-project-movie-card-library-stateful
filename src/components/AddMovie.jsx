@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import Input from './Input';
 import TextAreaInput from './TextAreaInput';
@@ -18,11 +19,23 @@ export default class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.resetStates = this.resetStates.bind(this);
     this.renderInput = this.renderInput.bind(this);
   }
 
   handleChange({ target }) {
     this.setState({ [target.name]: target.value });
+  }
+
+  resetStates() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   renderInput(name, id, value, labelText, type = 'text') {
@@ -47,7 +60,6 @@ export default class AddMovie extends Component {
   }
 
   render() {
-    // const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         {this.renderInput('title', 'title-input', this.state.title, 'Título')}
@@ -63,7 +75,21 @@ export default class AddMovie extends Component {
           labelText="Gênero"
           addMovie={1}
         />
+        <div className="button">
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={() => {
+              this.resetStates();
+              return this.props.onClick(this.state);
+            }}
+          >
+            Adicionar filme
+          </button>
+        </div>
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };

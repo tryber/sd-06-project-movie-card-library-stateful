@@ -13,6 +13,7 @@ export default class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: props.movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -35,6 +36,19 @@ export default class MovieLibrary extends Component {
     this.setState({ [name]: value });
   }
 
+  onClick(states) {
+    this.setState((previousState) => ({
+      movies: previousState.movies.push({
+        title: states.title,
+        subtitle: states.subtitle,
+        imagePath: states.imagePath,
+        storyline: states.storyline,
+        rating: states.rating,
+        genre: states.genre,
+      }),
+    }));
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
@@ -49,7 +63,7 @@ export default class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
