@@ -26,11 +26,20 @@ class AddMovie extends React.Component {
   }
 
   handleClick() {
-    console.log('clicou')
+    this.props.onClick(this.state)
+
+    this.setState({
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyLine: '',
+      rating: 0,
+      genre: 'action'
+    })
   }
 
   render() {
-
+    const { onClick } = this.props
     const {title, subtitle, imagePath, storyLine, rating, genre } = this.state
 
     return(
@@ -51,13 +60,13 @@ class AddMovie extends React.Component {
           <input data-testid="rating-input" type="number" name="rating" value={rating} onChange={this.handleChange}></input>
         </label>
         <label data-testid="genre-input-label">Gênero
-          <select name="genre" onChange={this.handleChange} value={genre}>
+          <select data-testid="genre-input" name="genre" onChange={this.handleChange} value={genre}>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
-        <button data-testid="send-button" onClick={this.handleClick}>Adicionar Filme</button>
+        <button data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
       </form>
     )
   }
