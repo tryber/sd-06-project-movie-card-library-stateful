@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
     const genreOptions = [['action', 'Ação'], ['comedy', 'Comédia'], ['thriller', 'Suspense']];
     const handler = this.hdInput;
     return (
-      <form data-testid="add-movie-form">
+      <form data-testid="add-movie-form" id="add-movie-form">
         <AddInput id="title" label="Título" callback={handler} value={title} />
         <AddInput id="subtitle" label="Subtítulo" callback={handler} value={subtitle} />
         <AddInput id="image" label="Imagem" callback={handler} value={imagePath} />
