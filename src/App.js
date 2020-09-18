@@ -18,7 +18,7 @@ class App extends React.Component {
         <Header />
         <SearchBar /* searchText={} onSearchTextChange={}  *//>
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie /* onClick={} */ />
       </div>
     );
   }
