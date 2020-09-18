@@ -1,21 +1,16 @@
 import React from 'react';
 
+const inputSearch = {
+  onChange: 'onSearchTextChange',
+  name: 'searchtext',
+  value: 'searchText',
+};
+
 class SearchBar extends React.Component {
 
   render() {
-    const inputSearch = {
-      onChange: 'onSearchTextChange',
-      name: 'searchtext',
-      value: 'searchText',
-    };
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange, } = this.props;
 
     return (
       <div className="movie-card-header">
@@ -29,17 +24,16 @@ class SearchBar extends React.Component {
           </label>
           <label data-testid="select-input-label">
             <select value="selectedGenre">
-              <option value="">Todos</option>
-              <option value="action">Ação</option>
-              <option value="comedy">Comédia</option>
-              <option value="thriller">Suspense</option>
+              <option value="" data-testid="select-option">Todos</option>
+              <option value="action" data-testid="select-option">Ação</option>
+              <option value="comedy" data-testid="select-option">Comédia</option>
+              <option value="thriller" data-testid="select-option">Suspense</option>
             </select>
           </label>
         </form>
       </div>
     );
   }
-
 }
 
 export default SearchBar;
