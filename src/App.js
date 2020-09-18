@@ -1,6 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
-import PropTypes from 'prop-types'
 import Header from './components/Header';
 import SearchBar from './components/SearchBar';
 
@@ -9,14 +9,13 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar 
-        /* searchText={search.searchText} 
-        onSearchTextChange={search.onSearchTextChange} 
+      <SearchBar />
+        {/* searchText={search.searchText}
+        onSearchTextChange={search.onSearchTextChange}
         bookmarkedOnly={search.bookmarkedOnly}
         onBookMarkedOnly={search.onBookMarkedOnly}
         selectedGenre={search.selectedGenre}
-        onSelectedGenre={search.onSelectedGenre} */
-        />
+        onSelectedGenre={search.onSelectedGenre} */}
     </div>
   );
 }
@@ -28,6 +27,6 @@ SearchBar.propTypes = {
   onBookMarkedOnly: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenre: PropTypes.func,
-}
+};
 
 export default App;

@@ -7,11 +7,12 @@ class SearchBar extends Component {
       <div className="search-bar">
         <section className="form" data-testid="search-bar-form">
           <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:</label>
-          <input 
-          data-testid="text-input" type="text" value="searchText" onChange="onSearchChange" />
+          <input
+            data-testid="text-input" type="text" value="searchText" onChange="onSearchChange" />
           <label data-testid="checkbox-input-label">Mostrar somente favoritos</label>
-          <input 
-          type="checkbox" data-testid="checkbox-input" checked="bookMarkedOnly" onChange="onBookMarkedChange" />
+          <input
+            type="checkbox" data-testid="checkbox-input" checked="bookMarkedOnly" onChange="onBookMarkedChange"
+          />
         </section>
       </div>
     )
