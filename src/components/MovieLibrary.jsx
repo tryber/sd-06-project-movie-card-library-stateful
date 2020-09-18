@@ -30,21 +30,21 @@ class MovieLibrary extends Component {
         .filter((el) => el.bookmarked === true);
       this.setState(({ movies: filtered }));
     } else {
-        this.setState((
-          { 
-            bookmarkedOnly: false,
-            movies: data,
-          }));
-      }
+      this.setState((
+        {
+          bookmarkedOnly: false,
+          movies: data,
+        }));
+    }
   }
 
   handleGenreChange({ target }) {
     const genre = target.value;
     this.setState(({ selectedGenre: genre, movies: data }), () => {
-      if (this.state.selectedGenre !== '' ) {
+      if (this.state.selectedGenre !== '') {
         const filtered = this.state.movies
-          .filter(el => el.genre === this.state.selectedGenre);
-        this.setState(({movies: filtered}));
+          .filter((el) => el.genre === this.state.selectedGenre);
+        this.setState(({ movies: filtered }));
       }
     });
   }
