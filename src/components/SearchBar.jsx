@@ -3,7 +3,13 @@ import React from 'react';
 
 class SearchBar extends React.Component {
   render() {
-    return (null);
+    return (
+      <div>
+        <form data-testid="search-bar-form">
+
+        </form>
+      </div>
+    );
   }
 }
 
