@@ -26,8 +26,8 @@ class SearchBar extends Component {
           />
           <label data-testid="select-input-label">Filtrar por gênero</label>
           <select
-          value="selectedGenre"
-          onChange="onSelectedGenreChange"
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
           >
             <option value="">Todos</option>
             <option value="action">Ação</option>
