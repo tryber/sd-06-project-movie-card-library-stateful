@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Selected from './selected';
 
 class SearchBar extends Component {
   render() {
@@ -10,21 +11,20 @@ class SearchBar extends Component {
     return (
       <form data-testid="search-bar-form" >
         <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:</label>
-        <input data-testid="text-input" value={searchText} onChange={onSearchTextChange} />
+        <input
+          data-testid="text-input" value={searchText} name="searchText"
+          onChange={onSearchTextChange}
+        />
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
             Mostrar somente favoritos
         </label>
         <input
-          data-testid="checkbox-input" type="checkbox"
+          data-testid="checkbox-input" type="checkbox" name="bookmarkedOnly"
           checked={bookmarkedOnly} onChange={onBookmarkedChange}
         />
-        <label data-testid="select-input-label" htmlFor="select-input" >Filtrar por gênero</label>
-        <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange} >
-          <option data-testid="select-option" value="" >Todos</option>
-          <option data-testid="select-option" value="action" >Ação</option>
-          <option data-testid="select-option" value="comedy" >Comédia</option>
-          <option data-testid="select-option" value="thriller" >Suspense</option>
-        </select>
+        <Selected
+          selectedGenre={selectedGenre} onSelectedGenreChange={onSelectedGenreChange}
+        />
       </form >
     );
   }
@@ -40,12 +40,12 @@ SearchBar.propTypes = {
 };
 
 SearchBar.defaultProps = {
-  searchText: 'movie',
-  onSearchTextChange: 'callback',
+  searchText: '',
+  onSearchTextChange: '',
   bookmarkedOnly: false,
-  onBookmarkedChange: 'callback',
-  selectedGenre: 'genre',
-  onSelectedGenreChange: 'callback',
+  onBookmarkedChange: '',
+  selectedGenre: '',
+  onSelectedGenreChange: '',
 };
 
 export default SearchBar;

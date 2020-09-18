@@ -70,40 +70,40 @@ describe('Verifica o estado inicial do component <MovieLibrary />', () => {
   });
 });
 
-// describe('Verifica se o componente <MovieLibrary /> renderiza o componente <SearchBar />', () => {
-//   it('Será validado se um componente `SearchBar` é renderizado', () => {
-//     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const searchBar = getAllByTestId('search-bar-form');
-//     expect(searchBar).toHaveLength(1);
-//   });
+describe('Verifica se o componente <MovieLibrary /> renderiza o componente <SearchBar />', () => {
+  it('Será validado se um componente `SearchBar` é renderizado', () => {
+    const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const searchBar = getAllByTestId('search-bar-form');
+    expect(searchBar).toHaveLength(1);
+  });
 
-//   it('Será validado se o estado da `SearchBar` muda quando quem usa digita algo', () => {
-//     const { getByTestId } = render(<MovieLibrary movies={movies} />);
-//     const searchText = getByTestId('text-input');
-//     event.type(searchText, 'My Search Text');
-
-
-//     expect(searchText).toHaveValue('My Search Text');
-//   });
+  it('Será validado se o estado da `SearchBar` muda quando quem usa digita algo', () => {
+    const { getByTestId } = render(<MovieLibrary movies={movies} />);
+    const searchText = getByTestId('text-input');
+    event.type(searchText, 'My Search Text');
 
 
-//   it('Será validado que é possivel selecionar a opção de filtrar por favoritos`', () => {
-//     const { getByTestId } = render(<MovieLibrary movies={movies} />);
-//     const bookmarkedOnly = getByTestId('checkbox-input');
-//     event.click(bookmarkedOnly);
-//     expect(bookmarkedOnly).toBeChecked();
-//   });
+    expect(searchText).toHaveValue('My Search Text');
+  });
 
-//   it('Será validado que é possivel escolher uma categoria uma categoria de filme para filtrar', () => {
-//     const { getByTestId } = render(<MovieLibrary movies={movies} />);
-//     const selectInput = getByTestId('select-input');
-//     expect(selectInput).toHaveValue('');
 
-//     event.selectOptions(selectInput, 'thriller');
+  it('Será validado que é possivel selecionar a opção de filtrar por favoritos`', () => {
+    const { getByTestId } = render(<MovieLibrary movies={movies} />);
+    const bookmarkedOnly = getByTestId('checkbox-input');
+    event.click(bookmarkedOnly);
+    expect(bookmarkedOnly).toBeChecked();
+  });
 
-//     expect(selectInput).toHaveValue('thriller');
-//   });
-// });
+  it('Será validado que é possivel escolher uma categoria uma categoria de filme para filtrar', () => {
+    const { getByTestId } = render(<MovieLibrary movies={movies} />);
+    const selectInput = getByTestId('select-input');
+    expect(selectInput).toHaveValue('');
+
+    event.selectOptions(selectInput, 'thriller');
+
+    expect(selectInput).toHaveValue('thriller');
+  });
+});
 
 // describe('Verifica se o componente <MovieLibrary /> renderiza o componente <MovieList />', () => {
 //   it('Será validado que o componente `MovieList` é renderizado com sucesso', () => {

@@ -6,6 +6,8 @@ class MovieLibrary extends Component {
   constructor() {
     super();
 
+    this.handleChange = this.handleChange.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -33,7 +35,6 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.handleChange}
         />
-        <AddMovie onClick={this.onClick} />
       </section>
     );
   }
