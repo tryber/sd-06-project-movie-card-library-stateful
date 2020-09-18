@@ -116,6 +116,25 @@ class AddMovie extends Component {
     );
   }
 
+  renderGenreInputLabel() {
+    return (
+      <label data-testid="genre-input-label" htmlFor="genre-input-label">
+      Gênero:
+        <select
+          name="genre"
+          value={this.state.genre}
+          onChange={this.onChange}
+          data-testid="genre-input"
+          id="genre-input-label"
+        >
+          <option value="action" data-testid="genre-option"> Ação </option>
+          <option value="comedy" data-testid="genre-option"> Comédia </option>
+          <option value="thriller" data-testid="genre-option"> Suspense </option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     return (
       <form action="" data-testid="add-movie-form">
@@ -124,6 +143,7 @@ class AddMovie extends Component {
         <div>{this.renderImageInputLabel()}</div>
         <div>{this.renderStorylineInputLabel()}</div>
         <div>{this.renderRatingInputLabel()}</div>
+        <div>{this.renderGenreInputLabel()}</div>
       </form>
     );
   }
