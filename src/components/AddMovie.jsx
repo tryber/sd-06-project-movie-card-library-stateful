@@ -17,7 +17,7 @@ class AddMovie extends Component {
       genre: 'action',
     };
   }
-  
+
   onClick() {
     this.props.onClick(this.state);
     this.setState({
@@ -29,13 +29,13 @@ class AddMovie extends Component {
       genre: 'action',
     });
   }
-  
+
   handleChange({ target }) {
     const { name } = target;
 
     this.setState({ [name]: target.value });
-  };
-  
+  }
+
   render() {
     return (
       <div>
@@ -80,7 +80,9 @@ class AddMovie extends Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
           </label>
-          <button type="button" data-testid="send-button" onClick={this.onClick}>Adicionar filme</button>
+          <button type="button" data-testid="send-button" onClick={this.onClick}>
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
