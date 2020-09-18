@@ -89,7 +89,7 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.PropTypes = {
+MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
