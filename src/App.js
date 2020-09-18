@@ -2,22 +2,16 @@ import React from 'react';
 import './App.css';
 
 import Header from './components/Header';
-import MovieList from './components/MovieList';
+import MovieLibrary from './components/MovieLibrary';
 
+import movies from './data';
 
 class App extends React.Component {
-
-
   render() {
-    const values = this.state;
-
     return (
       <div className="App">
         <Header />
-        <MovieList
-
-        />
-        <
+        <MovieLibrary movies={movies} />
       </div>
     );
   }
