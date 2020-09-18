@@ -10,6 +10,8 @@ class MovieLibrary extends React.Component {
     super();
 
     this.handleFiltering = this.handleFiltering.bind(this);
+    this.saveState = this.saveState.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
 
     this.state = {
       searchText: '',
@@ -22,6 +24,11 @@ class MovieLibrary extends React.Component {
 
   componentDidMount() {
     const { movies } = this.props;
+
+    this.saveState(movies);
+  }
+
+  saveState(movies) {
     this.setState({
       movies,
       baseMovies: movies,
@@ -41,7 +48,9 @@ class MovieLibrary extends React.Component {
 
     let filteredMovies = baseMovies;
 
-    filteredMovies = filteredMovies.filter((movie) => (bookmarkedOnly ? (movie.bookmarked === bookmarkedOnly) : true));
+    filteredMovies = filteredMovies.filter((movie) => (
+      bookmarkedOnly ? (movie.bookmarked === bookmarkedOnly) : true
+    ));
 
 
     if (selectedGenre) {
@@ -71,6 +80,7 @@ class MovieLibrary extends React.Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: newCollection,
+      baseMovies: newCollection,
     });
   }
 

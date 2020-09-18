@@ -37,10 +37,10 @@ class AddMovie extends React.Component {
 
   handleClick(event) {
     event.preventDefault();
-    const { onClick: saveState } = this.props;
+    const { onClick } = this.props;
     const movie = this.state;
 
-    saveState(movie);
+    onClick(movie);
 
     this.setState({
       subtitle: '',
@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
     const { title, rating, genre, subtitle, imagePath, storyLine } = this.state;
 
     return (
-      <form className="add-movie">
+      <form className="add-movie" data-testid="add-movie-form">
         <h3>Adicione mais filmes</h3>
         <div className="input-group">
           <div className="input-container">
@@ -105,7 +105,7 @@ class AddMovie extends React.Component {
         </div>
 
         <div className="textarea-container">
-          <label htmlFor="" data-testid="storyline-input-label">Sinopse</label>
+          <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
           <textarea
             data-testid="storyline-input"
             name="storyLine"
@@ -114,7 +114,7 @@ class AddMovie extends React.Component {
           />
         </div>
         <div className="input-container">
-          <label htmlFor="" data-testid="rating-input-label">Avaliação</label>
+          <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
           <input
             type="number"
             data-testid="rating-input"
@@ -124,7 +124,13 @@ class AddMovie extends React.Component {
           />
         </div>
 
-        <button type="submit" data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={this.handleClick}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
