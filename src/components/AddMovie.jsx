@@ -81,7 +81,7 @@ class AddMovie extends React.Component {
           data-testid="image-input"
         />
       </div>
-    )
+    );
   }
 
   renderStorylineTextarea() {
