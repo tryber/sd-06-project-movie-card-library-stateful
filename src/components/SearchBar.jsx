@@ -32,19 +32,20 @@ class SearchBar extends React.Component {
           data-testid="checkbox-input"
           id="search-check"
           onChange={onBookmarkedChange}
-          value={bookmarkedOnly}
+          checked={bookmarkedOnly}
         />
 
         <label data-testid="select-input-label" htmlFor="search-select">Filtrar por gênero</label>
         <select
           id="search-select"
+          data-testid="select-input"
           onChange={onSelectedGenreChange}
           value={selectedGenre}
         >
-          <option value="">Todos</option>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
+          <option value="" data-testid="select-option">Todos</option>
+          <option value="action" data-testid="select-option">Ação</option>
+          <option value="comedy" data-testid="select-option">Comédia</option>
+          <option value="thriller" data-testid="select-option">Suspense</option>
         </select>
       </form>
     );

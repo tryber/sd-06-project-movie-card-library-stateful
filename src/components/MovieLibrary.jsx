@@ -36,7 +36,8 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: value });
   }
 
-  onSave() {
+  onSave(event) {
+    event.preventDefault();
     this.setState({ selectedGenre: 'asdasdas' });
   }
 
