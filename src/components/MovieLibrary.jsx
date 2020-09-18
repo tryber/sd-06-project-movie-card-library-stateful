@@ -5,21 +5,25 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.filteringFilmsTitle = this.filteringFilmsTitle.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      movies: props.movies,
     };
   }
 
   onSearchTextChange({ target }) {
     const { name, value } = target;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => {
+      this.filteringFilmsTitle();
+    });
   }
 
   onBookmarkedChange({ target }) {
@@ -32,6 +36,11 @@ class MovieLibrary extends Component {
     this.setState({ [name]: value });
   }
 
+  filteringFilmsTitle() {
+    const { movies, searchText } = this.state;
+    const filteringFilm = movies.filter((movie) => movie.title.includes(searchText));
+    this.setState({ [movies]: filteringFilm });
+  }
 
   render() {
     const { movies } = this.props;

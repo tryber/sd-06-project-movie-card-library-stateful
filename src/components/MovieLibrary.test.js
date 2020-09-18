@@ -106,13 +106,13 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Sear
 });
 
 describe('Verifica se o componente <MovieLibrary /> renderiza o componente <MovieList />', () => {
-  it.skip('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
+  it('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const movieList = getAllByTestId('movie-list');
     expect(movieList).toHaveLength(1);
   });
 
-  it.skip('Será validado se a barra de buscas filtra os filmes por titulo', () => {
+  it('Será validado se a barra de buscas filtra os filmes por titulo', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
