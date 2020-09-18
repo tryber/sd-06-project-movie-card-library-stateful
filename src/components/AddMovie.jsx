@@ -15,6 +15,7 @@ class AddMovie extends React.Component {
     };
     this.baseState = this.state;
     this.handleChanges = this.handleChanges.bind(this);
+    this.resetState = this.resetState.bind(this);
   }
 
   handleChanges({ target }) {
@@ -22,6 +23,13 @@ class AddMovie extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
     this.setState({ [name]: value });
+  }
+
+  resetState(event) {
+    event.preventDefault();
+    this.setState(this.baseState);
+    const { onClick } = this.props;
+    onClick();
   }
 
   renderSelect() {
@@ -69,7 +77,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
+    const { resetState } = this.props;
 
     return (
       <form data-testid="add-movie-form" onChange={this.handleChange}>
@@ -89,7 +97,7 @@ class AddMovie extends React.Component {
           />
         </label>
         {this.renderSelect()}
-        <button data-testid="send-button" type="button" onClick={onClick}>Adicionar filme</button>
+        <button data-testid="send-button" type="button" onClick={this.resetState}>Adicionar filme</button>
       </form>
     );
   }
