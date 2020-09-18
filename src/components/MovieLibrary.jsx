@@ -12,7 +12,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.onSelectedInputChange = this.onSelectedInputChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.getMovieDefaultState = this.getMovieDefaultState.bind(this);
 
     this.state = {
@@ -20,12 +20,6 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       searchText: '',
       selectedGenre: '',
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
     };
   }
 
@@ -36,9 +30,9 @@ class MovieLibrary extends Component {
     const nameFiltered = this.state.movies.find((item) => {
       const stringToBeFound = value.toLowerCase();
 
-      const titleString = item.title.toLowerCase().split(' ');
-      const subtitleString = item.subtitle.toLowerCase().split(' ');
-      const storylineString = item.storyline.toLowerCase().split(' ');
+      const titleString = item.title.toLowerCase();
+      const subtitleString = item.subtitle.toLowerCase();
+      const storylineString = item.storyline.toLowerCase();
 
       if (titleString.includes(stringToBeFound) || subtitleString.includes(stringToBeFound) ||
         storylineString.includes(stringToBeFound)) {
@@ -81,15 +75,10 @@ class MovieLibrary extends Component {
     }
   }
 
-  onClick({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  }
-
-  onSelectedInputChange({ target }) {
-    const { name, value } = target;
-
-    this.setState({ [name]: value });
+  onClick(movie) {
+    this.setState(previous => ({
+      movies: [...previous.movies, movie]
+    }));
   }
 
   getMovieDefaultState() { this.setState({ movies: this.props.movies }); }
@@ -104,11 +93,9 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
           selectedGenre={this.state.selectedGenre}
         />
+
         <MovieList movies={this.state.movies} />
-        <AddMovie
-          data={this.state} onClick={this.onClick}
-          onSelectedInputChange={this.onSelectedInputChange}
-        />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }

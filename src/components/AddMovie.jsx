@@ -2,19 +2,56 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  render() {
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.props.data;
-    const { onSelectedInputChange } = this.props;
-    /* const { onClick } = this.props; */
+  constructor() {
+    super();
+    this.resetPropsValue = this.resetPropsValue.bind(this);
+    this.inputChange = this.inputChange.bind(this);
 
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+  }
+
+  inputChange({ target }) {
+    let { name, value } = target;
+
+    if (name === 'rating') {
+      value = Number(value);
+    }
+
+    this.setState({ [name]: value });
+  }
+
+  resetPropsValue(event) {
+    event.preventDefault();
+
+    this.props.onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  render() {
     return (
-      <fieldset data-testid="title-input-label">
-        <Title onSelectedInputChange={onSelectedInputChange} title={title} />
-        <Subtitle onSelectedInputChange={onSelectedInputChange} subtitle={subtitle} />
-        <Image onSelectedInputChange={onSelectedInputChange} imagePath={imagePath} />
-        <Storyline onSelectedInputChange={onSelectedInputChange} storyline={storyline} />
-        <Rating onSelectedInputChange={onSelectedInputChange} rating={rating} />
-        <Select onSelectedInputChange={onSelectedInputChange} genre={genre} />
+      <fieldset data-testid="add-movie-form">
+        <Title inputChange={this.inputChange} title={this.state.title} />
+        <Subtitle inputChange={this.inputChange} subtitle={this.state.subtitle} />
+        <Image inputChange={this.inputChange} imagePath={this.state.imagePath} />
+        <Storyline inputChange={this.inputChange} storyline={this.state.storyline} />
+        <Rating inputChange={this.inputChange} rating={this.state.rating} />
+        <Select inputChange={this.inputChange} genre={this.state.genre} />
+        <Button resetPropsValue={this.resetPropsValue} />
       </fieldset>
     );
   }
@@ -26,7 +63,7 @@ function Title(props) {
       <label htmlFor="title" data-testid="title-input-label">Título</label>
       <input
         name="title" id="title" type="text" data-testid="title-input"
-        onChange={props.onSelectedInputChange} value={props.title}
+        onChange={props.inputChange} value={props.title}
       />
     </div>
   );
@@ -38,7 +75,7 @@ function Subtitle(props) {
       <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
       <input
         name="subtitle" id="subtitle" type="text" data-testid="subtitle-input"
-        onChange={props.onSelectedInputChange} value={props.subtitle}
+        onChange={props.inputChange} value={props.subtitle}
       />
     </div>
   );
@@ -50,7 +87,7 @@ function Image(props) {
       <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
       <input
         name="imagePath" id="imagePath" type="text" data-testid="image-input"
-        onChange={props.onSelectedInputChange} value={props.imagePath}
+        onChange={props.inputChange} value={props.imagePath}
       />
     </div>
   );
@@ -62,7 +99,7 @@ function Storyline(props) {
       <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
       <input
         name="storyline" id="storyline" type="text" data-testid="storyline-input"
-        onChange={props.onSelectedInputChange} value={props.storyline}
+        onChange={props.inputChange} value={props.storyline}
       />
     </div>
   );
@@ -73,8 +110,8 @@ function Rating(props) {
     <div>
       <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
       <input
-        name="rating" id="rating" type="text" data-testid="rating-input"
-        onChange={props.onSelectedInputChange} value={props.rating}
+        name="rating" id="rating" type="number" data-testid="rating-input" defaultValue={0}
+        onChange={props.inputChange} value={props.rating}
       />
     </div>
   );
@@ -83,10 +120,10 @@ function Rating(props) {
 function Select(props) {
   return (
     <div>
-      <label htmlFor="genre" data-testid="select-input-label">Gênero</label>
+      <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
       <select
-        name="genre" id="genre" data-testid="select-input"
-        onChange={props.onSelectedInputChange} value={props.genre}
+        name="genre" id="genre" data-testid="genre-input"
+        onChange={props.inputChange} value={props.genre}
       >
         <option data-testid="genre-option" value="action">Ação</option>
         <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -96,47 +133,46 @@ function Select(props) {
   );
 }
 
-AddMovie.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-
-  data: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    imagePath: PropTypes.string.isRequired,
-    storyline: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-  }).isRequired,
-};
+function Button(props) {
+  return (
+    <button data-testid="send-button" type="button" onClick={props.resetPropsValue}>
+      Adicionar filme
+    </button>
+  );
+}
 
 Title.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
+  inputChange: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
 };
 
 Subtitle.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
+  inputChange: PropTypes.func.isRequired,
   subtitle: PropTypes.string.isRequired,
 };
 
 Image.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
+  inputChange: PropTypes.func.isRequired,
   imagePath: PropTypes.string.isRequired,
 };
 
 Storyline.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
+  inputChange: PropTypes.func.isRequired,
   storyline: PropTypes.string.isRequired,
 };
 
 Rating.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
-  rating: PropTypes.string.isRequired,
+  inputChange: PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
 };
 
 Select.propTypes = {
-  onSelectedInputChange: PropTypes.func.isRequired,
+  inputChange: PropTypes.func.isRequired,
   genre: PropTypes.string.isRequired,
+};
+
+Button.propTypes = {
+  resetPropsValue: PropTypes.func.isRequired,
 };
 
 export default AddMovie;
