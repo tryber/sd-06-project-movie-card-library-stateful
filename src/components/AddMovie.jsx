@@ -6,6 +6,13 @@ class AddMovie extends Component {
     super();
     this.reset = this.reset.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.title = this.title.bind(this);
+    this.subtitle = this.subtitle.bind(this);
+    this.imagePath = this.imagePath.bind(this);
+    this.storyline = this.storyline.bind(this);
+    this.rating = this.rating.bind(this);
+    this.genre = this.genre.bind(this);
+    this.button = this.button.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -17,6 +24,7 @@ class AddMovie extends Component {
   }
 
   reset() {
+    this.props.onClick(this.state);
     this.setState({
       title: '',
       subtitle: '',
@@ -32,51 +40,161 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  render() {
-    const { onClick } = this.props;
+  title() {
     return (
       <div>
-        <form data-testid="add-movie-form">
-          <label data-testid="title-input-label" htmlFor="title">
-            Título:
-            <input data-testid="title-input" id="title" name="title" type="text" 
-              value={this.state.title} onChange={this.handleChange} />
-          </label>    
-          <label data-testid="subtitle-input-label" htmlFor="subtitle">
-            Subtítulo:
-            <input data-testid="subtitle-input" id="subtitle" name="subtitle" type="text"
-              value={this.state.subtitle} onChange={this.handleChange} />
-          </label>
-          <label data-testid="image-input-label" htmlFor="imagePath">
-            Imagem:
-            <input data-testid="imagePath-input" id="imagePath" name="imagePath" type="text"
-              value={this.state.imagePath} onChange={this.handleChange} />
-          </label>
-          <label data-testid="storyline-input-label" htmlFor="storyline">
-            Sinopse
-            <input data-testid="storyline-input" id="storyline" name="storyline" type="text"
-              value={this.state.storyline} onChange={this.handleChange} />
-          </label>
-          <label data-testid="rating-input-label" htmlFor="rating">
-            Avaliação
-            <input data-testid="rating-input" id="rating" name="rating" type="number"
-              value={this.state.rating} onChange={this.handleChange} />
-          </label>
-          <label data-testid="genre-input-label" htmlFor="genre">
+        <label
+          data-testid="title-input-label"
+          htmlFor="title"
+        >
+          Título:
+          <input
+            data-testid="title-input"
+            id="title"
+            name="title"
+            type="text"
+            value={this.state.title}
+            onChange={this.handleChange}
+          />
+        </label>
+      </div>
+    );
+  }
+
+  subtitle() {
+    return (
+      <div>
+        <label
+          data-testid="subtitle-input-label"
+          htmlFor="subtitle"
+        >
+          Subtítulo:
+          <input
+            data-testid="subtitle-input"
+            id="subtitle"
+            name="subtitle"
+            type="text"
+            value={this.state.subtitle}
+            onChange={this.handleChange}
+          />
+        </label>
+      </div>
+    );
+  }
+
+  imagePath() {
+    return (
+      <div>
+        <label
+          data-testid="image-input-label"
+          htmlFor="imagePath"
+        >
+          Imagem:
+          <input
+            data-testid="imagePath-input"
+            id="imagePath"
+            name="imagePath"
+            type="text"
+            value={this.state.imagePath}
+            onChange={this.handleChange}
+          />
+        </label>
+      </div>
+    );
+  }
+
+  storyline() {
+    return (
+      <div>
+        <label
+          data-testid="storyline-input-label"
+          htmlFor="storyline"
+        >
+          Sinopse
+          <input
+            data-testid="storyline-input"
+            id="storyline"
+            name="storyline"
+            type="text"
+            value={this.state.storyline}
+            onChange={this.handleChange}
+          />
+        </label>
+      </div>
+    );
+  }
+
+  rating() {
+    return (
+      <div>
+        <label
+          data-testid="rating-input-label"
+          htmlFor="rating"
+        >
+          Avaliação
+          <input
+            data-testid="rating-input"
+            id="rating"
+            name="rating"
+            type="number"
+            value={this.state.rating}
+            onChange={this.handleChange}
+          />
+        </label>
+      </div>
+    );
+  }
+
+  genre() {
+    return (
+      <div>
+        <label
+          data-testid="genre-input-label"
+          htmlFor="genre"
+        >
           Gênero
-            <select data-testid="genre-input-label" id="genre" name="genre"
-              value={this.state.genre} onChange={this.handleChange}>
+          <select
+            data-testid="genre-input-label"
+            id="genre"
+            name="genre"
+            value={this.state.genre}
+            onChange={this.handleChange}
+          >
             <option data-testid="genre-option" value="action" selected>Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
-            </select>
-          </label>
-          <button data-testid="send-button" type="button" 
-            onClick={() => { 
-              onClick(this.state);
-              this.reset();
-            }}/>
+          </select>
+        </label>
+      </div>
+    );
+  }
 
+  button() {
+    const { onClick } = this.props;
+    return (
+      <div>
+        <button 
+          data-testid="send-button" type="button" 
+          onClick={() => { 
+            onClick(this.state);
+            this.reset();
+          }}
+        />
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <form data-testid="add-movie-form">
+          {this.title()}
+          {this.subtitle()}
+          {this.imagePath()}
+          {this.storyline()}
+          {this.rating()}
+          {this.genre()}
+          {this.button()}
         </form>
       </div>
     );
