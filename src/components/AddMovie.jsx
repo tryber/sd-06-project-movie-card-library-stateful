@@ -147,7 +147,7 @@ class AddMovie extends Component {
         {this.ratingInput()}
         {this.genreInput()}
         <button
-          data-testid="send-button" 
+          data-testid="send-button"
           onClick={this.buttonFunc}
         >Adicionar filme</button>
       </form>
@@ -155,9 +155,9 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func }
+AddMovie.propTypes = { onClick: PropTypes.func };
 
-AddMovie.defaultProps = { onClick: '' }
+AddMovie.defaultProps = { onClick: '' };
 
 
 export default AddMovie;

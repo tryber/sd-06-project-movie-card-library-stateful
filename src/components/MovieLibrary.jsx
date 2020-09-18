@@ -44,7 +44,7 @@ class MovieLibrary extends Component {
   render() {
     
     return(
-      <>
+      <div>
       <SearchBar 
       searchText={this.state.searchText}
       onSearchTextChange={this.handleTextChange}
@@ -57,7 +57,7 @@ class MovieLibrary extends Component {
       <AddMovie
       onClick={this.AddMovieList}
       />
-      </>
+      </div>
     )
   }
 }
