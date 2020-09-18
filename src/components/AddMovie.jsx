@@ -48,7 +48,13 @@ class AddMovie extends React.Component {
         <TextareaInput value={storyline} handleChange={this.inputChange} details={storylineObj} />
         <RatingInput value={rating} handleChange={this.inputChange} details={ratingObj} />
         <GenreInput value={genre} handleChange={this.inputChange} details={genreObj} />
-        <button type="submit" data-testid="send-button" onClick={this.handleAddMovie}>Adicionar filme</button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={this.handleAddMovie}
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
