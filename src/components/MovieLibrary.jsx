@@ -24,11 +24,11 @@ class MovieLibrary extends React.Component {
   }
 
   onClickAddMovie(newMovie) {
-    let movieList = this.state.movie;
-    movieList.push(newMovie);
+    let moviesList = this.state.movies;
+    moviesList.push(newMovie);
     this.setState({
-      movie: movieList,
-    })
+      movies: moviesList,
+    });
   }
 
   onSearchTextChange({ target: { value } }) {
@@ -106,9 +106,16 @@ MovieLibrary.propTypes = {
     storyline: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     imagePath: PropTypes.string.isRequired,
-    bookmarked: PropTypes.bool.isRequired,
-    genre: PropTypes.string.isRequired,
+    bookmarked: PropTypes.bool,
+    genre: PropTypes.string,
   }).isRequired,
 };
+
+MovieLibrary.defaultProps = {
+  movies: {
+    genre: 'unknown',
+    bookmarked: false,
+  }
+}
 
 export default MovieLibrary;

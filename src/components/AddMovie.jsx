@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
   }
 
   selectRender() {
-    const { genre } = this.props;
+    const { genre } = this.state;
     const { onChange } = this;
     return (
       <select
@@ -140,7 +140,6 @@ class AddMovie extends React.Component {
 
 AddMovie.propTypes = {
   onClick: PropTypes.func.isRequired,
-  genre: PropTypes.string.isRequired,
 };
 
 export default AddMovie;
