@@ -16,13 +16,16 @@ class SearchBar extends React.Component {
       onSearchTextChange,
     } = this.props;
 
-    return(
+    return (
       <label data-testid="text-input-label" htmlFor="text">Inclui o texto:
-      <input type="text" value={searchText} 
-        onChange={onSearchTextChange} data-testid="text-input" id="text" 
+      <input 
+        type="text"
+        value={searchText}
+        onChange={onSearchTextChange}
+        data-testid="text-input" id="text"
       />
       </label>
-    )
+    );
   }
 
   renderSecondInput() {
@@ -31,14 +34,17 @@ class SearchBar extends React.Component {
       onBookmarkedChange,
     } = this.props;
     
-    return(
+    return (
       <label data-testid="checkbox-input-label" htmlFor="checkbox">Mostrar somente favoritos
-        <input type="checkbox" checked={bookmarkedOnly} 
-          onChange={onBookmarkedChange} data-testid="checkbox-input"
+        <input 
+          type="checkbox"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+          data-testid="checkbox-input"
           id="checkbox"
         />
       </label>
-    )
+    );
   }
 
   renderThirdInput() {
@@ -47,10 +53,12 @@ class SearchBar extends React.Component {
       onSelectedGenreChange
     } = this.props;
 
-    return(
+    return (
       <label data-testid="select-input-label" htmlFor="select">Filtrar por gênero
-        <select value={selectedGenre} 
-          onChange={onSelectedGenreChange} data-testid="select-input"
+        <select
+          value={selectedGenre}
+          onChange={onSelectedGenreChange}
+          data-testid="select-input"
         >
           <option value="" data-testid="select-option">Todos</option>
           <option value="action" data-testid="select-option">Ação</option>
