@@ -26,10 +26,10 @@ class SearchBar extends React.Component {
   render() {
     return (
       <div className="movie-card-header">
-        <form id="search-bar-form">
-          <label for="text-input-label">
+        <form id="search-bar-form" data-testid="text-input-label">
+          <label htmlFor="text-input-label">
             Inclui o texto:
-            <input type="text" name="searchtext" value="searchText" />
+            <input type="text" onChange="onSearchTextChange" name="searchtext" value="searchText" data-testid="text-input" />
           </label>
         </form>
       </div>
@@ -39,3 +39,5 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
+
+// data-testid="add-movie-form"
