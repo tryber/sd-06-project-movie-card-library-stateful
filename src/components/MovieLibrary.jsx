@@ -18,7 +18,6 @@ class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
-        <SearchBar />
         <MovieList movies={this.state.movies} />
         <AddMovie />
       </div>
