@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Rating extends Component {
+class Rating extends React.Component {
   render() {
     const { rating } = this.props;
     return (

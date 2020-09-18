@@ -176,8 +176,7 @@ class AddMovie extends Component {
           {this.Rating()}
           {this.Genre()}
           <button
-            type="submit"
-            data-testid="send-button" 
+            data-testid="send-button"
             onClick={this.button}
           >
             Adicionar filme
