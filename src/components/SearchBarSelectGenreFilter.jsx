@@ -9,7 +9,7 @@ class SearchBarSelectFilter extends Component {
         <label htmlFor="selectFilter" data-testid="select-input-label">
           Filtrar por gênero:
         </label>
-        <select 
+        <select
           name="selectFilter"
           id="selectFilter"
           value={selectedGenre} onChange={onSelectedGenreChange}
