@@ -24,7 +24,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClickAddMovie() {
-
+    return (<div>...</div>)
   }
 
   onSearchTextChange({ target: { value } }) {
@@ -48,7 +48,7 @@ class MovieLibrary extends React.Component {
       movies: movies.filter((movie) => {
         const { title, subtitle, storyline } = movie;
         return (title.includes(filter) || subtitle.includes(filter) || storyline.includes(filter));
-      }).map((movie) => movie)
+      }).map((movie) => movie),
     });
   }
 
@@ -57,18 +57,19 @@ class MovieLibrary extends React.Component {
     this.setState({
       movies: movies
         .filter((movie) => movie.bookmarked === filter)
-        .map((movie) => movie)
+        .map((movie) => movie),
     });
   }
 
   listFilterGenre(filter) {
+    const { movies } = this.props;
     if (filter === '') {
       this.setState({ movies: this.props.movies });
     } else {
       this.setState({
         movies: movies
           .filter((movie) => movie.genre === filter)
-          .map((movie) => movie)
+          .map((movie) => movie),
       });
     }
   }
