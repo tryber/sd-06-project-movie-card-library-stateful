@@ -15,8 +15,10 @@ class AddMovie extends React.Component {
     this.onChange = this.props.onChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({ value: event.target.value });
+  onChange({ target }) {
+    const { name } = target;
+
+    this.setState({ [name]: target.value });
   }
 
   buttonClick(event) {
@@ -41,7 +43,7 @@ class AddMovie extends React.Component {
         <input
           type="text"
           value={this.props.title}
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
           data-testid="title-input"
         />
       </div>
@@ -59,7 +61,7 @@ class AddMovie extends React.Component {
         <input
           type="text"
           value={this.props.subtitle}
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
           data-testid="subtitle-input"
         />
       </div>
@@ -77,7 +79,7 @@ class AddMovie extends React.Component {
         <input
           type="text"
           value={this.props.imagePath}
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
           data-testid="image-input"
         />
       </div>
@@ -95,7 +97,7 @@ class AddMovie extends React.Component {
         <input
           type="text"
           value={this.props.storyline}
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
           data-testid="storyline-input"
         />
       </div>
@@ -113,7 +115,7 @@ class AddMovie extends React.Component {
         <input
           type="number"
           value={this.props.rating}
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
           data-testid="rating-input"
         />
       </div>
@@ -130,7 +132,7 @@ class AddMovie extends React.Component {
         </label>
         <select
           value={this.props.genre}
-          onChange={this.props.handleChange}
+          onChange={this.props.onChange}
           data-testid="genre-input"
         >
           <option value="action" data-testid="genre-option">Ação</option>
@@ -142,13 +144,13 @@ class AddMovie extends React.Component {
   }
 
   renderButton() {
+    const { onClick } = this.props;
     return (
       <div>
         <button
           data-testid="send-button"
-          onClick={this.props.buttonClick}
+          onClick={this.props.onClick}
         >Adicionar filme
-
         </button>
       </div>
     );
@@ -179,8 +181,7 @@ AddMovie.defaultProps = {
   rating: 0,
   genre: 'action',
   onChange: () => {},
-  handleChange: () => {},
-  buttonClick: () => {},
+  onClick: () => {},
 };
 
 AddMovie.propTypes = {
@@ -191,8 +192,7 @@ AddMovie.propTypes = {
   rating: propTypes.number,
   genre: propTypes.string,
   onChange: propTypes.func,
-  handleChange: propTypes.func,
-  buttonClick: propTypes.func,
+  onClick: propTypes.func,
 };
 
 export default AddMovie;
