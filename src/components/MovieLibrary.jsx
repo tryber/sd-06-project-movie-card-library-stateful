@@ -10,7 +10,7 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar value={this.state.estadoFavorito} handleChange={this.handleChange} />
         <AddMovie />
-        <MovieList movies={this.props.movies} />
+        <MovieList />
       </div>
     );
   }
