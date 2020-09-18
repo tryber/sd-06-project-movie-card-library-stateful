@@ -11,6 +11,7 @@ class AddMovie extends Component {
     this.renderRatingInput = this.renderRatingInput.bind(this);
     this.renderGenreSelect = this.renderGenreSelect.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.clickAction = this.clickAction.bind(this);
 
     this.state = {
       subtitle: '',
@@ -118,16 +119,40 @@ class AddMovie extends Component {
     );
   }
 
+  clickAction() {
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    })
+  }
+
+  renderAddMovieBtn() {
+    return(
+      <button data-testid="send-button" onClick={this.clickAction}>Adicionar filme</button>
+    )
+  }
+
   render() {
     return (
-      <form data-testid="add-movie-form">
-        {this.renderTitleInput()}
-        {this.renderSubtitleInput()}
-        {this.renderImagePathInput()}
-        {this.renderStorylineInput()}
-        {this.renderRatingInput()}
-        {this.renderGenreSelect()}
-      </form>
+      <section id="add-movie-section">
+        <form data-testid="add-movie-form">
+          {this.renderTitleInput()}
+          {this.renderSubtitleInput()}
+          {this.renderImagePathInput()}
+          {this.renderStorylineInput()}
+          {this.renderRatingInput()}
+          {this.renderGenreSelect()}
+        </form>
+        {this.renderAddMovieBtn()}
+      </section>
+
     );
   }
 

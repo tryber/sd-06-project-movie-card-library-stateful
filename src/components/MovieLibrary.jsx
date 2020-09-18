@@ -22,6 +22,10 @@ class MovieLibrary extends Component {
     this.setState({ searchText: target.value });
   }
 
+  addMovieToList() {
+
+  }
+
   render() {
     return (
       <div>
@@ -33,7 +37,7 @@ class MovieLibrary extends Component {
           onChange={this.onSearchTextChange}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.addMovieToList} />
       </div>
     );
   }
