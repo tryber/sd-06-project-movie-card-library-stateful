@@ -5,11 +5,13 @@ import ImageAddMovie from './ImageAddMovie';
 import StorylineAddMovie from './StorylineAddMovie';
 import RatingAddMovie from './RatingAddMovie';
 import SelectAddMovie from './SelectAddMovie';
+import BoataoAddMovie from './BotaoAddMovie';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handlerChange = this.handlerChange.bind(this);
+    this.handlerClick = this.handlerClick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -24,6 +26,19 @@ class AddMovie extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
+  }
+
+  handlerClick() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -50,6 +65,8 @@ class AddMovie extends React.Component {
         <RatingAddMovie rating={rating} handlerChange={this.handlerChange} />
 
         <SelectAddMovie genre={genre} handlerChange={this.handlerChange} />
+
+        <BoataoAddMovie handlerClick={this.handlerClick} />
 
       </form>
     );
