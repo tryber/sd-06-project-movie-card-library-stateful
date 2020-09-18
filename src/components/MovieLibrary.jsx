@@ -49,12 +49,12 @@ class MovieLibrary extends React.Component {
   filterText(movies, text) {
     const lowText = text.toLowerCase();
     if (lowText !== '') {
-      return movies.filter((movie) => (
-          movie.title.toLowerCase().search(lowText)
-          + movie.subtitle.toLowerCase().search(lowText)
-          + movie.storyline.toLowerCase().search(lowText)
-            > -1
-      ));
+      return movies.filter((movie) => {
+        if (movie.title.toLowerCase().search(lowText) > -1) return true;
+        if (movie.subtitle.toLowerCase().search(lowText) > - 1) return true;
+        if (movie.storyline.toLowerCase().search(lowText) > - 1) return true;
+        return false;
+      });
     }
     return movies;
   }
