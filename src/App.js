@@ -1,6 +1,7 @@
 import React from 'react';
-import SearchBar from './components/SearchBar.jsx';
+import MovieLibrary from './components/MovieLibrary.jsx';
 import './App.css';
+import movies from './data';
 
 import Header from './components/Header';
 
@@ -8,14 +9,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar
-        searchText=""
-        onSearchTextChange="#"
-        bookmarkedOnly=""
-        onBookmarkedChange=""
-        selectedGenre=""
-        onSelectedGenreChange=""
-      />
+      <MovieLibrary movies={movies} />
     </div>
   );
 }

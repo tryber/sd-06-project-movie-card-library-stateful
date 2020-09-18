@@ -5,12 +5,11 @@ import AddSelect from './AddSelect';
 
 class SearchBar extends React.Component {
   render() {
-    const { onSelectedGenreChange } = this.props;
+    const { onSelectedGenreChange, onSearchTextChange, searchText } = this.props;
     return (
       <form data-testid="search-bar-form">
         <AddInput
-          id="text" label="Inclui o texto" callback={this.props.onSearchTextChange}
-          value={this.props.searchText}
+          id="text" label="Inclui o texto" callback={onSearchTextChange} value={searchText}
         />
         <label data-testid="checkbox-input-label" htmlFor="fav-checkbox">Mostrar somente favoritos
         </label>
