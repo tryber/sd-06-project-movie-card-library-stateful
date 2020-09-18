@@ -5,12 +5,15 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  // constructor() {
-  //   super();
+  constructor() {
+    super();
+
     // this.onSearchTextChange = this.onSearchTextChange.bind(this);
     // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-  // }
+    this.onClick = this.onClick.bind(this);
+
+  }
 
   // onSearchTextChange() {
   // }
@@ -19,6 +22,11 @@ class MovieLibrary extends Component {
   // onSelectedGenreChange() {
 
   // }
+
+  onClick() {
+    return 1;
+  }
+
   render() {
     const { movies } = this.props;
 
@@ -35,7 +43,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />, */}
         <MovieList movies={movies} />
-        <AddMovie movies={movies} />
+        <AddMovie onClick={this.onClick} movies={movies} />
       </div>
     );
   }
