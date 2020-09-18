@@ -100,7 +100,6 @@ AddMovie.propTypes = {
   onSelectedInputChange: PropTypes.func.isRequired,
 
   data: PropTypes.shape({
-    onClick: PropTypes.func.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     imagePath: PropTypes.string.isRequired,
@@ -108,6 +107,36 @@ AddMovie.propTypes = {
     rating: PropTypes.string.isRequired,
     genre: PropTypes.string.isRequired,
   }).isRequired,
+};
+
+Title.propTypes = {
+  onSelectedInputChange: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+Subtitle.propTypes = {
+  onSelectedInputChange: PropTypes.func.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
+
+Image.propTypes = {
+  onSelectedInputChange: PropTypes.func.isRequired,
+  imagePath: PropTypes.string.isRequired,
+};
+
+Storyline.propTypes = {
+  onSelectedInputChange: PropTypes.func.isRequired,
+  storyline: PropTypes.string.isRequired,
+};
+
+Rating.propTypes = {
+  onSelectedInputChange: PropTypes.func.isRequired,
+  rating: PropTypes.string.isRequired,
+};
+
+Select.propTypes = {
+  onSelectedInputChange: PropTypes.func.isRequired,
+  genre: PropTypes.string.isRequired,
 };
 
 export default AddMovie;
