@@ -39,8 +39,8 @@ class MovieLibrary extends Component {
         selectedGenre={selectedGenre}
         onSelectedGenreChange={onSelectedGenreChange} */}
         <AddMovie
-          onClick ={() => console.log('hi')}
-         />
+          onClick ={()=> console.log('hi')}
+        />
         <MovieList movies={movies} />
       </div>
     );
