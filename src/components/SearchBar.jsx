@@ -76,7 +76,6 @@ class SearchBar extends React.Component {
         {this.renderSecondInput()}
 
         {this.renderThirdInput()}
-      
       </form>
     );
   }
