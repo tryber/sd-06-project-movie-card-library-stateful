@@ -19,14 +19,26 @@ class SearchBar extends React.Component {
     );
   }
 
+  renderFavorites() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    return (
+      <label data-testid="checkbox-input-label" htmlFor="favorites">
+        Mostrar somente favoritos
+        <input
+          data-testid="checkbox-input"
+          type="checkbox"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+        />
+      </label>
+    );
+  }
+
   render() {
     const {
       searchText,
       onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
     } = this.props;
-
     return (
       <form>
         <label data-testid="text-input-label" htmlFor="text">
@@ -38,15 +50,7 @@ class SearchBar extends React.Component {
             onChange={onSearchTextChange}
           />
         </label>
-        <label data-testid="checkbox-input-label" htmlFor="favorites">
-          Mostrar somente favoritos
-          <input
-            data-testid="checkbox-input"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-          />
-        </label>
+        {this.renderFavorites()}
         {this.renderFilterByGender()}
       </form>
     );
