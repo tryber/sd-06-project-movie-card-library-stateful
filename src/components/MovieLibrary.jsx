@@ -5,8 +5,8 @@ import AddMovie from './AddMovie';
 import data from '../data';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
