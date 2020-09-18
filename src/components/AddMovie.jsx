@@ -60,6 +60,32 @@ class AddMovie extends React.Component {
     );
   }
 
+  renderStorylineInput() {
+    return (
+      <input
+        data-testid="storyline-input"
+        type="text"
+        id="storylineInput"
+        name="storyline"
+        value={this.state.storyline}
+        onChange={this.handleChange}
+      />
+    );
+  }
+
+  renderRatingInput() {
+    return (
+      <input
+        data-testid="rating-input"
+        type="number"
+        id="ratingInput"
+        name="rating"
+        value={this.state.rating}
+        onChange={this.handleChange}
+      />
+    );
+  }
+
   render() {
     const { onClick } = this.props;
 
@@ -76,6 +102,14 @@ class AddMovie extends React.Component {
         <label data-testid="image-input-label" htmlFor="imageInput">
           Imagem
           {this.renderImageInput()}
+        </label>
+        <label data-testid="storyline-input-label" htmlFor="storylineInput">
+          Sinopse
+          {this.renderStorylineInput()}
+        </label>
+        <label data-testid="rating-input-label" htmlFor="ratingInput">
+          Avaliação
+          {this.renderRatingInput()}
         </label>
       </form>
     );
