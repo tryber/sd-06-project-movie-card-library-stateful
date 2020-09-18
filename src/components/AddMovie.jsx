@@ -1,53 +1,71 @@
 import React from 'react';
 
 class AddMovie extends React.Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
       rating: 0,
-      genre: "action",
-    }
-    this.mudaEstado = this.mudaEstado.bind(this);
+      genre: 'action',
+    };
+    this.change = this.change.bind(this);
   }
 
-  mudaEstado(evento) {
-    this.setState({
-      [evento.target.name]: evento.target.value
-    })
+  change(evento) {
+    this.setState({ [evento.target.name]: evento.target.value });
   }
 
   // tem que dar um name igual ao state inicial para cada input e chamar essa mesma função em todas elas
 // fazer a função que chama a função de onclick que será passada como props e chamar no botão que ainda não está criado
 
-  render() {
+  renderSelect() {
+    const { genre } = this.state;
     return (
-      <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">Título
-          <input data-testid="title-input" type="text" name="title" value={this.state.title} onChange={this.mudaEstado} />
-        </label>
-        <label data-testid="subtitle-input-label">Subtítulo
-          <input data-testid="subtitle-input" type="text" name="subtitle" value={this.state.subtitle} onChange={this.mudaEstado} />
-        </label>
-        <label data-testid="image-input-label">Imagem
-          <input data-testid="image-input" type="text" name="imagePath" value={this.state.imagePath} onChange={this.mudaEstado} />
-        </label>
-        <label data-testid="storyline-input-label">Sinopse
-          <input data-testid="storyline-input" type="textarea" name="storyline" value={this.state.storyline} onChange={this.mudaEstado} />
-        </label>
-        <label data-testid="rating-input-label">Avaliação
-          <input data-testid="rating-input" type="number" name="rating" value={this.state.rating} onChange={this.mudaEstado} />
-        </label>
-        <label htmlFor="select-options" data-testid="genre-input-label">Gênero
-          <select data-testid="genre-input" id="select-options" name="genre" value={this.state.genre} onChange={this.mudaEstado} >
+      <label htmlFor="select" data-testid="genre-input-label">Gênero
+          <select id="select" data-testid="genre-input" name="genre" value={genre} onChange={this.change} >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
+    );
+  }
+
+  render() {
+    const { title, subtitle, imagePath, storyline, rating } = this.state;
+    return (
+      <form data-testid="add-movie-form">
+        <label htmlFor="title" data-testid="title-input-label">Título
+          <input id="title" data-testid="title-input" type="text" name="title" value={title}
+            onChange={this.change}
+          />
+        </label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo
+          <input id="subtitle" data-testid="subtitle-input" type="text" name="subtitle"
+            value={subtitle} onChange={this.change}
+          />
+        </label>
+        <label htmlFor="imagePath" data-testid="image-input-label">Imagem
+          <input id="imagePath" data-testid="image-input" type="text" name="imagePath"
+            value={imagePath} onChange={this.change}
+          />
+        </label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse
+          <input id="storyline" data-testid="storyline-input" type="textarea" name="storyline"
+            value={storyline} onChange={this.change}
+          />
+        </label>
+        <label htmlFor="rating" data-testid="rating-input-label">Avaliação
+          <input id="rating" data-testid="rating-input" type="number" name="rating"
+            value={rating} onChange={this.change}
+          />
+        </label>
+        {this.renderSelect()}
+        <button data-testid="send-button">Adicionar filme
+        </button>
       </form>
     );
   }
