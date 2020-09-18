@@ -33,7 +33,7 @@ class AddMovie extends Component {
       genre: 'action',
     });
   }
-  
+
   button() {
     const { onClick } = this.props;
     return (
