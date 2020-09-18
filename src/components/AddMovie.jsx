@@ -4,10 +4,10 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
-      subtitle: '',
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
@@ -15,9 +15,10 @@ class AddMovie extends React.Component {
     };
   }
 
-  onChange({ target }) {
+  handleChange({ target }) {
     const { name } = target;
-    this.setState({ [name]: target.value });
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   rendererTitleInput() {
@@ -28,7 +29,7 @@ class AddMovie extends React.Component {
           data-testid="title-input"
           type="text"
           value={this.state.title}
-          onChange={this.onChange}
+          onChange={this.handleChange}
         />
       </label>
     );
@@ -42,7 +43,7 @@ class AddMovie extends React.Component {
           data-testid="subtitle-input"
           type="text"
           value={this.state.subtitle}
-          onChange={this.onChange}
+          onChange={this.handleChange}
         />
       </label>
     );
@@ -56,7 +57,7 @@ class AddMovie extends React.Component {
           data-testid="image-input"
           type="text"
           value={this.state.imagePath}
-          onChange={this.onChange}
+          onChange={this.handleChange}
         />
       </label>
     );
@@ -70,7 +71,7 @@ class AddMovie extends React.Component {
           data-testid="storyline-input"
           type="text"
           value={this.state.storyline}
-          onChange={this.onChange}
+          onChange={this.handleChange}
         />
       </label>
     );
@@ -84,7 +85,7 @@ class AddMovie extends React.Component {
           data-testid="rating-input"
           type="number"
           value={this.state.rating}
-          onChange={this.onChange}
+          onChange={this.handleChange}
         />
       </label>
     );
@@ -97,7 +98,7 @@ class AddMovie extends React.Component {
         <select
           data-testid="genre-input"
           value={this.state.genre}
-          onChange={this.onChange}
+          onChange={this.handleChange}
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
