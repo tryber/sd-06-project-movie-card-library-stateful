@@ -7,7 +7,7 @@ const imageInput = { onChange: 'AddMovie.setState(imagePath)' };
 const storylineInput = { onChange: 'AddMovie.setState(storyline)' };
 const ratingInput = {
   type: 'number',
-  onChange: 'AddMovie.setState(rating)'
+  onChange: 'AddMovie.setState(rating)',
 };
 
 class AddMovie extends Component {
