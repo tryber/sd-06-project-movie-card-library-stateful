@@ -9,8 +9,8 @@ const inputSearch = {
 class SearchBar extends React.Component {
 
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly,
-      onBookmarkedChange, selectedGenre, onSelectedGenreChange, } = this.props;
+    // const { searchText, onSearchTextChange, bookmarkedOnly,
+    //   onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <div className="movie-card-header">
@@ -19,11 +19,11 @@ class SearchBar extends React.Component {
             Inclui o texto:
             <input type="text" {...inputSearch} data-testid="text-input" />
           </label>
-          <label htmlFor="" data-testid="checkbox-input-label">
-            <input type="checkbox" checked="bookmarkedOnly" onChange="onBookmarkedChange" data-testid="checkbox-input" />
+          <label htmlFor="checkedbox" data-testid="checkbox-input-label">
+            <input id="checkedbox" type="checkbox" checked="bookmarkedOnly" onChange="onBookmarkedChange" data-testid="checkbox-input" />
           </label>
-          <label data-testid="select-input-label">
-            <select value="selectedGenre">
+          <label htmlFor="select" data-testid="select-input-label">
+            <select id="select" value="selectedGenre">
               <option value="" data-testid="select-option">Todos</option>
               <option value="action" data-testid="select-option">Ação</option>
               <option value="comedy" data-testid="select-option">Comédia</option>
