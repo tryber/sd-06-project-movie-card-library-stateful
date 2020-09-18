@@ -20,14 +20,14 @@ class AddMovie extends React.Component {
   }
 
   buttonClick(event) {
-    this.setState({ 
+    this.setState({
       title: event.target.value,
       subtitle: event.target.value,
       imagePath: event.target.value,
       storyline: event.target.value,
       rating: event.target.value,
       genre: event.target.value,
-     });
+    });
   }
 
   renderTitleInput() {
@@ -45,7 +45,7 @@ class AddMovie extends React.Component {
           data-testid="title-input"
         />
       </div>
-    )
+    );
   }
 
   renderSubtitleInput() {
@@ -63,7 +63,7 @@ class AddMovie extends React.Component {
           data-testid="subtitle-input"
         />
       </div>
-    )
+    );
   }
 
   renderImageInput() {
@@ -99,7 +99,7 @@ class AddMovie extends React.Component {
           data-testid="storyline-input"
         />
       </div>
-    )
+    );
   }
 
   renderRantingInput() {
@@ -117,13 +117,14 @@ class AddMovie extends React.Component {
           data-testid="rating-input"
         />
       </div>
-    )
+    );
   }
 
   renderGenderSelect() {
     return (
       <div>
         <label
+          htmlFor="genre-input"
           data-testid="genre-input-label"
         >Gênero
         </label>
@@ -137,7 +138,7 @@ class AddMovie extends React.Component {
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </div>
-    )
+    );
   }
 
   renderButton() {
@@ -150,7 +151,7 @@ class AddMovie extends React.Component {
 
         </button>
       </div>
-    )
+    );
   }
 
   render() {
@@ -178,6 +179,8 @@ AddMovie.defaultProps = {
   rating: 0,
   genre: 'action',
   onChange: () => {},
+  handleChange: () => {},
+  buttonClick: () => {},
 };
 
 AddMovie.propTypes = {
@@ -188,6 +191,8 @@ AddMovie.propTypes = {
   rating: propTypes.number,
   genre: propTypes.string,
   onChange: propTypes.func,
+  handleChange: propTypes.func,
+  buttonClick: propTypes.func,
 };
 
 export default AddMovie;
