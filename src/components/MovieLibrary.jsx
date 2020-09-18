@@ -4,8 +4,6 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-
-
 class MovieLibrary extends React.Component {
   constructor() {
     super();
@@ -13,38 +11,38 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies
+      movies,
     };
     this.refreshSearchText = this.refreshSearchText.bind(this);
     this.refreshBookmarkedOnly = this.refreshBookmarkedOnly.bind(this);
     this.refreshSelectedGenre = this.refreshSelectedGenre.bind(this);
-  }
-
-  refreshSearchText(event) {
-    this.setState({ searchText: event.target.value })
-  }
+  }  
 
   refreshBookmarkedOnly(event) {
     this.setState({ bookmarkedOnly: event.target.checked }, () => {
       if (this.state.bookmarkedOnly === true) {
-        const favoriteMovies = movies.filter(movie => movie.bookmarked === true);
-        this.setState({ movies: favoriteMovies })
+        const favoriteMovies = movies.filter((movie) => movie.bookmarked === true);
+        this.setState({ movies: favoriteMovies });
       } else {
-        this.setState({ movies: movies })
+        this.setState({ movies });
       }
-  })
+    });
   }
 
   refreshSelectedGenre(event) {
-    this.setState({ selectedGenre: event.target.value })  
+    this.setState({ selectedGenre: event.target.value });
   }
 
-  onClick() {
+  // onClick() {
 
+  // }
+
+  refreshSearchText(event) {
+    this.setState({ searchText: event.target.value });
   }
 
   render() {
-    return(
+    return (
       <div>
         <SearchBar
           searchText={this.state.searchText}
@@ -54,9 +52,9 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.refreshSelectedGenre}
         />
-      <MovieList movies={this.state.movies} />
-      <AddMovie onClick={this.onClick} />
-     </div>
+        <MovieList movies={this.state.movies} />
+        <AddMovie onClick={this.onClick} />
+      </div>
     );
   }
 }
