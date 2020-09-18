@@ -10,6 +10,7 @@ class AddMovie extends Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       subtitle: '',
@@ -27,8 +28,25 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
+  onClick() {
+    this.props.onClick(this)
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    document.getElementById('titulo').value='';
+    document.getElementById('subtitulo').value='';
+    document.getElementById('imagem').value='';
+    document.getElementById('textarea').value='';
+    document.getElementById('nota').value=0;
+    document.getElementById('genero').value='action';
+  }
+
   render() {
-    const { onClick } = this.props;
     return (
       <form htmlFor="this-form" data-testid="add-movie-form">
         <AddMovieComponentPartOne
@@ -47,7 +65,7 @@ class AddMovie extends Component {
           value={this.state.name}
           handleChange={this.handleChange}
         />
-        <button data-testid="send-button"onClick={onClick}>Adicionar filme</button>
+        <button form="add-movie-form" data-testid="send-button" onClick={this.onClick}>Adicionar filme</button>
       </form>
     );
   }

@@ -19,5 +19,5 @@ class MovieCard extends Component {
     );
   }
 }
-
+//  100%
 export default MovieCard;
