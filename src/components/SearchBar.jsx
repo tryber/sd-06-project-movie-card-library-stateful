@@ -23,29 +23,18 @@ class SearchBar extends Component {
     const { selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
-      <label data-testid="select-input-label" htmlFor="select-input">
+      <label data-testid="select-input-label" htmlFor="select">
         Filtrar por gênero
         <select
           data-testid="select-input"
-          htmlFor="select-input"
+          id="select"
           onChange={onSelectedGenreChange}
-          value={selectedGenre}>
-          <option
-            data-testid="select-option"   htmlFor="select-input" value="">
-            Todos
-          </option>
-          <option
-            data-testid="select-option"   htmlFor="select-input" value="action">
-            Ação
-          </option>
-          <option
-            data-testid="select-option"   htmlFor="select-input"  value="comedy">
-            Comédia
-          </option>
-          <option
-            data-testid="select-option"   htmlFor="select-input" value="thriller">
-            Suspense
-          </option>
+          value={selectedGenre}
+        >
+          <option data-testid="select-option" id="select" value="">Todos</option>
+          <option data-testid="select-option" id="select" value="action">Ação</option>
+          <option data-testid="select-option" id="select" value="comedy">Comédia</option>
+          <option data-testid="select-option" id="select" value="thriller">Suspense</option>
         </select>
       </label>
     );
@@ -56,7 +45,7 @@ class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        {this.renderTextInput()}
+        {this.renderTextInput}
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos
           <input
