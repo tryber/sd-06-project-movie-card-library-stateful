@@ -10,10 +10,17 @@
 }
 
 .filter-form .input-container input {
-  border-radius: 5px;
   border: 1px solid #343a40;
-  padding: 4px;
+  border-radius: 5px;
   margin: 12px 0 12px 8px;
+  padding: 4px;
+}
+
+.filter-form select {
+  background-color: white;
+  border: 1px solid #343a40;
+  border-radius: 5px;
+  padding: 4px;
 }
 
 .filter-form .filters {
@@ -22,10 +29,10 @@
 }
 
 .filter-form .filters .check-box-container {
-  display: flex;
   align-items: center;
-  font-size: 90%;
+  display: flex;
   flex-basis: 60%;
+  font-size: 90%;
 }
 
 .filter-form .filters .check-box-container label {
@@ -33,8 +40,8 @@
 }
 
 .filter-form .filters .select-container {
-  display: flex;
   align-items: center;
+  display: flex;
   font-size: 90%;
 }
 
