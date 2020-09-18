@@ -11,12 +11,12 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar
-        searchText=''
-        onSearchTextChange='#'
-        bookmarkedOnly=''
-        onBookmarkedChange=''
-        selectedGenre=''
-        onSelectedGenreChange=''
+        searchText=""
+        onSearchTextChange="#"
+        bookmarkedOnly=""
+        onBookmarkedChange=""
+        selectedGenre=""
+        onSelectedGenreChange=""
       />
       <MovieList movies={movies} />
     </div>
