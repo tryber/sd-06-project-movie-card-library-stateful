@@ -24,14 +24,14 @@ class MovieLibrary extends Component {
 
   onClick(newMoview) {
     const myNewMovie = {
-    title: newMoview.state.title,
-    subtitle: newMoview.state.subtitle,
-    storyline: newMoview.state.storyline,
-    rating: newMoview.state.rating,
-    imagePath: newMoview.state.imagePath,
-    bookmarked: false,
-    genre: newMoview.state.genre,
-    }
+      title: newMoview.state.title,
+      subtitle: newMoview.state.subtitle,
+      storyline: newMoview.state.storyline,
+      rating: newMoview.state.rating,
+      imagePath: newMoview.state.imagePath,
+      bookmarked: false,
+      genre: newMoview.state.genre,
+    };
     this.setState({ movies: [...this.props.movies, myNewMovie] });
   }
 
