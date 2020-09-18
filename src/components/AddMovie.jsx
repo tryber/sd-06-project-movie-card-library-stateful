@@ -16,13 +16,11 @@ class AddMovie extends Component {
       genre: 'action',
     };
   }
-  
+
   onChange({ target }) {
     const { name } = target;
-    
-    this.setState({
-      [name]: target.value,
-    })
+
+    this.setState({ [name]: target.value });
   }
 
   renderInput() {
@@ -36,43 +34,67 @@ class AddMovie extends Component {
 
   renderSubtitle() {
     return (
-      <label data-testid="subtitle-input-label">
+      <label htmlFor="text" data-testid="subtitle-input-label">
         Subtítulo
-        <input type="text" data-testid="subtitle-input" name="subtitle" value={this.state.subtitle} onChange={this.onChange} />
+        <input
+          type="text"
+          data-testid="subtitle-input"
+          name="subtitle"
+          value={this.state.subtitle}
+          onChange={this.onChange}
+        />
       </label>
     );
   }
 
   renderImageInput() {
     return (
-      <label data-testid="image-input-label">
+      <label htmlFor="text" data-testid="image-input-label">
         Imagem
-        <input type="text" data-testid="image-input" name="imagePath" value={this.state.imagePath} onChange={this.onChange} />
+        <input
+          type="text"
+          data-testid="image-input"
+          name="imagePath"
+          value={this.state.imagePath}
+          onChange={this.onChange}
+        />
       </label>
     );
   }
 
   renderSinopse() {
     return (
-      <label data-testid="storyline-input-label">
+      <label htmlFor="textarea" data-testid="storyline-input-label">
         Sinopse
-        <input type="textarea" data-testid="storyline-input" name="storyline" value={this.state.storyline} onChange={this.onChange} />
+        <input
+          htmlFor="textarea"
+          data-testid="storyline-input"
+          name="storyline"
+          value={this.state.storyline}
+          onChange={this.onChange}
+        />
       </label>
     );
   }
 
   renderRating() {
     return (
-      <label data-testid="rating-input-label">
+      <label htmlFor="number" data-testid="rating-input-label">
         Avaliação
-        <input type="number" data-testid="rating-input" name="rating" value={this.state.rating} onChange={this.onChange} />
+        <input
+          type="number"
+          data-testid="rating-input"
+          name="rating"
+          value={this.state.rating}
+          onChange={this.onChange}
+        />
       </label>
     );
   }
 
   renderGenre() {
     return (
-      <label data-testid="genre-input-label">
+      <label htmlFor="select" data-testid="genre-input-label">
         Gênero
         <select
           data-testid="genre-input" name="genre" value={this.state.genre} onChange={this.onChange}
@@ -81,7 +103,7 @@ class AddMovie extends Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
-    </label>
+      </label>
     );
   }
 
