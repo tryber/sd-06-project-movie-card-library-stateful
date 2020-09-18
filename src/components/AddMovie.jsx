@@ -91,7 +91,7 @@ Gênero
   }
 }
 
-AddMovie.propTypes {
+AddMovie.propTypes = {
   onClick: propType.func,
 };
 
