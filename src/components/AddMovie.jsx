@@ -11,30 +11,29 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    this.atualiza = this.atualiza.bind(this);
-    this.buttonTroca = this.buttonTroca.bind(this);
+    // this.atualiza = this.atualiza.bind(this);
+    // this.buttonTroca = this.buttonTroca.bind(this);
   }
 
-  /*
-  atualiza(event) {
-      const { name, value } = event.target;
-      this.setState({ [name]: name === 'rating' ? parseFloat(value) : value });
-    }
+  // atualiza(event) {
+  //   const { name, value } = event.target;
+  //   this.setState({ [name]: name === 'rating' ? parseFloat(value) : value });
+  // }
 
-    buttonTroca(event) {
-      event.preventDefault();
-      const { onClick } = this.props;
-      onClick(this.state);
-      this.setState({
-        subtitle: '',
-        title: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-      });
-    }
-  */
+  // buttonTroca(event) {
+  //   event.preventDefault();
+  //   const { onClick } = this.props;
+  //   onClick(this.state);
+  //   this.setState({
+  //     subtitle: '',
+  //     title: '',
+  //     imagePath: '',
+  //     storyline: '',
+  //     rating: 0,
+  //     genre: 'action',
+  //   });
+  // }
+
   rendererTitleInput() {
     return (
       <label htmlFor="title-input" data-testid="title-input-label">
@@ -131,6 +130,7 @@ class AddMovie extends React.Component {
         {this.rendererStoryLineInput()}
         {this.rendererRatingInput()}
         {this.rendererGenreInput()}
+        <button data-testid="send-button" type="submit">Adicionar filme</button>
       </form>
     );
   }
