@@ -37,7 +37,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  add() {
+  add(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.reset();
