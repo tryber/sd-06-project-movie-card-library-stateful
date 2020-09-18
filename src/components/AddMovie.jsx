@@ -27,7 +27,8 @@ class AddMovie extends React.Component {
     const { genre } = this.state;
     return (
       <label htmlFor="select" data-testid="genre-input-label">Gênero
-        <select id="select" data-testid="genre-input" name="genre"
+        <select
+          id="select" data-testid="genre-input" name="genre"
           value={genre}
           onChange={this.change}
         >
@@ -44,31 +45,36 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">Título
-          <input id="title" data-testid="title-input" type="text" name="title"
+          <input
+            id="title" data-testid="title-input" type="text" name="title"
             value={title}
             onChange={this.change}
           />
         </label>
         <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo
-          <input data-testid="subtitle-input" type="text" name="subtitle" id="subtitle"
+          <input
+            data-testid="subtitle-input" type="text" name="subtitle" id="subtitle"
             value={subtitle}
             onChange={this.change}
           />
         </label>
         <label htmlFor="imagePath" data-testid="image-input-label">Imagem
-          <input id="imagePath" data-testid="image-input" type="text" name="imagePath"
+          <input
+            id="imagePath" data-testid="image-input" type="text" name="imagePath"
             value={imagePath}
             onChange={this.change}
           />
         </label>
         <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse
-          <input data-testid="storyline-input" type="textarea" name="storyline" id="storyline"
+          <input
+            data-testid="storyline-input" type="textarea" name="storyline" id="storyline"
             onChange={this.change}
             value={storyline}
           />
         </label>
         <label htmlFor="rating" data-testid="rating-input-label">Avaliação
-          <input id="rating" data-testid="rating-input" type="number" name="rating"
+          <input
+            id="rating" data-testid="rating-input" type="number" name="rating"
             value={rating}
             onChange={this.change}
           />
