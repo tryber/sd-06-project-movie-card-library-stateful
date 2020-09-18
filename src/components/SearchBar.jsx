@@ -4,18 +4,18 @@ import PropTypes from 'prop-types';
 
 export default class SearchBar extends React.Component {
   render() {
-			const { keyword, setKeyWord } = this.props;
+    const { keyword, setKeyWord } = this.props;
     return (
       <div>
-        <input key='random1' value={this.props.keyword} placeholder='search movie' onChange={(e) => setKeyWord(e.target.value)} />
+        <input key="random1" value={this.props.keyword} placeholder="search movie" onChange={(e) => setKeyWord(e.target.value)} />
       </div>
     );
   }
 }
 
 SearchBar.propTypes = {
-	keyword: PropTypes.string,
-	setKeyWord:PropTypes.any
+  keyword: PropTypes.string.isRequired,
+  setKeyWord:PropTypes.string.isRequireds,
 };
 // searchText={props.searchText}
 // onSearchTextChange={props.onSearchTextChange}
