@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import SearchSelect from './SearchSelect.jsx';
 
 class SearchBar extends React.Component {
-
   render() {
     const {
       searchText,
@@ -19,12 +18,8 @@ class SearchBar extends React.Component {
       <div>
         <form data-testid="search-bar-form">
           <label htmlFor="text-input" data-testid="text-input-label">Inclui o texto</label>
-          <input
-            type="text"
-            id="text-input"
-            data-testid="text-input"
-            value={searchText}
-            onChange={onSearchTextChange}
+          <input type="text" id="text-input" data-testid="text-input"
+            value={searchText} onChange={onSearchTextChange}
           />
 
           <input type="checkbox" id="bookmark-checked" data-testid="checkbox-input"
