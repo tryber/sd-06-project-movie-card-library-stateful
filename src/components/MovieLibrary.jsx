@@ -19,10 +19,11 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    // this.handleFilter = this.handleFilter.bind(this);
   }
 
-  onClick(estados) {
-    this.setState((prevState) => ({ movie: prevState.movies.push(estados) }));
+  onClick(movie) {
+    this.setState((previous) => ({ movies: [...previous.movies, movie] }));
   }
 
   onSearchTextChange({ target }) {
@@ -32,9 +33,9 @@ class MovieLibrary extends Component {
       ? {
         searchText: value,
         movies: prevState.movies
-          .filter((movie) => movie.title.includes(value) ||
-          movie.subtitle.includes(value) ||
-          movie.storyline.includes(value)),
+          .filter((movie) => movie.title.toUpperCase().includes(value.toUpperCase()) ||
+          movie.subtitle.toUpperCase().includes(value.toUpperCase()) ||
+          movie.storyline.toUpperCase().includes(value.toUpperCase())),
       }
       : {
         searchText: '',
@@ -75,6 +76,38 @@ class MovieLibrary extends Component {
       }
     ));
   }
+
+  // async onSearchTextChange({ target }) {
+  //   await this.setState({ searchText: target.value });
+  //   this.handleFilter();
+  // }
+
+  // async onBookmarkedChange({ target }) {
+  //   await this.setState({ bookmarkedOnly: target.checked });
+  //   this.handleFilter();
+  // }
+
+  // async onSelectedGenreChange({ target }) {
+  //   await this.setState({ selectedGenre: target.value });
+  //   this.handleFilter();
+  // }
+
+  // handleFilter() {
+  //   let allMovies = this.props.movies;
+  //   if (this.state.searchText !== '') {
+  //     const value = this.state.searchText.toUpperCase();
+  //     allMovies = allMovies.filter((movie) => ((movie.title).toUpperCase()).includes(value) ||
+  //         ((movie.subtitle).toUpperCase()).includes(value) ||
+  //         (movie.storyline.toUpperCase()).includes(value));
+  //   }
+  //   if (this.state.bookmarkedOnly) {
+  //     allMovies = allMovies.filter((movie) => movie.bookmarked);
+  //   }
+  //   if (this.state.selectedGenre !== '') {
+  //     allMovies = allMovies.filter((movie) => movie.genre === this.state.selectedGenre);
+  //   }
+  //   this.setState({ movies: allMovies });
+  // }
 
   render() {
     return (
