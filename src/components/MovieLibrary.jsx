@@ -18,6 +18,9 @@ class MovieLibrary extends React.Component {
     this.inputHandler = this.inputHandler.bind(this);
     this.selectHandler = this.selectHandler.bind(this);
     this.checkHandler = this.checkHandler.bind(this);
+    this.filterBookmarked = this.filterBookmarked.bind(this);
+    this.filterGenre = this.filterGenre.bind(this);
+    this.filterText = this.filterText.bind(this);
   }
 
   inputHandler({ target }) {
@@ -51,12 +54,16 @@ class MovieLibrary extends React.Component {
     if (lowText !== '') {
       return movies.filter((movie) => {
         if (movie.title.toLowerCase().search(lowText) > -1) return true;
-        if (movie.subtitle.toLowerCase().search(lowText) > - 1) return true;
-        if (movie.storyline.toLowerCase().search(lowText) > - 1) return true;
+        if (movie.subtitle.toLowerCase().search(lowText) > -1) return true;
+        if (movie.storyline.toLowerCase().search(lowText) > -1) return true;
         return false;
       });
     }
     return movies;
+  }
+
+  addMovieBtn(data) {
+    this.setState((data) => )
   }
 
   render() {
@@ -73,7 +80,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={selectedGenre} onSelectedGenreChange={this.selectHandler}
         />
         <MovieList movies={movies} />
-        {/* <AddMovie /> */}
+        <AddMovie onClick={this.addMovieBtn} />
       </section>
     );
   }
