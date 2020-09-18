@@ -4,7 +4,7 @@ class AddMovie extends Component {
   render() {
     return (
       <div className="add-movie">
-        My Add Movie
+        My Add Movie.
       </div>
     );
   }
