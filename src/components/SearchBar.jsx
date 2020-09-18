@@ -82,7 +82,7 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.defaultProps = { 
+SearchBar.defaultProps = {
   searchText: '',
   onSearchTextChange: () => {},
   bookmarkedOnly: false,
