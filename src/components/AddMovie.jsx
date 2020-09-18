@@ -48,27 +48,27 @@ class AddMovie extends Component {
 
   render() {
     return (
-        <form htmlFor="this-form" data-testid="add-movie-form">
-          <AddMovieComponentPartOne
-            value={this.state.name}
-            handleChange={this.handleChange}
-          />
-          <AddMovieComponentPartTwo
-            value={this.state.name}
-            handleChange={this.handleChange}
-          />
-          <AddMovieComponentPartThree
-            value={this.state.name}
-            handleChange={this.handleChange}
-          />
-          <AddMovieComponentPartFour
-            value={this.state.name}
-            handleChange={this.handleChange}
-          />
-          <button form="add-movie-form" data-testid="send-button" onClick={this.onClick}>
-            Adicionar filme
-          </button>
-        </form>
+      <form htmlFor="this-form" data-testid="add-movie-form">
+        <AddMovieComponentPartOne
+          value={this.state.name}
+          handleChange={this.handleChange}
+        />
+        <AddMovieComponentPartTwo
+          value={this.state.name}
+          handleChange={this.handleChange}
+        />
+        <AddMovieComponentPartThree
+          value={this.state.name}
+          handleChange={this.handleChange}
+        />
+        <AddMovieComponentPartFour
+          value={this.state.name}
+          handleChange={this.handleChange}
+        />
+        <button form="add-movie-form" data-testid="send-button" onClick={this.onClick}>
+          Adicionar filme
+        </button>
+      </form>
     );
   }
 }
