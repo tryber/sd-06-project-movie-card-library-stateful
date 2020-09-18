@@ -37,9 +37,27 @@ class AddMovie extends Component {
     });
   }
 
+  renderTitleInputLabel() {
+    return (
+      <label data-testid="title-input-label" htmlFor="title-input-label">
+      Título:
+      <input
+        type="text"
+        name="title"
+        value={this.state.title}
+        onChange={this.onChange}
+        data-testid="title-input"
+        id="title-input-label"
+      />
+      </label>
+    );
+  }
+
   render() {
     return (
-      <form action=""></form>
+      <form action="" data-testid="add-movie-form">
+        <div>{this.renderTitleInputLabel()}</div>
+      </form>
     );
   }
 }
