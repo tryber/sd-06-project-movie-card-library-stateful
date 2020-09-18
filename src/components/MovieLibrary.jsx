@@ -29,19 +29,19 @@ class MovieLibrary extends React.Component {
 
   onSearchTextChange({ target: { value } }) {
     this.setState({ searchText: value }, () => {
-      this.listFilterText(this.state.searchText)
+      this.listFilterText(this.state.searchText);
     });
   }
 
   onBookmarkedChange({ target: { checked } }) {
     this.setState({ bookmarkedOnly: checked }, () => {
-      this.listFilterBookmarked(this.state.bookmarkedOnly)
+      this.listFilterBookmarked(this.state.bookmarkedOnly);
     });
   }
 
   onSelectedGenreChange({ target: { value } }) {
     this.setState({ selectedGenre: value }, () => {
-      this.listFilterGenre(this.state.selectedGenre)
+      this.listFilterGenre(this.state.selectedGenre);
     });
   }
 
