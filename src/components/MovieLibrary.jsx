@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor() {
     super();
-
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -27,7 +27,7 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
         />
         <MovieList movies={movies} />
-        <AddMovie onClik={onClick} />
+        <AddMovie onClik={this.onClick} />
       </div>
     );
   }
