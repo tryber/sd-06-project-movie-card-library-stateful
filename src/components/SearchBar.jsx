@@ -3,7 +3,7 @@ import React from 'react';
 class SearchBar extends React.Component {
   constructor() {
     super();
-    this.selectRender = this;selectRender.bind(this);
+    this.selectRender = this.selectRender.bind(this);
   }
 
   selectRender() {
@@ -23,6 +23,7 @@ class SearchBar extends React.Component {
 
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
+    const { selectRender } = this;
     return (
       <form data-testid="search-bar-form" action="GET">
         <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:</label>
