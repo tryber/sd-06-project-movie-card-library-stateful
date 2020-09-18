@@ -36,12 +36,6 @@ class AddMovie extends React.Component {
           <SubtitleInput value={subtitle} handleChange={this.handleChange} />
           <ImageInput value={imagePath} handleChange={this.handleChange} />
           <Storyline value={storyline} handleChange={this.handleChange} />
-          {/* <div>
-            <label htmlFor="rating" data-testid="rating-input-label">
-              <p>Avaliação</p>
-              <input type="number" id="rating" step="0.1" data-testid="rating-input" name="rating" value={rating} onChange={this.handleChange} />
-            </label>
-          </div> */}
           <RatingInput rating={rating} handleChange={this.handleChange} />
           <GenreInput value={genre} handleChange={this.handleChange} />
           <button type="submit" data-testid="send-button" onClick={onClick}>Adicionar filme</button>
