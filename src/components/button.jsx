@@ -8,7 +8,9 @@ class Button extends Component {
     return (
       <fieldset>
         <button
-          data-testid="send-button" onClick={click} >Adicionar filme
+          data-testid="send-button" onClick={click}
+        > 
+          Adicionar filme
         </button>
       </fieldset>
     );
