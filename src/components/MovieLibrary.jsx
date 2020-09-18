@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends Component {
   constructor(props) {
     super();
 
     this.handleChange = this.handleChange.bind(this);
-    const { movies } = props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies: props.movies,
     };
   }
 
@@ -43,5 +43,8 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf() };
+MovieLibrary.defaultProps = { movies: '' };
 
 export default MovieLibrary;
