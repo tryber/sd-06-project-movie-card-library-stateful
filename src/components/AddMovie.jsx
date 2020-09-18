@@ -34,12 +34,12 @@ class AddMovie extends React.Component {
   }
   render() {
     return (
-      <form data-testid="add-movie-form">
-        {this.renderInput("Título", "title-input-label", 'title', "title-input", this.state.title, 'type')}
-        {this.renderInput("Subtítulo", "subtitle-input-label", 'subtitle', "subtitle-input", this.state.subtitle, 'type')}
-        {this.renderInput("Imagem", "image-input-label", 'imagePath', "image-input", this.state.imagePath, 'type')}
-        {this.renderInput("Sinopse", "storyline-input-label", 'storyline', "storyline-input", this.state.storyline, 'textarea')}
-        {this.renderInput("Sinopse", "storyline-input-label", 'storyline', "storyline-input", this.state.storyline, 'textarea')}
+      <form data-testid='add-movie-form'>
+        {this.renderInput('Título', 'title-input-label', 'title', 'title-input', this.state.title, 'type')};
+        {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', this.state.subtitle, 'type')};
+        {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', this.state.imagePath, 'type')};
+        {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', this.state.storyline, 'textarea')};
+        {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', this.state.rating, 'number')};
       </form>
     );
   }
