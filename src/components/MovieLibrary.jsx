@@ -32,10 +32,14 @@ class MovieLibrary extends Component {
     this.setState({ searchText: target.value });
     const inputValue = target.value.toLowerCase();
     const movieTitle = this.props.movies.filter((value) =>
-      value.title.toLowerCase() === inputValue);
+    value.title.toLowerCase().includes(inputValue) ||
+    value.subtitle.toLowerCase().includes(inputValue) ||
+    value.storyline.toLowerCase().includes(inputValue)
+    );
     if (target.value === '' || movieTitle.length === 0) this.setState({ movies: this.props.movies });
     else this.setState({ movies: movieTitle });
   }
+  
 
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
@@ -71,9 +75,7 @@ class MovieLibrary extends Component {
     );
   }
 }
-// ✕ Será validado se a barra de buscas filtra os filmes por titulo (90ms)
-// ✕ Será validado se a barra de buscas filtra os filmes por subtítulo (125ms)
-// ✕ Será validado se a barra de buscas filtra os filmes por sinopse (51ms)
+
 // ✕ Será validado se é possível adicionar um novo filme a lista de filmes (263ms)
 
 MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
