@@ -4,11 +4,11 @@ import PropTypes from 'prop-types';
 class SearchBarTextFilter extends Component {
   render() {
     const { searchText, onSearchTextChange } = this.props;
-    return(
+    return (
       <div className="text-filter-container">
         <label htmlFor="textFilter" data-testid="text-input-label">
           Inclui o texto:
-          <input 
+          <input
             type="text"
             name="textFilter"
             id="textFilter"

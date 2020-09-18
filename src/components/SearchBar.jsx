@@ -1,8 +1,8 @@
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import SearchBarTextFilter from './SearchBarTextFilter';
 import SearchBarCheckBoxFilter from './SearchBarCheckBoxFilter';
 import SearchBarSelectFilter from './SearchBarSelectGenreFilter';
-import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 class AddMovie extends Component {
   render() {
-    return(
+    return (
       <div className="add-movie">
         My Add Movie
       </div>
