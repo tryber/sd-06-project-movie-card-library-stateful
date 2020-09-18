@@ -23,6 +23,18 @@ class AddMovie extends React.Component {
     this.setState({ [name]: target.value });
   }
 
+  handleButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
 
   renderSelect() {
     const { genre } = this.state;
@@ -44,19 +56,6 @@ Gênero
         </label>
       </div>
     );
-  }
-
-  handleButton() {
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
   }
 
   renderInput(labelTitle, labelId, inputName, inputId, state, type) {
@@ -92,8 +91,8 @@ Gênero
   }
 }
 
-AddMovie.propType = {
-  onClick: propType.func.isRequired,
-}
+AddMovie.propTypes {
+  onClick: propType.func,
+};
 
 export default AddMovie;
