@@ -35,7 +35,7 @@ class AddMovie extends React.Component {
   }
   render() {
     return (
-      <form data-testid='add-movie-form'>
+      <form data-testid="add-movie-form">
         {this.renderInput('Título', 'title-input-label', 'title', 'title-input', this.state.title, 'type')};
         {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', this.state.subtitle, 'type')};
         {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', this.state.imagePath, 'type')};
@@ -43,15 +43,15 @@ class AddMovie extends React.Component {
         {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', this.state.rating, 'number')};
         <label data-testid='genre-input-label' htmlFor='genre'>Gênero
           <select
-          data-testid='genre-input'
+          data-testid="genre-input"fdsffa
           value={this.state.genre}
           onChange={this.handleChange}
-          id='genre'
-          name='genre'
+          id="genre"
+          name="genre"
           >
-            <option data-testid='genre-option' value='action'>Ação</option>
-            <option data-testid='genre-option' value='comedy'>Comédia</option>
-            <option data-testid='genre-option' value='thriller'>Suspense</option>
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
         </label>
       </form>
