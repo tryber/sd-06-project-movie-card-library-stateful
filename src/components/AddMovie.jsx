@@ -2,15 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const titleInput = { onChange: 'AddMovie.setState(title)' };
-const subTitleInput = { onChange: 'AddMovie.setState(subtitle)' };
-const imageInput = { onChange: 'AddMovie.setState(imagePath)' };
-const storylineInput = { onChange: 'AddMovie.setState(storyline)' };
-const ratingInput = {
-  type: 'number',
-  onChange: 'AddMovie.setState(rating)',
-};
-
 class AddMovie extends Component {
   constructor() {
     super();
@@ -23,7 +14,7 @@ class AddMovie extends Component {
       storyLine: '',
       rating: 0,
       genre: 'action',
-    };
+    }
   }
 
   handleChange({ target }) {
@@ -53,17 +44,17 @@ class AddMovie extends Component {
   render() {
     return (
       <div className="add-movie">
-        <section className="add-movie-form">
+        <form className="add-movie-form">
           <label data-testid="title-input-label" htmlFor="title-input">Título</label>
-          <input data-testid="title-input" {...titleInput} />
+          <input data-testid="title-input" value={this.state.title} onChange={this.handleChange} />
           <label data-testid="subtitle-input-label" htmlFor="subtitle-input">Subtítulo</label>
-          <input data-testid="subtitle-input" {...subTitleInput} />
+          <input data-testid="subtitle-input" value={this.state.subtitle} onChange={this.handleChange} />
           <label data-testid="image-input-label" htmlFor="image-input">Imagem</label>
-          <input data-testid="image-input" {...imageInput} />
+          <input data-testid="image-input" value={this.state.imagePath} onChange={this.handleChange} />
           <label data-testid="storyline-input-label" htmlFor="storyline-input">Sinópse</label>
-          <textarea data-testid="storyline-input" {...storylineInput} />
+          <textarea data-testid="storyline-input" value={this.state.storyline} onChange={this.handleChange} />
           <label data-testid="rating-input-label" htmlFor="rating-input">Avaliação</label>
-          <input data-testid="rating-input" {...ratingInput} />
+          <input data-testid="rating-input" value={this.state.rating} onChange={this.handleChange} />
           <label data-testid="genre-input-label" htmlFor="genre-option">Gênero</label>
           <select data-testid="genre-option">
             <option data-testid="genre-option" value="action">Ação</option>
@@ -71,7 +62,7 @@ class AddMovie extends Component {
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
           <button data-testid="send-button" onClick={this.addMovie}>Adicionar filme</button>
-        </section>
+        </form>
       </div>
     );
   }
