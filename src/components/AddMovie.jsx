@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../App.css';
 
 class AddMovie extends React.Component {
   constructor(props) {
@@ -79,11 +80,11 @@ class AddMovie extends React.Component {
 
   renderStoryline() {
     return (
-      <div>
+      <div className="storyline-container">
         <label data-testid="storyline-input-label" htmlFor="storyline-input">Sinopse</label>
         <textarea
           type="text" value={this.state.storyline} data-testid="storyline-input"
-          onChange={this.handleChange} id="storyline-input" name="storyline"
+          onChange={this.handleChange} id="storyline-input" name="storyline" rows="3"
         />
       </div>
     );

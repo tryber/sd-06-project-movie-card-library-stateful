@@ -49,10 +49,12 @@ class MovieLibrary extends Component {
       output = output.filter((movie) => movie.genre === this.state.selectedGenre);
     }
     if (this.state.searchText !== '') {
+      const { searchText } = this.state;
+      const textLC = searchText.toLowerCase();
       output = output.filter((movie) => (
-        movie.title.includes(this.state.searchText) ||
-        movie.subtitle.includes(this.state.searchText) ||
-        movie.storyline.includes(this.state.searchText)
+        movie.title.toLowerCase().includes(textLC) ||
+        movie.subtitle.toLowerCase().includes(textLC) ||
+        movie.storyline.toLowerCase().includes(textLC)
       ));
     }
 
@@ -62,7 +64,7 @@ class MovieLibrary extends Component {
   render() {
     const filteredMovies = this.filterMovies();
     return (
-      <div>
+      <div  className="search-bar-container">
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
