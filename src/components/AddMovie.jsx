@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -62,7 +63,8 @@ class AddMovie extends Component {
           type="number"
           value={this.state.rating}
           data-testid="rating-input"
-          onChange={this.handleChange} />
+          onChange={this.handleChange}
+        />
       </label>
     );
   }
@@ -140,12 +142,13 @@ class AddMovie extends Component {
         {this.renderGenre()}
         <button
           data-testid="send-button"
-          onClick={this.resetButton}>
-            Adicionar filme
+          onClick={this.resetButton}
+        >Adicionar filme
         </button>
       </form>
     );
   }
 }
 
-export default AddMovie
+AddMovie.propTypes = { onClick: PropTypes.func };
+export default AddMovie;
