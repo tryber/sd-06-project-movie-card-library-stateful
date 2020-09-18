@@ -31,7 +31,7 @@ class MovieLibrary extends Component {
       e.title.toUpperCase().includes(inputVal) || 
       e.subtitle.toUpperCase().includes(inputVal) ||
       e.storyline.toUpperCase().includes(inputVal)
-    )
+    );
     return target.value === '' ? this.setState({ movies: this.props.movies }) :
     this.setState({ movies: filterInputVal })
   }
