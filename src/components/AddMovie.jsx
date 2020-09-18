@@ -8,7 +8,6 @@ class AddMovie extends React.Component {
     super();
 
     this.eventHandler = this.eventHandler.bind(this);
-    this.eventHandlerNumber = this.eventHandlerNumber.bind(this);
 
     this.state = {
       subtitle: '',
@@ -24,12 +23,6 @@ class AddMovie extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
   }
-
-  eventHandlerNumber({ target }) {
-    const { name } = target;
-    // this.setState({ [name]: Number(value) });
-  }
-
 
   render() {
     return (
