@@ -20,7 +20,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newCard) {
-    this.setState({movies: this.state.movies.concat(newCard)});
+    this.setState({ movies: this.state.movies.concat(newCard) });
   }
 
   masterHandler({ target }) {

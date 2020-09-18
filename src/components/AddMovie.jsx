@@ -47,33 +47,39 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">
           Título
-          <input name="title" value={title} data-testid="title-input"
-            onChange={this.changeHandler} />
+          <input
+            name="title" value={title} data-testid="title-input" onChange={this.changeHandler}
+          />
         </label>
         <label data-testid="subtitle-input-label">
           Subtítulo
-          <input name="subtitle" value={subtitle} data-testid="subtitle-input"
-            onChange={this.changeHandler} />
+          <input
+            name="subtitle" value={subtitle} data-testid="subtitle-input" onChange={this.changeHandler}
+          />
         </label>
         <label data-testid="image-input-label">
           Imagem
-          <input name="imagePath" value={imagePath} data-testid="image-input"
-            onChange={this.changeHandler} />
+          <input
+            name="imagePath" value={imagePath} data-testid="image-input" onChange={this.changeHandler}
+          />
         </label>
         <label data-testid="storyline-input-label">
           Sinopse
-          <textarea name="storyline" value={storyline} data-testid="storyline-input"
-            onChange={this.changeHandler} />
+          <textarea
+            name="storyline" value={storyline} data-testid="storyline-input" onChange={this.changeHandler}
+          />
         </label>
         <label data-testid="rating-input-label">
           Avaliação
-          <input type="number" name="rating" value={rating} data-testid="rating-input"
-            onChange={this.changeHandler} />
+          <input
+            type="number" name="rating" value={rating} data-testid="rating-input" onChange={this.changeHandler}
+          />
         </label>
         <label data-testid="genre-input-label">
           Gênero
-          <select name="genre" value={genre} data-testid="genre-input"
-            onChange={this.changeHandler} >
+          <select
+            name="genre" value={genre} data-testid="genre-input" onChange={this.changeHandler}
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
