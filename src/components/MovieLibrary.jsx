@@ -15,14 +15,14 @@ class MovieLibrary extends Component {
     }
   }
   
-  handleTextChange = ({ target }) => {
+  handleTextChange = () => {
 
   };
 
   handleBookmarkedChange = () => {
   };
 
-  handleGenreChange = ({ target }) => {
+  handleGenreChange = () => {
   };
 
   AddMovieList = (title, subtitle, imagePath, storyline, rating, genre) => {

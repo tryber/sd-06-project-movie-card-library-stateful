@@ -13,9 +13,9 @@ class AddMovie extends Component {
     }
   };
 
-  onChange = ({ target }) => {
-    const { name } = target;
-    this.setState(({[name]: target.value}));
+  onChange = (event) => {
+    const { name } = event.target;
+    this.setState(({[name]: event.target.value}));
   };
 
   titleInput = () => {
