@@ -20,7 +20,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  getMovieDefaultState = () => this.setState({ movies: this.props.movies })
+  getMovieDefaultState() { this.setState({ movies: this.props.movies }) }
 
   onSearchTextChange({ target }) {
     const { name, value } = target;
