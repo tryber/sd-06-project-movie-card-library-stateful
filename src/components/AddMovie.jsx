@@ -20,32 +20,32 @@ class AddMovie extends Component {
   }
 
   render() {
-    const { rating } = this.state;
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
           Título
-          <input data-testid="title-input" />
+          <input data-testid="title-input" name="title" value={title} onChange={this.handleChange} />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo
-          <input data-testid="subtitle-input" />
+          <input data-testid="subtitle-input" name="subtitle" value={subtitle} onChange={this.handleChange} />
         </label>
         <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
-          <input data-testid="image-input" />
+          <input data-testid="image-input" name="imagePath" value={imagePath} onChange={this.handleChange} />
         </label>
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse
-          <textarea data-testid="storyline-input" />
+          <textarea data-testid="storyline-input" name="storyline" value={storyline} onChange={this.handleChange} />
         </label>
         <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação
-          <textarea data-testid="rating-input" type="number" value={rating} onChange={this.handleChange} />
+          <textarea data-testid="rating-input" name="rating" type="number" value={rating} onChange={this.handleChange} />
         </label>
         <label data-testid="genre-input-label" htmlFor="genre-input">
           <select>
-            <textarea data-testid="genre-input" />
+            <textarea data-testid="genre-input" name="genre" value={genre} onChange={this.handleChange} />
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
