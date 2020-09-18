@@ -9,7 +9,11 @@ class SearchBar extends Component {
       <label htmlFor="text-input" data-testid="text-input-label">
         Inclui o texto:
       <input
-        type="text" data-testid="text-input" value={searchText} onChange={onSearchTextChange}
+        type="text"
+        name="searchText"
+        data-testid="text-input"
+        defaultValue={searchText}
+        onChange={onSearchTextChange}
       />
       </label>
     );
@@ -27,7 +31,7 @@ class SearchBar extends Component {
         <input
           type="checkbox"
           data-testid="checkbox-input"
-          checked={bookmarkedOnly}
+          defaultChecked={bookmarkedOnly}
           onChange={onBookmarkedChange}
         />
       </label>
@@ -42,7 +46,7 @@ class SearchBar extends Component {
       >
         Filtrar por gênero
         <select
-          data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}
+          data-testid="select-input" defaultValue={selectedGenre} onChange={onSelectedGenreChange}
         >
           <option data-testid="select-option" value="">Todos</option>
           <option data-testid="select-option" value="action">Ação</option>
