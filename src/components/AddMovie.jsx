@@ -63,20 +63,30 @@ class AddMovie extends React.Component {
 
   renderTitle() {
     return (
-      <input
-        type="text"
-        name="title" value={this.state.title} data-testid="title-input"
-        onChange={this.refreshTitle} id="title"
-      />
+      <div>
+        <label data-testid="title-input-label" htmlFor="title" >
+          Título
+          <input
+            type="text"
+            name="title" value={this.state.title} data-testid="title-input"
+            onChange={this.refreshTitle} id="title"
+          />
+        </label><br /><br />
+      </div>
     );
   }
 
   renderSubtitle() {
     return (
-      <input
-        id="subtitle" name="subtitle" value={this.state.subtitle}
-        data-testid="subtitle-input" onChange={this.refreshSubtitle}
-      />
+      <div>
+        <label data-testid="subtitle-input-label" htmlFor="subtitle">
+          Subtítulo
+          <input
+            id="subtitle" name="subtitle" value={this.state.subtitle}
+            data-testid="subtitle-input" onChange={this.refreshSubtitle}
+          />
+        </label><br /><br />
+      </div>
     );
   }
 
@@ -118,20 +128,14 @@ class AddMovie extends React.Component {
         <option value="comedy" data-testid="genre-option">Comédia</option>
         <option value="thriller" data-testid="genre-option">Suspense</option>
       </select>
-    )
+    );
   }
 
   render() {
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="title" >
-          Título
-          {this.renderTitle()}
-        </label><br /><br />
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-          {this.renderSubtitle()}
-        </label><br /><br />
+        {this.renderTitle()}
+        {this.renderSubtitle()}
         <label data-testid="image-input-label" htmlFor="image-path">
           Imagem
           {this.renderImage()}
