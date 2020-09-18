@@ -4,7 +4,7 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.upateStatus = this.upateStatus.bind(this)
+    this.upateStatus = this.upateStatus.bind(this);
 
     this.state = {
       subtitle: '',
@@ -12,41 +12,36 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: 'action'
-    }
+      genre: 'action',
+    };
   }
 
-  upateStatus( {target} ) {
-
-    //const { title } = target
-
+  upateStatus({ target }) {
     this.setState({
-      title: target.value 
-    })
-    console.log(target.title)
+      title: target.value,
+    });
+    console.log(target.title);
   }
 
   render() {
-
-    const { onclick } = this.props
-
+    const { onclick } = this.props;
     return (
       <div>
         <form>
-          <label data-testid="title-input-label">Título
-            <input onChange={this.upateStatus} value={this.state.title} type="text" data-testid="title-input"/>
+          <label htmlFor="title" data-testid="title-input-label">Título
+            <input id="title" onChange={this.upateStatus} value={this.state.title} type="text" data-testid="title-input"/>
           </label>
-          <label data-testid="subtitle-input-label">Subtítulo
-            <input type="text" data-testid="subtitle-input"/>
+          <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo
+            <input id="subtitle" type="text" data-testid="subtitle-input"/>
           </label>
-          <label data-testid="image-input-label">Imagem
-            <input type="text" data-testid="image-input"/>
+          <label htmlFor="img" data-testid="image-input-label">Imagem
+            <input id="img" type="text" data-testid="image-input"/>
           </label>
-          <label data-testid="storyline-input-label">Sinopse
-            <textarea data-testid="storyline-input"></textarea>
+          <label htmlFor="sinopse" data-testid="storyline-input-label">Sinopse
+            <textarea id="sinopse" data-testid="storyline-input"></textarea>
           </label>
-          <label data-testid="rating-input-label">Avaliação
-            <input type="number" data-testid="rating-input"/>
+          <label htmlFor="rating" data-testid="rating-input-label">Avaliação
+            <input id="rating" type="number" data-testid="rating-input"/>
           </label>
           <label data-testid="genre-input-label">Gênero
             <select data-testid="genre-input">
