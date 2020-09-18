@@ -12,7 +12,7 @@ class MovieLibrary extends React.Component {
         <MovieList movies={data} />
         <AddMovie />
       </div>
-    )
+    );
   }
 }
 
