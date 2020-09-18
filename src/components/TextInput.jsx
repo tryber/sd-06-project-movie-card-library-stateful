@@ -20,11 +20,11 @@ class TextInput extends Component {
 
 export default TextInput;
 
-SearchBar.defaultProps = {
+TextInput.defaultProps = {
   searchText: {},
   onSearchTextChange: {},
 };
-SearchBar.propTypes = {
+TextInput.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
 };
