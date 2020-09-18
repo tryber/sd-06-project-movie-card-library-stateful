@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
-import SearchBar from './SearchBar'
-import MovieList from './MovieList'
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.selectedGenre}
         />
         <AddMovie />
-        <MovieList movies={this.state.movies}/>
+        <MovieList movies={this.state.movies} />
       </div>
     );
   }
