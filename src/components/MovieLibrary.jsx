@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
@@ -32,6 +33,7 @@ class MovieLibrary extends Component {
           onChange={this.onSearchTextChange}
         />
         <MovieList movies={this.props.movies} />
+        <AddMovie />
       </div>
     );
   }
