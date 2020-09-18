@@ -5,6 +5,7 @@ class AddMovie extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleButton = this.handleButton.bind(this);
 
     this.state = {
       subtitle: '',
@@ -59,22 +60,30 @@ Gênero
     );
   }
 
+  handleButton() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
     const { title, subtitle, imagePath, storyline, rating } = this.state;
     return (
       <form data-testid="add-movie-form">
-        {this.renderInput('Título', 'title-input-label', 'title', 'title-input', title, 'type')}
-;
-        {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', subtitle, 'type')}
-;
-        {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', imagePath, 'type')}
-;
-        {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', storyline, 'textarea')}
-;
-        {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', rating, 'number')}
-;
-        {this.renderSelect()}
-;
+        {this.renderInput('Título', 'title-input-label', 'title', 'title-input', title, 'type')};
+        {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', subtitle, 'type')};
+        {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', imagePath, 'type')};
+        {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', storyline, 'textarea')};
+        {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', rating, 'number')};
+        {this.renderSelect()};
+        <button data-testid="send-button" onClick={this.handleButton}>Adicionar filme</button>
       </form>
     );
   }

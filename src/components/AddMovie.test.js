@@ -200,7 +200,7 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
   });
 });
 
-describe.skip('Verifica botão de criar filme do componente <AddMovie />', () => {
+describe('Verifica botão de criar filme do componente <AddMovie />', () => {
   it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
