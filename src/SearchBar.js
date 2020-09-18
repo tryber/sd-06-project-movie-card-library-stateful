@@ -25,9 +25,9 @@ class SearchBar extends React.Component {
 
   render() {
     const inputSearch = {
-      onChange="onSearchTextChange",
-      name="searchtext",
-      value="searchText",
+      onChange: "onSearchTextChange",
+      name: "searchtext",
+      value: "searchText",
     }
     return (
       <div className="movie-card-header">
