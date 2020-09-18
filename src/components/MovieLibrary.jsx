@@ -31,9 +31,7 @@ class MovieLibrary extends Component {
 
     this.setState({ bookmarkedOnly: checked });
 
-    this.setState((estadoAnterior) => ({
-      counter: estadoAnterior.counter + 1,
-    }));
+    this.setState((estadoAnterior) => ({ counter: estadoAnterior.counter + 1 }));
   }
 
   onSelectedGenreChange({ target }) {
@@ -45,20 +43,24 @@ class MovieLibrary extends Component {
   movieFilter(movies) {
     if (this.state.searchText !== '') {
       return movies
-        .filter(movie => movie.title.toUpperCase().indexOf(this.state.searchText.toLocaleUpperCase()) !== -1 ||
-      movie.subtitle.toLocaleUpperCase().indexOf(this.state.searchText.toLocaleUpperCase()) !== -1 ||
-      movie.storyline.toLocaleUpperCase().indexOf(this.state.searchText.toLocaleUpperCase()) !== -1
+        .filter((movie) => movie.title
+          .toUpperCase()
+          .indexOf(this.state.searchText.toLocaleUpperCase()) !== -1 ||
+      movie.subtitle.toLocaleUpperCase()
+        .indexOf(this.state.searchText.toLocaleUpperCase()) !== -1 ||
+      movie.storyline.toLocaleUpperCase()
+        .indexOf(this.state.searchText.toLocaleUpperCase()) !== -1
       );
     }
 
     if (this.state.counter > 0) {
-      return movies.filter(movie => movie.bookmarked === this.state.bookmarkedOnly)
+      return movies.filter((movie) => movie.bookmarked === this.state.bookmarkedOnly);
     }
 
     if (this.state.selectedGenre !== '') {
-      return movies.filter(movie => movie.genre === this.state.selectedGenre);
+      return movies.filter((movie) => movie.genre === this.state.selectedGenre);
     }
-    return movies
+    return movies;
   }
 
   render() {
@@ -73,7 +75,8 @@ class MovieLibrary extends Component {
           onBookmarkedChange={this.onBookmarkedChange}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.movieFilter(movies)}
+        <MovieList
+          movies={this.movieFilter(movies)}
         />
         <AddMovie />
       </div>
@@ -90,7 +93,7 @@ MovieLibrary.propTypes = {
     imagePath: PropTypes.string,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
-  })).isRequired
+  })).isRequired,
 };
 
 export default MovieLibrary;
