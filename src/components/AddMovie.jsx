@@ -7,6 +7,7 @@ class AddMovie extends Component {
     this.renderTitleInput = this.renderTitleInput.bind(this);
     this.renderSubtitleInput = this.renderSubtitleInput.bind(this);
     this.renderImagePathInput = this.renderImagePathInput.bind(this);
+    this.renderStorylineInput = this.renderStorylineInput.bind(this);
     this.handleChange = this.handleChange.bind(this);
 
     this.state = {
@@ -72,12 +73,28 @@ class AddMovie extends Component {
     );
   }
 
+  renderStorylineInput() {
+    return (
+      <label data-testid="storyline-input-label" htmlFor="storyline">
+        Sinopse
+        <textarea
+          data-testid="storyline-input"
+          name="storyline"
+          onChange={this.handleChange}
+          type="text"
+          value={this.state.storyline}
+        />
+      </label>
+    );
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
         {this.renderTitleInput()}
         {this.renderSubtitleInput()}
         {this.renderImagePathInput()}
+        {this.renderStorylineInput()}
       </form>
     );
   }
