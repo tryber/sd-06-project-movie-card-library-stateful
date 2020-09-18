@@ -14,7 +14,6 @@ class MovieLibrary extends React.Component {
     this.listFilterText = this.listFilterText.bind(this);
     this.listFilterBookmarked = this.listFilterBookmarked.bind(this);
     this.listFilterGenre = this.listFilterGenre.bind(this);
-    this.onClickAddMovie = this.onClickAddMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -24,7 +23,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClickAddMovie() {
-    return (<div>...</div>)
+    return (<div>...</div>);
   }
 
   onSearchTextChange({ target: { value } }) {
