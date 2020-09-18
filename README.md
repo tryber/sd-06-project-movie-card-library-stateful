@@ -3,7 +3,7 @@
 Você já usa o GitHub diariamente para desenvolver os exercícios, certo? Agora, para desenvolver os projetos, você deverá seguir as instruções a seguir. Fique atento a cada passo, e se tiver qualquer dúvida, nos envie por _Slack_! #vqv 🚀
 
 Aqui você vai encontrar os detalhes de como estruturar o desenvolvimento do seu projeto a partir deste repositório, utilizando uma branch específica e um _Pull Request_ para colocar seus códigos.
-
+F
 ## O que deverá ser desenvolvido
 
 Você deverá desenvolver uma aplicação que consiste em uma biblioteca de cartões de filmes dinâmica utilizando React. A biblioteca é composta por:
@@ -52,6 +52,8 @@ Os componentes que **precisam** ter estado a ser gerenciado são:
 ## Testes
 
 Todos os requisitos do projeto serão testados **automaticamente**. Cada componente possui vários requisitos. Os testes para cada requisito de um componente estão no arquivo de teste correspondente.
+
+Nesse projeto será necessário incluir em vários elementos HTML o atributo **data-testid**. Ele será utilizado pelo avaliador para selecionar os elementos que serão testados. É como se fosse um id do HTML, porém somente utilizado para fins de teste. É muito importante que esses atributos sejam **exatamente iguais** aos descritos, caso contrário os testes irão falhar.
 
 _**Por exemplo**: Os requisitos relacionados ao componente `SearchBar` estão no arquivo `SearchBar.test.js`._
 
@@ -233,6 +235,8 @@ Esse componente renderizará um formulário que permite adicionar na biblioteca 
 `AddMovie` deve receber como props:
 
   - `onClick`, uma callback
+  
+- O formulário deve apresentar o atributo `data-testid="add-movie-form"`
 
 O que será validado: 
   - Será validado se o componente renderiza 
@@ -351,7 +355,7 @@ O que será validado:
 
 - O `input` deve ter seu valor inicial provido pelo estado inicial do componente, via `rating`;
 
-- Essa `textarea` deve apresentar o atributo `data-testid="rating-input"`
+- Essa `input` deve apresentar o atributo `data-testid="rating-input"`
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `rating` a avaliação atual continda no input.
 
@@ -370,7 +374,7 @@ O que será validado:
 
 - O `select` deve ter seu valor inicial provido pelo estado inicial do componente, via `genre`;
 
-- Essa `textarea` deve apresentar o atributo `data-testid="genre-input"`
+- Essa `input` deve apresentar o atributo `data-testid="genre-input"`
 
 - A propriedade `onChange` deve atualizar o estado de `AddMovie`, atribuindo a `genre` o gênero atual selecionado;
 
@@ -511,9 +515,9 @@ Todos os compontens que recebem props devem ter suas proptypes corretamente decl
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
 1. Clone o repositório
-  * `git clone git@github.com:tryber/sd-0x-block13-project-movie-card-library-stateful.git`.
+  * `git clone git@github.com:tryber/sd-06-project-movie-card-library-stateful.git`.
   * Entre na pasta do repositório que você acabou de clonar:
-    * `cd sd-0x-block13-project-movie-card-library-stateful`
+    * `cd sd-06-project-movie-card-library-stateful`
 
 2. Instale as dependências, inicialize o projeto e rode os testes
   * Instale as dependências:
@@ -576,13 +580,13 @@ export default MovieLibrary;
   * Usando o exemplo anterior: `git push -u origin joaozinho-movie-cards-library-stateful`
 
 7. Crie um novo `Pull Request` _(PR)_
-  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-0x-block13-project-movie-card-library-stateful/pulls)
+  * Vá até a página de _Pull Requests_ do [repositório no GitHub](https://github.com/tryber/sd-06-project-movie-card-library-stateful/pulls)
   * Clique no botão verde _"New pull request"_
   * Clique na caixa de seleção _"Compare"_ e escolha a sua branch **com atenção**
   * Clique no botão verde _"Create pull request"_
   * Adicione uma descrição para o _Pull Request_ e clique no botão verde _"Create pull request"_
   * **Não se preocupe em preencher mais nada por enquanto!**
-  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-0x-block13-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
+  * Volte até a [página de _Pull Requests_ do repositório](https://github.com/tryber/sd-06-project-movie-card-library-stateful/pulls) e confira que o seu _Pull Request_ está criado
 
 ---
 
