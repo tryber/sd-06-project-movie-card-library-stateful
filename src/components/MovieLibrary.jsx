@@ -4,9 +4,9 @@ import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 // import AddMovie from './AddMovie';
 export default class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
-  }
+  // constructor(props) {
+  //   super(props);
+  // }
 
   render() {
     return (
