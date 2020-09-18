@@ -7,7 +7,13 @@ class CheckboxInput extends React.Component {
     return (
       <div>
         <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
-          <input id="checkbox-input" data-testid="checkbox-input" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input
+            id="checkbox-input"
+            data-testid="checkbox-input"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
           <span>Mostrar somente favoritos</span>
         </label>
       </div>

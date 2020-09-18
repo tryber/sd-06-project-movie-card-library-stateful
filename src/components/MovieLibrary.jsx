@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
@@ -10,7 +11,7 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: ''
+      movies: '',
     };
   }
 
@@ -25,5 +26,6 @@ class MovieLibrary extends React.Component {
   }
 }
 
+MovieLibrary.propTypes = { movies: propTypes.arrayOf(propTypes.object).isRequired };
 
 export default MovieLibrary;

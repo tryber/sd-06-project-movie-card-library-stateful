@@ -8,7 +8,13 @@ class SubtitleInput extends React.Component {
       <div>
         <label htmlFor="select" data-testid="genre-input-label">
           <p>Gênero</p>
-          <select id="rating" data-testid="genre-input" name="genre" value={genre} onChange={handleChange}>
+          <select
+            id="rating"
+            data-testid="genre-input"
+            name="genre"
+            value={genre}
+            nChange={handleChange}
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
