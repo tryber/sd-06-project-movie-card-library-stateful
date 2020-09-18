@@ -37,7 +37,7 @@ class MovieLibrary extends React.Component {
   }
 
   onSave() {
-    console.log('oi');
+    this.setState({ selectedGenre: 'asdasdas' });
   }
 
   render() {
@@ -58,8 +58,9 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = { 
+MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(
-    PropTypes.shape(PropTypes.object)).isRequired };
+    PropTypes.shape(PropTypes.object)).isRequired
+};
 
 export default MovieLibrary;
