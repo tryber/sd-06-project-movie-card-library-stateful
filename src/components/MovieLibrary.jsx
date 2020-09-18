@@ -24,6 +24,7 @@ class MovieLibrary extends Component {
 
   onClick(state) {
     console.log(this);
+    console.log(state);
     console.log('peguei o this do AddMovie');
   }
 
@@ -68,6 +69,6 @@ class MovieLibrary extends Component {
 // ✓ Será validado se o componente `AddMovie` é renderizado com sucesso (21ms)
 // ✕ Será validado se é possível adicionar um novo filme a lista de filmes (205ms)
 
- MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
 
 export default MovieLibrary;

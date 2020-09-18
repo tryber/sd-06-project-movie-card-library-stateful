@@ -22,12 +22,6 @@ class AddMovie extends Component {
     };
   }
 
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-  }
-
   onClick() {
     this.props.onClick(this);
     this.setState({
@@ -44,6 +38,12 @@ class AddMovie extends Component {
     document.getElementById('textarea').value = '';
     document.getElementById('nota').value = 0;
     document.getElementById('genero').value = 'action';
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -65,7 +65,8 @@ class AddMovie extends Component {
           value={this.state.name}
           handleChange={this.handleChange}
         />
-        <button form="add-movie-form" data-testid="send-button" onClick={this.onClick}>Adicionar filme
+        <button form="add-movie-form" data-testid="send-button" onClick={this.onClick}>
+          Adicionar filme
         </button>
       </form>
     );
