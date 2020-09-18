@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Selects extends Component {
   render() {
@@ -21,8 +22,26 @@ class Selects extends Component {
           <option data-testid="genre-option" value={optValue[2]} >{optTitle[2]}</option>
         </select>
       </fieldset>
-    )
+    );
   }
 }
+
+Selects.propTypes = {
+  labTitle: PropTypes.string,
+  selectName: PropTypes.string,
+  selectValue: PropTypes.string,
+  optValue: PropTypes.array,
+  optTitle: PropTypes.array,
+  change: PropTypes.func,
+};
+
+Selects.defaultProps = {
+  labTitle: '',
+  selectName: '',
+  selectValue: '',
+  optValue: [],
+  optTitle: [],
+  change: '',
+};
 
 export default Selects;

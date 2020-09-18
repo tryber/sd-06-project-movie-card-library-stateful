@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Inputs extends Component {
   render() {
-    const {
-      value, title, change, text
-    } = this.props;
+    const { value, title, change, text } = this.props;
 
     return (
       <fieldset>
@@ -18,5 +17,19 @@ class Inputs extends Component {
     );
   }
 }
+
+Inputs.propTypes = {
+  value: PropTypes.string,
+  tilte: PropTypes.string,
+  text: PropTypes.string,
+  change: PropTypes.func,
+};
+
+Inputs.defaultProps = {
+  value: '',
+  tilte: '',
+  text: '',
+  change: '',
+};
 
 export default Inputs;
