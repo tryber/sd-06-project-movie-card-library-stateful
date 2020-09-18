@@ -32,12 +32,10 @@ class AddMovie extends Component {
       <form htmlFor="this-form" data-testid="add-movie-form">
         <AddMovieComponentPartOne
           value={this.state.nome}
-          handleChange={this.handleChange}
-        />
+          handleChange={this.handleChange} />
         <AddMovieComponentPartTwo
           value={this.state.nome}
-          handleChange={this.handleChange}
-        />
+          handleChange={this.handleChange} />
         <label htmlFor="this-form" data-testid="rating-input-label">Avaliação
           <input
             data-testid="rating-input"
