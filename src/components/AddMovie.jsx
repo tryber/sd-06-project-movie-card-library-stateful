@@ -25,9 +25,15 @@ class AddMovie extends Component {
 
   renderInput() {
     return (
-      <label data-testid="title-input-label">
+      <label htmlFor="text" data-testid="title-input-label">
         Título
-        <input name="title" type="text" data-testid="title-input" defaultValue={this.state.title} onChange={this.onChange} />
+        <input
+          name="title"
+          type="text"
+          data-testid="title-input"
+          defaultValue={this.state.title}
+          onChange={this.onChange}
+        />
       </label>
     );
   }
@@ -107,7 +113,7 @@ class AddMovie extends Component {
     );
   }
 
-  renderButton () {
+  renderButton() {
     const { onClick } = this.props;
     return (
       <button data-testid="send-button" onClick={onClick}>
@@ -120,13 +126,13 @@ class AddMovie extends Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-        {this.renderInput()}
-        {this.renderSubtitle()}
-        {this.renderImageInput()}
-        {this.renderSinopse()}
-        {this.renderRating()}
-        {this.renderGenre()}
-        {this.renderButton()}
+          {this.renderInput()}
+          {this.renderSubtitle()}
+          {this.renderImageInput()}
+          {this.renderSinopse()}
+          {this.renderRating()}
+          {this.renderGenre()}
+          {this.renderButton()}
         </form>
       </div>
     );
