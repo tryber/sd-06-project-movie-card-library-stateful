@@ -22,7 +22,7 @@ class MovieLibrary extends React.Component {
         <MovieList movies={this.state.movies} />
         <AddMovie />
       </div>
-    )
+    );
   }
 }
 
