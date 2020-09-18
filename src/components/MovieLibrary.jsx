@@ -12,15 +12,18 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
   }
 
-  handleChange ({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+  onSearchTextChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  }
 
-    this.setState({
-      [name] : value,
-    });
+  onBookmarkedChange({ target }) {
+    const { name, checked } = target;
+    this.setState({ [name]: checked });
   }
 
   render() {
@@ -28,10 +31,11 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
-        handleChange={this.handleChange}
-        searchText={searchText}
-        bookmarkedOnly={bookmarkedOnly}
-        selectedGenre={selectedGenre}
+          searchText={searchText}
+          bookmarkedOnly={bookmarkedOnly}
+          selectedGenre={selectedGenre}
+          onSearchTextChange={this.onSearchTextChange}
+          onBookmarkedChange={this.onBookmarkedChange}
         />
         <MovieList />
         <AddMovie />
