@@ -6,7 +6,6 @@ class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
-        <AddMovie />
         <SearchBar
           searchText
           onSearchTextChange
@@ -15,6 +14,7 @@ class MovieLibrary extends React.Component {
           selectedGenre
           onSelectedGenreChange
         />
+        <AddMovie />
       </div>
     );
   }

@@ -202,11 +202,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
 });
 
 describe('Verifica botão de criar filme do componente <AddMovie />', () => {
-<<<<<<< HEAD
-
-
-=======
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
   it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
