@@ -1,26 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-const initialState = {
-  subtitle: '',
-  title: '',
-  imagePath: '',
-  storyline: '',
-  rating: 0,
-  genre: 'action',
-};
-
 class AddMovie extends Component {
   constructor() {
     super();
+    this.reset = this.reset.bind(this);
     this.button = this.button.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.Title = this.Title.bind(this);
-    this.Subtitle = this.Subtitle.bind(this);
-    this.ImagePath = this.ImagePath.bind(this);
-    this.Storyline = this.Storyline.bind(this);
-    this.Rating = this.Rating.bind(this);
-    this.Genre = this.Genre.bind(this);
+    this.title = this.title.bind(this);
+    this.subtitle = this.subtitle.bind(this);
+    this.imagePath = this.imagePath.bind(this);
+    this.storyline = this.storyline.bind(this);
+    this.rating = this.rating.bind(this);
+    this.genre = this.genre.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -31,9 +23,7 @@ class AddMovie extends Component {
     };
   }
 
-  button() {
-    const { onClick } = this.props;
-    onClick(this.state);
+  reset() {
     this.setState({
       subtitle: '',
       title: '',
@@ -43,6 +33,22 @@ class AddMovie extends Component {
       genre: 'action',
     });
   }
+    
+  button() {
+    const { onClick } = this.props;
+    return (
+      <button
+        data-testid="send-button"
+        type="button"
+        onClick={() => {
+          onClick(this.state);
+          this.reset();
+        }}
+      >
+        Adicionar filme
+      </button>
+    );
+  }
 
   handleChange({ target }) {
     const { name } = target;
@@ -50,7 +56,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  Title() {
+  title() {
     return (
       <div>
         <label
@@ -71,7 +77,7 @@ class AddMovie extends Component {
     );
   }
 
-  Subtitle() {
+  subtitle() {
     return (
       <div>
         <label
@@ -92,7 +98,7 @@ class AddMovie extends Component {
     );
   }
 
-  ImagePath() {
+  imagePath() {
     return (
       <div>
         <label
@@ -113,7 +119,7 @@ class AddMovie extends Component {
     );
   }
 
-  Storyline() {
+  storyline() {
     return (
       <div>
         <label
@@ -134,7 +140,7 @@ class AddMovie extends Component {
     );
   }
 
-  Rating() {
+  rating() {
     return (
       <div>
         <label
@@ -155,7 +161,7 @@ class AddMovie extends Component {
     );
   }
 
-  Genre() {
+  genre() {
     return (
       <div>
         <label
@@ -183,18 +189,13 @@ class AddMovie extends Component {
     return (
       <div>
         <form>
-          {this.Title()}
-          {this.Subtitle()}
-          {this.ImagePath()}
-          {this.Storyline()}
-          {this.Rating()}
-          {this.Genre()}
-          <button
-            data-testid="send-button"
-            onClick={this.button}
-          >
-            Adicionar filme
-          </button>
+          {this.title()}
+          {this.subtitle()}
+          {this.imagePath()}
+          {this.storyline()}
+          {this.rating()}
+          {this.genre()}
+          {this.button()}
         </form>
       </div>
     );
