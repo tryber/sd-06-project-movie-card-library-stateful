@@ -1,5 +1,5 @@
 import React from 'react';
-import propTypes from 'prop-types';
+// import propTypes from 'prop-types';
 // import MovieList from './MovieList';
 // import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
