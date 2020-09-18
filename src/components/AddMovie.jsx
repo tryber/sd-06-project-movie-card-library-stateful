@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -75,8 +76,7 @@ class AddMovie extends Component {
           data-testid="rating-input"
           type="number"
         />
-        <label htmlForm="genre-input" data-testid="genre-input-label">
-          Gênero
+        <label htmlFor="genre-input" data-testid="genre-input-label">Gênero</label>
         <select
           name="genre"
           value={this.state.genre}
@@ -87,7 +87,6 @@ class AddMovie extends Component {
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
-        </label>
         <button data-testid="send-button" onClick={this.resetState} >Adicionar filme</button>
       </form>
     );
@@ -95,3 +94,5 @@ class AddMovie extends Component {
 }
 
 export default AddMovie;
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
