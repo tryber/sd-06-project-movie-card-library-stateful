@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
     const {
       searchText, onSearchTextChange, bookmarkedOnly,
       onBookmarkedChange, selectedGenre, onSelectedGenreChange,
-    } = this.props;
+          } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="name" data-testid="text-input-label">Inclui o texto:
@@ -34,6 +34,7 @@ class SearchBar extends React.Component {
     );
   }
 }
+
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
@@ -42,4 +43,5 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired,
 };
+
 export default SearchBar;
