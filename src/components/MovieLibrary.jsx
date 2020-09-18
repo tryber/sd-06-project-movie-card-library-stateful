@@ -8,11 +8,13 @@ import movies from '../data';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+
     this.onClick = this.onClick.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    // this.newMovieTest = this.newMovieTest.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -20,6 +22,18 @@ class MovieLibrary extends Component {
       movies: this.props.movies,
     };
   }
+
+  // newMovieTest() {
+  //   return [{
+  //     title: 'Kingsglaive',
+  //     subtitle: 'Final Fantasy XV',
+  //     storyline: "King Regis, who oversees the land of Lucis, commands his army of soldiers to protect the kingdom from the Niflheim empire's plans to steal the sacred crystal.",
+  //     rating: 4.5,
+  //     imagePath: 'images/Kingsglaive_Final_Fantasy_XV.jpg',
+  //     bookmarked: true,
+  //     genre: 'action',
+  //   }]
+  // }
 
   onClick(newMovie) {
     const getMovies = this.state.movies;
@@ -80,23 +94,27 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.shape({
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    storyline: PropTypes.string,
-    rating: PropTypes.number,
-    imagePath: PropTypes.string,
-  }),
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      subtitle: PropTypes.string,
+      storyline: PropTypes.string,
+      rating: PropTypes.number,
+      imagePath: PropTypes.string,
+    }),
+  ),
 };
 
 MovieLibrary.defaultProps = {
-  movies: PropTypes.shape({
-    title: '',
-    subtitle: '',
-    storyline: '',
-    rating: 0,
-    imagePath: '',
-  }),
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: '',
+      subtitle: '',
+      storyline: '',
+      rating: 0,
+      imagePath: '',
+    }),
+  ),
 };
 
 export default MovieLibrary;

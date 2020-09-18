@@ -76,15 +76,16 @@ function getDefaultProps() {
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
-  bookmarkedOnly: PropTypes.isRequired,
+  bookmarkedOnly: PropTypes.bool,
   onBookmarkedChange: PropTypes.func,
-  selectedGenre: PropTypes.element,
+  selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
 };
 
 SearchBar.defaultProps = {
   searchText: 'Default',
   onSearchTextChange: getDefaultProps,
+  bookmarkedOnly: false,
   onBookmarkedChange: getDefaultProps,
   selectedGenre: '',
   onSelectedGenreChange: getDefaultProps,
