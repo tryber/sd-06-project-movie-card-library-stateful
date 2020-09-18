@@ -192,15 +192,15 @@ AddMovie.defaultProps = {
 };
 
 AddMovie.propTypes = {
-  title: propTypes.string,
-  subtitle: propTypes.string,
-  imagePath: propTypes.string,
-  storyline: propTypes.string,
-  rating: propTypes.number,
-  genre: propTypes.string,
-  onChange: propTypes.func,
-  submit: propTypes.func,
-  onClick: propTypes.func,
+  // title: propTypes.string,
+  // subtitle: propTypes.string,
+  // imagePath: propTypes.string,
+  // storyline: propTypes.string,
+  // rating: propTypes.number,
+  // genre: propTypes.string,
+  // onChange: propTypes.func,
+  // submit: propTypes.func,
+  // onClick: propTypes.func,
 };
 
 export default AddMovie;
