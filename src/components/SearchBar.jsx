@@ -8,16 +8,17 @@ class SearchBar extends Component {
       <div>
         <p>Search Bar</p>
         <form action="" data-testid="search-bar-form">
-          <label htmlFor="" data-testid="text-input-label">Inclui o texto</label>
+          <label for="text-input" htmlFor="" data-testid="text-input-label">Inclui o texto</label>
           <input
             type="text"
             name=""
-            id=""
+            id="text-input"
             data-testid="text-input"
             value={searchText}
             onChange={onSearchTextChange}
           />
-          <input type="checkbox" name="" id="" data-testid="checkbox-input" />
+          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+          <input type="checkbox" name="" id="checkbox-input" data-testid="checkbox-input" />
         </form>
       </div>
     )
