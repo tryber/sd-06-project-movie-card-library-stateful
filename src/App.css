@@ -96,7 +96,7 @@ label {
   width: 180px;
 }
 
-input, textarea, option, select, button {
+input , textarea , option , select , button {
   background-color: transparent;
   border: 2px solid #343a40;
   border-radius: 10px;
@@ -109,7 +109,8 @@ textarea {
   margin-bottom: 10px;
 }
 
-.storyline-container * {
+.storyline-container label , .storyline-container textarea {
+  display: inline-block;
   vertical-align: middle;
 }
 
@@ -120,12 +121,8 @@ button {
   color: #343a40;
   font-size: 30px;
   font-weight: 600;
-  margin: 15px auto;
   height: 80px;
-}
-
-button:focus, input:focus, textarea:focus {
-  outline: none;
+  margin: 15px auto;
 }
 
 .checkbox {
