@@ -6,6 +6,7 @@ class AddMovie extends Component {
 
     this.handleClick = this.handleClick.bind(this);
     this.onChange = this.onChange.bind(this);
+    this.renderButton = this.renderButton.bind(this);
 
     this.state = {
       subtitle: '',
@@ -135,6 +136,12 @@ class AddMovie extends Component {
     );
   }
 
+  renderButton() {
+    return (
+      <button data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
+    );
+  }
+
   render() {
     return (
       <form action="" data-testid="add-movie-form">
@@ -144,6 +151,7 @@ class AddMovie extends Component {
         <div>{this.renderStorylineInputLabel()}</div>
         <div>{this.renderRatingInputLabel()}</div>
         <div>{this.renderGenreInputLabel()}</div>
+        <div>{this.renderButton()}</div>
       </form>
     );
   }
