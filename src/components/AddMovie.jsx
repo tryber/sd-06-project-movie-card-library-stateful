@@ -127,8 +127,16 @@ class AddMovie extends React.Component {
     );
   }
 
-  render() {
+  renderButton() {
     const { onClick } = this.props;
+    return (
+      <button type="button" data-testid="send-button" onClick={onClick}>
+        Adicionar filme
+      </button>
+    );
+  }
+
+  render() {
     return (
       <form data-testid="add-movie-form">
         {this.renderTitle()}
@@ -137,9 +145,7 @@ class AddMovie extends React.Component {
         {this.renderStoryline()}
         {this.renderRating()}
         {this.renderGenre()}
-        <button type="button" data-testid="send-button" onClick={onClick}>
-          Adicionar filme
-        </button>
+        {this.renderButton()}
       </form>
     );
   }
