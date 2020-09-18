@@ -9,6 +9,7 @@ class MovieLibrary extends Component {
     super(props);
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.addMovieToList = this.addMovieToList.bind(this);
 
     this.state = {
       searchText: '',
@@ -22,8 +23,8 @@ class MovieLibrary extends Component {
     this.setState({ searchText: target.value });
   }
 
-  addMovieToList() {
-
+  addMovieToList(state) {
+    this.setState({ movies: [].push(state) });
   }
 
   render() {

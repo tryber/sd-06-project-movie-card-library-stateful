@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
@@ -29,6 +30,20 @@ class AddMovie extends Component {
     return (
       this.setState({ [name]: value })
     );
+  }
+
+  clickAction() {
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   renderTitleInput() {
@@ -119,24 +134,10 @@ class AddMovie extends Component {
     );
   }
 
-  clickAction() {
-    const { onClick } = this.props;
-    onClick(this.state);
-
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    })
-  }
-
   renderAddMovieBtn() {
-    return(
+    return (
       <button data-testid="send-button" onClick={this.clickAction}>Adicionar filme</button>
-    )
+    );
   }
 
   render() {
@@ -157,5 +158,7 @@ class AddMovie extends Component {
   }
 
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
