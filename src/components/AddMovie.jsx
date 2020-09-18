@@ -14,6 +14,7 @@ class AddMovie extends Component {
           <input data-testid="subtitle-input" />
         </label>
         <label data-testid="image-input-label">
+          Imagem
           <input data-testid="image-input" />
         </label>
         <label data-testid="storyline-input-label">
