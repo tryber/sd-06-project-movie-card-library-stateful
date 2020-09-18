@@ -46,41 +46,41 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">
+        <label data-testid="title-input-label" htmlFor="title-input">
           Título
           <input
             name="title" value={title} data-testid="title-input" onChange={this.changeHandler}
           />
         </label>
-        <label data-testid="subtitle-input-label">
+        <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo
           <input
             name="subtitle" value={subtitle} data-testid="subtitle-input"
             onChange={this.changeHandler}
           />
         </label>
-        <label data-testid="image-input-label">
+        <label data-testid="image-input-label" htmlFor="image-input">
           Imagem
           <input
             name="imagePath" value={imagePath} data-testid="image-input"
             onChange={this.changeHandler}
           />
         </label>
-        <label data-testid="storyline-input-label">
+        <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse
           <textarea
             name="storyline" value={storyline} data-testid="storyline-input"
             onChange={this.changeHandler}
           />
         </label>
-        <label data-testid="rating-input-label">
+        <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação
           <input
             type="number" name="rating" value={rating} data-testid="rating-input"
             onChange={this.changeHandler}
           />
         </label>
-        <label data-testid="genre-input-label">
+        <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero
           <select
             name="genre" value={genre} data-testid="genre-input" onChange={this.changeHandler}
@@ -96,8 +96,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = {
-  onClick: PropTypes.func.isRequired,
-};
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
