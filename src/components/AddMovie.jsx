@@ -21,8 +21,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: target.value });
   }
 
-  addMovie(event) {
-    event.preventDefault();
+  resetState() {
     this.setState(
       {
         subtitle: '',
@@ -33,7 +32,13 @@ class AddMovie extends React.Component {
         genre: 'action',
       },
     );
-    this.props.onClick(this.state);
+  }
+
+  addMovie(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.resetState();
   }
 
   renderTitle() {
