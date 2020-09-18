@@ -19,7 +19,8 @@ class MovieLibrary extends React.Component {
       <div>
         <SearchBar
           searchText={this.searchText}
-          bookmarkedOnly={this.bookmarkedOnly} selectedGenre={this.selectedGenre} />
+          bookmarkedOnly={this.bookmarkedOnly} selectedGenre={this.selectedGenre}
+        />
         <AddMovie />
         <MovieList movies={this.state.movies} />
       </div>
