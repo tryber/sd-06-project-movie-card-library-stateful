@@ -32,16 +32,15 @@ class SearchBar extends Component {
               type="checkbox"
               onChange={onBookmarkedChange}
               checked={bookmarkedOnly}
-            />
-          </label>
-          <br />
+           />
+          </label><br />
           <label data-testid="select-input-label" htmlFor="select-genre">
             Filtrar por gênero
             {this.functionNeeded()}
           </label>
         </form>
       </div>
-    )
+    );
   }
 }
 
