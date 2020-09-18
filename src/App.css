@@ -44,6 +44,7 @@ body {
 .movie-card:hover {
   box-shadow: inset 20px 0 50px rgba(2, 2, 0, 1);
   transform: perspective(200px) rotate(-10deg);
+  z-index: 9;
 }
 
 .movie-card-image {
@@ -128,4 +129,12 @@ body {
 
   to {
     transform: rotateY(360deg); }
+}
+
+.SearchBar {
+  border: 7px ridge rgb(156, 156, 156);
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px 0 10px;
+  vertical-align: center;
 }
