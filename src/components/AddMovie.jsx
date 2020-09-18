@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
 
@@ -87,7 +86,5 @@ class AddMovie extends Component {
     );
   }
 }
-
-AddMovie.propTypes = { movies: PropTypes.element.isRequired };
 
 export default AddMovie;
