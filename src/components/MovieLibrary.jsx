@@ -6,23 +6,23 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor() {
-    const movies = this.props;
     super();
+    const movies = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
-    }
-  };
+      movies,
+    };
+  }
   render() {
     return (
       <div>
-      <SearchBar />
-      <MovieList movies={this.state.movies} />
-      <AddMovie />
+        <SearchBar />
+        <MovieList movies={this.state.movies} />
+        <AddMovie />
       </div>
-    ) 
+    )
   }
 }
 
