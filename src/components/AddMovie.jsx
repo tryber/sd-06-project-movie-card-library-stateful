@@ -31,11 +31,7 @@ class AddMovie extends Component {
     const imageInput = { type: 'text', value: this.state.imagePath, onChange: this.handleChange};
     const storylineInput = { maxlength: 200, rows: 4, value: this.state.storyline, onChange: this.handleChange};
     const ratingInput = { type: 'number', value: this.state.rating, onChange: this.handleChangeNumber};
-    const selectInput = {
-      value: this.state.genre,
-      onChange: this.handleChangeNumber,
-      checked: ,
-    };
+    const selectInput = { value: this.state.genre, onChange: this.handleChangeNumber, checked: };
     return (
       <div>
         <section>
@@ -47,7 +43,7 @@ class AddMovie extends Component {
             <label htmlFor="image-input" data-testid="image-input-label"> Imagem </label>
             <input id="image-input" data-testid="image-input" {...imageInput} />
             <label htmlFor="storyline-input" data-testid="storyline-input-label"> Sinopse </label>
-            <textarea id="storyline-input" data-testid="storyline-input" {...storylineInput} ></textarea>
+            <textarea id="storyline-input" data-testid="storyline-input" {...storylineInput} ></textarea>''
             <label htmlFor="rating-input" data-testid="rating-input-label"> Avaliação </label>
             <input id="rating-input" data-testid="rating-input" {...ratingInput} />
             <label htmlFor="genre-option" data-testid="genre-input-label" > Gênero </label>
@@ -56,10 +52,11 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="action"> Ação </option>
               <option data-testid="genre-option" value="comedy"> Comédia </option>
               <option data-testid="genre-option" value="thriller"> Suspense </option>
-            </select>
-            
+            </select>            
           </form>
+          <button type="submit" onClick={}> Adicionar filme </button>
         </section>
+
       </div>
     )
   }
