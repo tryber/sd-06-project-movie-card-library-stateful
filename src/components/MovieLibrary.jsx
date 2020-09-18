@@ -7,6 +7,7 @@ import movies from '../data';
 class MovieLibrary extends React.Component {
   constructor() {
     super();
+    const { movies } = this.props;
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
