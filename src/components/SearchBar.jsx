@@ -15,6 +15,12 @@ class SearchBar extends Component {
       onChange: 'onBookMarkedChange',
     };
 
+    const inputSelect = {
+      type: 'select',
+      value: '',
+      onChange: 'onSelectedGenreChange',
+    }
+
     return (
       <div className="search-bar">
         <section className="form" data-testid="search-bar-form">
@@ -26,6 +32,15 @@ class SearchBar extends Component {
             Mostrar somente favoritos
           </label>
           <input data-testid="checkbox-input" {...inputCheckBox} />
+          <label data-testid="select-input-label" htmlFor="select-input">
+            Filtrar por Gênero
+          </label>
+          <select data-testid="select-input" {...inputSelect}>
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
+          </select>
         </section>
       </div>
     );
