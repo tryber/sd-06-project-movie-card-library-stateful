@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
+import AddMovie from './AddMovie';
 
 
 class MovieLibrary extends Component {
@@ -11,6 +12,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onSelectedInputChange = this.onSelectedInputChange.bind(this);
     this.getMovieDefaultState = this.getMovieDefaultState.bind(this);
 
     this.state = {
@@ -18,6 +20,12 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       searchText: '',
       selectedGenre: '',
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
     };
   }
 
@@ -73,6 +81,17 @@ class MovieLibrary extends Component {
     }
   }
 
+  onClick({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
+  }
+
+  onSelectedInputChange({ target }) {
+    const { name, value } = target;
+
+    this.setState({ [name]: value });
+  }
+
   getMovieDefaultState() { this.setState({ movies: this.props.movies }); }
 
   render() {
@@ -86,6 +105,9 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
         />
         <MovieList movies={this.state.movies} />
+        <AddMovie data={this.state}
+          onClick={this.onClick} onSelectedInputChange={this.onSelectedInputChange}
+        />
       </div>
     );
   }
