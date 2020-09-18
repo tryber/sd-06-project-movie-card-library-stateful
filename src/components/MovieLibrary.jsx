@@ -20,11 +20,12 @@ class MovieLibrary extends Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({[name]: value})
+    this.setState({ [name]: value });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre} = this.state;
+    
     return (
       <section>
         <SearchBar
