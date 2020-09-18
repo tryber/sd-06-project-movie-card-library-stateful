@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class MovieLibrary extends React.Component {
     this.filterBookmarked = this.filterBookmarked.bind(this);
     this.filterGenre = this.filterGenre.bind(this);
     this.filterText = this.filterText.bind(this);
+    this.addMovieBtn = this.addMovieBtn.bind(this);
   }
 
   inputHandler({ target }) {
@@ -63,7 +65,18 @@ class MovieLibrary extends React.Component {
   }
 
   addMovieBtn(data) {
-    this.setState((data) => )
+    const newMovie = {
+      title: data.title,
+      subtitle: data.subtitle,
+      storyline: data.storyline,
+      rating: data.rating,
+      imagePath: data.imagePath,
+      bookmarked: false,
+      genre: data.genre,
+    };
+    const movies = this.state.movies;
+    movies.push(newMovie);
+    this.setState({ movies: movies });
   }
 
   render() {

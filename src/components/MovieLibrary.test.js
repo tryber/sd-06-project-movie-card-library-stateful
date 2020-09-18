@@ -187,7 +187,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
   });
 });
 
-describe.skip('Verifica se o componente <MovieLibrary /> renderiza o componente <AddMovie />', () => {
+describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddMovie />', () => {
   it('Será validado se o componente `AddMovie` é renderizado com sucesso', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const addMovieForm = getAllByTestId('add-movie-form');
