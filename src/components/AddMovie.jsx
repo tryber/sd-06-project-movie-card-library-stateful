@@ -112,7 +112,7 @@ class AddMovie extends Component {
           value={this.state.storyline}
           onChange={this.handleChange}
         />
-        </label>
+      </label>
     );
   }
 

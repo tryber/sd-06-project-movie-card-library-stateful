@@ -13,7 +13,6 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
-
   }
 
   render() {
