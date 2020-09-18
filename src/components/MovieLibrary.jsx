@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -12,21 +12,12 @@ class MovieLibrary extends Component {
     this.handleGenreChange = this.handleGenreChange.bind(this);
     this.AddMovieList = this.AddMovieList.bind(this);
     this.state = {
-      searchText:'',
+      searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: data
-    }
+      movies: data,
+    };
   }
-  
-  handleTextChange() {
-  };
-
-  handleBookmarkedChange() {
-  };
-
-  handleGenreChanges() {
-  };
 
   AddMovieList(title, subtitle, imagePath, storyline, rating, genre) {
     this.setState(() => {
@@ -38,27 +29,27 @@ class MovieLibrary extends Component {
         imagePath,
         bookmarked: false,
         genre,
-      })
-    }, this.setState({movies: this.state.movies}))
+      });
+    }, this.setState({ movies: this.state.movies }));
   }
+
   render() {
-    
-    return(
+    return (
       <div>
-      <SearchBar 
-      searchText={this.state.searchText}
-      onSearchTextChange={this.handleTextChange}
-      bookmarkedOnly={this.state.bookmarkedOnly}
-      onBookmarkedChange={this.handleBookmarkedChange}
-      selectedGenre={this.state.selectedGenre}
-      onSelectedGenreChange={this.handleGenreChange}
-      />
-      <MovieList movies={this.state.movies} />
-      <AddMovie
-      onClick={this.AddMovieList}
-      />
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.handleTextChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.handleBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.handleGenreChange}
+        />
+        <MovieList movies={this.state.movies} />
+        <AddMovie
+          onClick={this.AddMovieList}
+        />
       </div>
-    )
+    );
   }
 }
 
