@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class AddMovie extends Component {
   constructor() {
@@ -10,6 +10,7 @@ export default class AddMovie extends Component {
     this.addImageAndStorylineAndRating = this.addImageAndStorylineAndRating.bind(this);
     this.addGenre = this.addGenre.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
 
     // init state
     this.state = {
@@ -25,15 +26,28 @@ export default class AddMovie extends Component {
   // update state by props names
   handleChange({ target }) {
     const { name, value } = target;
-    console.log(name);
-
     this.setState({ [name]: value });
   }
 
+  handleAddMovie() {
+    this.props.onClick(this.state);
+
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
+  // func to create title and subtitle inputs
   addTitleAndSubtitle() {
     return (
       <div>
-        <label data-testid="title-input-label" htmlFor="title">Título:
+        <label data-testid="title-input-label" htmlFor="title">
+        Título:
         <input
           name="title"
           data-testid="title-input"
@@ -56,12 +70,13 @@ export default class AddMovie extends Component {
     );
   }
 
+  // func image path, storyline and rating inputs
   addImageAndStorylineAndRating() {
     return (
       <div>
-        <label data-testid="image-input-label" htmlFor="image">Imagem:
+        <label data-testid="image-input-label" htmlFor="imagePath">Imagem:
         <input
-          name="image"
+          name="imagePath"
           data-testid="image-input"
           type="text"
           value={this.state.imagePath}
@@ -72,7 +87,7 @@ export default class AddMovie extends Component {
         <textarea
           name="storyline"
           data-testid="storyline-input"
-          checked={this.state.storyline}
+          value={this.state.storyline}
           onChange={this.handleChange}
         />
         </label>
@@ -89,14 +104,16 @@ export default class AddMovie extends Component {
     );
   }
 
+  // func to create genre select input
   addGenre() {
     return (
       <div>
         <label data-testid="genre-input-label" htmlFor="genre">Gênero
         <select
+          name="genre"
           data-testid="genre-input"
           value={this.state.genre}
-          // onChange={this.onSelectedGenreChange}
+          onChange={this.handleChange}
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -116,8 +133,7 @@ export default class AddMovie extends Component {
           <this.addGenre />
           <button
             data-testid="send-button"
-            type="submit"
-            onClick=""
+            onClick={this.handleAddMovie}
           >
           Adicionar filme
           </button>
@@ -127,3 +143,4 @@ export default class AddMovie extends Component {
   }
 }
 
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };

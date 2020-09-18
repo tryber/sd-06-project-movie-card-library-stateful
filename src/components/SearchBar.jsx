@@ -7,10 +7,13 @@ export default class SearchBar extends Component {
 
   constructor() {
     super();
+
+    // binds
     this.createSearchTextAndCheckBox = this.createSearchTextAndCheckBox.bind(this);
     this.selectGenre = this.selectGenre.bind(this);
   }
 
+  // func to create input elements
   createSearchTextAndCheckBox() {
     return (
       <div>
@@ -37,6 +40,7 @@ export default class SearchBar extends Component {
     );
   }
 
+  // func to create select and options elements
   selectGenre() {
     return (
       <div>
