@@ -105,87 +105,87 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Sear
   });
 });
 
-// describe('Verifica se o componente <MovieLibrary /> renderiza o componente <MovieList />', () => {
-//   it('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
-//     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const movieList = getAllByTestId('movie-list');
-//     expect(movieList).toHaveLength(1);
-//   });
+describe('Verifica se o componente <MovieLibrary /> renderiza o componente <MovieList />', () => {
+  it('Será validado que o componente `MovieList` é renderizado com sucesso', () => {
+    const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const movieList = getAllByTestId('movie-list');
+    expect(movieList).toHaveLength(1);
+  });
 
-//   it('Será validado se a barra de buscas filtra os filmes por titulo', () => {
-//     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const textInput = getByTestId('text-input');
+  it('Será validado se a barra de buscas filtra os filmes por titulo', () => {
+    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const textInput = getByTestId('text-input');
 
-//     event.type(textInput, 'awesome');
+    event.type(textInput, 'awesome');
 
-//     const movieCard = getAllByTestId('movie-card');
-//     expect(movieCard).toHaveLength(1);
+    const movieCard = getAllByTestId('movie-card');
+    expect(movieCard).toHaveLength(1);
 
-//     const movieCardTitle = getByTestId('movie-card-title');
-//     expect(movieCardTitle).toHaveTextContent(movies[0].title);
-//   });
+    const movieCardTitle = getByTestId('movie-card-title');
+    expect(movieCardTitle).toHaveTextContent(movies[0].title);
+  });
 
-//   it('Será validado se a barra de buscas filtra os filmes por subtítulo', () => {
-//     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const textInput = getByTestId('text-input');
+  it('Será validado se a barra de buscas filtra os filmes por subtítulo', () => {
+    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const textInput = getByTestId('text-input');
 
-//     event.type(textInput, 'incredible');
+    event.type(textInput, 'incredible');
 
-//     const movieCard = getAllByTestId('movie-card');
-//     expect(movieCard).toHaveLength(1);
+    const movieCard = getAllByTestId('movie-card');
+    expect(movieCard).toHaveLength(1);
 
-//     const movieCardTitle = getByTestId('movie-card-title');
-//     expect(movieCardTitle).toHaveTextContent(movies[1].title);
-//   });
+    const movieCardTitle = getByTestId('movie-card-title');
+    expect(movieCardTitle).toHaveTextContent(movies[1].title);
+  });
 
-//   it('Será validado se a barra de buscas filtra os filmes por sinopse', () => {
-//     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const textInput = getByTestId('text-input');
+  it('Será validado se a barra de buscas filtra os filmes por sinopse', () => {
+    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const textInput = getByTestId('text-input');
 
-//     event.type(textInput, 'great');
+    event.type(textInput, 'great');
 
-//     const movieCard = getAllByTestId('movie-card');
-//     expect(movieCard).toHaveLength(1);
+    const movieCard = getAllByTestId('movie-card');
+    expect(movieCard).toHaveLength(1);
 
-//     const movieCardTitle = getByTestId('movie-card-title');
-//     expect(movieCardTitle).toHaveTextContent(movies[2].title);
-//   });
+    const movieCardTitle = getByTestId('movie-card-title');
+    expect(movieCardTitle).toHaveTextContent(movies[2].title);
+  });
 
-//   it('Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia', () => {
-//     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const textInput = getByTestId('text-input');
+  it('Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia', () => {
+    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const textInput = getByTestId('text-input');
 
-//     event.type(textInput, '');
+    event.type(textInput, '');
 
-//     const movieCard = getAllByTestId('movie-card');
-//     expect(movieCard).toHaveLength(3);
-//   });
+    const movieCard = getAllByTestId('movie-card');
+    expect(movieCard).toHaveLength(3);
+  });
 
-//   it('Será validado que é possivel filtrar por favoritos', () => {
-//     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const bookmarkedOnly = getByTestId('checkbox-input');
+  it('Será validado que é possivel filtrar por favoritos', () => {
+    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const bookmarkedOnly = getByTestId('checkbox-input');
 
-//     event.click(bookmarkedOnly);
+    event.click(bookmarkedOnly);
 
-//     const movieCard = getAllByTestId('movie-card');
-//     expect(movieCard).toHaveLength(1);
-//     const movieCardTitle = getByTestId('movie-card-title');
-//     expect(movieCardTitle).toHaveTextContent(movies[0].title);
-//   });
+    const movieCard = getAllByTestId('movie-card');
+    expect(movieCard).toHaveLength(1);
+    const movieCardTitle = getByTestId('movie-card-title');
+    expect(movieCardTitle).toHaveTextContent(movies[0].title);
+  });
 
 
-//   it('Será validado que é possivel filtrar por categoria', () => {
-//     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
-//     const select = getByTestId('select-input');
+  it('Será validado que é possivel filtrar por categoria', () => {
+    const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
+    const select = getByTestId('select-input');
 
-//     event.selectOptions(select, 'comedy');
+    event.selectOptions(select, 'comedy');
 
-//     const movieCard = getAllByTestId('movie-card');
-//     expect(movieCard).toHaveLength(1);
-//     const movieCardTitle = getByTestId('movie-card-title');
-//     expect(movieCardTitle).toHaveTextContent(movies[1].title);
-//   });
-// });
+    const movieCard = getAllByTestId('movie-card');
+    expect(movieCard).toHaveLength(1);
+    const movieCardTitle = getByTestId('movie-card-title');
+    expect(movieCardTitle).toHaveTextContent(movies[1].title);
+  });
+});
 
 // describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddMovie />', () => {
 //   it('Será validado se o componente `AddMovie` é renderizado com sucesso', () => {

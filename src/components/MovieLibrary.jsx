@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
-import movies from '../data';
+import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    const { movies } = props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: { movies },
+      movies: movies,
     };
   }
 
@@ -25,6 +26,7 @@ class MovieLibrary extends Component {
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies } = this.state;
 
     return (
       <section>
@@ -36,6 +38,7 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.handleChange}
         />
+        <MovieList movies={movies} />
       </section>
     );
   }
