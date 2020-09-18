@@ -35,8 +35,9 @@ class AddMovie extends React.Component {
     this.setState(() => ({ [name]: value }));
   }
 
-  handleOnClick({ target }) {
-    this.props.onClick(target.value);
+  handleOnClick(event) {
+    event.preventDefault();
+    this.props.onClick(event.target.value);
     this.setState(() => ({
       subtitle: '',
       title: '',
