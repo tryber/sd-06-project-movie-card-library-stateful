@@ -4,7 +4,6 @@ import propTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    
     this.state = {
       subtitle: '',
       title: '',
@@ -35,7 +34,6 @@ class AddMovie extends React.Component {
       genre: 'action',
     });
   }
-  
 
   renderTitleInput() {
     return (
@@ -190,6 +188,7 @@ AddMovie.defaultProps = {
   genre: 'action',
   onChange: () => {},
   submit: () => {},
+  onClick: () => {},
 };
 
 AddMovie.propTypes = {
@@ -201,6 +200,7 @@ AddMovie.propTypes = {
   genre: propTypes.string,
   onChange: propTypes.func,
   submit: propTypes.func,
+  onClick: propTypes.func,
 };
 
 export default AddMovie;
