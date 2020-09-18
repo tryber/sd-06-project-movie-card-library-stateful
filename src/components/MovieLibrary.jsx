@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          movies={movies}
+          // movies={movies}
         // searchText = {() => console.log('oi') }
         // onSearchTextChange = {() => }
         // bookmarkedOnly = {() => }

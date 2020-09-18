@@ -20,12 +20,12 @@ class SearchBar extends Component {
     return (
       <div>
         <form data-testid="search-bar-form">
-          <label data-testid="text-input-label" htmlFor="includes">
+          <label data-testid="text-input-label" htmlFor="text-input-label">
             Inclui o texto
             <textarea data-testid="text-input" onChange={onSearchTextChange} value={searchText} />
           </label>
           <br />
-          <label data-testid="checkbox-input-label" htmlFor="show-favorite">
+          <label data-testid="checkbox-input-label" htmlFor="checkbox-input-label">
             Mostrar somente favoritos
           <input
             data-testid="checkbox-input"
@@ -34,7 +34,7 @@ class SearchBar extends Component {
             checked={bookmarkedOnly}
           />
           </label><br />
-          <label data-testid="select-input-label" htmlFor="select-genre">
+          <label data-testid="select-input-label" htmlFor="select-input-label">
             Filtrar por gênero
             {this.functionNeeded()}
           </label>
