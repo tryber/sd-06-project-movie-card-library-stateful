@@ -9,9 +9,10 @@ class MovieLibrary extends Component {
   constructor(props) {
     super();
 
-    this.handleChange = this.onSearchTextChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
 
     this.state = {
       searchText: '',
@@ -34,25 +35,34 @@ class MovieLibrary extends Component {
   }
 
   handleFilter() {
+    let returnArray = this.props.movies;
     if (this.state.bookmarkedOnly === true) {
-      return this.props.movies.filter((movie) => movie.bookmarked === true).map((movie) => movie);
+      returnArray = returnArray.filter((movie) => movie.bookmarked === true);
     }
-    return this.props.movies;
+    if (this.state.selectedGenre !== '') {
+      returnArray = returnArray.filter((movie) => movie.genre === this.state.selectedGenre);
+    }
+    if (this.state.searchText !== '') {
+      returnArray = returnArray.filter((movie) => (
+        movie.title.includes(this.state.searchText) ||
+        movie.subtitle.includes(this.state.searchText) ||
+        movie.storyline.includes(this.state.searchText)));
+    }
+    return returnArray;
   }
 
   render() {
-    // const { movies } = this.props;
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const arrayMovies = this.handleFilter();
     return (
       <div>
         <SeachBar
-          searchText={searchText}
-          onSearchTextChange={this.handleChange}
-          bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.handleChange}
-          selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.handleChange}
+          searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={arrayMovies} />
         <AddMovie />
