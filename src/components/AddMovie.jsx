@@ -13,7 +13,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    
+
     this.baseState = this.state;
     this.handleChanges = this.handleChanges.bind(this);
     this.resetState = this.resetState.bind(this);
