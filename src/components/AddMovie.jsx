@@ -29,7 +29,7 @@ class AddMovie extends Component {
   }
 
   onClick() {
-    this.props.onClick(this)
+    this.props.onClick(this);
     this.setState({
       subtitle: '',
       title: '',
@@ -38,12 +38,12 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
-    document.getElementById('titulo').value='';
-    document.getElementById('subtitulo').value='';
-    document.getElementById('imagem').value='';
-    document.getElementById('textarea').value='';
-    document.getElementById('nota').value=0;
-    document.getElementById('genero').value='action';
+    document.getElementById('titulo').value = '';
+    document.getElementById('subtitulo').value = '';
+    document.getElementById('imagem').value = '';
+    document.getElementById('textarea').value = '';
+    document.getElementById('nota').value = 0;
+    document.getElementById('genero').value = 'action';
   }
 
   render() {
@@ -65,12 +65,13 @@ class AddMovie extends Component {
           value={this.state.name}
           handleChange={this.handleChange}
         />
-        <button form="add-movie-form" data-testid="send-button" onClick={this.onClick}>Adicionar filme</button>
+        <button form="add-movie-form" data-testid="send-button" onClick={this.onClick}>Adicionar filme
+        </button>
       </form>
     );
   }
 }
-
+//  100%
 AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;

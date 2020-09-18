@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class AddMovieComponentPartTwo extends React.Component {
@@ -6,8 +6,7 @@ class AddMovieComponentPartTwo extends React.Component {
     const { imagePath, storyline, handleChange } = this.props;
     return (
       <div>
-        <label htmlFor="this-form" data-testid="image-input-label">
-        Imagem
+        <label htmlFor="this-form" data-testid="image-input-label">Imagem
           <input
             data-testid="image-input"
             type="text"
@@ -32,10 +31,10 @@ class AddMovieComponentPartTwo extends React.Component {
   }
 }
 
-// AddMovieComponentPartTwo.propTypes = {
-//   imagePath: PropTypes.string.isRequired,
-//   storyline: PropTypes.string.isRequired,
-//   handleChange: PropTypes.func.isRequired,
-// };
+AddMovieComponentPartTwo.propTypes = {
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default AddMovieComponentPartTwo;

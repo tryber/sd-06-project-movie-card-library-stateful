@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class AddMovieComponentPartOne extends React.Component {
@@ -6,8 +6,7 @@ class AddMovieComponentPartOne extends React.Component {
     const { value, handleChange } = this.props;
     return (
       <div>
-        <label htmlFor="this-form" data-testid="title-input-label">
-          Título
+        <label htmlFor="this-form" data-testid="title-input-label">Título
           <input
             data-testid="title-input"
             id="titulo"
@@ -17,8 +16,7 @@ class AddMovieComponentPartOne extends React.Component {
             value={value}
           />
         </label>
-        <label htmlFor="this-form" data-testid="subtitle-input-label">
-        Subtítulo
+        <label htmlFor="this-form" data-testid="subtitle-input-label">Subtítulo
           <input
             data-testid="subtitle-input"
             onChange={handleChange}
@@ -33,9 +31,9 @@ class AddMovieComponentPartOne extends React.Component {
   }
 }
 
-// AddMovieComponentPartOne.propTypes = {
-//   value: PropTypes.string.isRequired,
-//   handleChange: PropTypes.func.isRequired,
-// };
+AddMovieComponentPartOne.propTypes = {
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 export default AddMovieComponentPartOne;

@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 
 import MovieList from './MovieList';
@@ -23,7 +23,8 @@ class MovieLibrary extends Component {
   }
 
   onClick(state) {
-    console.log('peguei o this do AddMovie')
+    console.log(this);
+    console.log('peguei o this do AddMovie');
   }
 
   onSearchTextChange({ target }) {
@@ -59,13 +60,14 @@ class MovieLibrary extends Component {
 // ✕ Será validado se a barra de buscas filtra os filmes por titulo (71ms)
 // ✕ Será validado se a barra de buscas filtra os filmes por subtítulo (123ms)
 // ✕ Será validado se a barra de buscas filtra os filmes por sinopse (44ms)
-// ✓ Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia (19ms)
+// ✓ Será validado se a lista de filmes é renderizada sem filtragens se a barra de
+//  buscar estiver vazia (19ms)
 // ✕ Será validado que é possivel filtrar por favoritos (30ms)
 // ✕ Será validado que é possivel filtrar por categoria (34ms)
 // Verifica se o componente <MovieLibrary /> renderiza o componente <AddMovie />
 // ✓ Será validado se o componente `AddMovie` é renderizado com sucesso (21ms)
 // ✕ Será validado se é possível adicionar um novo filme a lista de filmes (205ms)
 
-//  MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
+ MovieLibrary.propTypes = { movies: PropTypes.element.isRequired };
 
 export default MovieLibrary;

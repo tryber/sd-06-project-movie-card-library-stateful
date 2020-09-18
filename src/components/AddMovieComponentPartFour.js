@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import React from 'react';
 
 class AddMovieComponentPartFour extends React.Component {
@@ -25,10 +25,10 @@ class AddMovieComponentPartFour extends React.Component {
   }
 }
 
-// AddMovieComponentPartFour.propTypes = {
-//   value: PropTypes.string.isRequired,
-//   handleChange: PropTypes.func.isRequired,
-// };
+AddMovieComponentPartFour.propTypes = {
+  value: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+};
 
 
 export default AddMovieComponentPartFour;
