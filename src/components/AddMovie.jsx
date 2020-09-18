@@ -38,20 +38,28 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        {this.renderInput('Título', 'title-input-label', 'title', 'title-input', this.state.title, 'type')};
-        {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', this.state.subtitle, 'type')};
-        {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', this.state.imagePath, 'type')};
-        {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', this.state.storyline, 'textarea')};
-        {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', this.state.rating, 'number')};
-        <label data-testid="genre-input-label" htmlFor="genre">Gênero
+        {this.renderInput('Título', 'title-input-label', 'title', 'title-input', title, 'type')}
+;
+        {this.renderInput('Subtítulo', 'subtitle-input-label', 'subtitle', 'subtitle-input', subtitle, 'type')}
+;
+        {this.renderInput('Imagem', 'image-input-label', 'imagePath', 'image-input', imagePath, 'type')}
+;
+        {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', storyline, 'textarea')}
+;
+        {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', rating, 'number')}
+;
+        <label data-testid="genre-input-label" htmlFor="genre">
+Gênero
           <select
-          data-testid="genre-input"
-          value={this.state.genre}
-          onChange={this.handleChange}
-          id="genre"
-          name="genre">
+            data-testid="genre-input"
+            value={genre}
+            onChange={this.handleChange}
+            id="genre"
+            name="genre"
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
