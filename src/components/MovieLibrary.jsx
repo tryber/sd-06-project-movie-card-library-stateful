@@ -21,9 +21,9 @@ class MovieLibrary extends Component {
         // bookmarkedOnly = {() => }
         // onBookmarkedChange = {() => }
         // selectedGenre = {() => }
-        // onSelectedGenreChange = {() => }         */}
-        <MovieList movies={movies} />
+        // onSelectedGenreChange = {() => }         */}        
         <AddMovie />
+        <MovieList movies={movies} />
       </div>
     );
   }
