@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import PropTypes from 'prop-types';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -23,7 +23,9 @@ class MovieLibrary extends React.Component {
       if (this.state.selectedGenre === '') {
         this.setState({ movies: this.props.movies });
       } else {
-        const moviesGenre = this.props.movies.filter((movie) => movie.genre === this.state.selectedGenre);
+        const moviesGenre = this.props.movies.filter((movie) => (
+          movie.genre === this.state.selectedGenre
+        ));
         this.setState({ movies: moviesGenre });
       }
     });
@@ -47,7 +49,8 @@ class MovieLibrary extends React.Component {
   refreshSearchText(event) {
     this.setState({ searchText: event.target.value }, () => {
       const moviesFiltered = this.props.movies.filter((movie) => (
-        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) || movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
         movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase())
       ));
       this.setState({ movies: moviesFiltered });
@@ -72,6 +75,6 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf.isRequired }
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf.isRequired };
 
 export default MovieLibrary;
