@@ -33,7 +33,7 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target: { value } }) {
     this.setState({ searchText: value }, () => {
       this.listFilterText(this.state.searchText);
-      // 
+      //
     });
   }
 
@@ -83,11 +83,11 @@ class MovieLibrary extends Component {
 
   render() {
     const { onSearchTextChange, onBookmarkedChange, onSelectedgenreChange, onClickAddMovie } = this;
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, } = this.state;
 
     return (
       <div>
-        <SearchBar 
+        <SearchBar
           searchText={searchText}
           onSearchTextChange={onSearchTextChange}
           bookmarkedOnly={bookmarkedOnly}
