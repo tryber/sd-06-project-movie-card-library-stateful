@@ -6,18 +6,15 @@ class AddMovieComponentPartFour extends React.Component {
     const { value, handleChange } = this.props;
     return (
       <div>
-        <label htmlFor="this-form" data-testid="genre-input-label">
-          Gênero
-          <select
-            value={value}
-            data-testid="genre-input"
+       <label htmlFor="this-form" data-testid="rating-input-label">
+          Avaliação
+          <input
+            data-testid="rating-input"
             onChange={handleChange}
-            name="genre"
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
+            value={value}
+            name="rating"
+            type="number"
+          />
         </label>
       </div>
     );

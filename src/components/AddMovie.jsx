@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import AddMovieComponentPartOne from './AddMovieComponentPartOne';
 import AddMovieComponentPartTwo from './AddMovieComponentPartTwo';
-import AddMovieComponentPartThree from './AddMovieComponentPartThree';
+import AddMovieComponentPartThree from './AddMovieComponentPartFour';
+import AddMovieComponentPartFour from './AddMovieComponentPartFour';
 
 class AddMovie extends Component {
   constructor() {
@@ -32,20 +33,17 @@ class AddMovie extends Component {
       <form htmlFor="this-form" data-testid="add-movie-form">
         <AddMovieComponentPartOne
           value={this.state.nome}
-          handleChange={this.handleChange} />
+          handleChange={this.handleChange}
+        />
         <AddMovieComponentPartTwo
           value={this.state.nome}
-          handleChange={this.handleChange} />
-        <label htmlFor="this-form" data-testid="rating-input-label">Avaliação
-          <input
-            data-testid="rating-input"
-            onChange={this.handleChange}
-            value={this.state.rating}
-            type="number"
-            name="rating"
-          />
-        </label>
+          handleChange={this.handleChange}
+        />
         <AddMovieComponentPartThree
+          value={this.state.nome}
+          handleChange={this.handleChange}
+        />
+        <AddMovieComponentPartFour
           value={this.state.nome}
           handleChange={this.handleChange}
         />
