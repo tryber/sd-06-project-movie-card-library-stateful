@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './AddMovie.css'
 
 class AddMovie extends React.Component {
   constructor() {
@@ -65,8 +66,9 @@ class AddMovie extends React.Component {
   renderTitle() {
     return (
       <div>
+        <div className="title">Adicionar filme</div>
         <label data-testid="title-input-label" htmlFor="title" >
-          Título
+          Título<br />
           <input
             type="text"
             name="title" value={this.state.title} data-testid="title-input"
@@ -81,7 +83,7 @@ class AddMovie extends React.Component {
     return (
       <div>
         <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
+          Subtítulo<br />
           <input
             id="subtitle" name="subtitle" value={this.state.subtitle}
             data-testid="subtitle-input" onChange={this.refreshSubtitle}
@@ -138,19 +140,19 @@ class AddMovie extends React.Component {
         {this.renderTitle()}
         {this.renderSubtitle()}
         <label data-testid="image-input-label" htmlFor="image-path">
-          Imagem
+          Imagem<br />
           {this.renderImage()}
         </label><br /><br />
         <label data-testid="storyline-input-label" htmlFor="storyline">
-          Sinopse
+          Sinopse<br />
           {this.renderStoryline()}
         </label><br /><br />
         <label data-testid="rating-input-label" htmlFor="rating">
-        Avaliação
+        Avaliação<br />
           {this.renderRating()}
         </label><br /><br />
         <label data-testid="genre-input-label" htmlFor="genre">
-          Gênero
+          Gênero<br />
           {this.renderGenre()}
         </label><br /><br />
         <button data-testid="send-button" onClick={this.button}>Adicionar filme</button>
