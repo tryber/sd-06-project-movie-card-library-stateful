@@ -93,15 +93,15 @@ class AddMovie extends React.Component {
 
   rendererRatingInput() {
     return (
-          <label htmlFor="rating-input" data-testid="rating-input-label">
+      <label htmlFor="rating-input" data-testid="rating-input-label">
           Avaliação
-            <input
-              data-testid="rating-input"
-              type="number"
-              value={this.state.rating}
-              onChange={this.atualiza}
-            />
-          </label>
+        <input
+          data-testid="rating-input"
+          type="number"
+          value={this.state.rating}
+          onChange={this.atualiza}
+        />
+      </label>
     );
   }
 
