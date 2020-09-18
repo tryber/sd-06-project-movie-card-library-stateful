@@ -5,6 +5,7 @@ import Header from './components/Header';
 import MovieList from './components/MovieList';
 import SearchBar from './components/SearchBar'
 import AddMovie from './components/AddMovie'
+import MovieLibrary from './components/MovieLibrary'
 
 
 class App extends React.Component {
@@ -16,8 +17,8 @@ class App extends React.Component {
     return (
       <div className="App">
         <Header />
-        <SearchBar /* searchText={} onSearchTextChange={}  *//>
-        <MovieList movies={movies} />
+        <MovieLibrary movies={movies} />
+        {/* <MovieList movies={movies} /> */}
         <AddMovie /* onClick={} */ />
       </div>
     );
