@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -37,31 +36,31 @@ class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: target.checked });
   }
 
-  filterBookmarked(movies, bookmarked) {
+  filterBookmarked(array, bookmarked) {
     if (bookmarked) {
-      return movies.filter((movie) => movie.bookmarked);
+      return array.filter((movie) => movie.bookmarked);
     }
-    return movies;
+    return array;
   }
 
-  filterGenre(movies, genre) {
+  filterGenre(array, genre) {
     if (genre !== '') {
-      return movies.filter((movie) => movie.genre === genre);
+      return array.filter((movie) => movie.genre === genre);
     }
-    return movies;
+    return array;
   }
 
-  filterText(movies, text) {
+  filterText(array, text) {
     const lowText = text.toLowerCase();
     if (lowText !== '') {
-      return movies.filter((movie) => {
+      return array.filter((movie) => {
         if (movie.title.toLowerCase().search(lowText) > -1) return true;
         if (movie.subtitle.toLowerCase().search(lowText) > -1) return true;
         if (movie.storyline.toLowerCase().search(lowText) > -1) return true;
         return false;
       });
     }
-    return movies;
+    return array;
   }
 
   addMovieBtn(data) {
@@ -76,7 +75,7 @@ class MovieLibrary extends React.Component {
     };
     const movies = this.state.movies;
     movies.push(newMovie);
-    this.setState({ movies: movies });
+    this.setState({ movies });
   }
 
   render() {
