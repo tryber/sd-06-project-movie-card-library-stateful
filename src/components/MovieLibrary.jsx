@@ -20,12 +20,15 @@ class MovieLibrary extends Component {
   }
 
   handleTextChange() {
+    console.log('bom dia');
   }
 
   handleBookmarkedChange() {
+    console.log('bom dia');
   }
 
   handleGenreChange() {
+    console.log('bom dia');
   }
 
   AddMovieList(title, subtitle, imagePath, storyline, rating, genre) {
