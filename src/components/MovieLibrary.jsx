@@ -34,14 +34,14 @@ class MovieLibrary extends React.Component {
 
   filterBookmarked(movies, bookmarked) {
     if (bookmarked) {
-      return movies.filter(movie => movie.bookmarked);
+      return movies.filter((movie) => movie.bookmarked);
     }
     return movies;
   }
 
   filterGenre(movies, genre) {
     if (genre !== '') {
-      return movies.filter(movie => movie.genre === genre);
+      return movies.filter((movie) => movie.genre === genre);
     }
     return movies;
   }
