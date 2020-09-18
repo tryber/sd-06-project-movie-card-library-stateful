@@ -7,7 +7,7 @@ class MovieLibrary extends Component {
       <div>
         <SearchBar />
       </div>
-    )
+    );
   }
 
 }
