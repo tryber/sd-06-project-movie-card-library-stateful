@@ -83,7 +83,7 @@ class MovieLibrary extends Component {
 
   render() {
     const { onSearchTextChange, onBookmarkedChange, onSelectedgenreChange, onClickAddMovie } = this;
-    const { searchText, bookmarkedOnly, selectedGenre, } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     return (
       <div>
