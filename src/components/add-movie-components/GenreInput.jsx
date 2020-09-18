@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class GenreInput extends React.Component {
   render() {
-    const { details } = this.props;
+    const { details, value, handleChange } = this.props;
     const
-      { labelName, inputName, labelTestId, inputTestId, value, inputId, handleChange } = details;
+      { labelName, inputName, labelTestId, inputTestId, inputId } = details;
 
     return (
       <label
@@ -20,9 +20,9 @@ class GenreInput extends React.Component {
           value={value}
           onChange={handleChange}
         >
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </label>
     );

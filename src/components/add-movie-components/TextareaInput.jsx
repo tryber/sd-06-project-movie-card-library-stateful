@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 
 class TextareaInput extends React.Component {
   render() {
-    const { details } = this.props;
+    const { details, value, handleChange } = this.props;
     const
-      { labelName, inputName, labelTestId, inputTestId, value, inputId, handleChange } = details;
+      { labelName, inputName, labelTestId, inputTestId, inputId } = details;
 
     return (
       <label
