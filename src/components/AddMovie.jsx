@@ -21,13 +21,27 @@ class AddMovie extends Component {
     this.Storyline = this.Storyline.bind(this);
     this.Rating = this.Rating.bind(this);
     this.Genre = this.Genre.bind(this);
-    this.state = initialState;
+    this.state = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
   }
 
   button() {
     const { onClick } = this.props;
     onClick(this.state);
-    this.setState(initialState);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   handleChange({ target }) {
