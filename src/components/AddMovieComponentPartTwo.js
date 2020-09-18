@@ -31,7 +31,8 @@ class AddMovieComponentPartTwo extends React.Component {
 }
 
 AddMovieComponentPartTwo.propTypes = {
-  value: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 

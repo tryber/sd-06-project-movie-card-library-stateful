@@ -6,7 +6,7 @@ class AddMovieComponentPartThree extends React.Component {
     const { value, handleChange } = this.props;
     return (
       <div>
-       <label htmlFor="this-form" data-testid="rating-input-label">
+        <label htmlFor="this-form" data-testid="rating-input-label">
           Avaliação
           <input
             data-testid="rating-input"
