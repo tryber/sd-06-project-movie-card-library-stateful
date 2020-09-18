@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 class AddMovie extends Component {
   constructor() {
     super();
@@ -32,20 +33,20 @@ class AddMovie extends Component {
   }
   render() {
     return (
-      <form data-testid='add-movie-form'>
-        <label htmlFor='title' data-testid='title-input-label'>Título
+      <form data-testid="add-movie-form">
+        <label htmlFor="title" data-testid="title-input-label">Título
           <input
-            name='title' data-testid='title-input' value={this.state.title}
+            name="title" data-testid="title-input" value={this.state.title}
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor='subtitle' data-testid='subtitle-input-label'>Subtítulo
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo
           <input
-            name='subtitle' data-testid='subtitle-input' value={this.state.subtitle}
+            name="subtitle" data-testid="subtitle-input" value={this.state.subtitle}
             onChange={this.handleChange}
           />
         </label>
-        <label htmlFor="imagePath”data-testid=“image-input-label">Imagem
+        <label htmlFor="imagePath" data-testid="image-input-label">Imagem
           <input
             name="imagePath" data-testid="image-input" value={this.state.imagePath}
             onChange={this.handleChange}
