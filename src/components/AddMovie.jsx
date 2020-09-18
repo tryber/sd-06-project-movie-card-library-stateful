@@ -15,13 +15,16 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
+
   handleChange({ target }) {
-    const name = target.name;
+    const { name } = target;
     this.setState({ [name]: target.value });
   }
+
   renderInput(labelTitle, labelId, inputName, inputId, state, type) {
     return (
-      <label data-testid={labelId} htmlFor={inputName}>{labelTitle}
+      <label data-testid={labelId} htmlFor={inputName}>
+        {labelTitle}
         <input
           data-testid={inputId}
           name={inputName}
@@ -33,6 +36,7 @@ class AddMovie extends React.Component {
       </label>
     );
   }
+
   render() {
     return (
       <form data-testid="add-movie-form">
@@ -42,7 +46,12 @@ class AddMovie extends React.Component {
         {this.renderInput('Sinopse', 'storyline-input-label', 'storyline', 'storyline-input', this.state.storyline, 'textarea')};
         {this.renderInput('Avaliação', 'rating-input-label', 'rating', 'rating-input', this.state.rating, 'number')};
         <label data-testid="genre-input-label" htmlFor="genre">Gênero
-          <select data-testid="genre-input" value={this.state.genre} onChange={this.handleChange} id="genre" name="genre">
+          <select
+          data-testid="genre-input"
+          value={this.state.genre}
+          onChange={this.handleChange}
+          id="genre"
+          name="genre">
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
