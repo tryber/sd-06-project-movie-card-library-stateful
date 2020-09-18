@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
     const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     const { selectRender } = this;
     return (
-      <form data-testid="search-bar-form" action="GET">
+      <form data-testid="search-bar-form" action="">
         <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:</label>
         <input
           data-testid="text-input" type="text" name="text-input" id="text-input"
