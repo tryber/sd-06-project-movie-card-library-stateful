@@ -10,12 +10,12 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
-        {/* searchText={search.searchText}
-        onSearchTextChange={search.onSearchTextChange}
-        bookmarkedOnly={search.bookmarkedOnly}
-        onBookMarkedOnly={search.onBookMarkedOnly}
-        selectedGenre={search.selectedGenre}
-        onSelectedGenre={search.onSelectedGenre} */}
+      {/* searchText={search.searchText}
+      onSearchTextChange={search.onSearchTextChange}
+      bookmarkedOnly={search.bookmarkedOnly}
+      onBookMarkedOnly={search.onBookMarkedOnly}
+      selectedGenre={search.selectedGenre}
+      onSelectedGenre={search.onSelectedGenre} */}
     </div>
   );
 }
