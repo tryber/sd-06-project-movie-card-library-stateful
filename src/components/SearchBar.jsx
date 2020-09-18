@@ -10,7 +10,7 @@ class SearchBar extends Component {
         Inclui o texto
         <textarea data-testid="text-input" onChange={onSearchTextChange} value={searchText} />
       </label>
-    )
+    );
   }
 
   functionNeeded() {
@@ -35,10 +35,10 @@ class SearchBar extends Component {
           <label data-testid="checkbox-input-label" htmlFor="checkbox-input-label">
             Mostrar somente favoritos
           <input
-              data-testid="checkbox-input"
-              type="checkbox"
-              onChange={onBookmarkedChange}
-              checked={bookmarkedOnly}
+            data-testid="checkbox-input"
+            type="checkbox"
+            onChange={onBookmarkedChange}
+            checked={bookmarkedOnly}
             />
           </label><br />
           <label data-testid="select-input-label" htmlFor="select-input-label">
