@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
     super();
   }
 
-  render () {
+  render() {
     const { 
       searchText,
       onSearchTextChange,
@@ -15,7 +15,6 @@ class SearchBar extends React.Component {
       selectedGenre,
       onSelectedGenreChange,
      } = this.props;
-     
     return (
       <span>SearchBar Component</span>
     );
@@ -29,6 +28,6 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func.isRequired,
   selectedGenre: PropTypes.string.isRequired,
   onSelectedGenreChange: PropTypes.func.isRequired, 
-}
+};
 
 export default SearchBar;
