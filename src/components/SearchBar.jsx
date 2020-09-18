@@ -24,11 +24,17 @@ class SearchBar extends React.Component {
   }
 
   checkboxGenerate() {
-    const { bookmarkedOnly,  onBookmarkedChange } = this.props;
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <label data-testid="checkbox-input-label" htmlFor="fav-check">
         Mostrar somente favoritos
-        <input type="checkbox" id="fav-check" data-testid="checkbox-input" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+        <input
+          type="checkbox"
+          id="fav-check"
+          data-testid="checkbox-input"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+        />
       </label>
     );
   }
@@ -40,7 +46,7 @@ class SearchBar extends React.Component {
         <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto
           <input
-            type="text" 
+            type="text"
             id="text-input"
             data-testid="text-input"
             value={searchText}
