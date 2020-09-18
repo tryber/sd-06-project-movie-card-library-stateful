@@ -24,9 +24,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClickAddMovie(newMovie) {
-    const moviesList = this.state.movies;
-    moviesList.push(newMovie);
-    this.setState({ movies: moviesList });
+    this.setState({ movies: this.state.movies.concat(newMovie) });
   }
 
   onSearchTextChange({ target: { value } }) {
@@ -85,7 +83,6 @@ class MovieLibrary extends React.Component {
 
     return (
       <div>
-        <MovieList movies={movies} />
         <SearchBar
           searchText={searchText}
           onSearchTextChange={onSearchTextChange}
@@ -95,13 +92,14 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={onSelectedGenreChange}
         />
         <AddMovie onClick={onClickAddMovie} />
+        <MovieList movies={movies} />
       </div>
     );
   }
 }
 
 MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf({
+  movies: PropTypes.arrayOf(PropTypes.shape({
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string.isRequired,
     storyline: PropTypes.string.isRequired,
@@ -109,7 +107,7 @@ MovieLibrary.propTypes = {
     imagePath: PropTypes.string.isRequired,
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
-  }).isRequired,
+  }).isRequired),
 };
 
 MovieLibrary.defaultProps = {

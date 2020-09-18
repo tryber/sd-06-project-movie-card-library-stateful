@@ -38,7 +38,8 @@ class AddMovie extends React.Component {
     });
   }
 
-  handleClick() {
+  handleClick(event) {
+    event.preventDefault();
     const { state, initialState } = this;
     const { onClick } = this.props;
     onClick(state);
@@ -119,7 +120,7 @@ class AddMovie extends React.Component {
     const { handleClick, selectRender, titleRender, subtitleRender } = this;
     const { imageRender, storylineRender, ratingRender } = this;
     return (
-      <form data-testid="add-movie-form" action="">
+      <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">Título</label>
         {titleRender()}
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">Subtítulo</label>
