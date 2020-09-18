@@ -1,27 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import SelectGenre from './SelectGenre';
 
 export default class SearchBar extends Component {
-  constructor() {
-    super();
-    this.renderSelect = this.renderSelect.bind(this);
-  }
-
-  renderSelect() {
-    return (
-      <label data-testid="select-input-label" htmlFor="selectedGenre">Filtrar por gênero:
-        <select
-          data-testid="select-input" name="selectedGenre" value={this.props.selectedGenre}
-          onChange={this.props.onSelectedGenreChange}
-        >
-          <option data-testid="select-option" value="">Todos</option>
-          <option data-testid="select-option" value="action">Ação</option>
-          <option data-testid="select-option" value="comedy">Comédia</option>
-          <option data-testid="select-option" value="thriller">Suspense</option>
-        </select>
-      </label>
-    );
-  }
 
   render() {
     return (
@@ -40,7 +21,7 @@ export default class SearchBar extends Component {
               checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange}
             />
           </label>
-          {this.renderSelect()}
+          <SelectGenre />
         </form>
       </div>
     );
@@ -52,6 +33,4 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
 };
