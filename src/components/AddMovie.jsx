@@ -17,17 +17,17 @@ class AddMovie extends React.Component {
   }
 
   upateStatus({ target }) {
-    this.setState({title: target.value});
+    this.setState({ title: target.value });
     console.log(target.title);
   }
 
   render() {
-    const { onclick } = this.props;
     return (
       <div>
         <form>
           <label htmlFor="title" data-testid="title-input-label">Título
-            <input id="title" onChange={this.upateStatus}
+            <input
+              id="title" onChange={this.upateStatus}
               value={this.state.title} type="text" data-testid="title-input"
             />
           </label>
