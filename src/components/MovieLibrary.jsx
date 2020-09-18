@@ -1,8 +1,8 @@
 import React from 'react';
-// import movies from '../data';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -18,6 +18,21 @@ class MovieLibrary extends React.Component {
     this.refreshSelectedGenre = this.refreshSelectedGenre.bind(this);
   }
 
+  refreshSelectedGenre(event) {
+    this.setState({ selectedGenre: event.target.value }, () => {
+      if (this.state.selectedGenre === '') {
+        this.setState({ movies: this.props.movies });
+      } else {
+        const moviesGenre = this.props.movies.filter((movie) => movie.genre === this.state.selectedGenre);
+        this.setState({ movies: moviesGenre });
+      }
+    });
+  }
+
+  // onClick() {
+
+  // }
+
   refreshBookmarkedOnly(event) {
     this.setState({ bookmarkedOnly: event.target.checked }, () => {
       if (this.state.bookmarkedOnly === true) {
@@ -29,24 +44,12 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  refreshSelectedGenre(event) {
-    this.setState({ selectedGenre: event.target.value }, () => {
-      if (this.state.selectedGenre === '') {
-        this.setState({ movies: this.props.movies });
-      } else {
-        const moviesGenre = this.props.movies.filter((movie) => movie.genre === this.state.selectedGenre)
-        this.setState({ movies: moviesGenre })
-      }
-    });
-  }
-
-  onClick() {
-
-  }
-
   refreshSearchText(event) {
     this.setState({ searchText: event.target.value }, () => {
-      const moviesFiltered = this.props.movies.filter((movie) => movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) || movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) || movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
+      const moviesFiltered = this.props.movies.filter((movie) => (
+        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) || movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase())
+      ));
       this.setState({ movies: moviesFiltered });
     });
   }
@@ -68,5 +71,7 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf.isRequired }
 
 export default MovieLibrary;
