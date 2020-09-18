@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 
 class SearchBar extends React.Component {
-
   renderFilterByGender() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
@@ -22,9 +21,10 @@ class SearchBar extends React.Component {
   renderFavorites() {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
-      <label data-testid="checkbox-input-label" htmlFor="favorites">
+      <label data-testid="checkbox-input-label" htmlFor="fav">
         Mostrar somente favoritos
         <input
+          id="fav"
           data-testid="checkbox-input"
           type="checkbox"
           checked={bookmarkedOnly}
@@ -35,15 +35,13 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-    } = this.props;
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <form>
-        <label data-testid="text-input-label" htmlFor="text">
+        <label data-testid="text-input-label" htmlFor="incluesText">
           Inclui o texto:
           <input
+            id="incluesText"
             data-testid="text-input"
             type="text"
             value={searchText}
