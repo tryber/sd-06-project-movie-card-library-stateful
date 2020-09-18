@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <Header />
       <SearchBar />
-      <MovieList movies={movies}/>
+      <MovieList movies={movies} />
     </div>
   );
 }
