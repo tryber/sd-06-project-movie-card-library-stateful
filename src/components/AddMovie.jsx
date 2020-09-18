@@ -97,7 +97,8 @@ class AddMovie extends React.Component {
         {this.renderSelect()}
         <button
           data-testid="send-button" type="button"
-          onClick={this.resetState}>Adicionar filme</button>
+          onClick={this.resetState}>Adicionar filme
+        </button>
       </form>
     );
   }
