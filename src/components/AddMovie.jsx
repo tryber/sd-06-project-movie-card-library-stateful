@@ -55,7 +55,7 @@ class AddMovie extends React.Component {
       value: this.state.title,
       handle: this.handleChange,
       inputId: 'title-input',
-      labelId: 'label-title-input',
+      labelId: 'title-input-label',
       label: 'Título',
       checked: '',
     });
@@ -68,7 +68,7 @@ class AddMovie extends React.Component {
       value: this.state.subtitle,
       handle: this.handleChange,
       inputId: 'subtitle-input',
-      labelId: 'label-subtitle-input',
+      labelId: 'subtitle-input-label',
       label: 'Subtítulo',
       checked: '',
     });
@@ -81,7 +81,7 @@ class AddMovie extends React.Component {
       value: this.state.imagePath,
       handle: this.handleChange,
       inputId: 'image-input',
-      labelId: 'label-image-input',
+      labelId: 'image-input-label',
       label: 'Imagem',
       checked: '',
     });
@@ -94,7 +94,7 @@ class AddMovie extends React.Component {
       value: this.state.rating,
       handle: this.handleChange,
       inputId: 'rating-input',
-      labelId: 'label-rating-input',
+      labelId: 'rating-input-label',
       label: 'Avaliação',
       checked: '',
     });
@@ -108,6 +108,7 @@ class AddMovie extends React.Component {
     ];
 
     return ({
+      type: 'genre',
       name: 'genre',
       value: this.state.genre,
       handle: this.handleChange,

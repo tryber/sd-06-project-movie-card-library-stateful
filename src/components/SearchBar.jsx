@@ -12,35 +12,37 @@ class SearchBar extends React.Component {
   }
 
   preparePropsToSearchInput() {
-    const { searchText, onSearchTextChange } = this.props.objProps;
+    const { searchText, onSearchTextChange } = this.props;
+
     return ({
       type: 'text',
       name: 'searchText',
       value: searchText,
       handle: onSearchTextChange,
       inputId: 'text-input',
-      labelId: 'label-text-input',
+      labelId: 'text-input-label',
       label: 'Inclui o texto',
       checked: '',
     });
   }
 
   preparePropsToBookmarkedInput() {
-    const { onBookmarkedChange, bookmarkedOnly } = this.props.objProps;
+    const { onBookmarkedChange, bookmarkedOnly } = this.props;
+
     return ({
       type: 'checkbox',
       name: 'bookmarkedOnly',
       value: bookmarkedOnly,
       handle: onBookmarkedChange,
       inputId: 'checkbox-input',
-      labelId: 'label-checkbox-input',
+      labelId: 'checkbox-input-label',
       label: 'Mostrar somente favoritos',
       checked: bookmarkedOnly,
     });
   }
 
   preparePropsToGenreInput() {
-    const { selectedGenre, onSelectedGenreChange } = this.props.objProps;
+    const { selectedGenre, onSelectedGenreChange } = this.props;
     const optionsToSelect = [
       { label: 'Todos', value: '' },
       { label: 'Ação', value: 'action' },
@@ -49,11 +51,12 @@ class SearchBar extends React.Component {
     ];
 
     return ({
+      type: 'select',
       name: 'selectedGenre',
       value: selectedGenre,
       handle: onSelectedGenreChange,
       inputId: 'select-input',
-      labelId: 'label-select-input',
+      labelId: 'select-input-label',
       label: 'Filtrar por gênero',
       options: optionsToSelect,
     });
@@ -76,23 +79,19 @@ class SearchBar extends React.Component {
 export default SearchBar;
 
 SearchBar.defaultProps = {
-  objProps: {
-    searchText: '',
-    onSearchTextChange: '',
-    bookmarkedOnly: false,
-    onBookmarkedChange: '',
-    selectedGenre: '',
-    onSelectedGenreChange: '',
-  },
+  searchText: '',
+  onSearchTextChange: '',
+  bookmarkedOnly: false,
+  onBookmarkedChange: '',
+  selectedGenre: '',
+  onSelectedGenreChange: '',
 };
 
 SearchBar.propTypes = {
-  objProps: PropTypes.shape(
-    PropTypes.string,
-    PropTypes.func,
-    PropTypes.bool,
-    PropTypes.func,
-    PropTypes.string,
-    PropTypes.func,
-  ),
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
 };

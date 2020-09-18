@@ -87,18 +87,15 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const objPropsSearchBar = {
-      searchText: this.state.searchText,
-      onSearchTextChange: this.handleSearchChange,
-      bookmarkedOnly: this.state.bookmarkedOnly,
-      onBookmarkedChange: this.handleBookmarkedChange,
-      selectedGenre: this.state.selectedGenre,
-      onSelectedGenreChange: this.handleSelectGenreChange,
-    };
-
+    const hs = this.handleSearchChange;
+    const hb = this.handleBookmarkedChange;
+    const hg = this.handleSelectGenreChange;
+    const ss = this.state.searchText;
+    const sb = this.state.bookmarkedOnly;
+    const sg = this.state.selectedGenre;
     return (
       <div>
-        <SearchBar objProps={objPropsSearchBar} />
+        <SearchBar searchText={ss} onSearchTextChange={hs} bookmarkedOnly={sb} onBookmarkedChange={hb} selectedGenre={sg} onSelectedGenreChange={hg} />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.addNewMovie} />
       </div>
@@ -110,3 +107,4 @@ export default MovieLibrary;
 
 MovieLibrary.defaultProps = { movies: [] };
 MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object) };
+
