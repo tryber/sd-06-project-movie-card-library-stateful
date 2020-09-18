@@ -49,7 +49,7 @@ class MovieLibrary extends Component {
       movie.subtitle.toLocaleUpperCase()
         .indexOf(this.state.searchText.toLocaleUpperCase()) !== -1 ||
       movie.storyline.toLocaleUpperCase()
-        .indexOf(this.state.searchText.toLocaleUpperCase()) !== -1
+        .indexOf(this.state.searchText.toLocaleUpperCase()) !== -1,
       );
     }
 
