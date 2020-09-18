@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
         <option value="comedy">Comédia</option>
         <option value="thriller">Suspense</option>
       </select>
-    </label>
+      </label>
     );
   }
 
@@ -41,7 +41,7 @@ class SearchBar extends React.Component {
             type="checkbox"
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
-            />
+          />
         </label>
         <label data-testid="select-input-label" htmlFor="select-input-label">
           {this.filterMovieGenres()}
