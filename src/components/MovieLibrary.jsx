@@ -50,7 +50,6 @@ class MovieLibrary extends React.Component {
     this.setState({
       bookmarkedOnly: checked,
     })
-
   }
 
   handleGenreChange = () => {
