@@ -9,7 +9,7 @@ import movies from '../data';
 class MovieLibrary extends React.Component {
   constructor() {
     super();
-  
+
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -49,7 +49,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
-        <AddMovie  />
+        <AddMovie />
       </div>
     );
   }
