@@ -3,16 +3,9 @@ import PropTypes from 'prop-types';
 
 class TextInput extends React.Component {
   render() {
-    const { detailsObj } = this.props;
-    const {
-      labelName,
-      inputName,
-      labelTestId,
-      inputTestId,
-      value,
-      inputId,
-      handleChange,
-    } = detailsObj;
+    const { details } = this.props;
+    const
+      { labelName, inputName, labelTestId, inputTestId, value, inputId, handleChange } = details;
 
     return (
       <label
