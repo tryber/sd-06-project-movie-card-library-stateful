@@ -27,7 +27,7 @@ class AddMovie extends React.Component {
 
   eventHandlerNumber({ target }) {
     const { name } = target;
-    this.setState({ [name]: Number(value) });
+    // this.setState({ [name]: Number(value) });
   }
 
 

@@ -17,7 +17,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const movie = this.props;
+    // const movie = this.props;
     // const { title, subtitle, storyline, rating, imagePath } = movie;
     return (
       <div>
