@@ -65,7 +65,7 @@ function getDefaulProps() {
     onSearchTextChange: this.onSearchTextChange.bind(this),
     onBookmarkedChange: this.onBookmarkedChange.bind(this),
     onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
-  }
+  };
 }
 
 SearchBar.propTypes = {

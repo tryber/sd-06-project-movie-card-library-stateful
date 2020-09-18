@@ -12,7 +12,7 @@ const ratingInput = {
 };
 
 class AddMovie extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.addMovie = this.addMovie.bind(this);
@@ -50,7 +50,6 @@ class AddMovie extends Component {
     onClick(this.state);
     this.resetState();
   }
-  
   render() {
     return (
       <div className="add-movie">
