@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import SearchBar from './components/SearchBar';
 import Header from './components/Header';
-import MovieLibrary from './components/MovieLibrary';
+// import MovieLibrary from './components/MovieLibrary';
 import AddMovie from './components/AddMovie';
 
 function App() {
