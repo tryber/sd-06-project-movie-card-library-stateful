@@ -2,8 +2,12 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
+  constructor() {
+    super();
+    this.selectGenre = this.selectGenre.bind(this)
+  };
 
-  selectGenre = () => {
+  selectGenre() {
     return (
       <select
         id="genre"

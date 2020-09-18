@@ -6,7 +6,8 @@ import data from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super(props)
+    super(props);
+    this.handleTextChange = this.handleTextChange.bind(this)
     this.state = {
       searchText:'',
       bookmarkedOnly: false,
@@ -15,8 +16,7 @@ class MovieLibrary extends Component {
     }
   }
   
-  handleTextChange = () => {
-
+  handleTextChange() {
   };
 
   handleBookmarkedChange = () => {

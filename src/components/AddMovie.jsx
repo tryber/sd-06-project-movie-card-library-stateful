@@ -3,6 +3,7 @@ import React, {Component} from 'react';
 class AddMovie extends Component {
   constructor() {
     super();
+    this.onChange = this.onChange.bind(this)
     this.state = {
       subtitle: "",
       title: "",
@@ -13,9 +14,9 @@ class AddMovie extends Component {
     }
   };
 
-  onChange = (event) => {
-    const { name } = event.target;
-    this.setState(({[name]: event.target.value}));
+  onChange({ target }) {
+    const { name } = target;
+    this.setState(({[name]: target.value}));
   };
 
   titleInput = () => {
