@@ -16,8 +16,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
-  };
-
+  }
   
   onClick() {
     this.props.onClick(this.state);
@@ -28,8 +27,8 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    })
-  };
+    });
+  }
   
   handleChange({ target }) {
     const { name } = target;
@@ -37,19 +36,18 @@ class AddMovie extends Component {
     this.setState({ [name]: target.value });
   };
   
-
   render() {
     return (
       <div>
         <form >
           <label data-testid="title-input-label" htmlFor="title">Título
             <input
-              data-testid="title-input" value={this.state.title} 
+              data-testid="title-input" value={this.state.title}
               type="text" name="title" onChange={this.handleChange}
             />
           </label>
           <label data-testid="subtitle-input-label" htmlFor="subtitle">Subtítulo
-          <input 
+          <input
             data-testid="subtitle-input" value={this.state.subtitle} type="text"
             name="subtitle" onChange={this.handleChange}
           />
@@ -73,7 +71,10 @@ class AddMovie extends Component {
           />
           </label>
           <label data-testid="genre-input-label" htmlFor="gender">Gênero
-          <select data-testid="genre-input" value={this.state.genre} name="genre" onChange={this.handleChange}>
+          <select
+            data-testid="genre-input" value={this.state.genre} name="genre"
+            onChange={this.handleChange}
+          >
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>

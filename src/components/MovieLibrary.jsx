@@ -20,25 +20,23 @@ class MovieLibrary extends Component {
     };
   }
 
-  add(movie) {this.setState({ movies: [...this.state.movies, movie] })};
+  add(movie) { this.setState({ movies: [...this.state.movies, movie] }) }
 
   render() {
-    const { movies } = this.props;
-
     return (
       <div>
         <SearchBar
-            searchText={this.searchText}
-            bookmarkedOnly={this.bookmarkedOnly}
-            selectedGenre={this.selectedGenre}
+          searchText={this.searchText}
+          bookmarkedOnly={this.bookmarkedOnly}
+          selectedGenre={this.selectedGenre}
         />
-        <MovieList movies={this.state.movies}/>
-        <AddMovie onClick={this.add}/>
+        <MovieList movies={this.state.movies} />
+        <AddMovie onClick={this.add} />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.string };
+MovieLibrary.propTypes = { movies: PropTypes.string.isRequired };
 
 export default MovieLibrary;
