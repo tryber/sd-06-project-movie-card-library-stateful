@@ -21,18 +21,19 @@ class AddMovie extends React.Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   }
-  
+
   handleClick() {
-    const onClick = this.props;
+    const { onClick } = this.props;
     onClick(this.state);
     this.setState(
-      { subtitle: '',
+      {
+        subtitle: '',
         title: '',
         imagePath: '',
         storyline: '',
         rating: 0,
-        genre: '',
-      }); 
+        genre: 'action',
+      });
   }
 
   renderFirstPart() {
