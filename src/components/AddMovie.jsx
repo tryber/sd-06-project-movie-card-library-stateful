@@ -33,7 +33,7 @@ class AddMovie extends Component {
       genre: 'action',
     });
   }
-    
+  
   button() {
     const { onClick } = this.props;
     return (
@@ -202,6 +202,6 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propType = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
