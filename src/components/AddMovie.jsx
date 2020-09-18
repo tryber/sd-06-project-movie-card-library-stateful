@@ -1,13 +1,14 @@
 // import { render } from 'enzyme';
 // implement AddMovie component here
 import React from 'react';
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
     this.eventHandler = this.eventHandler.bind(this);
+    this.eventHandlerNumber = this.eventHandlerNumber.bind(this);
 
     this.state = {
       subtitle: '',
@@ -75,7 +76,7 @@ class AddMovie extends React.Component {
             value={this.state.storyline}
             onChange={this.eventHandler}
             data-testid="storyline-input-label"
-          ></textarea>
+          />
         </label>
         <label htmlFor="avaliacao" data-testid="rating-input-label">
           Avaliação
