@@ -1,49 +1,73 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-const inputText = {
-  type: 'text',
-  value: 'searchText',
-  onChange: 'onSearchChange',
-};
-
-const inputCheckBox = {
-  type: 'checkbox',
-  checked: 'bookMarkedOnly',
-  onChange: 'onBookMarkedChange',
-};
-
-const inputSelect = {
-  type: 'select',
-  value: '',
-  onChange: 'onSelectedGenreChange',
-};
 class SearchBar extends Component {
+
+  SearchText() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
+      <input data-testid="text-input" type="text" value={searchText} onChange={onSearchTextChange} />
+    )
+  }
+
+  CheckBox() {
+    const { bookMarkedOnly, onBookMarkedChange } = this.props;
+    return (
+      <input data-testid="checkbox-input" type="checkbox" checked={bookMarkedOnly} onChange={onBookMarkedChange} />
+    )
+  }
+
+  SelectGenre() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
+        <option data-testid="select-option" value="">Todos</option>
+        <option data-testid="select-option" value="action">Ação</option>
+        <option data-testid="select-option" value="comedy">Comédia</option>
+        <option data-testid="select-option" value="thriller">Suspense</option>
+      </select>
+    )
+  }
+
   render() {
     return (
       <div className="search-bar">
-        <section className="form" data-testid="search-bar-form">
+        <form className="form" data-testid="search-bar-form">
           <label data-testid="text-input-label" htmlFor="text-input">
             Inclui o texto:
-          </label>
-          <input data-testid="text-input" {...inputText} />
+        </label>
+          {this.SearchText()}
           <label data-testid="checkbox-input-label" htmlFor="check-input">
             Mostrar somente favoritos
-          </label>
-          <input data-testid="checkbox-input" {...inputCheckBox} />
+        </label>
+          {this.CheckBox()}
           <label data-testid="select-input-label" htmlFor="select-input">
-            Filtrar por Gênero
-          </label>
-          <select data-testid="select-input" {...inputSelect}>
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
-          </select>
-        </section>
+            Filtrar por gênero
+        </label>
+          {this.SelectGenre()}
+        </form>
       </div>
     );
   }
+}
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookMarkedOnly: PropTypes.bool,
+  onBookMarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+}
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: undefined,
+  bookMarkedOnly: false,
+  onBookMarkedChange: undefined,
+  selectedGenre: '',
+  onSelectedGenreChange: undefined,
 }
 
 export default SearchBar;
