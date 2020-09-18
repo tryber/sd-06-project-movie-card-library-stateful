@@ -31,15 +31,15 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar />
-        
-        searchText={searchText}
+
+        {/* searchText={searchText}
         onSearchTextChange={onSearchTextChange}
         bookmarkedOnly={bookmarkedOnly}
         onBookmarkedChange={onBookmarkedChange}
         selectedGenre={selectedGenre}
-        onSelectedGenreChange={onSelectedGenreChange}
-        <AddMovie
-         onClick = {() => console.log('hi')}
+        onSelectedGenreChange={onSelectedGenreChange} */}
+         <AddMovie
+          onClick= {() => console.log('hi')}
          />
         <MovieList movies={movies} />
       </div>
