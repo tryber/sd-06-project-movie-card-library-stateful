@@ -16,7 +16,7 @@ class MovieLibrary extends React.Component {
     this.refreshSearchText = this.refreshSearchText.bind(this);
     this.refreshBookmarkedOnly = this.refreshBookmarkedOnly.bind(this);
     this.refreshSelectedGenre = this.refreshSelectedGenre.bind(this);
-  }  
+  }
 
   refreshBookmarkedOnly(event) {
     this.setState({ bookmarkedOnly: event.target.checked }, () => {
