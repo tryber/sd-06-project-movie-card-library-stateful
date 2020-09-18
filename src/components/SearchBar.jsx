@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
 
-  generateFilterByGenderSelectOptions() {
+  renderFilterByGender() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <label htmlFor="genre">
@@ -40,9 +40,14 @@ class SearchBar extends React.Component {
         </label>
         <label data-testid="checkbox-input-label" htmlFor="favorites">
           Mostrar somente favoritos
-          <input data-testid="checkbox-input" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange} />
+          <input
+            data-testid="checkbox-input"
+            type="checkbox"
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
+          />
         </label>
-        {this.generateFilterByGenderSelectOptions()}
+        {this.renderFilterByGender()}
       </form>
     );
   }
