@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-class AddMovieComponentPartFour extends React.Component {
+class AddMovieComponentPartThree extends React.Component {
   render() {
     const { value, handleChange } = this.props;
     return (
@@ -21,10 +21,10 @@ class AddMovieComponentPartFour extends React.Component {
   }
 }
 
-AddMovieComponentPartFour.propTypes = {
+AddMovieComponentPartThree.propTypes = {
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
 };
 
 
-export default AddMovieComponentPartFour;
+export default AddMovieComponentPartThree;

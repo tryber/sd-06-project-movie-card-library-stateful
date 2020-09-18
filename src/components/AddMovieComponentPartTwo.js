@@ -3,7 +3,7 @@ import React from 'react';
 
 class AddMovieComponentPartTwo extends React.Component {
   render() {
-    const { value, handleChange } = this.props;
+    const { imagePath, storyline, handleChange } = this.props;
     return (
       <div>
         <label htmlFor="this-form" data-testid="image-input-label">
@@ -13,7 +13,7 @@ class AddMovieComponentPartTwo extends React.Component {
             type="text"
             name="imagePath"
             onChange={handleChange}
-            value={value}
+            value={imagePath}
           />
         </label>
         <label htmlFor="this-form" data-testid="storyline-input-label">Sinopse
@@ -21,7 +21,7 @@ class AddMovieComponentPartTwo extends React.Component {
             data-testid="storyline-input"
             type="text"
             name="storyline"
-            value={value}
+            value={storyline}
             onChange={handleChange}
           />
         </label>

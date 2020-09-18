@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import AddMovieComponentPartOne from './AddMovieComponentPartOne';
 import AddMovieComponentPartTwo from './AddMovieComponentPartTwo';
-import AddMovieComponentPartThree from './AddMovieComponentPartFour';
+import AddMovieComponentPartThree from './AddMovieComponentPartThree';
 import AddMovieComponentPartFour from './AddMovieComponentPartFour';
 
 class AddMovie extends Component {
@@ -32,19 +32,19 @@ class AddMovie extends Component {
     return (
       <form htmlFor="this-form" data-testid="add-movie-form">
         <AddMovieComponentPartOne
-          value={this.state.nome}
+          value={this.state.name}
           handleChange={this.handleChange}
         />
         <AddMovieComponentPartTwo
-          value={this.state.nome}
+          value={this.state.name}
           handleChange={this.handleChange}
         />
         <AddMovieComponentPartThree
-          value={this.state.nome}
+          value={this.state.rating}
           handleChange={this.handleChange}
         />
         <AddMovieComponentPartFour
-          value={this.state.nome}
+          value={this.state.name}
           handleChange={this.handleChange}
         />
         <button data-testid="send-button"onClick={onClick}>Adicionar filme</button>
