@@ -24,8 +24,8 @@
 }
 
 .filter-form .filters {
-  display: flex;
   align-items: center;
+  display: flex;
 }
 
 .filter-form .filters .check-box-container {

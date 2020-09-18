@@ -11,3 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.add-movie .input-container input[ type = "number" ] {
+  border: 1px solid #343a40;
+  border-radius: 5px;
+  padding: 4px;
+  width: 40px;
+}

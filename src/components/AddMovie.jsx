@@ -61,22 +61,42 @@ class AddMovie extends React.Component {
         <h3>Adicione mais filmes</h3>
         <div className="input-group">
           <div className="input-container">
-            <label htmlFor="" data-testid="title-input-label">Título</label>
-            <input type="text" data-testid="title-input" name="title" value={title} onChange={this.handleInput} />
+            <label htmlFor="title" data-testid="title-input-label">Título</label>
+            <input
+              data-testid="title-input"
+              name="title"
+              value={title}
+              onChange={this.handleInput}
+            />
           </div>
           <div className="input-container">
-            <label htmlFor="" data-testid="subtitle-input-label">Subtítulo</label>
-            <input type="text" data-testid="subtitle-input" name="subtitle" value={subtitle} onChange={this.handleInput} />
+            <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
+            <input
+              data-testid="subtitle-input"
+              name="subtitle"
+              value={subtitle}
+              onChange={this.handleInput}
+            />
           </div>
         </div>
         <div className="input-group">
           <div className="input-container">
-            <label htmlFor="" data-testid="image-input-label">Imagem</label>
-            <input type="text" data-testid="image-input" name="imagePath" value={imagePath} onChange={this.handleInput} />
+            <label htmlFor="image" data-testid="image-input-label">Imagem</label>
+            <input
+              data-testid="image-input"
+              name="imagePath"
+              value={imagePath}
+              onChange={this.handleInput}
+            />
           </div>
           <div className="input-container">
-            <label htmlFor="" data-testid="genre-input-label">Gênero</label>
-            <select data-testid="genre-input" name="genre" value={genre} onChange={this.handleInput}>
+            <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
+            <select
+              data-testid="genre-input"
+              name="genre"
+              value={genre}
+              onChange={this.handleInput}
+            >
               <option value="action" data-testid="genre-option">Ação</option>
               <option value="comedy" data-testid="genre-option">Comédia</option>
               <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -86,11 +106,22 @@ class AddMovie extends React.Component {
 
         <div className="textarea-container">
           <label htmlFor="" data-testid="storyline-input-label">Sinopse</label>
-          <textarea type="text" data-testid="storyline-input" name="storyLine" value={storyLine} onChange={this.handleInput} />
+          <textarea
+            data-testid="storyline-input"
+            name="storyLine"
+            value={storyLine}
+            onChange={this.handleInput}
+          />
         </div>
         <div className="input-container">
           <label htmlFor="" data-testid="rating-input-label">Avaliação</label>
-          <input type="number" data-testid="rating-input" name="rating" value={rating} onChange={this.handleInput} />
+          <input
+            type="number"
+            data-testid="rating-input"
+            name="rating"
+            value={rating}
+            onChange={this.handleInput}
+          />
         </div>
 
         <button type="submit" data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>

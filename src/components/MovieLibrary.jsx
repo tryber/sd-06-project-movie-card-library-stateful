@@ -9,9 +9,6 @@ class MovieLibrary extends React.Component {
   constructor() {
     super();
 
-    // this.handleValueChange = this.handleValueChange.bind(this);
-    // this.handleFavoritesChange = this.handleFavoritesChange.bind(this);
-    // this.handleGenreFilter = this.handleGenreFilter.bind(this);
     this.handleFiltering = this.handleFiltering.bind(this);
 
     this.state = {
@@ -82,7 +79,7 @@ class MovieLibrary extends React.Component {
     const values = this.state;
 
     return (
-      <>
+      <div>
         <SearchBar
           searchText={values.searchText}
           bookmarkedOnly={values.bookmarkedOnly}
@@ -99,7 +96,7 @@ class MovieLibrary extends React.Component {
         <AddMovie
           onClick={this.handleAddMovie}
         />
-      </>
+      </div>
     );
   }
 }
