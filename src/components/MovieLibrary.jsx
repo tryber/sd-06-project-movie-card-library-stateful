@@ -1,26 +1,16 @@
 import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     searchText: '',
-  //     bookmarkedOnly: false,
-  //     selectedGenre: '',
-  //     movies: this.props.movies,
-  //   };
-  // this.troca = this.troca.bind(this);
-  // this.buttonTroca = this.buttonTroca.bind(this);
-  // }
-
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar value={this.state.estadoFavorito} handleChange={this.handleChange} />
         <AddMovie />
+        <MovieList movies={this.props.movies} />
       </div>
     );
   }

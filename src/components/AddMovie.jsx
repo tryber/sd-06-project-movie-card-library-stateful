@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
+    this.onChange = this.onChange.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -11,28 +13,12 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    // this.atualiza = this.atualiza.bind(this);
-    // this.buttonTroca = this.buttonTroca.bind(this);
   }
 
-  // atualiza(event) {
-  //   const { name, value } = event.target;
-  //   this.setState({ [name]: name === 'rating' ? parseFloat(value) : value });
-  // }
-
-  // buttonTroca(event) {
-  //   event.preventDefault();
-  //   const { onClick } = this.props;
-  //   onClick(this.state);
-  //   this.setState({
-  //     subtitle: '',
-  //     title: '',
-  //     imagePath: '',
-  //     storyline: '',
-  //     rating: 0,
-  //     genre: 'action',
-  //   });
-  // }
+  onChange({ target }) {
+    const { name } = target;
+    this.setState({ [name]: target.value });
+  }
 
   rendererTitleInput() {
     return (
@@ -42,7 +28,7 @@ class AddMovie extends React.Component {
           data-testid="title-input"
           type="text"
           value={this.state.title}
-          onChange={this.atualiza}
+          onChange={this.onChange}
         />
       </label>
     );
@@ -56,7 +42,7 @@ class AddMovie extends React.Component {
           data-testid="subtitle-input"
           type="text"
           value={this.state.subtitle}
-          onChange={this.atualiza}
+          onChange={this.onChange}
         />
       </label>
     );
@@ -70,7 +56,7 @@ class AddMovie extends React.Component {
           data-testid="image-input"
           type="text"
           value={this.state.imagePath}
-          onChange={this.atualiza}
+          onChange={this.onChange}
         />
       </label>
     );
@@ -84,7 +70,7 @@ class AddMovie extends React.Component {
           data-testid="storyline-input"
           type="text"
           value={this.state.storyline}
-          onChange={this.atualiza}
+          onChange={this.onChange}
         />
       </label>
     );
@@ -98,7 +84,7 @@ class AddMovie extends React.Component {
           data-testid="rating-input"
           type="number"
           value={this.state.rating}
-          onChange={this.atualiza}
+          onChange={this.onChange}
         />
       </label>
     );
@@ -111,13 +97,25 @@ class AddMovie extends React.Component {
         <select
           data-testid="genre-input"
           value={this.state.genre}
-          onChange={this.atualiza}
+          onChange={this.onChange}
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
       </label>
+    );
+  }
+
+  rendererButton() {
+    const { onClick } = this.props;
+    return (
+      <button
+        data-testid="send-button"
+        type="submit"
+        onClick={onClick}>
+        Adicionar filme
+      </button>
     );
   }
 
@@ -130,10 +128,12 @@ class AddMovie extends React.Component {
         {this.rendererStoryLineInput()}
         {this.rendererRatingInput()}
         {this.rendererGenreInput()}
-        <button data-testid="send-button" type="submit">Adicionar filme</button>
+        {this.rendererButton()}
       </form>
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
