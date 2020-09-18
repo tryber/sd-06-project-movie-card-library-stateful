@@ -1,4 +1,10 @@
 import React, { Component } from 'react';
+import FormTitle from './formComponents/FormTitle';
+import FormSubtitle from './formComponents/FormSubtitle';
+import FormImage from './formComponents/FormImage';
+import FormSinopse from './formComponents/FormSinopse';
+import FormAvaliacao from './formComponents/FormAvaliacao';
+import FormSelect from './formComponents/FormSelect';
 
 class AddMovie extends  Component {
 
@@ -25,8 +31,8 @@ class AddMovie extends  Component {
   }
 
   handleClick() {
-    const onClick = this.props;
-    const reset = this.setState({
+    const { onClick } = this.props;
+    const resetState = this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -34,41 +40,18 @@ class AddMovie extends  Component {
       rating: 0,
       genre: 'action',
     })
-    this.onClick(reset);
+    onClick(resetState);
   }
 
   render() {
-    const { onClick } = this.props;
     return (
         <form data-testid="add-movie-form" >
-          <label data-testid="title-input-label">
-            Título
-            <input type="text" value={this.state.title} name="title" data-testid="title-input" onChange={this.userInput}/>
-          </label>
-          <label data-testid="subtitle-input-label">
-            Subtítulo
-            <input type="text" value={this.state.subtitle} name="subtitle" data-testid="subtitle-input" onChange={this.userInput}/>
-          </label>
-          <label data-testid="image-input-label">
-            Imagem
-            <input type="text" value={this.state.imagePath} name="imagePath" data-testid="image-input" onChange={this.userInput}/>
-          </label>
-          <label data-testid="storyline-input-label">
-            Sinopse
-            <textarea value={this.state.storyline} name="storyline"data-testid="storyline-input" onChange={this.userInput}/>
-          </label>
-          <label data-testid="rating-input-label" >
-            Avaliação
-            <input type="number" value={this.state.rating} name="rating" data-testid="rating-input" onChange={this.userInput}/>
-          </label>
-          <label data-testid="genre-input-label">
-            Gênero
-            <select value={this.state.genre} data-testid="genre-input" name="genre"onChange={this.userInput}>
-              <option value="action" data-testid="genre-option">Ação</option>
-              <option value="comedy" data-testid="genre-option">Comédia</option>
-              <option value="thriller" data-testid="genre-option">Suspense</option>
-            </select>
-          </label>
+          <FormTitle title={this.state.title} callback={this.userInput}/>
+          <FormSubtitle subtitle={this.state.subtitle} callback={this.userInput}/>
+          <FormImage imagePath={this.state.imagePath} callback={this.userInput}/>
+          <FormSinopse storyline={this.state.storyline} callback={this.userInput}/>
+          <FormAvaliacao rating={this.state.rating} callback={this.userInput}/>
+          <FormSelect genre={this.state.genre} callback={this.userInput}/>
           <button data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
         </form>
     )
