@@ -1,12 +1,13 @@
 // import { render } from 'enzyme';
 // implement AddMovie component here
 import React from 'react';
+import SearchBar from './SearchBar';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
 
-    this.eventTitle = this.eventTitle.bind(this);
+    this.eventHandler = this.eventHandler.bind(this);
 
     this.state = {
       subtitle: '',
@@ -17,12 +18,17 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
-  eventTitle({ target }) {
+  eventHandler({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-
     this.setState({ [name]: value });
   }
+
+  eventHandlerNumber({ target }) {
+    const { name } = target;
+    this.setState({ [name]: Number(value) });
+  }
+
 
   render() {
     return (
@@ -32,9 +38,9 @@ class AddMovie extends React.Component {
           <input
             id="title"
             type="text"
-            name="name"
+            name="title"
             value={this.state.title}
-            onChange={this.eventTitle}
+            onChange={this.eventHandler}
             data-testid="title-input"
           />
         </label>
@@ -43,9 +49,9 @@ class AddMovie extends React.Component {
           <input
             id="subtitle"
             type="text"
-            name="name"
+            name="subtitle"
             value={this.state.subtitle}
-            onChange={this.eventTitle}
+            onChange={this.eventHandler}
             data-testid="subtitle-input"
           />
         </label>
@@ -54,9 +60,9 @@ class AddMovie extends React.Component {
           <input
             id="image"
             type="text"
-            name="name"
+            name="imagePath"
             value={this.state.imagePath}
-            onChange={this.eventTitle}
+            onChange={this.eventHandler}
             data-testid="image-input"
           />
         </label>
@@ -65,20 +71,20 @@ class AddMovie extends React.Component {
           <textarea
             id="sinopse"
             type="text"
-            name="name"
+            name="storyline"
             value={this.state.storyline}
-            onChange={this.eventTitle}
+            onChange={this.eventHandler}
             data-testid="storyline-input-label"
-          />
+          ></textarea>
         </label>
         <label htmlFor="avaliacao" data-testid="rating-input-label">
           Avaliação
           <textarea
             id="avaliacao"
             type="number"
-            name="name"
-            value={this.state.storyline}
-            onChange={this.eventTitle}
+            name="rating"
+            value={this.state.rating}
+            onChange={this.eventHandler}
             data-testid="rating-input-label"
           />
         </label>
@@ -89,7 +95,7 @@ class AddMovie extends React.Component {
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
-          <button onClick={this.eventTitle} data-testid="send-button">Adicionar filme</button>
+          <button onClick={this.eventHandler} data-testid="send-button">Adicionar filme</button>
 
         </label>
       </form>
