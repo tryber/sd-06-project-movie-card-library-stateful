@@ -15,8 +15,7 @@ class SearchBar extends Component {
           </label>
           <label data-testid="checkbox-input-label">
             Mostrar somente favoritos
-            <input data-testid="checkbox-input" type="checkbox"
-            checked={bookmarkedOnly} onChange={onBookmarkedChange}/>
+            <input data-testid="checkbox-input" type="checkbox" checked={bookmarkedOnly} onChange={onBookmarkedChange}/>
           </label>
           <label data-testid="select-input-label">
             Filtrar por gênero
