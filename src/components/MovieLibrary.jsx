@@ -25,8 +25,20 @@ class MovieLibrary extends Component {
     console.log(addMovieStates);
   }
 
-  onSearchTextChange() {
-    console.log('onSearchTextChange')
+  onSearchTextChange({target}) {
+    const { value } = target;
+
+    this.setState((_, props) => (
+      (value === '')
+      ? {
+          searchText: value,
+          movies: props.movies,
+        }
+      : {
+          searchText: value,
+          movies: props.movies.filter(movie => movie.title.includes(value)),
+        }
+    ));
   }
 
   onBookmarkedChange() {
@@ -38,13 +50,24 @@ class MovieLibrary extends Component {
         }
       : {
           bookmarkedOnly: !prevState.bookmarkedOnly,
-          movies: props.movies.filter(movie => movie.bookmarked),
+          movies: prevState.movies.filter(movie => movie.bookmarked),
         }
     ));
   }
 
-  onSelectedGenreChange() {
-    console.log('onSelectedGenreChange')
+  onSelectedGenreChange({target}) {
+    const { value } = target;
+    this.setState((_, props) => (
+      (value === '')
+      ? {
+          selectedGenre: value,
+          movies: props.movies,
+        }
+      : {
+          selectedGenre: value,
+          movies: props.movies.filter(movie => movie.genre === value),
+        }
+    ));
   }
 
   render() {
