@@ -97,6 +97,6 @@ SearchBar.defaultProps = {
   onBookmarkedChange: '',
   selectedGenre: '',
   onSelectedGenreChange: '',
-}
+};
 
 export default SearchBar;

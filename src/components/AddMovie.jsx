@@ -91,8 +91,6 @@ Gênero
   }
 }
 
-AddMovie.propTypes = {
-  onClick: propType.func,
-};
+AddMovie.propTypes = { onClick: propType.func.isRequired };
 
 export default AddMovie;
