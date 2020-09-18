@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor() {
@@ -27,7 +26,6 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
         />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
