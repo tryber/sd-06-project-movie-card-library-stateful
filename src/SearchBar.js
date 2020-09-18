@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
     return (
       <div className="movie-card-header">
         <form id="search-bar-form">
-          <label id="text-input-label">
+          <label for="text-input-label">
             Inclui o texto:
             <input type="text" name="searchtext" value="searchText" />
           </label>
