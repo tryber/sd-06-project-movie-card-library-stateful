@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import SearchSelect from './SearchSelect.jsx'
+
 class SearchBar extends React.Component {
 
   render() {
@@ -26,14 +28,7 @@ class SearchBar extends React.Component {
             Mostrar somente favoritos
           </label>
 
-          <label htmlFor="movie-genre" data-testid="select-input-label">Filtrar por gênero</label>
-          <select id="movie-genre" data-testid="select-input"
-            value={selectedGenre} onChange={onSelectedGenreChange}>
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
+          <SearchSelect selectedGenre={selectedGenre} onSelectedGenreChange={onSelectedGenreChange} />
         </form>
       </div>
     );
