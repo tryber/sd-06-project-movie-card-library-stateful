@@ -37,14 +37,14 @@ class MovieLibrary extends Component {
     this.setState({ searchText: value }, () => {
       const { movies } = this.props;
       const { searchText } = this.state;
-      const newMovies = movies.filter((movie) => {
-      return (
-        movie.title.includes(searchText) ||
-        movie.subtitle.includes(searchText) ||
-        movie.storyline.includes(searchText)
+      const newMovies = movies.filter((movie) =>
+        (
+          movie.title.includes(searchText) ||
+          movie.subtitle.includes(searchText) ||
+          movie.storyline.includes(searchText)
+        )
       );
-    });
-    this.setState({ movies: newMovies });
+      this.setState({ movies: newMovies });
     });
   }
 
