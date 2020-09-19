@@ -70,21 +70,12 @@ describe('Verifica o input de título do componente <AddMovie />', () => {
     expect(titleInputLabel).toBeInTheDocument();
     expect(titleInputLabel).toHaveTextContent('Título');
   });
-<<<<<<< HEAD
-  
+
   it.skip('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
     expect(titleInput).toHaveValue(initialState.title);
   });
-  
+
   it.skip('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
-=======
-
-  it('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
-    expect(titleInput).toHaveValue(initialState.title);
-  });
-
-  it('Será validado se o valor do input de título muda quando algo é digitado por quem usa', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
     event.type(titleInput, 'my awesome movie title');
 
     expect(titleInput).toHaveValue('my awesome movie title');
@@ -95,13 +86,8 @@ describe('Verifica o input de subtítulo do componente <AddMovie />', () => {
   it.skip('Será validado se o componentee renderiza um input de texto para quem usa escrever o subtítulo do filme', () => {
     expect(subtitleInput).toBeInTheDocument();
   });
-<<<<<<< HEAD
-  
-  it.skip('Será validado se o component renderiza a label "Subtítulo" para o input de subtitulo', () => {
-=======
 
-  it('Será validado se o component renderiza a label "Subtítulo" para o input de subtitulo', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
+  it.skip('Será validado se o component renderiza a label "Subtítulo" para o input de subtitulo', () => {
     expect(subtitleInputLabel).toBeInTheDocument();
     expect(subtitleInputLabel).toHaveTextContent('Subtítulo');
   });
@@ -121,13 +107,8 @@ describe('Verifica o input de imagem do componente <AddMovie />', () => {
   it.skip('Será validado se o componente renderiza um input de texto para quem usa inserir a url da imagem do filme', () => {
     expect(imageInput).toBeInTheDocument();
   });
-<<<<<<< HEAD
-  
-  it.skip('Será validado se o componente renderiza a label "Imagem" para o input de imagem', () => {
-=======
 
-  it('Será validado se o componente renderiza a label "Imagem" para o input de imagem', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
+  it.skip('Será validado se o componente renderiza a label "Imagem" para o input de imagem', () => {
     expect(imageInputLabel).toBeInTheDocument();
     expect(imageInputLabel).toHaveTextContent('Imagem');
   });
@@ -146,13 +127,8 @@ describe('Verifica o input de sinopse do componente <AddMovie />', () => {
   it.skip('Será validado se o componente renderiza um input de texto para quem usa escrever a sinopse do filme', () => {
     expect(storylineInput).toBeInTheDocument();
   });
-<<<<<<< HEAD
-  
-  it.skip('Será validado se o componente renderiza a label "Sinopse" para o input de sinopse', () => {
-=======
 
-  it('Será validado se o componente renderiza a label "Sinopse" para o input de sinopse', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
+  it.skip('Será validado se o componente renderiza a label "Sinopse" para o input de sinopse', () => {
     expect(storylineInputLabel).toBeInTheDocument();
     expect(storylineInputLabel).toHaveTextContent('Sinopse');
   });
@@ -201,24 +177,14 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     expect(genreInput).toBeInTheDocument();
     expect(genreOptions).toHaveLength(options.length);
   });
-<<<<<<< HEAD
-  
-  it.skip('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
-=======
 
-  it('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
+  it.skip('Será validado se o component renderiza a label "Gênero" para o select de gênero', () => {
     expect(genreInputLabel).toBeInTheDocument();
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
 
-<<<<<<< HEAD
-  
-  it.skip('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
-=======
 
-  it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
+  it.skip('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
     genreOptions.forEach((option, index) => {
       expect(option).toHaveTextContent(options[index].text);
       expect(option).toHaveValue(options[index].value);
@@ -228,26 +194,15 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
   it.skip('Será validado se o gênero selecionado inicialmente é o "action"', () => {
     expect(genreInput).toHaveValue(initialState.genre);
   });
-<<<<<<< HEAD
-  
-  it.skip('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
-=======
 
-  it('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
+  it.skip('Será validado se o valor do gênero muda quando um gênero diferente é escolhido no select', () => {
     event.selectOptions(genreInput, options[1].value);
     expect(genreInput).toHaveValue(genreOptions[1].value);
   });
 });
 
 describe('Verifica botão de criar filme do componente <AddMovie />', () => {
-<<<<<<< HEAD
-  
-  
   it.skip('Será validado se o texto do botão é "Adicionar filme"', () => {
-=======
-  it('Será validado se o texto do botão é "Adicionar filme"', () => {
->>>>>>> 23bad9003afbdabcff96cd6f03db79d9e4d96c1e
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
 
