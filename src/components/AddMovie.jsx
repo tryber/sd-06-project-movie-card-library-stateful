@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.css';
-import Labels from './Labels.jsx'
+import Labels from './Labels.jsx';
 
 class AddMovie extends React.Component {
   constructor() {
