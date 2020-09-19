@@ -19,7 +19,7 @@ export default class AddMovie extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
-    this.resetStates = this.resetStates.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
     this.renderInput = this.renderInput.bind(this);
   }
 
@@ -27,7 +27,9 @@ export default class AddMovie extends Component {
     this.setState({ [target.name]: target.value });
   }
 
-  resetStates() {
+  handleSubmit(event) {
+    event.preventDefault();
+
     this.setState({
       subtitle: '',
       title: '',
@@ -36,6 +38,7 @@ export default class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+    return this.props.onClick(this.state);
   }
 
   renderInput(name, id, value, labelText, type = 'text') {
@@ -79,10 +82,7 @@ export default class AddMovie extends Component {
           <button
             type="button"
             data-testid="send-button"
-            onClick={() => {
-              this.resetStates();
-              return this.props.onClick(this.state);
-            }}
+            onClick={this.handleSubmit}
           >
             Adicionar filme
           </button>
