@@ -5,12 +5,6 @@ import SelectInput from './SelectInput';
 import Input from './Input';
 
 class SearchBar extends Component {
-  constructor() {
-    super();
-
-    this.renderInput = this.renderInput.bind(this);
-  }
-
   renderInput(id, labelText, value, callback, type = 'text', checked) {
     return (
       <Input
