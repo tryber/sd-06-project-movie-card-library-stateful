@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -28,7 +29,8 @@ class MovieLibrary extends Component {
           || el.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
         if (this.state.searchText.trim() !== '') this.setState({ movies: filtered });
         else if (this.state.selectedGenre !== '') {
-          const filteredGenre = this.props.movies.filter((el) => el.genre === this.state.selectedGenre);
+          const filteredGenre = this.props.movies
+            .filter((el) => el.genre === this.state.selectedGenre);
           this.setState({ movies: filteredGenre });
         } else {
           this.setState({ movies: this.props.movies });
@@ -63,15 +65,15 @@ class MovieLibrary extends Component {
   }
 
   AddMovieList({ title, subtitle, imagePath, storyline, rating, genre }) {
-      const data = {
-        title,
-        subtitle,
-        storyline,
-        rating,
-        imagePath,
-        bookmarked: false,
-        genre,
-      };
+    const data = {
+      title,
+      subtitle,
+      storyline,
+      rating,
+      imagePath,
+      bookmarked: false,
+      genre,
+    };
     this.setState((last) => ({ movies: [...last.movies, data] }));
   }
 
@@ -94,5 +96,9 @@ class MovieLibrary extends Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object) };
+
+MovieLibrary.defaultProps = { movies: '' };
 
 export default MovieLibrary;
