@@ -12,6 +12,7 @@ class MovieLibrary extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.componentWillMount = this.componentWillMount.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -19,6 +20,7 @@ class MovieLibrary extends React.Component {
       movies: this.props,
     };
   }
+
   componentWillMount() {
     this.setState(({ movies: this.props.movies }));
   }
@@ -33,10 +35,10 @@ class MovieLibrary extends React.Component {
       this.setState({ movies: selectedGenreMovies });
     });
   }
-
+  
   onSelectedGenreChange({ target }) {
     this.setState(() => ({ selectedGenre: target.value }));
-  }
+  };
 
   onBookmarkedChange({ target }) {
     this.setState(() => ({ bookmarkedOnly: target.checked }));

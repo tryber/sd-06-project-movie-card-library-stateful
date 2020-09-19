@@ -6,15 +6,12 @@ class SearchBar extends React.Component {
   filterMovieGenres() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <label htmlFor="select-genre" data-testid="select-input-label">
-        Filtrar por gênero<br />
         <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
           <option value="" data-testid="select-option">Todos</option>
           <option value="action" data-testid="select-option">Ação</option>
           <option value="comedy" data-testid="select-option">Comédia</option>
           <option value="thriller" data-testid="select-option">Suspense</option>
         </select>
-      </label>
     );
   }
 
@@ -45,8 +42,8 @@ class SearchBar extends React.Component {
             onChange={onBookmarkedChange}
           />
         </label>
-        <label data-testid="select-input-label" htmlFor="select-input-label">
-          {this.filterMovieGenres()}
+        <label data-testid="select-input-label" htmlFor="select-input">
+          Filtrar por gênero {this.filterMovieGenres()}
         </label>
       </form>
     );
