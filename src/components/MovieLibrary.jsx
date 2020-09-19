@@ -25,25 +25,14 @@ class MovieLibrary extends Component {
     };
   }
 
-  filterSelect(state) {
-    const array = this.props.movies.filter((element) => element.genre === state);
-    this.setState({ movies: array });
-  }
-
-  onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value }, () => {
-      this.filterSelect(this.state.selectedGenre);
-    });
-  }
-
   onClick(state) {
     this.setState({ movies: this.state.movies.concat(state) });
   }
 
   filterSearchText(state) {
     const array = this.props.movies
-    .filter((element) => element.title.includes(state) || 
-    element.subtitle.includes(state) || 
+    .filter((element) => element.title.includes(state) ||
+    element.subtitle.includes(state) ||
     element.storyline.includes(state));
     this.setState({ movies: array });
   }
@@ -62,6 +51,17 @@ class MovieLibrary extends Component {
   onBookmarkedChange(event) {
     this.setState({ bookmarkedOnly: event.target.checked }, () => {
       this.filterBookmarked(this.state.bookmarkedOnly);
+    });
+  }
+
+  filterSelect(state) {
+    const array = this.props.movies.filter((element) => element.genre === state);
+    this.setState({ movies: array });
+  }
+
+  onSelectedGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value }, () => {
+      this.filterSelect(this.state.selectedGenre);
     });
   }
 
