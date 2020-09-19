@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -24,6 +25,20 @@ class AddMovie extends React.Component {
   fazer a função que chama a função de onclick que será passada como props e chamar no botão
   que ainda não está criado
  */
+
+
+  reset() {
+    this.props.onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   renderSelect() {
     const { genre } = this.state;
     return (
@@ -39,18 +54,6 @@ class AddMovie extends React.Component {
         </select>
       </label>
     );
-  }
-
-  reset() {
-    this.props.onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
   }
 
   render() {
@@ -99,5 +102,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
