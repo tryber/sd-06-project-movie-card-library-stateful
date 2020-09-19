@@ -25,11 +25,9 @@ class AddMovie extends Component {
     };
   }
 
-  handleOnChange({target}) {
+  handleOnChange({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value
-    });
+    this.setState({ [name]: value });
   }
 
   handleOnSubmit(event) {
@@ -50,12 +48,12 @@ class AddMovie extends Component {
   render() {
     return (
       <form className="add-movie-form" data-testid="add-movie-form">
-        <AddMovieTitle title={this.state.title} handleOnChange={this.handleOnChange}/>
-        <AddMovieSubtitle subtitle={this.state.subtitle} handleOnChange={this.handleOnChange}/>
-        <AddMovieImagePath imagePath={this.state.imagePath} handleOnChange={this.handleOnChange}/>
-        <AddMovieStoryline storyline={this.state.storyline} handleOnChange={this.handleOnChange}/>
-        <AddMovieRating rating={this.state.rating} handleOnChange={this.handleOnChange}/>
-        <AddMovieGenre genre={this.state.genre} handleOnChange={this.handleOnChange}/>
+        <AddMovieTitle title={this.state.title} handleOnChange={this.handleOnChange} />
+        <AddMovieSubtitle subtitle={this.state.subtitle} handleOnChange={this.handleOnChange} />
+        <AddMovieImagePath imagePath={this.state.imagePath} handleOnChange={this.handleOnChange} />
+        <AddMovieStoryline storyline={this.state.storyline} handleOnChange={this.handleOnChange} />
+        <AddMovieRating rating={this.state.rating} handleOnChange={this.handleOnChange} />
+        <AddMovieGenre genre={this.state.genre} handleOnChange={this.handleOnChange} />
         {/* Depois que definir certinho esse button eu chamo pelo arquivo a parte */}
         {/* <AddMovieButton handleOnSubmit={this.handleOnSubmit}/> */}
 
