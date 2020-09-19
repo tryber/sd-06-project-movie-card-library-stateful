@@ -42,6 +42,10 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: value });
   }
 
+  onClick(movie) {
+    this.setState((estadoAnterior) => ({ movies: estadoAnterior.movies.concat(movie) }));
+  }
+
   movieFilter(movies) {
     if (this.state.searchText !== '') {
       return movies
@@ -63,10 +67,6 @@ class MovieLibrary extends Component {
       return movies.filter((movie) => movie.genre === this.state.selectedGenre);
     }
     return movies;
-  }
-
-  onClick(movie) {
-    this.setState(estadoAnterior => ({ movies: estadoAnterior.movies.concat(movie)}));
   }
 
   render() {
