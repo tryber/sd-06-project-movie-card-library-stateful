@@ -41,11 +41,6 @@ class MovieLibrary extends Component {
     });
   }
 
-  filterSelect(state) {
-    const array = this.props.movies.filter((element) => element.genre === state);
-    this.setState({ movies: array });
-  }
-
   onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value }, () => {
       this.filterSelect(this.state.selectedGenre);
@@ -62,6 +57,11 @@ class MovieLibrary extends Component {
 
   filterBookmarked(state) {
     const array = this.props.movies.filter((element) => element.bookmarked === state);
+    this.setState({ movies: array });
+  }
+
+  filterSelect(state) {
+    const array = this.props.movies.filter((element) => element.genre === state);
     this.setState({ movies: array });
   }
 
