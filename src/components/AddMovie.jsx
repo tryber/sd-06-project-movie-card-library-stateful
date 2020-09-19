@@ -48,6 +48,8 @@ class AddMovie extends React.Component {
     storylineInput.value = '';
     ratingInput.value = 0;
     genreInput.value = 'action';
+
+    static.PropTypes = { onClick: PropTypes.func };
   }
 
   render() {
