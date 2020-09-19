@@ -14,6 +14,7 @@ class AddMovie extends React.Component {
       genre: '',
     };
   }
+}
 
   handle({ target }) {
     const { name } = target;
@@ -75,7 +76,7 @@ class AddMovie extends React.Component {
           />
         </label>
       </form>
-    )
+    );
   }
 
 exports default AddMovie;
