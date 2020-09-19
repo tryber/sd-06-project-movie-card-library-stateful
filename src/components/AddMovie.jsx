@@ -8,6 +8,7 @@ class AddMovie extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleChangeNumber = this.handleChange.bind(this);
     this.newMovie = this.newMovie.bind(this);
+    // this.onClick = this.onClick.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -36,6 +37,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+    // return this.props.onClick(this.state);
   }
 
   render() {
@@ -75,8 +77,8 @@ class AddMovie extends Component {
               id="storyline-input"
               name="storyline"
               data-testid="storyline-input"
-              maxLength="200"
-              rows="4"
+              // maxLength="200"
+              // rows="1"
               value={this.state.storyline}
               onChange={this.handleChange}
             />
