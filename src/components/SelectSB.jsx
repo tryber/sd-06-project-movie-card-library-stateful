@@ -8,6 +8,7 @@ class SelectSB extends React.Component {
       <div>
         <label htmlFor="input-select" data-testid="select-input-label">Filtrar por gênero
           <select
+            name="selectedGenre"
             data-testid="select-input"
             value={value} onChange={onChange}
           >

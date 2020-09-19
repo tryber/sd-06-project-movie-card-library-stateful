@@ -7,7 +7,7 @@ class CheckBoxSB extends React.Component {
     return (
       <div>
         <input
-          data-testid="checkbox-input" type="checkbox"
+          data-testid="checkbox-input" type="checkbox" name="bookmarkedOnly"
           checked={checked} onChange={onChange}
         />
         <label htmlFor="input-check" data-testid="checkbox-input-label">
