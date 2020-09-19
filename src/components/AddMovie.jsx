@@ -42,7 +42,9 @@ class AddMovie extends React.Component {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label">Título</label>
+        <label
+          htmlFor="title-input"
+          data-testid="title-input-label">Título</label>
         <input
           type="text"
           value={title}
@@ -50,15 +52,19 @@ class AddMovie extends React.Component {
           onChange={this.handleChange}
           ame="title"
         />
-        <label data-testid="subtitle-input-label">Subtítulo</label>
+        <label
+          htmlFor="subtitle-input"
+          data-testid="subtitle-input-label">Subtítulo</label>
         <input
           type="text"
           value={subtitle}
           data-testid="subtitle-input"
           onChange={this.handleChange}
-            name="subtitle"
+          name="subtitle"
         />
-        <label data-testid="image-input-label">Imagem</label>
+        <label
+          htmlFor="image-input"
+          data-testid="image-input-label">Imagem</label>
         <input
           type="text"
           value={imagePath}
@@ -66,14 +72,18 @@ class AddMovie extends React.Component {
           onChange={this.handleChange}
           name="imagePath"
         />
-        <label data-testid="storyline-input-label">Sinopse</label>
+        <label
+          htmlFor="storyline-input"
+          data-testid="storyline-input-label">Sinopse</label>
         <textarea
           value={storyline}
           data-testid="storyline-input"
           onChange={this.handleChange}
           name="storyline"
         />
-        <label data-testid="rating-input-label">Avaliação</label>
+        <label
+          htmlFor="rating-input"
+          data-testid="rating-input-label">Avaliação</label>
         <input
           type="number"
           value={rating}
@@ -81,7 +91,9 @@ class AddMovie extends React.Component {
           onChange={this.handleChange}
           name="rating"
         />
-        <label data-testid="genre-input-label">Gênero</label>
+        <label
+          htmlFor="genre-input"
+          data-testid="genre-input-label">Gênero</label>
         <select
           value={genre}
           data-testid="genre-input"
