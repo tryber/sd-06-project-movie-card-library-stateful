@@ -1,13 +1,12 @@
 import React from 'react';
 import '../App.css';
+import Labels from './Labels.jsx'
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.entradas = this.entradas.bind(this);
-    this.ComboBox = this.ComboBox.bind(this);
-    this.textoDasEntradas = this.textoDasEntradas.bind(this);
-    this.localDasEntradas = this.localDasEntradas.bind(this);
+
     this.state = {
       subtitle: '',
       title: '',
@@ -36,32 +35,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  textoDasEntradas = () => {
-    return (
-      <div className="labels">
-        <label data-testid="title-input-label" htmlFor="title">
-        Título
-        </label><br />
-        <label data-testid="subtitle-input-label" htmlFor="subtitle">
-          Subtítulo
-        </label><br />
-        <label data-testid="image-input-label" htmlFor="img">
-          Imagem
-        </label><br />
-        <label data-testid="storyline-input-label" htmlFor="sinopse">
-          Sinopse
-        </label><br /><br />
-        <label data-testid="rating-input-label" htmlFor="aval">
-          Avaliação
-        </label><br />
-        <label data-testid="genre-input-label" htmlFor="select">
-          Gênero
-        </label>
-      </div>
-    );
-  }
-
-  localDasEntradas() {
+  LocalDasEntradas() {
     return (
       <div className="inputs">
         <input
@@ -93,8 +67,8 @@ class AddMovie extends React.Component {
     const onClick = this.props;
     return (
       <form className="addMovie" data-testid="add-movie-form">
-        { this.textoDasEntradas() }
-        { this.localDasEntradas() }
+        <Labels />
+        { this.LocalDasEntradas() }
         <button className="btnAdicionar" data-testid="send-button" onClick={onClick}>
           Adicionar filme
         </button>
