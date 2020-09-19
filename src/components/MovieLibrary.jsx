@@ -42,7 +42,7 @@ class MovieLibrary extends Component {
           movie.title.includes(searchText) ||
           movie.subtitle.includes(searchText) ||
           movie.storyline.includes(searchText)
-        )
+        ),
       );
       this.setState({ movies: newMovies });
     });
