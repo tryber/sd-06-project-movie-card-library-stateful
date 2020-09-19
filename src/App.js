@@ -19,7 +19,7 @@ class App extends React.Component {
         <Header />
         <MovieLibrary movies={movies} />
         {/* <MovieList movies={movies} /> */}
-        <AddMovie /* onClick={} */ />
+        {/* <AddMovie onClick={} /> */}
       </div>
     );
   }

@@ -63,7 +63,7 @@ describe('Verifica o estado inicial do component <MovieLibrary />', () => {
     expect(selectInput).toHaveValue('');
   });
   
-  it.skip('Será validado se o todos os `movies` são renderezidados.', () => {
+  it('Será validado se o todos os `movies` são renderezidados.', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const movieCards = getAllByTestId('movie-card');
     expect(movieCards).toHaveLength(movies.length);
@@ -125,7 +125,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[0].title);
   });
 
-  it.skip('Será validado se a barra de buscas filtra os filmes por subtítulo', () => {
+  it('Será validado se a barra de buscas filtra os filmes por subtítulo', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
@@ -138,7 +138,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[1].title);
   });
 
-  it.skip('Será validado se a barra de buscas filtra os filmes por sinopse', () => {
+  it('Será validado se a barra de buscas filtra os filmes por sinopse', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
@@ -151,7 +151,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCardTitle).toHaveTextContent(movies[2].title);
   });
 
-  it.skip('Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia', () => {
+  it('Será validado se a lista de filmes é renderizada sem filtragens se a barra de buscar estiver vazia', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const textInput = getByTestId('text-input');
 
@@ -161,7 +161,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
     expect(movieCard).toHaveLength(3);
   });
 
-  it.skip('Será validado que é possivel filtrar por favoritos', () => {
+  it('Será validado que é possivel filtrar por favoritos', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const bookmarkedOnly = getByTestId('checkbox-input');
 
@@ -174,7 +174,7 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
   });
 
 
-  it.skip('Será validado que é possivel filtrar por categoria', () => {
+  it('Será validado que é possivel filtrar por categoria', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const select = getByTestId('select-input');
 

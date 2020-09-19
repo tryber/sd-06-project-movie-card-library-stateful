@@ -12,28 +12,19 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      movies: this.props.movies,
     }
   }
   handleChange({ target }) {
-    // console.log('camou')
     const arrayKeys = ['title', 'subtitle', 'storyline'];
     const key = target.id;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    // if (this.state.bookmarkedOnly) {
-      this.setState((_estadoAnterior, _props) => ({
-        [key]: value,
-        movies: key === 'searchText' ? this.props.movies.filter(movie => {
-          const booleano = arrayKeys.some(key => movie[key] === value)
-          console.log(this.state.searchText)
-          console.log('booleano')
-          // console.log(booleano)
-          return booleano;
-        }) : this.state.movies,
-      }));
-    // } else {
-    //   this.setState({ [key]: value });
-    // }
+    this.setState({
+      [key]: value,
+      movies: key === 'searchText' && value !== '' ? 
+      this.props.movies.filter(movie => arrayKeys.some(key => movie[key] === value)) 
+      : this.state.movies,
+    });
   }
   render() {
     return (
