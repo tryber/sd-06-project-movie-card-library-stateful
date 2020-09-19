@@ -44,7 +44,8 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label
           htmlFor="title-input"
-          data-testid="title-input-label">Título</label>
+          data-testid="title-input-label">Título
+        </label>
         <input
           type="text"
           value={title}
@@ -54,7 +55,8 @@ class AddMovie extends React.Component {
         />
         <label
           htmlFor="subtitle-input"
-          data-testid="subtitle-input-label">Subtítulo</label>
+          data-testid="subtitle-input-label">Subtítulo
+        </label>
         <input
           type="text"
           value={subtitle}
@@ -64,7 +66,8 @@ class AddMovie extends React.Component {
         />
         <label
           htmlFor="image-input"
-          data-testid="image-input-label">Imagem</label>
+          data-testid="image-input-label">Imagem
+        </label>
         <input
           type="text"
           value={imagePath}
@@ -74,7 +77,8 @@ class AddMovie extends React.Component {
         />
         <label
           htmlFor="storyline-input"
-          data-testid="storyline-input-label">Sinopse</label>
+          data-testid="storyline-input-label">Sinopse
+        </label>
         <textarea
           value={storyline}
           data-testid="storyline-input"
@@ -83,7 +87,8 @@ class AddMovie extends React.Component {
         />
         <label
           htmlFor="rating-input"
-          data-testid="rating-input-label">Avaliação</label>
+          data-testid="rating-input-label">Avaliação
+        </label>
         <input
           type="number"
           value={rating}
@@ -93,7 +98,8 @@ class AddMovie extends React.Component {
         />
         <label
           htmlFor="genre-input"
-          data-testid="genre-input-label">Gênero</label>
+          data-testid="genre-input-label">Gênero
+        </label>
         <select
           value={genre}
           data-testid="genre-input"
