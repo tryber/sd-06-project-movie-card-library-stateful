@@ -23,9 +23,16 @@ class MovieLibrary extends React.Component {
     this.setState(({ movies: this.props.movies }));
   }
 
-  //onSearchTextChange({ target }) {
-    // código
-  //}
+  onSearchTextChange({ target }) {
+    this.setState({ searchText: target.value}, () => {
+      const selectedGenreMovies = this.props.movies.filter((movie) => (
+        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase())
+    ));
+    this.setState({ movies: selectedGenreMovies });
+  })
+}
 
   onSelectedGenreChange({ target }) {
     this.setState(() => ({ selectedGenre: target.value }));
