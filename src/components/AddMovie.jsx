@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ButtonAddMovie from './ButtonAddMovie';
+import SelectAM from './SelectAM';
+import RatingAM from './RatingAM';
+import TextAreaAM from './TextAreaAM';
+import ImagePathAM from './ImagePathAM';
+import SubtitleAM from './SubtitleAM';
+import TitleAM from './TitleAM';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -34,91 +40,13 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <div>
-            <label htmlFor="title-id" data-testid="title-input-label">Título</label>
-            <input
-              id="title-id"
-              data-testid="title-input"
-              name="title"
-              value={this.state.title}
-              onChange={this.handleChange}
-              type="text"
-            />
-          </div>
-          <div>
-            <label htmlFor="subtitle-id" data-testid="subtitle-input-label">
-              Subtítulo
-              <input
-                id="subtitle-id"
-                data-testid="subtitle-input"
-                name="subtitle"
-                value={this.state.subtitle}
-                onChange={this.handleChange}
-                type="text"
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="image-id" data-testid="image-input-label">
-              Imagem
-              <input
-                id="image-id"
-                data-testid="image-input"
-                name="imagePath"
-                value={this.state.imagePath}
-                onChange={this.handleChange}
-                type="text"
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="textarea-id" data-testid="storyline-input-label">
-              Sinopse
-              <textarea
-                id="textarea-id"
-                data-testid="storyline-input"
-                name="storyline"
-                value={this.state.storyline}
-                onChange={this.handleChange}
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="rating-id" data-testid="rating-input-label">
-              Avaliação
-              <input
-                id="rating-id"
-                data-testid="rating-input"
-                name="rating"
-                value={this.state.rating}
-                onChange={this.handleChange}
-                type="number"
-              />
-            </label>
-          </div>
-          <div>
-            <label htmlFor="select-id" data-testid="genre-input-label">
-              Gênero
-              <select
-                id="select-id"
-                name="genre"
-                data-testid="genre-input"
-                value={this.state.genre}
-                onChange={this.handleChange}
-              >
-                <option data-testid="genre-option" value="action">
-                  Ação
-                </option>
-                <option data-testid="genre-option" value="comedy">
-                  Comédia
-                </option>
-                <option data-testid="genre-option" value="thriller">
-                  Suspense
-                </option>
-              </select>
-            </label>
-            <ButtonAddMovie resetState={this.resetState} />
-          </div>
+          <TitleAM value={this.state.title} handleChange={this.handleChange} />
+          <SubtitleAM value={this.state.subtitle} handleChange={this.handleChange} />
+          <ImagePathAM value={this.state.imagePath} handleChange={this.handleChange} />
+          <TextAreaAM value={this.state.storyline} handleChange={this.handleChange} />
+          <RatingAM value={this.state.rating} handleChange={this.handleChange} />
+          <SelectAM value={this.state.genre} handleChange={this.handleChange} />
+          <ButtonAddMovie resetState={this.resetState} />
         </form>
       </div>
     );
