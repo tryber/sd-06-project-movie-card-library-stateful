@@ -1,6 +1,6 @@
 import React from 'react';
-import SearchBar from './SearchBar'
-import MovieList from './MovieList'
+import SearchBar from './SearchBar';
+import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
@@ -16,26 +16,18 @@ class MovieLibrary extends React.Component {
       movies: this.props.movies,
       listMovies: this.props.movies,
     }
-  }
-  handleChange({ target }) {
-    const key = target.id;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const movies = this.state.listMovies;
-    const type = target.type
-    this.setState({
-      [key]: value,
-      movies: this.moviesConditioned(key, value , type, movies),
-    });
-  }
+  };
   moviesConditioned(key, value, type, movies) {
     const arrayKeys = ['title', 'subtitle', 'storyline'];
     let valueMovies = movies;
     if (key === 'searchText' && value !== '') {
-      valueMovies = movies.filter(movie => arrayKeys.some(key2 => movie[key2].toUpperCase().includes(value.toUpperCase())));
+      valueMovies = movies.filter((movie) => arrayKeys.some((key2) => 
+        movie[key2].toUpperCase().includes(value.toUpperCase())
+      ));
     } else if (type === 'checkbox' && value !== false) {
-      valueMovies = movies.filter(movie => movie.bookmarked);
+      valueMovies = movies.filter((movie) => movie.bookmarked);
     } else if (key === 'selectedGenre' && value !== '') {
-      valueMovies = movies.filter(movie => movie.genre === value)
+      valueMovies = movies.filter((movie) => movie.genre === value);
     }
     return valueMovies;
   }
@@ -44,19 +36,23 @@ class MovieLibrary extends React.Component {
     this.setState({
       movies: newMovie,
       listMovies: newMovie,
-    })
+    });
+  }
+  handleChange({ target }) {
+    const key = target.id;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const movies = this.state.listMovies;
+    const type = target.type;
+    this.setState({
+      [key]: value,
+      movies: this.moviesConditioned(key, value , type, movies),
+    });
   }
   render() {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={this.state.searchText}
-        onSearchTextChange={this.handleChange}
-        bookmarkedOnly={this.state.bookmarkedOnly}
-        onBookmarkedChange={this.handleChange}
-        selectedGenre={this.state.selectedGenre}
-        onSelectedGenreChange={this.handleChange} 
-        />
+        <SearchBar searchText={this.state.searchText} onSearchTextChange={this.handleChange} bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.handleChange} selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.handleChange} />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick} />
       </div>

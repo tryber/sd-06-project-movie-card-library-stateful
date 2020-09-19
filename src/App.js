@@ -2,24 +2,15 @@ import React from 'react';
 import './App.css';
 import movies from './data';
 import Header from './components/Header';
-import MovieList from './components/MovieList';
-import SearchBar from './components/SearchBar'
-import AddMovie from './components/AddMovie'
-import MovieLibrary from './components/MovieLibrary'
+import MovieLibrary from './components/MovieLibrary';
 
 
 class App extends React.Component {
-  // constructor() {
-  //   super();
-
-  // }
   render() {
     return (
       <div className="App">
         <Header />
         <MovieLibrary movies={movies} />
-        {/* <MovieList movies={movies} /> */}
-        {/* <AddMovie onClick={} /> */}
       </div>
     );
   }
