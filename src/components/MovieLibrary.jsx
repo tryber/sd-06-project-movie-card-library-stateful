@@ -22,8 +22,8 @@ class MovieLibrary extends React.Component {
     this.setState({
       [key]: value,
       movies: key === 'searchText' && value !== '' ? 
-      this.props.movies.filter(movie => arrayKeys.some(key => movie[key] === value)) 
-      : this.state.movies,
+      this.props.movies.filter(movie => arrayKeys.some(key2 => value.split('').every((letter, index) => letter === movie[key2].split('')[index]))) 
+      : this.props.movies,
     });
   }
   render() {
