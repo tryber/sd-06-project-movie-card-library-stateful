@@ -29,11 +29,14 @@ class MovieLibrary extends React.Component {
   }
   moviesConditioned(key, value, type, movies) {
     const arrayKeys = ['title', 'subtitle', 'storyline'];
-    const valueMovies = key === 'searchText' && value !== '' ? 
-    movies.filter(movie => arrayKeys.some(key2 => movie[key2].toUpperCase().includes(value.toUpperCase())))
-    : type === 'checkbox' && value !== false ? movies.filter(movie => movie.bookmarked) 
-    : key === 'selectedGenre' && value !== '' ? movies.filter(movie => movie.genre === value) 
-    : movies
+    let valueMovies = movies;
+    if (key === 'searchText' && value !== '') {
+      valueMovies = movies.filter(movie => arrayKeys.some(key2 => movie[key2].toUpperCase().includes(value.toUpperCase())));
+    } else if (type === 'checkbox' && value !== false) {
+      valueMovies = movies.filter(movie => movie.bookmarked);
+    } else if (key === 'selectedGenre' && value !== '') {
+      valueMovies = movies.filter(movie => movie.genre === value)
+    }
     return valueMovies;
   }
   onClick(stateAddMovie) {
