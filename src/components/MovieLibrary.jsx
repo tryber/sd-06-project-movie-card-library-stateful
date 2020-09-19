@@ -3,8 +3,6 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data';
-
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -38,7 +36,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick({ target }) {
-    this.setState(() => ({ movies: this.state.movies.push(target)}))
+    this.setState(() => ({ movies: this.state.movies.push(target) }));
   }
 
 
