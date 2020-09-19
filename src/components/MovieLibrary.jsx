@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
     this.handletext = this.handletext.bind(this);
     this.handleMarked = this.handleMarked.bind(this);
     this.handleGender = this.handleGender.bind(this);
-    
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -31,23 +31,22 @@ class MovieLibrary extends Component {
       movies: movies.filter((movie) =>
         movie.title === target.value ||
         movie.subtitle === target.value ||
-        movie.storyline === target.value
-      )
+        movie.storyline === target.value,
+      ),
     });
   }
 
   handleMarked({ target }) {
     const { name } = target;
-    
+
     this.setState({
       [name]: target.value,
       movies: movies.filter((movie) => {
-        if(target.value === 'on') {
-          return movie.bookmarked === true
-        } else {
-          return movies
+        if (target.value === 'on') {
+          return movie.bookmarked === true;
         }
-      })
+        return movies;
+      }),
     });
   }
 
@@ -57,12 +56,11 @@ class MovieLibrary extends Component {
     this.setState({
       [name]: target.value,
       movies: movies.filter((movie) => {
-        if(target.value === '') {
-          return movies
-        } else {
-          return movie.genre === target.value
-          }
-    })
+        if (target.value === '') {
+          return movies;
+        }
+        return movie.genre === target.value;
+    }),
   })
 }
 

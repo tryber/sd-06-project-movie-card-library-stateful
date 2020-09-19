@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class SearchBar extends Component { 
+class SearchBar extends Component {
   renderSelect() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <select value={selectedGenre} name="selectedGenre" onChange={onSelectedGenreChange} data-testid="select-input">
+      <select value={selectedGenre} name="selectedGenre"
+        onChange={onSelectedGenreChange} data-testid="select-input"
+      >
         <option value="" data-testid="select-option" id="select-genre">Todos</option>
         <option value="action" data-testid="select-option">Ação</option>
         <option value="comedy" data-testid="select-option">Comédia</option>
