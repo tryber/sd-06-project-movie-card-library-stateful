@@ -43,7 +43,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick({ target }) {
-    this.setState(() => ({ movies: this.state.movies.push(target) }));
+    this.setState(() => ({ movies: this.state.movies.concat(target) }));
   }
 
 
