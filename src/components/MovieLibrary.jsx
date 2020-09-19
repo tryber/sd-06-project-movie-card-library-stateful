@@ -5,19 +5,21 @@ import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
-  constructor() {
+  constructor(props) {
     super();
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.movieFilter = this.movieFilter.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       counter: 0,
+      movies: props.movies,
 
     };
   }
@@ -63,8 +65,11 @@ class MovieLibrary extends Component {
     return movies;
   }
 
+  onClick(movie) {
+    this.setState(estadoAnterior => ({ movies: estadoAnterior.movies.concat(movie)}));
+  }
+
   render() {
-    const { movies } = this.props;
     return (
       <div>
         <SearchBar
@@ -76,9 +81,11 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList
-          movies={this.movieFilter(movies)}
+          movies={this.movieFilter(this.state.movies)}
         />
-        <AddMovie />
+        <AddMovie
+          onClick={this.onClick}
+        />
       </div>
     );
   }

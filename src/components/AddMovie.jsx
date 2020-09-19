@@ -6,6 +6,7 @@ class AddMovie extends Component {
     super();
 
     this.onChange = this.onChange.bind(this);
+    this.stateSender = this.stateSender.bind(this);
 
     this.state = {
       subtitle: '',
@@ -21,6 +22,24 @@ class AddMovie extends Component {
     const { name } = target;
 
     this.setState({ [name]: target.value });
+  }
+
+  stateSender(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+
+    this.setState = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+
+    console.log('Click!!');
+
   }
 
   renderInput() {
@@ -114,9 +133,8 @@ class AddMovie extends Component {
   }
 
   renderButton() {
-    const { onClick } = this.props;
     return (
-      <button data-testid="send-button" onClick={onClick}>
+      <button data-testid="send-button" onClick={this.stateSender}>
         Adicionar filme
       </button>
     );
