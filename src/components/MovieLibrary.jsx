@@ -56,7 +56,6 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: event.target.value }, () => {
       this.filterSelect(this.state.selectedGenre);
     });
-    
   }
 
   onClick(state) {
@@ -68,22 +67,22 @@ class MovieLibrary extends Component {
       <div>
         <h2> My awesome movie library </h2>
 
-        <SearchBar 
-        searchText={this.state.searchText} 
-        onSearchTextChange={this.onSearchTextChange} 
-        bookmarkedOnly={this.state.bookmarkedOnly} 
-        onBookmarkedChange={this.onBookmarkedChange} 
-        selectedGenre={this.state.selectedGenre} 
-        onSelectedGenreChange={this.onSelectedGenreChange} 
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
 
         <MovieList movies={this.state.movies} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired }
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;

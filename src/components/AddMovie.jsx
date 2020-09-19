@@ -29,13 +29,13 @@ class AddMovie extends React.Component {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
-        title: '',
-        subtitle: '',
-        imagePath: '',
-        storyline: '',
-        rating: 0,
-        genre: 'action',
-    })
+      title: '',
+      subtitle: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   };
 
   render() {
@@ -110,7 +110,8 @@ class AddMovie extends React.Component {
           value={genre}
           data-testid="genre-input"
           onChange={this.handleChange}
-          name="genre">
+          name="genre"
+        >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
@@ -118,9 +119,10 @@ class AddMovie extends React.Component {
         <button
           type="submit"
           data-testid="send-button"
-          onClick={this.result}>Adicionar filme</button>
+          onClick={this.result}
+        >Adicionar filme</button>
       </form>
-    )
+    );
   }
 }
 
