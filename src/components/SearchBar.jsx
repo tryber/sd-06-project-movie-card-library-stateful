@@ -1,6 +1,6 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
@@ -57,30 +57,30 @@ class SearchBar extends Component {
   }
 }
 
-// function getDefaulProps() {
-//   return {
-//     onSearchTextChange: this.onSearchTextChange.bind(this),
-//     onBookmarkedChange: this.onBookmarkedChange.bind(this),
-//     onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
-//   };
-// }
+function getDefaulProps() {
+  return {
+    onSearchTextChange: this.onSearchTextChange.bind(this),
+    onBookmarkedChange: this.onBookmarkedChange.bind(this),
+    onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
+  };
+}
 
-// SearchBar.defaultProps = {
-//   searchText: '',
-//   onSearchTextChange: getDefaulProps,
-//   bookmarkedOnly: false,
-//   onBookmarkedChange: getDefaulProps,
-//   selectedGenre: '',
-//   onSelectedGenreChange: getDefaulProps,
-// };
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: getDefaulProps,
+  bookmarkedOnly: false,
+  onBookmarkedChange: getDefaulProps,
+  selectedGenre: '',
+  onSelectedGenreChange: getDefaulProps,
+};
 
-// SearchBar.propTypes = {
-//   searchText: PropTypes.string,
-//   onSearchTextChange: PropTypes.func,
-//   bookmarkedOnly: PropTypes.bool,
-//   onBookmarkedChange: PropTypes.func,
-//   selectedGenre: PropTypes.string,
-//   onSelectedGenreChange: PropTypes.func,
-// };
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
 
 export default SearchBar;
