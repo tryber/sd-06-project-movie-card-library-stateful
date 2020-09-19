@@ -19,16 +19,14 @@ class AddMovie extends React.Component {
   }
 
   changeRating(event) {
-    this.setState({
-      rating: event.target.value,
-    });
+    this.setState({ rating: event.target.value, });
     console.log(this);
   }
 
   changeGenre(event) {
-    // this.setState({
-    //   genre: event.target.value,
-    // });
+    this.setState({
+      genre: event.target.value,
+    });
     console.log(event);
   }
 
@@ -90,8 +88,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.PropTypes = {
-  onClick: PropTypes.func,
-};
+AddMovie.PropTypes = { onClick: PropTypes.func, };
 
 export default AddMovie;
