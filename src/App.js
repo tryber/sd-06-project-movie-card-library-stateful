@@ -14,11 +14,6 @@ function App() {
     <div className="App">
       <Header />
       <MovieLibrary movies={movies} />
-      <MovieList />
-      <SearchBar />
-      <AddMovie />
-      <MovieCard />
-      <Rating />
     </div>
   );
 }
