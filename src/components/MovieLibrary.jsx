@@ -25,9 +25,7 @@ class MovieLibrary extends Component {
       rating: 0,
       genre: 'action',
     };
-    this.setState({
-      movies: this.props.movies.push(teste),
-    })
+    this.setState({ movies: this.props.movies.push(teste) });
   }
 
   render() {
@@ -49,4 +47,4 @@ class MovieLibrary extends Component {
 export default MovieLibrary;
 
 MovieLibrary.defaultProps = { movies: {} };
-MovieLibrary.propTypes = { movies: PropTypes.array };
+MovieLibrary.propTypes = { movies: PropTypes.string};
