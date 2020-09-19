@@ -23,37 +23,38 @@ class MovieLibrary extends Component {
     const { value } = target;
     this.setState(() => ({
       searchText: value,
-      movies: this.props.movies.filter(movie =>
-        movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value)
-      )
+      movies: this.props.movies.filter((movie) =>
+        movie.title.includes(value) || 
+        movie.subtitle.includes(value) || 
+        movie.storyline.includes(value),
+      ),
     }));
   }
-  
+
   handleBookmarkedChange({ target }) {
     const { checked } = target;
     this.setState({
       bookmarkedOnly: checked,
       movies: checked ?
-        this.props.movies.filter(movie => movie.bookmarked) :
-        this.props.movies
+        this.props.movies.filter((movie) => movie.bookmarked) :
+        this.props.movies,
     });
   }
-  
+
   handleSelectedGenre({ target }) {
     const { value } = target;
-    console.log(value)
     this.setState({
       selectedGenre: value,
       movies: value === '' ?
       this.props.movies :
-      this.props.movies.filter(movie => movie.genre === value)
+      this.props.movies.filter((movie) => movie.genre === value),
     });
   }
 
   handleAddMovie(movie) {
     this.setState({ movies: this.state.movies.concat(movie) });
   }
-  
+
   render() {
     return (
       <div>
@@ -72,6 +73,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.array.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf.isRequired };
 
 export default MovieLibrary;
