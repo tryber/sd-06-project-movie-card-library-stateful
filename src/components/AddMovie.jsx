@@ -6,8 +6,6 @@ class AddMovie extends React.Component {
   constructor() {
     super();
 
-    const { onClick } = this.props;
-
     this.state = {
       subtitle: '',
       title: '',
@@ -31,7 +29,7 @@ class AddMovie extends React.Component {
     console.log(event);
   }
 
-  addNewMovie(event) {
+  addNewMovie(event, props) {
     event.preventDefault();
 
     // sets states
@@ -42,6 +40,7 @@ class AddMovie extends React.Component {
     const ratingInput = document.getElementById('movie-rating');
     const genreInput = document.getElementById('movie-genre');
 
+    const { onClick } = this.props;
     onClick(this.state);
 
     titleInput.value = '';
