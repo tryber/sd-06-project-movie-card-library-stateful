@@ -2,8 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
+
   constructor() {
     super();
+
+    const { onClick } = this.props;
 
     this.state = {
       subtitle: '',
@@ -39,7 +42,6 @@ class AddMovie extends React.Component {
     const ratingInput = document.getElementById('movie-rating');
     const genreInput = document.getElementById('movie-genre');
 
-    const { onClick } = this.props;
     onClick(this.state);
 
     titleInput.value = '';
@@ -48,8 +50,6 @@ class AddMovie extends React.Component {
     storylineInput.value = '';
     ratingInput.value = 0;
     genreInput.value = 'action';
-
-    static.PropTypes = { onClick: PropTypes.func };
   }
 
   render() {
