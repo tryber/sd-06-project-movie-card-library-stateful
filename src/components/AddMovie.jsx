@@ -12,12 +12,10 @@ class AddMovie extends Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-    }
+    };
   }
   changeTitle(target) {
-    this.setState({
-      title: target.value,
-    })
+    this.setState({ title: target.value });
   }
   render() {
     const onClick = this.props.onClick;
@@ -39,7 +37,7 @@ class AddMovie extends Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
-        <button data-testid="send-button">Adicionar filme</button>
+        <button data-testid="send-button" onClick={onClick}>Adicionar filme</button>
       </form>
     );
   }
@@ -47,11 +45,5 @@ class AddMovie extends Component {
 
 export default AddMovie;
 
-AddMovie.defaultProps = {
-  onClick: {},
-
-};
-AddMovie.propTypes = {
-  onClick: PropTypes.func,
-};
-
+AddMovie.defaultProps = { onClick: {} };
+AddMovie.propTypes = { onClick: PropTypes.func };
