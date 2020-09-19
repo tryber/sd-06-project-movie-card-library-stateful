@@ -34,7 +34,7 @@ class AddMovie extends Component {
           type="text"
           name="title"
           value={this.state.title}
-          data-test-id="title-input"
+          data-testid="title-input"
           onChange={this.onChange}
         />
       </label>
@@ -48,7 +48,7 @@ class AddMovie extends Component {
           type="text"
           name="subtitle"
           value={this.state.subtitle}
-          data-test-id="subtitle-input"
+          data-testid="subtitle-input"
           onChange={this.onChange}
         />
       </label>
@@ -62,7 +62,7 @@ class AddMovie extends Component {
           type="text"
           name="imagePath"
           value={this.state.imagePath}
-          data-test-id="image-input"
+          data-testid="image-input"
           onChange={this.onChange}
         />
       </label>
@@ -76,7 +76,7 @@ class AddMovie extends Component {
           type="text"
           name="storyline"
           value={this.state.storyline}
-          data-test-id="storyline-input"
+          data-testid="storyline-input"
           onChange={this.onChange}
         />
       </label>
@@ -90,7 +90,7 @@ class AddMovie extends Component {
           type="number"
           name="rating"
           value={this.state.rating}
-          data-test-id="rating-input"
+          data-testid="rating-input"
           onChange={this.onChange}
         />
       </label>
@@ -102,7 +102,7 @@ class AddMovie extends Component {
       <label htmlFor="genre" data-testid="genre-input-label">Gênero
         <select
           value={this.state.genre}
-          data-test-id="genre-input"
+          data-testid="genre-input"
           name="genre"
           onChange={this.onChange}
         >

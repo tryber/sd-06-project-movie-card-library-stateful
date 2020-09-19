@@ -19,8 +19,22 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleTextChange() {
-    console.log('bom dia');
+  handleTextChange({ target }) {
+    this.setState(
+      { searchText: target.value },
+      () => {
+        const filtered = this.state.movies.filter(el => 
+          el.title === this.state.searchText
+          || el.subtitle === this.state.searchText
+          || el.storyline === this.state.searchText);
+        if (this.state.searchText.trim() !== "") this.setState({movies: filtered});
+        else {
+          const filtered = data.filter(el => el.genre === this.state.selectedGenre);
+          (this.state.selectedGenre !== '')
+          ? this.setState({movies: filtered})
+          : this.setState({movies: data});
+        }
+      });
   }
 
   handleBookmarkedChange() {
@@ -51,7 +65,7 @@ class MovieLibrary extends Component {
 
   AddMovieList(title, subtitle, imagePath, storyline, rating, genre) {
     this.setState(() => {
-      this.state.movies.push({
+      data.push({
         title,
         subtitle,
         storyline,
