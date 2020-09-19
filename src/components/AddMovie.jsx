@@ -36,7 +36,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-  };
+  }
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
