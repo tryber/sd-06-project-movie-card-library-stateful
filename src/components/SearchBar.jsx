@@ -3,6 +3,32 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
 
+  textInput() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
+      <input
+        onChange={onSearchTextChange}
+        value={searchText}
+        data-testid="text-input"
+        type="text"
+        name="searchText"
+      />
+    );
+  }
+
+  checkboxInput() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    return (
+      <input
+        checked={bookmarkedOnly}
+        onChange={onBookmarkedChange}
+        data-testid="checkbox-input"
+        type="checkbox"
+        name="bookmarkedOnly"
+      />
+    );
+  }
+
   selectInput() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
@@ -21,16 +47,19 @@ class SearchBar extends Component {
   }
 
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form" className="search-bar-form">
           <label data-testid="text-input-label" htmlFor="searchText">
             <p>Inclui o texto:</p>
-            <input onChange={onSearchTextChange} value={searchText} data-testid="text-input" type="text" name="searchText" />
+            {/* <input onChange={onSearchTextChange} value={searchText}
+            data-testid="text-input" type="text" name="searchText" /> */}
+            {this.textInput()}
           </label>
           <label data-testid="checkbox-input-label" htmlFor="bookmarkedOnly">
-            <input type="checkbox" data-testid="checkbox-input" checked={bookmarkedOnly} onChange={onBookmarkedChange} name="bookmarkedOnly" />
+            {/* <input data-testid="checkbox-input" checked={bookmarkedOnly}
+            onChange={onBookmarkedChange} type="checkbox" name="bookmarkedOnly" /> */}
+            {this.checkboxInput()}
             Mostrar somente favoritos
           </label>
           <label data-testid="select-input-label" htmlFor="selectedGenre">
