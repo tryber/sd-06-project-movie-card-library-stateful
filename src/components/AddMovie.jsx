@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.returnState = this.returnState.bind(this);
+    this.returnFilm = this.returnFilm.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.fildTitle = this.fildTitle.bind(this);
     this.fildSubTitle = this.fildSubTitle.bind(this);
@@ -22,7 +22,7 @@ class AddMovie extends React.Component {
     };
   }
 
-  returnState() {
+  returnFilm() {
     this.props.onClick(this.state);
     this.setState({
       title: '',
@@ -126,8 +126,10 @@ class AddMovie extends React.Component {
           {this.fieldRating()}
           {this.fieldGenre()}
           <button
+            className="sendButton"
+            type="button"
             data-testid="send-button"
-            onClick={this.returnState}
+            onClick={this.returnFilm}
           >Adicionar filme
           </button>
         </form>
