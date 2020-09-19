@@ -43,22 +43,58 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">Título</label>
-        <input type="text" value={title} data-testid="title-input" onChange={this.handleChange} name="title" />
+        <input
+          type="text"
+          value={title}
+          data-testid="title-input"
+          onChange={this.handleChange}
+          ame="title"
+        />
         <label data-testid="subtitle-input-label">Subtítulo</label>
-        <input type="text" value={subtitle} data-testid="subtitle-input" onChange={this.handleChange} name="subtitle" />
+        <input
+          type="text"
+          value={subtitle}
+          data-testid="subtitle-input"
+          onChange={this.handleChange}
+            name="subtitle"
+        />
         <label data-testid="image-input-label">Imagem</label>
-        <input type="text" value={imagePath} data-testid="image-input" onChange={this.handleChange} name="imagePath" />
+        <input
+          type="text"
+          value={imagePath}
+          data-testid="image-input"
+          onChange={this.handleChange}
+          name="imagePath"
+        />
         <label data-testid="storyline-input-label">Sinopse</label>
-        <textarea value={storyline} data-testid="storyline-input" onChange={this.handleChange} name="storyline" />
+        <textarea
+          value={storyline}
+          data-testid="storyline-input"
+          onChange={this.handleChange}
+          name="storyline"
+        />
         <label data-testid="rating-input-label">Avaliação</label>
-        <input type="number" value={rating} data-testid="rating-input" onChange={this.handleChange} name="rating" />
+        <input
+          type="number"
+          value={rating}
+          data-testid="rating-input"
+          onChange={this.handleChange}
+          name="rating"
+        />
         <label data-testid="genre-input-label">Gênero</label>
-        <select value={genre} data-testid="genre-input" onChange={this.handleChange} name="genre">
+        <select
+          value={genre}
+          data-testid="genre-input"
+          onChange={this.handleChange}
+          name="genre">
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
-        <button type="submit" data-testid="send-button" onClick={this.result}>Adicionar filme</button>
+        <button
+          type="submit"
+          data-testid="send-button"
+          onClick={this.result}>Adicionar filme</button>
       </form>
     )
   }
