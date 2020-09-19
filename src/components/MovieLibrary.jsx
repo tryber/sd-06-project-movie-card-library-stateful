@@ -48,7 +48,7 @@ class MovieLibrary extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, movies } = this.state;
     return (
       <div>
         <AddMovie onClick={this.handleClick} />
