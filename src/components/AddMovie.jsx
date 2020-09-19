@@ -74,14 +74,34 @@ class AddMovie extends Component {
     );
   }
 
+  selectBox(item) {
+    const { genre } = this.state;
+    return (
+      <label htmlFor="select" data-testid="genre-input-label">
+        Gênero
+        <select
+          id={item}
+          data-testid="genre-input"
+          value={genre}
+          onChange={(event) => this.setState({ genre: event.target.value })}
+        >
+          <option data-testid="genre-option" value="action">Ação</option>
+          <option data-testid="genre-option" value="comedy">Comédia</option>
+          <option data-testid="genre-option" value="thriller">Suspense</option>
+        </select>
+      </label>
+    );
+  }
+
   render() {
     return (
       <form>
-        {this.putTitleAndSubtitle('title-input-label', 'Título', 'title-input', 'text', 'txtTitle')}
-        {this.putTitleAndSubtitle('subtitle-input-label', 'Subtítulo', 'subtitle-input', 'text', 'txtSubtitle')}
-        {this.putTitleAndSubtitle('image-input-label', 'Imagem', 'image-input', 'text', 'txtImage')}
-        {this.putTextArea('storyline-input-label', 'Sinopse', 'storyline-input', 'textArea', 'txtSynopsis')}
-        {this.putTitleAndSubtitle('rating-input-label', 'Avaliação', 'rating-input', 'number', 'txtRating')}
+        {this.putTitleAndSubtitle('title-input-label', 'Título', 'title-input', 'text', 'title')}
+        {this.putTitleAndSubtitle('subtitle-input-label', 'Subtítulo', 'subtitle-input', 'text', 'subtitle')}
+        {this.putTitleAndSubtitle('image-input-label', 'Imagem', 'image-input', 'text', 'imagePath')}
+        {this.putTextArea('storyline-input-label', 'Sinopse', 'storyline-input', 'textArea', 'storyline')}
+        {this.putTitleAndSubtitle('rating-input-label', 'Avaliação', 'rating-input', 'number', 'rating')}
+        {this.selectBox('genre')}
       </form>
     );
   }
