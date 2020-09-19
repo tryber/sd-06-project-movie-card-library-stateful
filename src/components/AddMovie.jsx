@@ -110,5 +110,6 @@ class AddMovie extends Component {
 }
 
 AddMovie.propTypes = { onClick: PropTypes.func };
+AddMovie.defaultProps = { onClick: setDefaultProps };
 
 export default AddMovie;
