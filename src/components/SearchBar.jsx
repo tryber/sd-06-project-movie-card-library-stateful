@@ -51,10 +51,10 @@ class SearchBar extends Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="containsTextFilter" data-testid="text-input-label">
+        <label htmlFor="searchText" data-testid="text-input-label">
           Inclui o texto:
         </label>
-        { this.renderInput('text', 'containsTextFilter', searchText, onSearchTextChange, 'text-input') }
+        { this.renderInput('text', 'searchText', searchText, onSearchTextChange, 'text-input') }
         <label htmlFor="showFavorites" data-testid="checkbox-input-label">
           Mostrar somente favoritos
         </label>
