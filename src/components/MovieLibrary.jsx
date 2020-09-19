@@ -1,22 +1,17 @@
-import React, { Component } from 'react';
-import MovieList from './MovieList';
+import React from 'react';
 import SearchBar from './SearchBar';
-import AddMovie from './AddMovie';
 
-class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
-  }
-  
+/* passar como propriedade os estados e as funçoes de mudança de estado */
+/* declarar os estados searchtext bookemarks select genre
+   declara as funçoes de mudança de estado */
+class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
-        <h2> My Awesome movie library</h2>
         <SearchBar />
-        <MovieList movies={this.props.movies} />
-        <AddMovie />
       </div>
     );
   }
 }
+
 export default MovieLibrary;
