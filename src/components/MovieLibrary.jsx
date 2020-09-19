@@ -24,8 +24,8 @@ class MovieLibrary extends Component {
     this.setState(() => ({
       searchText: value,
       movies: this.props.movies.filter((movie) =>
-        movie.title.includes(value) || 
-        movie.subtitle.includes(value) || 
+        movie.title.includes(value) ||
+        movie.subtitle.includes(value) ||
         movie.storyline.includes(value),
       ),
     }));
