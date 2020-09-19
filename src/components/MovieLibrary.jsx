@@ -18,18 +18,23 @@ class MovieLibrary extends React.Component {
     }
   }
   handleChange({ target }) {
-    const arrayKeys = ['title', 'subtitle', 'storyline'];
     const key = target.id;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const movies = this.state.listMovies;
+    const type = target.type
     this.setState({
       [key]: value,
-      movies: key === 'searchText' && value !== '' ? 
-      movies.filter(movie => arrayKeys.some(key2 => movie[key2].toUpperCase().includes(value.toUpperCase())))
-      : target.type === 'checkbox' && value !== false ? movies.filter(movie => movie.bookmarked) 
-      : key === 'selectedGenre' && value !== '' ? movies.filter(movie => movie.genre === value) 
-      : movies,
+      movies: this.moviesConditioned(key, value , type, movies),
     });
+  }
+  moviesConditioned(key, value, type, movies) {
+    const arrayKeys = ['title', 'subtitle', 'storyline'];
+    const valueMovies = key === 'searchText' && value !== '' ? 
+    movies.filter(movie => arrayKeys.some(key2 => movie[key2].toUpperCase().includes(value.toUpperCase())))
+    : type === 'checkbox' && value !== false ? movies.filter(movie => movie.bookmarked) 
+    : key === 'selectedGenre' && value !== '' ? movies.filter(movie => movie.genre === value) 
+    : movies
+    return valueMovies;
   }
   onClick(stateAddMovie) {
     const newMovie = this.state.listMovies.concat(stateAddMovie);
