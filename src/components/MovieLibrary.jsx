@@ -28,11 +28,11 @@ class MovieLibrary extends Component {
           || el.subtitle === this.state.searchText
           || el.storyline === this.state.searchText);
         if (this.state.searchText.trim() !== '') this.setState({ movies: filtered });
-        else if (this.state.selectedGenre !== ''){
+        else if (this.state.selectedGenre !== '') {
           const filteredGenre = data.filter((el) => el.genre === this.state.selectedGenre);
           this.setState({ movies: filteredGenre });
         } else {
-         this.setState({ movies: data });
+          this.setState({ movies: data });
         }
       });
   }
