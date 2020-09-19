@@ -8,7 +8,7 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.myOnClick = this.myOnClick.bind(this);
-    this.handleChange = this.handleChange.bind(this);
+    this.updateStateInput = this.updateStateInput.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -20,21 +20,21 @@ class MovieLibrary extends Component {
     };
   }
 
-  onSearchTextChange({ target }) {
-    this.handleChange(target);
+  onSearchTextChange(event) {
+    this.updateStateInput(event);
+  }
+
+  onSelectedGenreChange(event) {
+    this.updateStateInput(event);
   }
 
   onBookmarkedChange({ target }) {
-    this.handleChange(target);
+    const { name, checked } = target;
+    this.setState({ [name]: checked });
   }
 
-  onSelectedGenreChange({ target }) {
-    this.handleChange(target);
-  }
-
-  handleChange(target) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+  updateStateInput({ target }) {
+    const { name, value } = target;
     this.setState({ [name]: value });
   }
 

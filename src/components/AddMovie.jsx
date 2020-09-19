@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor() {
     super();
-    this.handleChange = this.handleChange.bind(this);
     this.returnState = this.returnState.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.fildTitle = this.fildTitle.bind(this);
     this.fildSubTitle = this.fildSubTitle.bind(this);
     this.fildImage = this.fildImage.bind(this);
@@ -22,12 +22,6 @@ class AddMovie extends React.Component {
     };
   }
 
-  handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value });
-  }
-
   returnState() {
     this.props.onClick(this.state);
     this.setState({
@@ -38,6 +32,12 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+  }
+
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    this.setState({ [name]: value });
   }
 
   fildTitle() {
