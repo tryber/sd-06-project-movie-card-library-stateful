@@ -11,7 +11,8 @@ class AddMovieGenre extends Component {
           name="genre"
           id="genre"
           data-testid="genre-input"
-          // onChange=""
+          onChange={this.props.handleOnChange}
+          value={this.props.genre}
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>

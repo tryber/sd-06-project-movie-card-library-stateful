@@ -9,10 +9,11 @@ class AddMovieSubtitle extends Component {
         <input
           type="text"
           name="subtitle"
-          placeholder="Type Movie Subtitle"
+          // placeholder="Type Movie Subtitle"
           id="subtitle"
           data-testid="subtitle-input"
-          // onChange=""
+          onChange={this.props.handleOnChange}
+          value={this.props.subtitle}
         />
       </label>
     );

@@ -9,10 +9,11 @@ class AddMovieTitle extends Component {
         <input
           type="text"
           name="title"
-          placeholder="Type Movie Title"
+          // placeholder="Type Movie Title"
           id="title"
           data-testid="title-input"
-          // onChange=""
+          onChange={this.props.handleOnChange}
+          value={this.props.title}
         />
       </label>
     );

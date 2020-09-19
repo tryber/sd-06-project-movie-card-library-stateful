@@ -9,10 +9,11 @@ class AddMovieStoryline extends Component {
         <input
           type="text"
           name="storyline"
-          placeholder="Type Movie storyline"
+          // placeholder="Type Movie storyline"
           id="storyline"
           data-testid="storyline-input"
-          // onChange=""
+          onChange={this.props.handleOnChange}
+          value={this.props.storyline}
         />
       </label>
     );

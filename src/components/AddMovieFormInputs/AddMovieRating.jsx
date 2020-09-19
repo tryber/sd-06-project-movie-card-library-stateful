@@ -13,7 +13,8 @@ class AddMovieRating extends Component {
           name="rating"
           id="rating"
           data-testid="rating-input"
-          // onChange=""
+          onChange={this.props.handleOnChange}
+          value={this.props.rating}
         />
       </label>
     );

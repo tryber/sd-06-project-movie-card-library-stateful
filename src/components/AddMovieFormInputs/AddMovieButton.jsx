@@ -5,8 +5,8 @@ class AddMovieButton extends Component {
   render() {
     return (
       <button
-        // type="submit"
         data-testid="send-button"
+        onClick={this.handleOnSubmit}
       >
         Adicionar filme
       </button>
