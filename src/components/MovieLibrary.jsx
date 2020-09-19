@@ -50,7 +50,7 @@ class MovieLibrary extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
-      <devicePixelRatio>
+      <div>
         <SearchBar
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
@@ -63,7 +63,7 @@ class MovieLibrary extends React.Component {
           movies={movies}
         />
         <AddMovie />
-      </devicePixelRatio>
+      </div>
     );
   }
 }
