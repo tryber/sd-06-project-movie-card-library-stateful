@@ -19,11 +19,12 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    this.setState({ [name]: target.value });
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
-  handleClickSend() {
+  handleClickSend(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -60,7 +61,7 @@ class AddMovie extends React.Component {
             type="number"
             value={this.rating}
             data-testid="rating-input"
-            name="rating-input"
+            name="rating"
             onChange={this.handleChange}
           />
         </label>
@@ -79,5 +80,5 @@ class AddMovie extends React.Component {
 
 export default AddMovie;
 
-AddMovie.defaultProps = { onClick: '' };
+//AddMovie.defaultProps = { onClick: '' };
 AddMovie.propTypes = { onClick: PropTypes.func.isRequired };

@@ -44,8 +44,8 @@ class MovieLibrary extends React.Component {
     this.setState(() => ({ bookmarkedOnly: target.checked }));
   }
 
-  onClick({ target }) {
-    this.setState(() => ({ movies: this.state.movies.concat(target) }));
+  onClick(movie) {
+    this.setState(() => ({ movies: this.state.movies.concat(movie) }));
   }
 
 
