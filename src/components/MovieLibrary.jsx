@@ -18,6 +18,8 @@ class MovieLibrary extends Component {
     this.updateSearchText = this.updateSearchText.bind(this);
     this.updateBookMarkedOnly = this.updateBookMarkedOnly.bind(this);
     this.updateSelectedGenre = this.updateSelectedGenre.bind(this);
+    this.renderMovieList = this.renderMovieList.bind(this);
+    this.createMovie = this.createMovie.bind(this);
   }
 
 
@@ -37,7 +39,7 @@ class MovieLibrary extends Component {
   }
 
   createMovie(movie) {
-    this.setState((state) => ({ movies: state.movies.concat(movie) }));
+    this.setState((state) => ({ movies: [...state.movies, movie] }));
   }
 
   renderMovieList(movies) {
@@ -62,7 +64,8 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.props;
+    const { movies } = this.state;
     return (
       <div className="container">
         <SearchBar

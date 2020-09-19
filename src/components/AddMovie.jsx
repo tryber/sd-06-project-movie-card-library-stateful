@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       subtitle: '',
       title: '',
@@ -13,6 +13,10 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.putTitleAndSubtitle = this.putTitleAndSubtitle.bind(this);
+    this.putTextArea = this.putTextArea.bind(this);
+    this.addMovie = this.addMovie.bind(this);
+    this.putRating = this.putRating.bind(this);
+    this.selectBox = this.selectBox.bind(this);
     this.addMovie = this.addMovie.bind(this);
     // this.handleChange = this.handleChange.bind(this);
   }
@@ -96,19 +100,19 @@ class AddMovie extends Component {
     );
   }
 
-  addMovie(onClick) {
-    onClick(this.state);
-    this.setState(() => ({
-      subtitle: '',
+  addMovie() {
+    this.setState({
       title: '',
+      subtitle: '',
       imagePath: '',
       storyline: '',
       rating: 0,
       genre: 'action',
-    }));
+    });
   }
 
   render() {
+    const { onClick } = this.props;
     return (
       <form>
         {this.putTitleAndSubtitle('title-input-label', 'Título', 'title-input', 'text', 'title')}
@@ -117,13 +121,16 @@ class AddMovie extends Component {
         {this.putTextArea('storyline-input-label', 'Sinopse', 'storyline-input', 'textArea', 'storyline')}
         {this.putTitleAndSubtitle('rating-input-label', 'Avaliação', 'rating-input', 'number', 'rating')}
         {this.selectBox('genre')}
-        <button
+        <button type="button" onClick={() => { onClick(this.state); this.addMovie(); }}>
+          Adicionar filme
+        </button>
+        {/* <button
           type="button"
           data-testid="send-button"
           onClick={() => this.addMovie(this.props.onClick)}
         >
-          Adicionar filme
-        </button>
+            Adicionar filme
+        </button> */}
       </form>
     );
   }
