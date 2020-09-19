@@ -1,22 +1,28 @@
+import { func } from 'prop-types';
 import React from 'react';
 
 class SearchBar extends React.Component {
   constructor() {
     super()
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
+      onBookmarkedChange: func,
+      onSelectedGenreChange: func,
+      onSearchTextChange: func,
     }
   }
-  };
-  
+  }
+
   render() {
     return (
       <form data-tested="search-bar-form">
-        Inclui
         <label htmlFor="text-input" data-testid="text-input-label">
+         Inclui o texto:
           <input
             type="textarea"
             name="text-input"
@@ -26,8 +32,8 @@ class SearchBar extends React.Component {
           />
         </label>
         <br />
-        inclui checkbox
         <label htmlFor="text-input" data-testid="checkbox-input-label">
+         Mostrar somente favoritos
           <input
             type="text"
             name="text-check"
@@ -37,8 +43,8 @@ class SearchBar extends React.Component {
           />
         </label>
         <br />
-        Genero
         <label htmlFor="text-input" data-testid="select-input-label">
+        F iltrar por gênero
           <select
             name="select-option"
             type="text"
