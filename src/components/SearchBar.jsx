@@ -1,5 +1,6 @@
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 import SearchBarTextFilter from './SearchBarTextFilter';
 import SearchBarCheckBoxFilter from './SearchBarCheckBoxFilter';
 import SearchBarSelectFilter from './SearchBarSelectGenreFilter';
