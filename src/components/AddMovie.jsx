@@ -29,7 +29,7 @@ class AddMovie extends React.Component {
     console.log(event);
   }
 
-  addNewMovie(event, props) {
+  addNewMovie(event) {
     event.preventDefault();
 
     // sets states
@@ -87,6 +87,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.PropTypes = { onClick: PropTypes.func };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
