@@ -27,8 +27,8 @@ class AddMovie extends Component {
 
   newMovie(event) {
   // newMovie() {
-    event.preventDefault();
-    // const { onClick } = this.props;
+    // event.preventDefault();
+    const { onClick } = this.props;
     // onClick(this.state);
     this.setState({
       subtitle: '',
@@ -105,9 +105,7 @@ class AddMovie extends Component {
               <option data-testid="genre-option" value="thriller"> Suspense </option>
             </select>
           </form>
-          <button type="submit" onClick={this.newMovie} data-testid="send-button">
-            Adicionar filme
-          </button>
+          <button onClick={this.newMovie} data-testid="send-button"> Adicionar filme </button>
         </section>
       </div>
     );
