@@ -20,8 +20,7 @@ class SearchBar extends Component {
     };
     const selectInput = {
       value: 'selectedGenre',
-      onChange: 'onSelectedGenreChange',
-      checked: 'bookmarkedOnly',
+      onChange: 'onSelectedGenreChange'
     };
     return (
       <section>
