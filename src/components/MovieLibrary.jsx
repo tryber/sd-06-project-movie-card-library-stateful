@@ -25,17 +25,6 @@ class MovieLibrary extends Component {
     };
   }
 
-  filterSearchText(state) {
-    const array = this.props.movies.filter((element) => element.title.includes(state) || element.subtitle.includes(state) || element.storyline.includes(state));
-    this.setState({ movies: array });
-  }
-
-  onSearchTextChange(event) {
-    this.setState({ searchText: event.target.value }, () => {
-      this.filterSearchText(this.state.searchText);
-    });
-  }
-
   filterBookmarked(state) {
     const array = this.props.movies.filter((element) => element.bookmarked === state);
     this.setState({ movies: array });
@@ -60,6 +49,18 @@ class MovieLibrary extends Component {
 
   onClick(state) {
     this.setState({ movies: this.state.movies.concat(state) });
+  }
+
+  filterSearchText(state) {
+    const array = this.props.movies
+    .filter((element) => element.title.includes(state) || element.subtitle.includes(state) || element.storyline.includes(state));
+    this.setState({ movies: array });
+  }
+
+  onSearchTextChange(event) {
+    this.setState({ searchText: event.target.value }, () => {
+      this.filterSearchText(this.state.searchText);
+    });
   }
 
   render() {
