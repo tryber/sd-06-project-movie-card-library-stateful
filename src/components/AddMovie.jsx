@@ -39,7 +39,6 @@ class AddMovie extends Component {
     };
 
     console.log('Click!!');
-
   }
 
   renderInput() {
