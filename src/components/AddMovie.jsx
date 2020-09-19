@@ -62,7 +62,12 @@ class AddMovie extends Component {
           onChange={this.changeTitle}
         />
         <label htmlFor="genero" data-testid="genre-input-label">Gênero</label>
-        <select id="genero" value={this.state.genre} data-testid="genre-input" onChange={this.changeTitle}>
+        <select
+          id="genero"
+          value={this.state.genre}
+          data-testid="genre-input"
+          onChange={this.changeTitle}
+        >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
