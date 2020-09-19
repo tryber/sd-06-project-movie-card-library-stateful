@@ -122,7 +122,7 @@ class AddMovie extends Component {
           data-testid="send-button"
           onClick={() => this.addMovie(this.props.onClick)}
         >
-            Adicionar filme
+          Adicionar filme
         </button>
       </form>
     );
