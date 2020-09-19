@@ -36,7 +36,7 @@ class AddMovie extends React.Component {
     );
   }
 
-  textoDasEntradas() {
+  textoDasEntradas = () => {
     return (
       <div className="labels">
         <label data-testid="title-input-label" htmlFor="title">

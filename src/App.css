@@ -43,7 +43,7 @@ body {
 }
 
 .movie-card:hover {
-  box-shadow: inset 5px 5px 35px rgb(255, 255, 255);
+  box-shadow: inset 5px 5px 35px white;
   transform: perspective(200px) rotate(-5deg);
   z-index: 9;
 }
@@ -163,7 +163,7 @@ body {
 
 .btnAdicionar {
   background: linear-gradient(rgb(60, 60, 60), gray, white,
-   gray, rgb(60, 60, 60));
+  gray, rgb(60, 60, 60));
   box-shadow: 1px 1px 5px white;
   cursor: pointer;
   font-size: 18px;
