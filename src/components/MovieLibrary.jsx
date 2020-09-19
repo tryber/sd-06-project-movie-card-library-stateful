@@ -35,4 +35,4 @@ class MovieLibrary extends Component {
 export default MovieLibrary;
 
 MovieLibrary.defaultProps = { movies: {} };
-MovieLibrary.propTypes = { movies: PropTypes.string };
+MovieLibrary.propTypes = { movies: PropTypes.array };
