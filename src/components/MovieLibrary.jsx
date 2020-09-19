@@ -11,56 +11,56 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this)
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this)
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this)
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
 
-   this.onClick = this.onClick.bind(this)
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
-    }
+    };
   }
 
   filterSearchText(state) {
-    const array = this.props.movies.filter(element => element.title.includes(state) || element.subtitle.includes(state) || element.storyline.includes(state))
-    this.setState({movies: array})
+    const array = this.props.movies.filter((element) => element.title.includes(state) || element.subtitle.includes(state) || element.storyline.includes(state));
+    this.setState({ movies: array });
   }
 
   onSearchTextChange(event) {
-    this.setState({searchText: event.target.value}, () => {
-      this.filterSearchText(this.state.searchText)
-    })
+    this.setState({ searchText: event.target.value }, () => {
+      this.filterSearchText(this.state.searchText);
+    });
   }
 
   filterBookmarked(state) {
-    const array = this.props.movies.filter(element => element.bookmarked === state)
-    this.setState({movies: array})
+    const array = this.props.movies.filter((element) => element.bookmarked === state);
+    this.setState({ movies: array });
   }
 
   onBookmarkedChange(event) {
-    this.setState({bookmarkedOnly: event.target.checked}, () => {
-      this.filterBookmarked(this.state.bookmarkedOnly)
-    })
+    this.setState({ bookmarkedOnly: event.target.checked }, () => {
+      this.filterBookmarked(this.state.bookmarkedOnly);
+    });
   }
 
   filterSelect(state) {
-    const array = this.props.movies.filter(element => element.genre === state)
-    this.setState({movies: array})
+    const array = this.props.movies.filter((element) => element.genre === state);
+    this.setState({ movies: array });
   }
 
   onSelectedGenreChange(event) {
-    this.setState({selectedGenre: event.target.value}, () => {
+    this.setState({ selectedGenre: event.target.value }, () => {
       this.filterSelect(this.state.selectedGenre);
-    })
+    });
     
   }
 
   onClick(state) {
-    this.setState({movies: this.state.movies.concat(state)})
+    this.setState({ movies: this.state.movies.concat(state) });
   }
 
   render() {
