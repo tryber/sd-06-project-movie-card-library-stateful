@@ -20,7 +20,11 @@ class MovieLibrary extends Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={this.state.searchText}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          selectedGenre={this.state.selectedGenre}
+        />
         <MovieList movies={this.props.movies} />
         <AddMovie />
       </div>
