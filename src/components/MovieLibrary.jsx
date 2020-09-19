@@ -23,16 +23,16 @@ class MovieLibrary extends Component {
     this.setState(
       { searchText: target.value },
       () => {
-        const filtered = this.state.movies.filter(el => 
+        const filtered = this.state.movies.filter((el) =>
           el.title === this.state.searchText
           || el.subtitle === this.state.searchText
           || el.storyline === this.state.searchText);
-        if (this.state.searchText.trim() !== "") this.setState({movies: filtered});
-        else {
-          const filtered = data.filter(el => el.genre === this.state.selectedGenre);
-          (this.state.selectedGenre !== '')
-          ? this.setState({movies: filtered})
-          : this.setState({movies: data});
+        if (this.state.searchText.trim() !== '') this.setState({ movies: filtered });
+        else if (this.state.selectedGenre !== ''){
+          const filteredGenre = data.filter((el) => el.genre === this.state.selectedGenre);
+          this.setState({ movies: filteredGenre });
+        } else {
+         this.setState({ movies: data });
         }
       });
   }
