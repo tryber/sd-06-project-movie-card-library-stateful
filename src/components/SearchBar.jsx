@@ -1,26 +1,18 @@
 // implement SearchBar component here
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
     const {
       searchText,
-      SearchTextChange,
+      onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
       selectedGenre,
       onSelectedGenreChange,
     } = this.props;
-    const checkboxInput = {
-      type: 'checkbox',
-      value: 'bookmarkedOnly',
-      onChange: onBookmarkedChange,
-      checked: bookmarkedOnly,
-    };
-    const selectInput = {
-      value: 'selectedGenre',
-      onChange: 'onSelectedGenreChange',
-    };
+
     return (
       <section>
         <form data-testid="search-bar-form">
@@ -44,7 +36,9 @@ class SearchBar extends Component {
             value={bookmarkedOnly}
             onChange={onBookmarkedChange}
           />
-          <label htmlFor="select-input" data-testid="select-input-label" > Filtrar por gênero </label>
+          <label htmlFor="select-input" data-testid="select-input-label" >
+            Filtrar por gênero
+          </label>
           <select
             id="select-input"
             data-testid="select-input"
@@ -62,5 +56,31 @@ class SearchBar extends Component {
     );
   }
 }
+
+function getDefaulProps() {
+  return {
+    onSearchTextChange: this.onSearchTextChange.bind(this),
+    onBookmarkedChange: this.onBookmarkedChange.bind(this),
+    onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
+  };
+}
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: getDefaulProps,
+  bookmarkedOnly: false,
+  onBookmarkedChange: getDefaulProps,
+  selectedGenre: '',
+  onSelectedGenreChange: getDefaulProps,
+};
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
 
 export default SearchBar;

@@ -25,7 +25,7 @@ class AddMovie extends Component {
 
   newMovie(event) {
     event.preventDefault();
-    const onClick = this.props.onClick;
+    const { onClick } = this.props;
     onClick(this.state);
     this.setState({
       subtitle: '',
