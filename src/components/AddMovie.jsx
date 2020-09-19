@@ -19,7 +19,7 @@ class AddMovie extends Component {
     this.setState({ [id]: target.value });
   }
   render() {
-    const onClick = this.props.onClick;
+    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">Título</label>

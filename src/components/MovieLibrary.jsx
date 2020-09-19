@@ -8,12 +8,26 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props.movies,
     };
+  }
+  onClick() {
+    const teste = {
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    };
+    this.setState({
+      movies: this.props.movies.push(teste),
+    })
   }
 
   render() {
@@ -26,7 +40,7 @@ class MovieLibrary extends Component {
           selectedGenre={this.state.selectedGenre}
         />
         <MovieList movies={this.props.movies} />
-        <AddMovie />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
