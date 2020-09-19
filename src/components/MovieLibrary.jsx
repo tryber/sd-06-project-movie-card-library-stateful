@@ -60,9 +60,9 @@ class MovieLibrary extends Component {
           return movies;
         }
         return movie.genre === target.value;
-    }),
-  })
-}
+      }),
+    });
+  }
 
 
   add(movie) {

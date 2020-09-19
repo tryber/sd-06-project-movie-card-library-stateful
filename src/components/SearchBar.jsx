@@ -5,7 +5,8 @@ class SearchBar extends Component {
   renderSelect() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <select value={selectedGenre} name="selectedGenre"
+      <select
+        value={selectedGenre} name="selectedGenre"
         onChange={onSelectedGenreChange} data-testid="select-input"
       >
         <option value="" data-testid="select-option" id="select-genre">Todos</option>
