@@ -5,6 +5,9 @@ class AddMovie extends React.Component {
   constructor() {
     super();
     this.entradas = this.entradas.bind(this);
+    this.ComboBox = this.ComboBox.bind(this);
+    this.textoDasEntradas = this.textoDasEntradas.bind(this);
+    this.localDasEntradas = this.localDasEntradas.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -54,7 +57,7 @@ class AddMovie extends React.Component {
         <label data-testid="genre-input-label" htmlFor="select">
           Gênero
         </label>
-      </div>  
+      </div>
     );
   }
 
@@ -91,7 +94,7 @@ class AddMovie extends React.Component {
     return (
       <form className="addMovie" data-testid="add-movie-form">
         { this.textoDasEntradas() }
-        { this.localDasEntradas() } 
+        { this.localDasEntradas() }
         <button className="btnAdicionar" data-testid="send-button" onClick={onClick}>
           Adicionar filme
         </button>

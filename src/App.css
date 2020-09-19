@@ -6,7 +6,8 @@ body {
 
 .movie-card-header {
   align-items: center;
-  background: linear-gradient(rgb(60, 60, 60), gray, rgb(230, 230, 230), gray, rgb(60, 60, 60));
+  background: linear-gradient(rgb(60, 60, 60), gray, rgb(230, 230, 230),
+   gray, rgb(60, 60, 60));
   border: 6px groove gray;
   display: flex;
   height: 100px;
@@ -161,17 +162,17 @@ body {
 }
 
 .btnAdicionar {
-  background: linear-gradient(rgb(60, 60, 60), gray, rgb(230, 230, 230),
-    gray, rgb(60, 60, 60));
+  background: linear-gradient(rgb(60, 60, 60), gray, white,
+   gray, rgb(60, 60, 60));
   box-shadow: 1px 1px 5px white;
   cursor: pointer;
   font-size: 18px;
   font-weight: 700;
   margin: 15px;
 }
-  
+
 .btnAdicionar:hover {
   background: linear-gradient(rgb(80, 80, 80), rgb(150, 150, 150), white,
-  rgb(150, 150, 150), rgb(80, 80, 80));
+   rgb(150, 150, 150), rgb(80, 80, 80));
   box-shadow: 5px 5px 35px white;
 }
