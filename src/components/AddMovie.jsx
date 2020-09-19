@@ -1,12 +1,12 @@
 // implement AddMovie component here
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
-    this.handleChangeNumber = this.handleChange.bind(this);
+    // this.handleChangeNumber = this.handleChange.bind(this);
     this.newMovie = this.newMovie.bind(this);
     // this.onClick = this.onClick.bind(this);
     this.state = {
@@ -117,6 +117,6 @@ class AddMovie extends Component {
 // }
 
 // AddMovie.propTypes = { onClick: PropTypes.func };
-// AddMovie.defaultProps = { onClick: setDefaultProps };
+AddMovie.defaultProps = { onClick: setDefaultProps };
 
 export default AddMovie;
