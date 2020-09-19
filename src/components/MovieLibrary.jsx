@@ -23,9 +23,9 @@ class MovieLibrary extends React.Component {
     this.setState(({ movies: this.props.movies }));
   }
 
-  onSearchTextChange({ target }) {
+  //onSearchTextChange({ target }) {
     // código
-  }
+  //}
 
   onSelectedGenreChange({ target }) {
     this.setState(() => ({ selectedGenre: target.value }));
