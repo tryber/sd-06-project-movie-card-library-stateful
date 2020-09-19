@@ -25,7 +25,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  result() {
+  result(event) {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -36,6 +36,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
+    event.preventDefault();
   }
 
   render() {
