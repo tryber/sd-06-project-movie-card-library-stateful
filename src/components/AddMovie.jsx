@@ -116,15 +116,7 @@ class AddMovie extends Component {
 
   buttonFunc(event) {
     event.preventDefault();
-    const {
-      title,
-      subtitle,
-      imagePath,
-      storyline,
-      rating,
-      genre,
-    } = this.state;
-    this.props.onClick(title, subtitle, imagePath, storyline, rating, genre);
+    this.props.onClick(this.state);
     this.setState((
       {
         subtitle: '',

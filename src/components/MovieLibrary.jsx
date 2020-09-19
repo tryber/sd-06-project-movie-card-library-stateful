@@ -2,10 +2,9 @@ import React, { Component } from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
-import data from '../data';
 
 class MovieLibrary extends Component {
-  constructor() {
+  constructor(props) {
     super();
     this.handleTextChange = this.handleTextChange.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
@@ -15,7 +14,7 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: data,
+      movies: props.movies,
     };
   }
 
@@ -24,15 +23,15 @@ class MovieLibrary extends Component {
       { searchText: target.value },
       () => {
         const filtered = this.state.movies.filter((el) =>
-          el.title === this.state.searchText
-          || el.subtitle === this.state.searchText
-          || el.storyline === this.state.searchText);
+          el.title.toLowerCase().includes(this.state.searchText.toLowerCase())
+          || el.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase())
+          || el.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
         if (this.state.searchText.trim() !== '') this.setState({ movies: filtered });
         else if (this.state.selectedGenre !== '') {
-          const filteredGenre = data.filter((el) => el.genre === this.state.selectedGenre);
+          const filteredGenre = this.props.movies.filter((el) => el.genre === this.state.selectedGenre);
           this.setState({ movies: filteredGenre });
         } else {
-          this.setState({ movies: data });
+          this.setState({ movies: this.props.movies });
         }
       });
   }
@@ -47,14 +46,14 @@ class MovieLibrary extends Component {
       this.setState((
         {
           bookmarkedOnly: false,
-          movies: data,
+          movies: this.props.movies,
         }));
     }
   }
 
   handleGenreChange({ target }) {
     const genre = target.value;
-    this.setState(({ selectedGenre: genre, movies: data }), () => {
+    this.setState(({ selectedGenre: genre, movies: this.props.movies }), () => {
       if (this.state.selectedGenre !== '') {
         const filtered = this.state.movies
           .filter((el) => el.genre === this.state.selectedGenre);
@@ -63,9 +62,8 @@ class MovieLibrary extends Component {
     });
   }
 
-  AddMovieList(title, subtitle, imagePath, storyline, rating, genre) {
-    this.setState(() => {
-      data.push({
+  AddMovieList({ title, subtitle, imagePath, storyline, rating, genre }) {
+      const data = {
         title,
         subtitle,
         storyline,
@@ -73,8 +71,8 @@ class MovieLibrary extends Component {
         imagePath,
         bookmarked: false,
         genre,
-      });
-    }, this.setState({ movies: this.state.movies }));
+      };
+    this.setState((last) => ({ movies: [...last.movies, data] }));
   }
 
   render() {
