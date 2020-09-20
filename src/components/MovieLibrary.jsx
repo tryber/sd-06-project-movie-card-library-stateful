@@ -18,12 +18,7 @@ class MovieLibrary extends Component {
     };
   }
 
-  handleAddMovie({ target }) {
-
-
-  }
-
-
+  // //funcao handleAddMovieaqui
   render() {
     const { movies } = this.state;
     return (

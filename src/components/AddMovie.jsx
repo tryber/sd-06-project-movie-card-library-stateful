@@ -46,7 +46,7 @@ class AddMovie extends React.Component {
     return (
       <div>
         <form data-testid="add-movie-form" onSubmit={this.handleSubmit}>
-          <label data-testid="title-input-label">
+          <label data-testid="title-input-label" htmlFor="title">
 Titulo
             <input
               data-testid="title-input"
@@ -55,9 +55,14 @@ Titulo
               name="title"
             />
           </label>
-          <label data-testid="subtitle-input-label">
+          <label data-testid="subtitle-input-label" htmlFor="subtitle">
 Subtítulo
-            <input data-testid="subtitle-input" value={subtitle} name="subtitle" onChange={this.handleChange} />
+            <input
+              data-testid="subtitle-input"
+              value={subtitle}
+              name="subtitle"
+              onChange={this.handleChange}
+            />
           </label>
           <label data-testid="storyline-input-label" htmlFor="storyline-input">
                     Sinopse
@@ -93,9 +98,14 @@ ange
               <option data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
-          <label data-testid="image-input-label">
+          <label data-testid="image-input-label" htmlFor="image">
 Imagem
-            <input value={imagePath} type="text" onChange={this.handleChange} />
+            <input
+              value={imagePath}
+              type="text"
+              onChange={this.handleChange}
+              name="image"
+            />
           </label>
           <button data-testid="send-button" type="submit" onClick={this.handleSubmit}>
                     Adicionar filme
