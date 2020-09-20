@@ -6,44 +6,35 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.handleFiltering = this.handleFiltering.bind(this);
-    this.saveState = this.saveState.bind(this);
+    this.handleStateChangeToFilter = this.handleStateChangeToFilter.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
+
+    const { movies } = this.props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: [],
-      baseMovies: [],
+      movies,
+      baseMovies: movies,
     };
   }
 
-  componentDidMount() {
-    const { movies } = this.props;
-
-    this.saveState(movies);
-  }
-
-  saveState(movies) {
-    this.setState({
-      movies,
-      baseMovies: movies,
-    });
-  }
-
-  async handleFiltering({ target }) {
+  handleStateChangeToFilter({ target }) {
     const { name, value, checked, type } = target;
 
     if (type === 'checkbox') {
-      await this.setState({ [name]: checked });
+      this.setState({ [name]: checked }, this.handleFiltering);
     } else {
-      await this.setState({ [name]: value });
+      this.setState({ [name]: value }, this.handleFiltering);
     }
+  }
 
+  handleFiltering() {
     const { baseMovies, bookmarkedOnly, selectedGenre, searchText } = this.state;
 
     let filteredMovies = baseMovies;
@@ -84,7 +75,6 @@ class MovieLibrary extends React.Component {
     });
   }
 
-
   render() {
     const values = this.state;
 
@@ -94,9 +84,9 @@ class MovieLibrary extends React.Component {
           searchText={values.searchText}
           bookmarkedOnly={values.bookmarkedOnly}
           selectedGenre={values.selectedGenre}
-          onSearchTextChange={this.handleFiltering}
-          onBookmarkedChange={this.handleFiltering}
-          onSelectedGenreChange={this.handleFiltering}
+          onSearchTextChange={this.handleStateChangeToFilter}
+          onBookmarkedChange={this.handleStateChangeToFilter}
+          onSelectedGenreChange={this.handleStateChangeToFilter}
         />
 
         <MovieList
