@@ -19,13 +19,14 @@ class MovieLibrary extends React.Component {
   }
 
   filterWithSearchText = () => {
-    const { movies, searchText } = this.state
+    const { searchText } = this.state
+    const { movies } = this.props
     const filteredMovies = movies.filter((movie) => (
       movie.title.toUpperCase().includes(searchText.toUpperCase()) ||
       movie.subtitle.toUpperCase().includes(searchText.toUpperCase()) ||
       movie.storyline.toUpperCase().includes(searchText.toUpperCase())
     ));
-    
+
     if (this.state.searchText === '') {
       this.setState({
         movies: this.props.movies,
