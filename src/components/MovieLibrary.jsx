@@ -30,7 +30,7 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: target.value });
   }
   onClick(state) {
-    const getMovies = [... this.props.movies];
+    const getMovies = [...this.props.movies];
     getMovies.push(state);
     this.setState({ movies: getMovies });
   }
