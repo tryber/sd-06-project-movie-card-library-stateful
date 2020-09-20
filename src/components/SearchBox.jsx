@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBox extends Component {
   render() {
@@ -18,8 +19,8 @@ class SearchBox extends Component {
 }
 
 SearchBox.propTypes = {
-    lista: PropTypes.string.isRequired,
-    evento: PropTypes.string.isRequired,
+  lista: PropTypes.string.isRequired,
+  evento: PropTypes.string.isRequired,
 };
 
 export default SearchBox;

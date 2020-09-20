@@ -63,19 +63,6 @@ class MovieLibrary extends React.Component {
     return array;
   }
 
-  addMovieBtn(data) {
-    const newMovie = {
-      title: data.title,
-      subtitle: data.subtitle,
-      storyline: data.storyline,
-      rating: data.rating,
-      imagePath: data.imagePath,
-      bookmarked: false,
-      genre: data.genre,
-    };
-    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
-  }
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let movies = this.state.movies;
@@ -90,7 +77,7 @@ class MovieLibrary extends React.Component {
           selecionarGenero={selectedGenre} eventoSelecionarGenero={this.selectHandler}
         />
         <MovieList filmes={movies} />
-        <AddMovie onClick={this.addMovieBtn} />
+        <AddMovie />
       </section>
     );
   }
