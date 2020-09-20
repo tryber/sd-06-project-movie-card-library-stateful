@@ -33,22 +33,10 @@ class AddMovie extends React.Component {
     } = this.state;
     return (
       <form>
-        <TitleInputText
-          onChange={this.handleChange}
-          value={title}
-        />
-        <SubTitleInputText
-          onChange={this.handleChange}
-          value={subtitle}
-        />
-        <Image
-          onChange={this.handleChange}
-          value={imagePath}
-        />
-        <Storyline
-          onChange={this.handleChange}
-          value={storyline}
-        />
+        <TitleInputText onChange={this.handleChange} value={title} />
+        <SubTitleInputText onChange={this.handleChange} value={subtitle} />
+        <Image onChange={this.handleChange} value={imagePath} />
+        <Storyline onChange={this.handleChange} value={storyline} />
       </form>
     );
   }
