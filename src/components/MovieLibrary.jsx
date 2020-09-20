@@ -19,11 +19,11 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
-          searchText
+          searchText={this.state.searchText}
           onSearchTextChange
-          bookmarkedOnly
+          bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange
-          selectedGenre
+          selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange
         />
         <MovieList movies={movies} />
