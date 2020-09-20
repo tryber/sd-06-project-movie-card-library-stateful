@@ -3,6 +3,18 @@ import PropTypes from 'prop-types';
 
 
 class SearchBar extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+  }
+
+
   filterByGenderSelect() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
