@@ -42,7 +42,7 @@ class AddMovie extends React.Component {
         <Image onChange={this.handleChange} value={imagePath} />
         <Storyline onChange={this.handleChange} value={storyline} />
         <NewRating onChange={this.handleChange} value={rating} />
-        {/* <Genre onChange={this.handleChange} value={genre} /> */}
+        <Genre onChange={this.handleChange} value={genre} />
       </form>
     );
   }
