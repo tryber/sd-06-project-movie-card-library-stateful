@@ -20,4 +20,9 @@ class AddMovieSubtitle extends Component {
   }
 }
 
+AddMovieSubtitle.propTypes = {
+  handleOnChange: PropTypes.func.isRequired,
+  subtitle: PropTypes.string.isRequired,
+};
+
 export default AddMovieSubtitle;

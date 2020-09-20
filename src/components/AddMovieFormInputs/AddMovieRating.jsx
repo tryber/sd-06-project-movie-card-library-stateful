@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // Não está inicializando no teste com valor de 0!
 
@@ -20,5 +20,10 @@ class AddMovieRating extends Component {
     );
   }
 }
+
+AddMovieRating.propTypes = {
+  handleOnChange: PropTypes.func.isRequired,
+  rating: PropTypes.number.isRequired,
+};
 
 export default AddMovieRating;
