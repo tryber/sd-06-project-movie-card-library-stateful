@@ -39,7 +39,7 @@ class MovieLibrary extends React.Component {
         this.setState({ movies: this.props.movies });
       } else {
         const filterGenre = this.props.movies.filter((movie) => (
-          movie.genre = this.state.selectedGenre
+          movie.genre === this.state.selectedGenre
         ));
         this.setState({ movies: filterGenre });
       }
