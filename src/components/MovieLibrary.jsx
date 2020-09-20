@@ -18,8 +18,15 @@ class MovieLibrary extends React.Component {
     this.updateSelectedGenreChange = this.updateSelectedGenreChange.bind(this);
   }
 
-  updateSearchTextChange({ event }) {
-    this.setState({ searchText: event.target.value });
+  updateSearchTextChange(event) {
+    this.setState({ searchText: event.target.value }, () => {
+      const filterText = this.props.movies.filter((movie) => (
+        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.subtitle.toLowerCase().includes(this.state.searchText.toLocaleLowerCase()) ||
+        movie.storyline.toLowerCase().includes(this.state.searchText.toLocaleLowerCase())
+      ));
+      this.setState({ movies: filterText });
+    });
   }
 
   updateBookmarkedChange(event) {
