@@ -58,23 +58,21 @@ class MovieLibrary extends Component {
       return result;
     }).filter((movie) => {
       const { genre } = movie;
-      if (selectedGenre === '') {
-        result = true;
-      } else {
-        result = (genre === selectedGenre);
-      }
-      return result;
+      return this.insideFilter(genre, selectedGenre);
     }).filter((movie) => {
       const { bookmarked } = movie;
-      if (bookmarkedOnly === false) {
-        result = true;
-      } else {
-        result = (bookmarked === bookmarkedOnly);
-      }
-      return result;
+      return this.insideFilter(bookmarked, bookmarkedOnly);
     });
   }
-
+  insideFilter(propr, state) {
+    let result;
+    if (state === false || state === '') {
+      result = true;
+    } else {
+      result = (propr === state);
+    }
+    return result;
+  }
   render() {
     const { movies } = this.props;
     return (
