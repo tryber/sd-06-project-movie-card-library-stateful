@@ -6,6 +6,7 @@ class AddMovie extends React.Component {
     super();
 
     this.handleChange = this.handleChange.bind(this);
+    this.clickButton = this.clickButton.bind(this);
 
     this.state = {
       subtitle: '',
@@ -23,7 +24,6 @@ class AddMovie extends React.Component {
   }
 
   clickButton(event) {
-    // console.log(event);
     event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
