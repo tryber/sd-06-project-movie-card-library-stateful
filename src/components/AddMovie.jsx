@@ -23,7 +23,7 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
-  
+
   ResetState() {
     this.setState({
       subtitle: '',
@@ -34,13 +34,14 @@ class AddMovie extends React.Component {
       genre: 'action',
     });
     this.props.onClick();
-    }
+  }
 
   ChangeState({ target }) {
     const { name, value, type, checked } = target;
-    type === 'checkbox'
-    ? this.setState({ [name]: checked })
-    : this.setState({ [name]: value });
+    this.setState(type === 'checkbox'
+      ? { [name]: checked }
+      : { [name]: value },
+    );
   }
 
   GetTitleElement() {
@@ -139,9 +140,6 @@ class AddMovie extends React.Component {
     );
   }
 
-  onClick() {
-
-  }
 
   render() {
     const { ResetState } = this;
@@ -164,13 +162,13 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
-  /* subtitle: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
+/* subtitle: PropTypes.string.isRequired,
+title: PropTypes.string.isRequired,
+imagePath: PropTypes.string.isRequired,
+storyline: PropTypes.string.isRequired,
+rating: PropTypes.number.isRequired,
+genre: PropTypes.string.isRequired,
+checked: PropTypes.bool.isRequired,
 }; */
 
 export default AddMovie;
