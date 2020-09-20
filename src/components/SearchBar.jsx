@@ -17,7 +17,13 @@ class SearchBar extends Component {
       <form data-testid="search-bar-form" className="filter-form">
         <h2>Filtre os filmes</h2>
 
-        <Input changeFunc={onSearchTextChange} state={searchText} text="Inclui o texto" name="searchText" testDesc="text" />
+        <Input
+          changeFunc={onSearchTextChange}
+          state={searchText}
+          text="Inclui o texto"
+          name="searchText"
+          testDesc="text"
+        />
 
         <div className="filters">
 

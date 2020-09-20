@@ -69,14 +69,18 @@ class AddMovie extends React.Component {
         </div>
         <div className="input-group">
 
-          <Input changeFunc={this.handleInput} state={imagePath} text="Imagem" name="imagePath" testDesc="image" />
+          <Input changeFunc={this.handleInput} state={imagePath}
+            text="Imagem" name="imagePath" testDesc="image"
+          />
           <GenreSelect changeFunc={this.handleInput} state={genre} text="Gênero" name="genre" />
 
         </div>
 
         <TextArea changeFunc={this.handleInput} state={storyline} text="Sinopse" name="storyline" />
 
-        <Input changeFunc={this.handleInput} state={rating} text="Avaliação" name="rating" type="number" />
+        <Input changeFunc={this.handleInput} state={rating}
+          text="Avaliação" name="rating" type="number"
+        />
 
         <button type="submit" data-testid="send-button" onClick={this.handleClick}>
           Adicionar filme
