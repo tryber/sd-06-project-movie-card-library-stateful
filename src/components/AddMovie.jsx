@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../App.css';
 import Labels from './Labels.jsx';
 
@@ -56,7 +55,6 @@ class AddMovie extends React.Component {
           value={this.state.title} data-testid="title-input" name="title"
           onChange={this.entradas} type="text" id="title" className="tipoInput"
         /><br />
-        console.log({ this.entradas})
         <input
           value={this.state.subtitle} data-testid="subtitle-input" name="subtitle"
           onChange={this.entradas} type="text" id="subtitle" className="tipoInput"

@@ -9,7 +9,7 @@ class SearchBar extends Component {
   render() {
     const {
       procurarTexto, eventoProcurarTexto, marcarFavorito, eventoMarcarFavorito,
-      selecionarGenero, eventoSelecionarGenero
+      selecionarGenero, eventoSelecionarGenero,
     } = this.props;
     return (
       <form className="SearchBar" data-testid="search-bar-form">
