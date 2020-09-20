@@ -14,14 +14,14 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.onChange = this.onChange.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
-  onChange({ target }) {
+  handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value }, () => this.filteringSearchChange());
+    this.setState({ [name]: value }, () => { this.filteringSearchChange(); });
   }
 
   handleClick(newMovie) {
@@ -29,6 +29,27 @@ class MovieLibrary extends Component {
   }
 
   filteringSearchChange() {
+    let moviesFiltered = this.state.movies;
+
+    if (this.state.bookmarkedOnly === true) {
+      moviesFiltered = moviesFiltered.filter((movie) => movie.bookmarked === true);
+    } else {
+      moviesFiltered = this.props.movies;
+    }
+
+    if (this.state.selectedGenre !== '') {
+      moviesFiltered = moviesFiltered.filter((movie) => movie.genre === this.state.selectedGenre);
+    }
+
+    if (this.state.searchText !== '') {
+      moviesFiltered = moviesFiltered.filter((movie) =>
+        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()),
+    );
+    }
+
+    this.setState({ movies: moviesFiltered });
   }
 
   render() {
@@ -37,11 +58,11 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={this.state.searchText}
-          onSearchTextChange={this.onChange}
+          onSearchTextChange={this.handleChange}
           bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange={this.onChange}
+          onBookmarkedChange={this.handleChange}
           selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange={this.onChange}
+          onSelectedGenreChange={this.handleChange}
         />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.handleClick} />
