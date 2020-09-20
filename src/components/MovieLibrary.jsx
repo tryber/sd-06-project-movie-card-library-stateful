@@ -8,33 +8,79 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    this.filteredMovies = this.filteredMovies.bind(this);
-    this.resetState = this.resetState.bind(this);
+    this.handleText = this.handleText.bind(this);
+    this.handleFavorite = this.handleFavorite.bind(this);
+    this.handleGenre = this.handleGenre.bind(this);
+    this.onClickFunc = this.onClickFunc.bind(this);
 
     const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      newMovies: movies, // Quando o valor e a key tem o mesmo nome.
+      newMovies: movies,
     };
   }
 
-  resetState(oldList) {
+  onClickFunc(event) {
+    const { movies } = this.props;
+    if (event) {
+      movies.push(event);
+    }
+    console.log(movies);
     this.setState({
+      searchText: '',
+      bookmarkedOnly: false,
       selectedGenre: '',
-      newMovies: oldList,
+      newMovies: movies,
     });
   }
 
-  filteredMovies({ target }) {
+  handleText({ target }) {
     const { movies } = this.props;
-    // this.resetState(movies);
     const e = target.value;
-    // const { newMovies } = this.state;
     const newMoviesList = [];
-    movies.filter((Movie) => (Movie.genre === e ? newMoviesList.push(Movie) : undefined));
-    this.setState({ newMovies: newMoviesList });
+    movies.filter((Movie) => (Movie.title.includes(e)
+      || Movie.subtitle.includes(e)
+      || Movie.storyline.includes(e)
+      ? newMoviesList.push(Movie)
+      : undefined));
+    this.setState({
+      searchText: e,
+      newMovies: newMoviesList,
+    });
+  }
+
+  handleFavorite() {
+    const { movies } = this.props;
+    const { bookmarkedOnly } = this.state;
+    const newMoviesList = [];
+    if (bookmarkedOnly === false) {
+      movies.filter((Movie) => (Movie.bookmarked === true ? newMoviesList.push(Movie) : undefined));
+      this.setState({
+        bookmarkedOnly: true,
+        selectedGenre: '',
+        newMovies: newMoviesList,
+      });
+    } else {
+      this.setState({
+        bookmarkedOnly: false,
+        selectedGenre: '',
+        newMovies: movies,
+      });
+    }
+  }
+
+  handleGenre({ target }) {
+    const { movies } = this.props;
+    const e = target.value;
+    const newMoviesList = [];
+    movies.filter((Movie) => (Movie.genre === e || e === '' ? newMoviesList.push(Movie) : undefined));
+    this.setState({
+      bookmarkedOnly: false,
+      selectedGenre: e,
+      newMovies: newMoviesList,
+    });
   }
 
   render() {
@@ -44,19 +90,19 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={(event) => this.setState({ searchText: event.target.value })}
+          onSearchTextChange={(event) => this.handleText(event)}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={() => this.setState({ bookmarkedOnly: !bookmarkedOnly })}
+          onBookmarkedChange={() => this.handleFavorite()}
           selectedGenre={selectedGenre}
-          onSelectedGenreChange={(event) => this.filteredMovies(event)}
+          onSelectedGenreChange={(event) => this.handleGenre(event)}
         />
         <MovieList movies={newMovies} />
-        <AddMovie />
+        <AddMovie onClick={(event) => this.onClickFunc(event)} />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.string).isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;

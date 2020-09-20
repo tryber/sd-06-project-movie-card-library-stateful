@@ -7,6 +7,7 @@ class AddMovie extends Component {
 
     this.newState = this.newState.bind(this);
     this.newRating = this.newRating.bind(this);
+    this.returnState = this.returnState.bind(this);
     this.reset = this.reset.bind(this);
 
     this.state = {
@@ -36,6 +37,15 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+  }
+
+  returnState(event, myFunctReset) {
+    const newState = this.state;
+    if (event && myFunctReset) {
+      this.setState(newState);
+    }
+    return newState;
+    // chama reset como callback de alguma forma. refazer a logica
   }
 
   renderTitle() {
@@ -146,7 +156,7 @@ class AddMovie extends Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={() => onClick(this.state, this.reset())}
+          onClick={(event) => onClick(this.returnState(event, this.reset()))}
         >
           Adicionar filme
         </button>
