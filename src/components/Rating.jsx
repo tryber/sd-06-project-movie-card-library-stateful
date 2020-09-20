@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Rating extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { rating: -1 }
+    this.state = { rating: -1 };
   }
 
   render() {
