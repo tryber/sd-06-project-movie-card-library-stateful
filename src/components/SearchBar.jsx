@@ -2,26 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  render() {
-    return (
-      <form data-testid="search-bar-form">
-        
-          <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:</label>
-          {this.renderSearch()}
-        
-        
-          <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
-            Mostrar somente favoritos
-          </label>
-          {this.renderInputFavourite()}
-        
-      
-          <label data-testid="select-input-label" htmlFor="select-input">Filtrar por gênero</label>
-          {this.renderSelect()}
-        
-      </form>
-    );
-  }
+
   renderSearch() {
     const { searchText, onSearchTextChange } = this.props;
     return (
@@ -52,6 +33,24 @@ class SearchBar extends React.Component {
         <option value="comedy" data-testid="select-option">Comédia</option>
         <option value="thriller" data-testid="select-option">Suspense</option>
       </select>
+    );
+  }
+  render() {
+    return (
+      <form data-testid="search-bar-form">
+
+        <label data-testid="text-input-label" htmlFor="text-input">Inclui o texto:</label>
+        {this.renderSearch()}
+
+        <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
+          Mostrar somente favoritos
+          </label>
+        {this.renderInputFavourite()}
+
+        <label data-testid="select-input-label" htmlFor="select-input">Filtrar por gênero</label>
+        {this.renderSelect()}
+
+      </form>
     );
   }
 
