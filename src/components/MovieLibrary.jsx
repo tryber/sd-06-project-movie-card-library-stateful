@@ -8,17 +8,22 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
 
-    this.handleAddMovie = this.handleAddMovie.bind(this);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
+
+    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
-  // //funcao handleAddMovieaqui
+
+  handleAddMovie(movie) {
+    const { movies } = this.state;
+    this.setState({ movies: movies.concat(movie) });
+  }
+
   render() {
     const { movies } = this.state;
     return (
@@ -27,13 +32,13 @@ class MovieLibrary extends Component {
         <SearchBar
           searchText="oaaa"
           onSearchTextChange={() => {}}
-          bookmarkedOnly
+          bookmarkedOnly={false}
           onBookmarkedChange={() => {}}
           selectedGenre="thirller"
           onSelectedGenreChange={() => {}}
         />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie handleAddMovie={this.handleAddMovie} />
 
       </div>
     );
