@@ -36,77 +36,83 @@ class AddMovie extends React.Component {
   }
 
   renderTitleInput() {
+    const { title } = this.state;
     return (
       <input
         data-testid="title-input"
         type="text"
         id="titleInput"
         name="title"
-        value={this.state.title}
+        value={title}
         onChange={this.handleChange}
       />
     );
   }
 
   renderSubtitleInput() {
+    const { subtitle } = this.state;
     return (
       <input
         data-testid="subtitle-input"
         type="text"
         id="subtitleInput"
         name="subtitle"
-        value={this.state.subtitle}
+        value={subtitle}
         onChange={this.handleChange}
       />
     );
   }
 
   renderImageInput() {
+    const { imagePath } = this.state;
     return (
       <input
         data-testid="image-input"
         type="text"
         id="imageInput"
         name="imagePath"
-        value={this.state.imagePath}
+        value={imagePath}
         onChange={this.handleChange}
       />
     );
   }
 
   renderStorylineInput() {
+    const { storyline } = this.state;
     return (
       <input
         data-testid="storyline-input"
         type="text"
         id="storylineInput"
         name="storyline"
-        value={this.state.storyline}
+        value={storyline}
         onChange={this.handleChange}
       />
     );
   }
 
   renderRatingInput() {
+    const { rating } = this.state;
     return (
       <input
         data-testid="rating-input"
         type="number"
         id="ratingInput"
         name="rating"
-        value={this.state.rating}
+        value={rating}
         onChange={this.handleChange}
       />
     );
   }
 
   renderGenreInput() {
+    const { genre } = this.state;
     return (
       <select
         data-testid="genre-input"
         id="genreInput"
         name="genre"
-        value={this.state.genre}
+        value={genre}
         onChange={this.handleChange}
       >
         <option value="action" data-testid="genre-option">Ação</option>
