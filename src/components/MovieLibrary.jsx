@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -31,5 +32,7 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf.isRequired };
 
 export default MovieLibrary;
