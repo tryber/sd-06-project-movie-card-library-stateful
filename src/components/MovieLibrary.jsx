@@ -13,9 +13,9 @@ class MovieLibrary extends React.Component {
       <div>
         <h2>My awesome movie library</h2>
         <SearchBar />
+        <AddMovie />
         {/*
         <MovieList movies={this.props.movies} />
-        <AddMovie />
         */}
       </div>
     );
