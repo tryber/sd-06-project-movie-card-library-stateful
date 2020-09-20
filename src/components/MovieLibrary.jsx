@@ -6,7 +6,7 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super();
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -48,7 +48,6 @@ class MovieLibrary extends React.Component {
   }
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    console.log(movies);
     return (
       <div>
         <SearchBar
