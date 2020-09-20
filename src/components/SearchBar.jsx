@@ -12,7 +12,10 @@ class SearchBar extends React.Component {
   }
   render() {
     return (
-      <h1>Olá! Eu estou renderizando A-Ok!</h1>
+      <form data-testid="text-input-label">
+        <label for="testing-form">Digite algo se você me vê:</label>
+        <input type="text" id="fname" name="testing-form"></input>
+      </form>
     );
   }
 }
