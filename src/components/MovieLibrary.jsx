@@ -55,7 +55,7 @@ class MovieLibrary extends React.Component {
   }
 
   addMovie(newMovie) {
-    this.setState({ movies: this.state.movies.concat(newMovie) })
+    this.setState({ movies: this.state.movies.concat(newMovie) });
   }
 
   render() {
