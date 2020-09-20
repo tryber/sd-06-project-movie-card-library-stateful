@@ -29,7 +29,7 @@ class MovieLibrary extends Component {
   }
 
   filteringSearchChange() {
-    let moviesFiltered = this.state.movies;
+    let moviesFiltered = this.props.movies;
 
     if (this.state.bookmarkedOnly === true) {
       moviesFiltered = moviesFiltered.filter((movie) => movie.bookmarked === true);
