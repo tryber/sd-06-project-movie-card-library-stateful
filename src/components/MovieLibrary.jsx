@@ -43,7 +43,7 @@ class MovieLibrary extends Component {
 
   funcFilter(movies) {
     const { searchText, selectedGenre, bookmarkedOnly } = this.state;
-    var result;
+    let result;
     return movies.filter((movie) => {
       const { title, subtitle, storyline } = movie;
       if (searchText === '') {
@@ -73,10 +73,6 @@ class MovieLibrary extends Component {
       }
       return result;
     });
-  }
-
-  insideFilter() {
-    
   }
 
   render() {
