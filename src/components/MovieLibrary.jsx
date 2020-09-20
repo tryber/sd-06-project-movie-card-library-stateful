@@ -8,39 +8,63 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: [],
-    }
+    };
   }
 
-  onClick(event = { target: this.props.checked }) {
+  onSelectedGenreChange({ target }) {
+    const { name, value, checked, type } = target;
+    this.setState(type === 'checkbox'
+      ? { [name]: checked }
+      : { [name]: value });
+  }
+
+  onBookmarkedChange(event = { target: this.bookmarkedOnly }) {
     const { target } = event;
-    this.setState((past) => ({
-      movies: [...past, {
-        subtitle: target.subtitle,
-        title: target.title,
-        imagePath: target.imagePath,
-        storyline: target.storyline,
-        rating: target.rating,
-        genre: target.genre,
-      },
-      ],
-    }),
-    );
+    this.setState(target.type === 'checkbox'
+      ? { [target.name]: target.checked }
+      : { [target.name]: target.value });
+  }
+
+  onSearchTextChange(event = { target: this.searchText }) {
+    const { target } = event;
+    this.setState(target.type === 'checkbox'
+      ? { [target.name]: target.checked }
+      : { [target.name]: target.value });
+  }
+
+  onClick({ target }) {
+    const { subtitle, title, imagePath, storyline, rating, genre } = target;
+    const NEW_MOVIE = { subtitle, title, imagePath, storyline, rating, genre };
+    this.setState((past) => ({ movies: [...past, NEW_MOVIE] }));
   }
 
   render() {
-    const { onClick, movies } = this.props;
+    const {
+      onClick,
+      movies,
+      onSearchTextChange,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+    } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          onSearchTextChange={onSearchTextChange}
+          onBookmarkedChange={onBookmarkedChange}
+          onSelectedGenreChange={onSelectedGenreChange}
+        />
         <MovieList movies={movies} />
-        <AddMovie onClick={onClick} movieState={this.state} />
+        <AddMovie onClick={onClick} />
       </div>
     );
   }
@@ -53,10 +77,13 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  checked: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClick: PropTypes.func.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
   /* subtitle: PropTypes.string.isRequired,
+  checked: PropTypes.bool.isRequired,
   title: PropTypes.string.isRequired,
   imagePath: PropTypes.string.isRequired,
   storyline: PropTypes.string.isRequired,
