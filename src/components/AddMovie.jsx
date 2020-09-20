@@ -79,6 +79,7 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         {this.showTitleInput()}
         {this.showSubtitleInput()}
+        {this.showImageInput()}
       </form>
     );
   }
