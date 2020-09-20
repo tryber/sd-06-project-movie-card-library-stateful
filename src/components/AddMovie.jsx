@@ -62,7 +62,7 @@ class AddMovie extends React.Component {
   showImageInput() {
     return (
       <div>
-        <label for="" data-testid="image-input-label">Imagem</label>
+        <label for="imagePath" data-testid="image-input-label">Imagem</label>
         <input
           type="text"
           name="imagePath"
