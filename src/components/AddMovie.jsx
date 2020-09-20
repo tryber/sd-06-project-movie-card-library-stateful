@@ -59,6 +59,21 @@ class AddMovie extends React.Component {
     );
   }
 
+  showImageInput() {
+    return (
+      <div>
+        <label for="" data-testid="image-input-label">Imagem</label>
+        <input
+          type="text"
+          name="imagePath"
+          id="imagePath"
+          value={this.state.imagePath}
+          onChange={this.handleFormInputsChange}
+          data-testid="image-input"/>
+      </div>
+    );
+  }
+
   render() {
     return (
       <form data-testid="add-movie-form">
