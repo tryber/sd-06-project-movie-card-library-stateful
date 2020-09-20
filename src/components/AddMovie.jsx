@@ -12,7 +12,7 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     };
-    
+
     this.onChange = this.props.onChange.bind(this);
   }
 
@@ -38,7 +38,7 @@ class AddMovie extends React.Component {
       </div>
     );
   }
-  
+
   renderSubtitleInput() {
     return (
       <div>
