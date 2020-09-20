@@ -24,7 +24,6 @@ class AddMovie extends React.Component {
   }
 
   zerandoForm() {
-    this.props.onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -77,7 +76,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const onClick = this.props;
     return (
       <form className="addMovie" data-testid="add-movie-form">
         <Labels />

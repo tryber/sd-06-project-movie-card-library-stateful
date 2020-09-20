@@ -17,4 +17,9 @@ class SearchBox extends Component {
   }
 }
 
+SearchBox.propTypes = {
+    lista: PropTypes.string.isRequired,
+    evento: PropTypes.string.isRequired,
+};
+
 export default SearchBox;
