@@ -5,6 +5,7 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.addState = this.addState.bind(this);
     this.state = {
       subtitle: '',
       title: '',
@@ -14,12 +15,24 @@ class AddMovie extends Component {
       genre: 'action',
     };
   }
-  handleChange({ target }) {
-    const { id } = target;
-    this.setState({ [id]: target.value });
+  addState(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+  handleChange(event) {
+    const { id } = event.target;
+    this.setState({ [id]: event.target.value });
   }
   render() {
-    const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">Título</label>
@@ -47,8 +60,7 @@ class AddMovie extends Component {
           onChange={this.handleChange}
         />
         <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
-        <input
-          type="textarea"
+        <textarea
           id="storyline"
           value={this.state.storyline}
           data-testid="storyline-input"
@@ -73,7 +85,7 @@ class AddMovie extends Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </select>
-        <button data-testid="send-button" onClick={onClick}>Adicionar filme</button>
+        <button data-testid="send-button" onClick={this.addState}>Adicionar filme</button>
       </form>
     );
   }

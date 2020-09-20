@@ -29,16 +29,12 @@ class MovieLibrary extends Component {
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
   }
-  onClick() {
-    const teste = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
-    this.props.movies.push(teste);
+  onClick(state) {
+    const { movies } = this.props;
+    movies.push(state)
+    this.setState({
+      movies: movies,
+    })
   }
 
   funcFilter(movies) {
@@ -74,7 +70,6 @@ class MovieLibrary extends Component {
     return result;
   }
   render() {
-    const { movies } = this.props;
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -86,7 +81,7 @@ class MovieLibrary extends Component {
           onBookmarkedChange={this.onBookmarkedChange}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.funcFilter(movies)} />
+        <MovieList movies={this.funcFilter(this.state.movies)} />
         <AddMovie onClick={this.onClick} />
       </div>
     );
@@ -95,5 +90,14 @@ class MovieLibrary extends Component {
 
 export default MovieLibrary;
 
-MovieLibrary.defaultProps = { movies: {} };
-MovieLibrary.propTypes = { movies: PropTypes.string };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    storyline: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
+    imagePath: PropTypes.string.isRequired,
+    bookmarked: PropTypes.bool.isRequired,
+    genre: PropTypes.string.isRequired,
+  })).isRequired,
+};
