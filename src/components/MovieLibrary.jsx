@@ -8,6 +8,13 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: [],
+    }
   }
 
   onClick(event = { target: this.props.checked }) {
