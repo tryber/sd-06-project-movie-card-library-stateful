@@ -4,7 +4,7 @@ import props from './propsValidation';
 
 class GenreFilter extends React.Component {
   render() {
-    const { state, changeFunc } = this.props;
+    const { state, ctl } = this.props;
 
     return (
       <div className="select-container">
@@ -12,7 +12,7 @@ class GenreFilter extends React.Component {
           name="selectedGenre"
           id="genre"
           value={state}
-          onChange={changeFunc}
+          onChange={ctl}
           data-testid="select-input"
         >
           <option value="" data-testid="select-option">Todos</option>

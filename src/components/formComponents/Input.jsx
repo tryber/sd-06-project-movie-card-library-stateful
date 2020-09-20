@@ -7,7 +7,7 @@ class Input extends React.Component {
     const {
       state,
       name, text, type,
-      changeFunc, testDesc,
+      ctl, testDesc,
     } = this.props;
 
     return (
@@ -23,7 +23,7 @@ class Input extends React.Component {
           data-testid={`${(testDesc || name)}-input`}
           name={name}
           value={state}
-          onChange={changeFunc}
+          onChange={ctl}
           type={type || 'text'}
         />
 

@@ -8,7 +8,7 @@ const props = {
   name: PropTypes.string,
   text: PropTypes.string,
   type: PropTypes.string,
-  changeFunc: PropTypes.func.isRequired,
+  ctl: PropTypes.func.isRequired,
   testDesc: PropTypes.string,
 };
 

@@ -18,7 +18,7 @@ class SearchBar extends Component {
         <h2>Filtre os filmes</h2>
 
         <Input
-          changeFunc={onSearchTextChange}
+          ctl={onSearchTextChange}
           state={searchText}
           text="Inclui o texto"
           name="searchText"
@@ -27,8 +27,8 @@ class SearchBar extends Component {
 
         <div className="filters">
 
-          <CheckBox state={bookmarkedOnly} changeFunc={onBookmarkedChange} />
-          <GenreFilter state={selectedGenre} changeFunc={onSelectedGenreChange} />
+          <CheckBox state={bookmarkedOnly} ctl={onBookmarkedChange} />
+          <GenreFilter state={selectedGenre} ctl={onSelectedGenreChange} />
 
         </div>
       </form>

@@ -6,7 +6,7 @@ class CheckBox extends React.Component {
   render() {
     const {
       state,
-      changeFunc,
+      ctl,
     } = this.props;
 
     return (
@@ -15,7 +15,7 @@ class CheckBox extends React.Component {
           type="checkbox"
           name="bookmarkedOnly"
           checked={state}
-          onChange={changeFunc}
+          onChange={ctl}
           data-testid="checkbox-input"
         />
         <label

@@ -4,7 +4,7 @@ import props from './propsValidation';
 
 class GenreSelect extends React.Component {
   render() {
-    const { state, name, text, changeFunc, testDesc } = this.props;
+    const { state, name, text, ctl, testDesc } = this.props;
 
     return (
       <div className="input-container">
@@ -13,7 +13,7 @@ class GenreSelect extends React.Component {
           data-testid={`${(testDesc || name)}-input`}
           name={name}
           value={state}
-          onChange={changeFunc}
+          onChange={ctl}
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>

@@ -64,23 +64,25 @@ class AddMovie extends React.Component {
       <form className="add-movie" data-testid="add-movie-form">
         <h3>Adicione mais filmes</h3>
         <div className="input-group">
-          <Input changeFunc={this.handleInput} state={title} text="Título" name="title" />
-          <Input changeFunc={this.handleInput} state={subtitle} text="Subtítulo" name="subtitle" />
+          <Input ctl={this.handleInput} state={title} text="Título" name="title" />
+          <Input ctl={this.handleInput} state={subtitle} text="Subtítulo" name="subtitle" />
         </div>
         <div className="input-group">
 
-          <Input changeFunc={this.handleInput} state={imagePath}
-            text="Imagem" name="imagePath" testDesc="image"
+          <Input
+            ctl={this.handleInput}
+            state={imagePath}
+            text="Imagem"
+            name="imagePath"
+            testDesc="image"
           />
-          <GenreSelect changeFunc={this.handleInput} state={genre} text="Gênero" name="genre" />
+          <GenreSelect ctl={this.handleInput} state={genre} text="Gênero" name="genre" />
 
         </div>
 
-        <TextArea changeFunc={this.handleInput} state={storyline} text="Sinopse" name="storyline" />
+        <TextArea ctl={this.handleInput} state={storyline} text="Sinopse" name="storyline" />
 
-        <Input changeFunc={this.handleInput} state={rating}
-          text="Avaliação" name="rating" type="number"
-        />
+        <Input ctl={this.handleInput} state={rating} text="Avaliação" name="rating" type="number" />
 
         <button type="submit" data-testid="send-button" onClick={this.handleClick}>
           Adicionar filme
