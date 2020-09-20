@@ -82,7 +82,6 @@ export default class MovieLibrary extends Component {
           onSearchTextChange={this.onSearchTextChange}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <h2> Minha biblioteca de filmes </h2>
         <MovieList movies={moviesFiltered} />
         <AddMovie onClick={this.addFilm} />
       </div>

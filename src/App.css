@@ -37,7 +37,6 @@ body {
   width: 300px;
 }
 
-
 .movie-card-image {
   width: 100%;
 }
@@ -80,4 +79,49 @@ body {
   display: flex;
   justify-content: flex-end;
   padding: 12px 20px;
+}
+
+.containerSearchBar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 15px;
+  margin-left: 32px;
+  margin-right: 20px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputTxt {
+  display: flex;
+  margin-top: 8px;
+  width: 100%;
+}
+
+.inputTxt:hover {
+  border-color: aqua;
+}
+
+.containerChecked {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.inputChecked {
+  margin-left: 8px;
+}
+
+.btnAddMovie {
+  align-self: center;
+  background-color: blue;
+  border: 1px solid blue;
+  border-radius: 10px;
+  color: white;
+  height: 35px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 15%;
 }
