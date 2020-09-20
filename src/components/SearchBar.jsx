@@ -7,8 +7,10 @@ import '../App.css';
 class SearchBar extends Component {
 
   render() {
-    const { procurarTexto, eventoProcurarTexto, marcarFavorito, eventoMarcarFavorito,
-      selecionarGenero, eventoSelecionarGenero } = this.props;
+    const {
+      procurarTexto, eventoProcurarTexto, marcarFavorito, eventoMarcarFavorito,
+      selecionarGenero, eventoSelecionarGenero
+    } = this.props;
     return (
       <form className="SearchBar" data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="textinput">Inclui o texto :
