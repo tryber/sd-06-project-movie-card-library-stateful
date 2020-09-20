@@ -1,15 +1,6 @@
 import React from 'react';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-    };
-  }
   render() {
     return (
       <form data-testid="text-input-label">
