@@ -23,19 +23,32 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value });
   }
 
-  onBookmarkedChange({ target }) {
-    const { name, checked } = target;
-    this.setState({ [name]: checked });
+  onBookmarkedChange(event) {
+    this.setState({ bookmarkedOnly: event.target.checked }, () => {
+      if (this.state.bookmarkedOnly) {
+        const filterFavorites = this.props.movies.filter((movie) => movie.bookmaked === true);
+        this.setState({ movies: filterFavorites });
+      } else {
+        this.setState({ movies: this.props.movies });
+      }
+    });
   }
 
-  onSelectedGenreChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
+  onSelectedGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value }, () => {
+      if (this.state.selectedGenre === '') {
+        this.setState({ movies: this.props.movies });
+      } else {
+        const filterGenre = this.props.movies.filter((movie) => (
+          movie.genre = this.state.selectedGenre
+        ));
+        this.setState({ movies: filterGenre });
+      }
+    });
   }
-
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    console.log(this.state.movies);
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    console.log(movies);
     return (
       <div>
         <SearchBar
@@ -47,7 +60,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList
-          movies={this.state.movies}
+          movies={movies}
         />
         <AddMovie />
       </div>
