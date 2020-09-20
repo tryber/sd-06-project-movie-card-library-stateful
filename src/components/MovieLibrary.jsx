@@ -6,21 +6,21 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super()
+    super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-    }
+    };
     this.handleSearchText = this.handleSearchText.bind(this);
     this.handleBookmarkedChange = this.handleBookmarkedChange.bind(this);
     this.handleGenreChange = this.handleGenreChange.bind(this);
   }
 
-  filterWithSearchText = () => {
-    const { searchText } = this.state
-    const { movies } = this.props
+  filterWithSearchText() {
+    const { searchText } = this.state;
+    const { movies } = this.props;
     const filteredMovies = movies.filter((movie) => (
       movie.title.toUpperCase().includes(searchText.toUpperCase()) ||
       movie.subtitle.toUpperCase().includes(searchText.toUpperCase()) ||
@@ -28,39 +28,31 @@ class MovieLibrary extends React.Component {
     ));
 
     if (this.state.searchText === '') {
-      this.setState({
-        movies: this.props.movies,
-      });
+      this.setState({ movies: this.props.movies });
     } else {
-      this.setState({
-        movies: filteredMovies,
-      });
+      this.setState({ movies: filteredMovies });
     }
   }
 
-  handleSearchText = ({ target }) => {
+  handleSearchText({ target }) {
     const { value } = target;
-    this.setState(() => ({
-      searchText: value,
-    }), this.filterWithSearchText)
+    this.setState(() => ({ searchText: value }), this.filterWithSearchText);
   }
 
-  handleBookmarkedChange = ({ target }) => {
+  handleBookmarkedChange({ target }) {
     // filter por bookmarked e alterar o state.movies
     const { checked } = target;
-    this.setState({
-      bookmarkedOnly: checked,
-    })
+    this.setState({ bookmarkedOnly: checked });
   }
 
-  handleGenreChange = () => {
+  handleGenreChange() {
     // filter por gênero e alterar o state.movies
   }
-  
+
   render() {
     return (
       <div>
-        <SearchBar 
+        <SearchBar
           onSearchTextChange={this.handleSearchText} searchText={this.state.searchText}
           // onBookmarkedChange={handleBookmarkedChange}
           // onSelectedGenreChange={handleGenreChange}
@@ -72,14 +64,14 @@ class MovieLibrary extends React.Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   movie: PropTypes.shape({
-//     title: PropTypes.string,
-//     subtitle: PropTypes.string,
-//     storyline: PropTypes.string,
-//     rating: PropTypes.number,
-//     imagePath: PropTypes.string,
-//   }).isRequired,
-// };
+MovieLibrary.propTypes = {
+  movies: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    storyline: PropTypes.string,
+    rating: PropTypes.number,
+    imagePath: PropTypes.string,
+  })).isRequired,
+};
 
 export default MovieLibrary;
