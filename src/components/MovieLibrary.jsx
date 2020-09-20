@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import AddMovie from './AddMovie';
+import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 
@@ -21,7 +21,7 @@ class MovieLibrary extends React.Component {
     this.filterBookmarked = this.filterBookmarked.bind(this);
     this.filterGenre = this.filterGenre.bind(this);
     this.filterText = this.filterText.bind(this);
-    // this.addMovieBtn = this.addMovieBtn.bind(this);
+    this.addMovieBtn = this.addMovieBtn.bind(this);
   }
 
   inputHandler({ target }) {
@@ -63,18 +63,18 @@ class MovieLibrary extends React.Component {
     return array;
   }
 
-  // addMovieBtn(data) {
-  //   const newMovie = {
-  //     title: data.title,
-  //     subtitle: data.subtitle,
-  //     storyline: data.storyline,
-  //     rating: data.rating,
-  //     imagePath: data.imagePath,
-  //     bookmarked: false,
-  //     genre: data.genre,
-  //   };
-  //   this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
-  // }
+  addMovieBtn(data) {
+    const newMovie = {
+      title: data.title,
+      subtitle: data.subtitle,
+      storyline: data.storyline,
+      rating: data.rating,
+      imagePath: data.imagePath,
+      bookmarked: false,
+      genre: data.genre,
+    };
+    this.setState((prevState) => ({ movies: [...prevState.movies, newMovie] }));
+  }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
@@ -90,7 +90,7 @@ class MovieLibrary extends React.Component {
           selecionarGenero={selectedGenre} eventoSelecionarGenero={this.selectHandler}
         />
         <MovieList filmes={movies} />
-        {/* <AddMovie onClick={this.addMovieBtn} /> */}
+        <AddMovie onClick={this.addMovieBtn} />
       </section>
     );
   }
