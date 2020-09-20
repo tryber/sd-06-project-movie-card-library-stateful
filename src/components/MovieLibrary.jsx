@@ -6,35 +6,34 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
-    super(props);
+    super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.updateSearchTextChange = this.updateSearchTextChange.bind(this);
+    this.updateBookmarkedChange = this.updateBookmarkedChange.bind(this);
+    this.updateSelectedGenreChange = this.updateSelectedGenreChange.bind(this);
   }
 
-  onSearchTextChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
+  updateSearchTextChange({ event }) {
+    this.setState({ searchText: event.target.value });
   }
 
-  onBookmarkedChange(event) {
+  updateBookmarkedChange(event) {
     this.setState({ bookmarkedOnly: event.target.checked }, () => {
-      if (this.state.bookmarkedOnly) {
-        const filterFavorites = this.props.movies.filter((movie) => movie.bookmaked === true);
+      if (this.state.bookmarkedOnly === true) {
+        const filterFavorites = this.props.movies.filter((movie) => movie.bookmarked === true);
         this.setState({ movies: filterFavorites });
       } else {
         this.setState({ movies: this.props.movies });
       }
     });
   }
-
-  onSelectedGenreChange(event) {
+  // 
+  updateSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value }, () => {
       if (this.state.selectedGenre === '') {
         this.setState({ movies: this.props.movies });
@@ -47,19 +46,19 @@ class MovieLibrary extends React.Component {
     });
   }
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-          onSearchTextChange={this.onSearchTextChange}
-          onBookmarkedChange={this.onBookmarkedChange}
-          onSelectedGenreChange={this.onSelectedGenreChange}
+          onSearchTextChange={this.updateSearchTextChange}
+          onBookmarkedChange={this.updateBookmarkedChange}
+          onSelectedGenreChange={this.updateSelectedGenreChange}
         />
         <MovieList
-          movies={movies}
+          movies={this.state.movies}
         />
         <AddMovie />
       </div>
