@@ -18,6 +18,7 @@ class MovieLibrary extends Component {
 
     this.handleTextChange = this.handleTextChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   filterMovies(value, isItCheckBox) {
@@ -48,6 +49,10 @@ class MovieLibrary extends Component {
     this.setState({ [name]: value }, () => this.filterMovies(value, isItCheckBox));
   }
 
+  addMovie(childState) {
+    this.setState({ movies: [...this.state.movies, childState] });
+  }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
 
@@ -61,7 +66,7 @@ class MovieLibrary extends Component {
         onSelectedGenreChange={this.handleTextChange}
       />
       <MovieList movies={movies} />
-      <AddMovie />
+      <AddMovie onClick={this.addMovie} />
     </div>);
   }
 }
@@ -76,12 +81,6 @@ MovieLibrary.propTypes = {
     bookmarked: PropTypes.bool,
     genre: PropTypes.string,
   })).isRequired,
-
-  // searchText: PropTypes.string.isRequired,
-  // onSearchTextChange: PropTypes.func.isRequired,
-  // onBookmarkedChange: PropTypes.func.isRequired,
-  // selectedGenre: PropTypes.string.isRequired,
-  // onSelectedGenreChange: PropTypes.func.isRequired,
 };
 
 export default MovieLibrary;
