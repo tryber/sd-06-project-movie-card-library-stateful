@@ -6,28 +6,27 @@ class SearchBar extends React.Component {
     super();
   }
 
-  render() {
-    const { 
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-     } = this.props;
+  showTextInput() {
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <div>
-        <span>SearchBar Component</span>
-        <form data-testid="search-bar-form">
-          <label htmlFor="textField" data-testid="text-input-label">Inclui o texto:</label>
-          <input
-            name="textField" 
-            id="textField"
-            data-testid="text-input"
-            type="text"
-            value={searchText}
-            onChange={onSearchTextChange}/>
-          <label htmlFor="checkboxField" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+        <label for="textField" data-testid="text-input-label">Inclui o texto:</label>
+        <input
+              name="textField" 
+              id="textField"
+              data-testid="text-input"
+              type="text"
+              value={searchText}
+              onChange={onSearchTextChange}/>
+      </div>
+    );
+  }
+
+  showCheckboxInput() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    return (
+      <div>
+        <label for="checkboxField" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
           <input
             name="checkboxField"
             id="checkboxField"
@@ -35,7 +34,15 @@ class SearchBar extends React.Component {
             type="checkbox"
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}/>
-          <label htmlFor="selectField" data-testid="select-input-label">Filtrar por gênero</label>
+      </div>
+    );
+  }
+
+  showSelectInput() {
+    const { selectedGenre, onSelectedGenreChange } = this.props;
+    return (
+      <div>
+        <label for="selectField" data-testid="select-input-label">Filtrar por gênero</label>
           <select
             data-testid="select-input"
             name=""
@@ -47,6 +54,18 @@ class SearchBar extends React.Component {
             <option value="comedy" data-testid="select-option">Comédia</option>
             <option value="thriller" data-testid="select-option">Suspense</option>
           </select>
+      </div>
+    );
+  }
+
+  render() {
+    return (
+      <div>
+        <span>SearchBar Component</span>
+        <form data-testid="search-bar-form">
+          {this.showTextInput()}
+          {this.showCheckboxInput()}
+          {this.showSelectInput()}
         </form>
       </div>
     );
