@@ -22,7 +22,7 @@ class AddMovieTitle extends Component {
 
 AddMovieTitle.propTypes = {
   handleOnChange: PropTypes.func.isRequired,
-  title: PropTypes.string.isRequired,  
+  title: PropTypes.string.isRequired,
 };
 
 export default AddMovieTitle;
