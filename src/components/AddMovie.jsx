@@ -82,7 +82,7 @@ class AddMovie extends React.Component {
       <form className="addMovie" data-testid="add-movie-form">
         <Labels />
         { this.LocalDasEntradas() }
-        <button className="btnAdicionar" data-testid="send-button" onClick={onClick}>
+        <button className="btnAdicionar" data-testid="send-button" >
           Adicionar filme
         </button>
       </form>

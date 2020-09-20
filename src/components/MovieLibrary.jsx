@@ -54,9 +54,9 @@ class MovieLibrary extends React.Component {
     const lowText = text.toLowerCase();
     if (lowText !== '') {
       return array.filter((movie) => {
-        if (this.movie.title.toLowerCase().search(lowText) > -1) return true;
-        if (this.movie.subtitle.toLowerCase().search(lowText) > -1) return true;
-        if (this.movie.storyline.toLowerCase().search(lowText) > -1) return true;
+        if (movie.title.toLowerCase().search(lowText) > -1) return true;
+        if (movie.subtitle.toLowerCase().search(lowText) > -1) return true;
+        if (movie.storyline.toLowerCase().search(lowText) > -1) return true;
         return false;
       });
     }
@@ -79,9 +79,9 @@ class MovieLibrary extends React.Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let movies = this.state.movies;
-    movies = this.filterBookmarked(movies, bookmarkedOnly);
-    movies = this.filterGenre(movies, selectedGenre);
-    movies = this.filterText(movies, searchText);
+    movies = this.filterBookmarked(this.movies, bookmarkedOnly);
+    movies = this.filterGenre(this.movies, selectedGenre);
+    movies = this.filterText(this.movies, searchText);
     return (
       <section>
         <SearchBar
