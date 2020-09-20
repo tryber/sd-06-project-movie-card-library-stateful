@@ -1,8 +1,9 @@
 // implement SearchBar component here
-import React from 'react';
+import React, { Component } from 'react';
 
-class SearchBar extends React.Component {
+class SearchBar extends Component {
   render() {
+    const { searchText, onSearchTextChange } = this.props;
     return (
       <div>
         <form data-testid="search-bar-form">
@@ -12,8 +13,8 @@ class SearchBar extends React.Component {
               type="text"
               id="text-input"
               data-testid="text-input"
-              value={this.props.searchText}
-              onChange={this.props.onSearchTextChange}
+              value={searchText}
+              onChange={onSearchTextChange}
             />
           </label>
         </form>
