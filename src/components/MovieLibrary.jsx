@@ -37,7 +37,12 @@ class MovieLibrary extends React.Component {
   }
 
   onSelectedGenreChange({ target }) {
-    this.setState(() => ({ selectedGenre: target.value }));
+    const { value } = target;
+    this.setState({
+      selectedGenre: value,
+      movies: value === null ? this.props.movies :
+      this.props.movies.filter((movie) => movie.genre === value),
+    });
   }
 
   onBookmarkedChange({ target }) {
