@@ -36,31 +36,31 @@ class MovieLibrary extends React.Component {
     this.setState({ bookmarkedOnly: target.checked });
   }
 
-  filterBookmarked(array, bookmarked) {
+  filterBookmarked(meuArray, bookmarked) {
     if (this.bookmarked) {
-      return array.filter((movie) => movie.bookmarked);
+      return meuArray.filter((movie) => movie.bookmarked);
     }
-    return array;
+    return meuArray;
   }
 
-  filterGenre(array, genre) {
-    if (this.genre !== '') {
-      return array.filter((movie) => movie.genre === genre);
+  filterGenre(meuArray, genre) {
+    if (genre !== '') {
+      return meuArray.filter((movie) => movie.genre === genre);
     }
-    return array;
+    return meuArray;
   }
 
-  filterText(array, text) {
-    const lowText = text.toLowerCase();
-    if (lowText !== '') {
-      return array.filter((movie) => {
-        if (movie.title.toLowerCase().search(lowText) > -1) return true;
-        if (movie.subtitle.toLowerCase().search(lowText) > -1) return true;
-        if (movie.storyline.toLowerCase().search(lowText) > -1) return true;
+  filterText(meuArray, text) {
+    const aux = text.toLowerCase();
+    if (aux !== '') {
+      return meuArray.filter((movie) => {
+        if (movie.title.toLowerCase().search(aux) > -1) return true;
+        if (movie.subtitle.toLowerCase().search(aux) > -1) return true;
+        if (movie.storyline.toLowerCase().search(aux) > -1) return true;
         return false;
       });
     }
-    return array;
+    return meuArray;
   }
 
   render() {
