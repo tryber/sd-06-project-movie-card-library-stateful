@@ -16,7 +16,8 @@ class AddMovie extends Component {
         <form action="" data-testid="add-movie-form">
           <label htmlFor="title-input" data-testid="title-input-label">Título</label>
           <input type="text" name="" id="title-input" data-testid="title-input" />
-
+          <label htmlFor="subtitle-input" data-testid="subtitle-input-label">Subtítulo</label>
+          <input type="text" name="" id="subtitle-input" data-testid="subtitle-input"/>
         </form>
       </div>
     );
