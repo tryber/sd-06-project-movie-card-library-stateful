@@ -21,14 +21,14 @@ class MovieLibrary extends Component {
     };
   }
   onSearchTextChange({ target }) {
-    this.setState({ searchText: target.value })
-  };
+    this.setState({ searchText: target.value });
+  }
   onBookmarkedChange({ target }) {
-    this.setState({ bookmarkedOnly: target.checked })
-  };
-  onSelectedGenreChange({ target } ) {
-    this.setState({ selectedGenre: target.value })
-  };
+    this.setState({ bookmarkedOnly: target.checked });
+  }
+  onSelectedGenreChange({ target }) {
+    this.setState({ selectedGenre: target.value });
+  }
   onClick() {
     const teste = {
       subtitle: '',
@@ -43,32 +43,40 @@ class MovieLibrary extends Component {
 
   funcFilter(movies) {
     const { searchText, selectedGenre, bookmarkedOnly } = this.state;
-    return movies.filter(movie => {
+    var result;
+    return movies.filter((movie) => {
       const { title, subtitle, storyline } = movie;
-      if(searchText === '') {
-        return true;
+      if (searchText === '') {
+        result = true;
       } else {
-        return (
+        result = (
           (title.indexOf(searchText) > -1 ||
           subtitle.indexOf(searchText) > -1 ||
           storyline.indexOf(searchText) > -1)
         );
       }
-    }).filter(movie => {
+      return result;
+    }).filter((movie) => {
       const { genre } = movie;
-      if(selectedGenre === '') {
-        return true;
+      if (selectedGenre === '') {
+        result = true;
       } else {
-        return genre === selectedGenre;
+        result = (genre === selectedGenre);
       }
-    }).filter(movie => {
+      return result;
+    }).filter((movie) => {
       const { bookmarked } = movie;
-      if(bookmarkedOnly === false) {
-        return true;
+      if (bookmarkedOnly === false) {
+        result = true;
       } else {
-        return bookmarked === bookmarkedOnly;
+        result = (bookmarked === bookmarkedOnly);
       }
+      return result;
     });
+  }
+
+  insideFilter() {
+    
   }
 
   render() {
