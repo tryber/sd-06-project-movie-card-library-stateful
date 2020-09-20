@@ -18,4 +18,12 @@ class AddMovie extends React.Component {
       genre: '',
     };
   }
+
+  render() {
+    return (
+      <form data-testid="add-movie-form">
+        
+      </form>
+    );
+  }
 }
