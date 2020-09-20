@@ -1,6 +1,8 @@
 import React from 'react';
 import TitleInputText from './TitleInputText';
 import SubTitleInputText from './SubTitleInputText';
+import Image from './Image';
+import Storyline from './Storyline';
 
 
 class AddMovie extends React.Component {
@@ -23,7 +25,12 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { title, subtitle } = this.state;
+    const {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+    } = this.state;
     return (
       <form>
         <TitleInputText
@@ -33,6 +40,14 @@ class AddMovie extends React.Component {
         <SubTitleInputText
           onChange={this.handleChange}
           value={subtitle}
+        />
+        <Image
+          onChange={this.handleChange}
+          value={imagePath}
+        />
+        <Storyline
+          onChange={this.handleChange}
+          value={storyline}
         />
       </form>
     );

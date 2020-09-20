@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-
 class SearchBar extends React.Component {
   renderFilterByGender() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
