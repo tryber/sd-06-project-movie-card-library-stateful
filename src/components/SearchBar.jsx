@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import propTypes from 'prop-types';
+import SearchBox from './SearchBox.jsx';
 
 import '../App.css';
 
@@ -23,16 +24,7 @@ class SearchBar extends Component {
             data-testid="checkbox-input" id="fav"
           />
         </label>
-
-        <label data-testid="select-input-label" htmlFor="select">
-          Filtrar por gênero :
-          <select value={selecionarGenero} onChange={eventoSelecionarGenero} data-testid="select-input">
-            <option value="" data-testid="select-option">Todos</option>
-            <option value="action" data-testid="select-option">Ação</option>
-            <option value="comedy" data-testid="select-option">Comédia</option>
-            <option value="thriller" data-testid="select-option">Suspense</option>
-          </select>
-        </label>
+        <SearchBox lista={selecionarGenero} evento={eventoSelecionarGenero} />
       </form>
     );
   }
