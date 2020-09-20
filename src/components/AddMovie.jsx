@@ -77,13 +77,16 @@ export default class AddMovie extends Component {
           <label data-testid="rating-input-label" htmlFor="rating" className="label">Avaliação
             <input
               data-testid="rating-input" type="number" name="rating" value={this.state.rating}
-              onChange={this.handleChange} className="label" className="inputTxt"
+              onChange={this.handleChange} className="inputTxt"
             />
           </label>
           <label data-testid="genre-input-label" htmlFor="genre" className="label">Gênero
             {this.handleSelect()}
           </label>
-          <button type="button" data-testid="send-button" onClick={this.handleAddMovie}  className="btnAddMovie">
+          <button
+            type="button" data-testid="send-button" onClick={this.handleAddMovie}
+            className="btnAddMovie"
+          >
             Adicionar filme
           </button>
         </form>
