@@ -39,6 +39,12 @@ class AddMovie extends React.Component {
     });
   }
 
+/*   handleAddMovie(event){
+    event.preventDefault()
+    const {onClick} = this.props
+    onClick()
+  } */
+
   renderSelect() {
     const { genre } = this.state;
     return (
