@@ -60,14 +60,11 @@ class SearchBar extends React.Component {
 
   render() {
     return (
-      <div>
-        <span>SearchBar Component</span>
-        <form data-testid="search-bar-form">
-          {this.showTextInput()}
-          {this.showCheckboxInput()}
-          {this.showSelectInput()}
-        </form>
-      </div>
+      <form data-testid="search-bar-form">
+        {this.showTextInput()}
+        {this.showCheckboxInput()}
+        {this.showSelectInput()}
+      </form>
     );
   }
 }
