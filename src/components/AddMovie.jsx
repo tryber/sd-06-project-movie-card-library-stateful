@@ -22,7 +22,9 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  inputButton() {
+  clickButton(event) {
+    // console.log(event);
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -151,7 +153,7 @@ class AddMovie extends React.Component {
         </label>
         <button
           type="button"
-          onClick={this.inputButton}
+          onClick={this.clickButton}
           data-testid="send-button"
         >
           Adicionar filme
