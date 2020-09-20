@@ -13,12 +13,26 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
 
-    this.onChange = this.props.onChange.bind(this);
+    this.onChange = this.onChange.bind(this);
+    this.submit = this.submit.bind(this);
   }
 
   onChange({ target }) {
     const { name } = target;
-    this.setState({ [name]: target.value });
+    const value = (target.type === 'checkbox') ? target.checked : target.value;
+    this.setState(() => ({ [name]: value }));
+  }
+
+  submit() {
+    this.props.onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   renderTitleInput() {
@@ -30,9 +44,10 @@ class AddMovie extends React.Component {
         >Título
         </label>
         <input
+          name="title"
           type="text"
-          value={this.props.title}
-          onChange={this.props.onChange}
+          value={this.state.title}
+          onChange={this.onChange}
           data-testid="title-input"
         />
       </div>
@@ -48,9 +63,10 @@ class AddMovie extends React.Component {
         >Subtítulo
         </label>
         <input
+          name="subtitle"
           type="text"
-          value={this.props.subtitle}
-          onChange={this.props.onChange}
+          value={this.state.subtitle}
+          onChange={this.onChange}
           data-testid="subtitle-input"
         />
       </div>
@@ -66,9 +82,10 @@ class AddMovie extends React.Component {
         >Imagem
         </label>
         <input
+          name="imagePath"
           type="text"
-          value={this.props.imagePath}
-          onChange={this.props.onChange}
+          value={this.state.imagePath}
+          onChange={this.onChange}
           data-testid="image-input"
         />
       </div>
@@ -84,9 +101,10 @@ class AddMovie extends React.Component {
         >Sinopse
         </label>
         <input
+          name="storyline"
           type="text"
-          value={this.props.storyline}
-          onChange={this.props.onChange}
+          value={this.state.storyline}
+          onChange={this.onChange}
           data-testid="storyline-input"
         />
       </div>
@@ -102,9 +120,10 @@ class AddMovie extends React.Component {
         >Avaliação
         </label>
         <input
+          name="rating"
           type="number"
-          value={this.props.rating}
-          onChange={this.props.onChange}
+          value={this.state.rating}
+          onChange={this.onChange}
           data-testid="rating-input"
         />
       </div>
@@ -120,8 +139,9 @@ class AddMovie extends React.Component {
         >Gênero
         </label>
         <select
-          value={this.props.genre}
-          onChange={this.props.onChange}
+          name="genre"
+          value={this.state.genre}
+          onChange={this.onChange}
           data-testid="genre-input"
         >
           <option value="action" data-testid="genre-option">Ação</option>
@@ -137,7 +157,7 @@ class AddMovie extends React.Component {
       <div>
         <button
           data-testid="send-button"
-          onClick={this.props.onClick}
+          onClick={this.submit}
         >Adicionar filme
         </button>
       </div>
@@ -167,18 +187,10 @@ AddMovie.defaultProps = {
   rating: 0,
   genre: 'action',
   onChange: () => {},
+  submit: () => {},
   onClick: () => {},
 };
 
-AddMovie.propTypes = {
-  title: propTypes.string,
-  subtitle: propTypes.string,
-  imagePath: propTypes.string,
-  storyline: propTypes.string,
-  rating: propTypes.number,
-  genre: propTypes.string,
-  onChange: propTypes.func,
-  onClick: propTypes.func,
-};
+AddMovie.propTypes = { onClick: propTypes.func };
 
 export default AddMovie;
