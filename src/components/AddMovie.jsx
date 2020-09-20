@@ -20,15 +20,18 @@ class AddMovie extends React.Component {
     this.setState({ [evento.target.name]: evento.target.value });
   }
 
-  /* tem que dar um name igual ao state inicial para cada input e chamar essa mesma função
-  em todas elas
-  fazer a função que chama a função de onclick que será passada como props e chamar no botão
-  que ainda não está criado
+  /* tem que dar um name igual ao state inicial para cada input
+  e chamar essa mesma função em todas elas fazer a função que
+  chama a função de onclick que será passada como props e chamar
+  no botão que ainda não está criado
  */
 
+  // mas quem é onClick, o que ela vai fazer?
+  // como consigo adc o filme na tela?
 
   reset() {
-    this.props.onClick(this.state);
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
