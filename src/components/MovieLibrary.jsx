@@ -46,7 +46,7 @@ class MovieLibrary extends Component {
 }
 
 MovieLibrary.propTypes = {
-  checked: PropTypes.bool.isRequired,
+  // checked: PropTypes.bool.isRequired,
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
   onClick: PropTypes.func.isRequired,
   /* subtitle: PropTypes.string.isRequired,

@@ -5,13 +5,14 @@ import PropTypes from 'prop-types';
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.changeState = this.changeState.bind(this);
+    this.ChangeState = this.ChangeState.bind(this);
     this.GetGenreElement = this.GetGenreElement.bind(this);
     this.GetRatingElement = this.GetRatingElement.bind(this);
     this.GetStorylineElement = this.GetStorylineElement.bind(this);
     this.GetImageElement = this.GetImageElement.bind(this);
     this.GetSubtitleElement = this.GetSubtitleElement.bind(this);
     this.GetTitleElement = this.GetTitleElement.bind(this);
+    this.ResetState = this.ResetState.bind(this);
 
     this.state = {
       subtitle: '',
@@ -22,15 +23,24 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
   }
+  
+  ResetState() {
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+    this.props.onClick();
+    }
 
-  changeState({ target }) {
-    const { name, value } = target;
-    /* target.type === 'checkbox'
-      ? this.setState({ [name]: target.checked })
-      : this.setState({ [name]: value }); */
-    this.setState(target.type === 'checkbox'
-      ? { [name]: target.checked }
-      : { [name]: value });
+  ChangeState({ target }) {
+    const { name, value, type, checked } = target;
+    type === 'checkbox'
+    ? this.setState({ [name]: checked })
+    : this.setState({ [name]: value });
   }
 
   GetTitleElement() {
@@ -43,7 +53,7 @@ class AddMovie extends React.Component {
           type="text"
           name="title"
           value={title}
-          onChange={this.changeState}
+          onChange={this.ChangeState}
         />
       </label>
     );
@@ -58,7 +68,7 @@ class AddMovie extends React.Component {
           type="text"
           name="subtitle"
           value={this.state.subtitle}
-          onChange={this.changeState}
+          onChange={this.ChangeState}
         />
       </label>
     );
@@ -73,7 +83,7 @@ class AddMovie extends React.Component {
           type="text"
           name="imagePath"
           value={this.state.imagePath}
-          onChange={this.changeState}
+          onChange={this.ChangeState}
         />
       </label>
     );
@@ -86,10 +96,11 @@ class AddMovie extends React.Component {
         <select
           id="genre-dropdown"
           data-testid="genre-input"
+          name="genre"
+          type="text"
           value={this.state.genre}
-          onChange={this.changeState}
+          onChange={this.ChangeState}
         >
-          <option data-testid="genre-option" value="">Todos</option>
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
@@ -107,7 +118,7 @@ class AddMovie extends React.Component {
           type="text"
           name="storyline"
           value={this.state.storyline}
-          onChange={this.changeState}
+          onChange={this.ChangeState}
         />
       </label>
     );
@@ -122,14 +133,18 @@ class AddMovie extends React.Component {
           type="number"
           name="rating"
           value={this.state.rating}
-          onChange={this.changeState}
+          onChange={this.ChangeState}
         />
       </label>
     );
   }
 
+  onClick() {
+
+  }
+
   render() {
-    const { onClick } = this.props;
+    const { ResetState } = this;
     return (
       <form data-testid="add-movie-form">
         <this.GetTitleElement /> <br />
@@ -140,7 +155,8 @@ class AddMovie extends React.Component {
         <this.GetGenreElement />
         <button
           data-testid="send-button"
-          onClick={onClick}
+          type="button"
+          onClick={ResetState}
         >Adicionar filme</button>
       </form>
     );
