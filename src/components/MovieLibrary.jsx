@@ -32,7 +32,7 @@ class MovieLibrary extends Component {
   onClick(state) {
     const { movies } = this.props;
     movies.push(state);
-    this.setState({ movies: movies });
+    this.setState({ 'movies': movies });
   }
 
   funcFilter(movies) {
