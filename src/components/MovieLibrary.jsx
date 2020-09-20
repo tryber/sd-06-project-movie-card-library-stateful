@@ -50,8 +50,8 @@ class MovieLibrary extends React.Component {
     this.setState({
       bookmarked: checked,
       movies: checked === null ? this.props.movies :
-      this.props.movies.filter((movie) => movie.bookmarked)
-    })
+      this.props.movies.filter((movie) => movie.bookmarked),
+    });
   }
 
   onClick(movie) {
