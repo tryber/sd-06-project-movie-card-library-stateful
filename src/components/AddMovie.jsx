@@ -14,13 +14,28 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.onFieldChange = this.onFieldChange.bind(this);
+    this.onSave = this.onSave.bind(this);
   }
   onFieldChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
+
+  onSave(event) {
+    event.preventDefault();
+    const { onSaveMovie } = this.props;
+    onSaveMovie(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
+  }
+
   render() {
-    const { onSave } = this.props;
     return (
       <form
         data-testid="add-movie-form"
@@ -86,12 +101,12 @@ class AddMovie extends React.Component {
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
 
-        <button onClick={onSave} data-testid="send-button">Adicionar filme</button>
+        <button type="submit" onClick={this.onSave} data-testid="send-button">Adicionar filme</button>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = { onSave: PropTypes.func.isRequired };
+AddMovie.propTypes = { onSaveMovie: PropTypes.func.isRequired };
 
 export default AddMovie;
