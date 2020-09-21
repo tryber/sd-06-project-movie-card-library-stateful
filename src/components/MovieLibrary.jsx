@@ -38,8 +38,7 @@ class MovieLibrary extends Component {
   onClick(result) {
     this.setState({ movies: [...this.state.movies, result] });
   }
-  // .filter(element => element.bookmarked === this.state.bookmarkedOnly)
-  // .filter(element => element.genre.includes(this.state.selectedGenre))
+
   filteredMovies() {
     const result = this.state.movies
       .filter((element) =>
