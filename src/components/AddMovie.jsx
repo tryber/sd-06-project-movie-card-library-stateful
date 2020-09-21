@@ -14,12 +14,26 @@ class AddMovie extends Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.saveNewMovie = this.saveNewMovie.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
+  }
+  
+  handleClick(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   title() {
@@ -77,23 +91,9 @@ class AddMovie extends Component {
     );
   }
 
-  saveNewMovie(event) {
-    event.preventDefault();
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    });
-  }
-
   saveButton() {
     return (
-      <button data-testid="send-button" onClick={this.saveNewMovie} type="submit">
+      <button data-testid="send-button" onClick={this.handleClick} type="submit">
         Adicionar filme
       </button>
     );
@@ -120,11 +120,6 @@ class AddMovie extends Component {
   }
 }
 
-function setDefaultProps() {
-  return { onClick: this.onClick.bind(this) };
-}
-
 AddMovie.propTypes = { onClick: PropTypes.func };
-AddMovie.defaultProps = { onClick: setDefaultProps };
 
 export default AddMovie;

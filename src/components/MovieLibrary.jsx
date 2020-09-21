@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
-import MovieList from './MovieList';
+import MovieList from './MovieList'
 import movies from '../data';
 
 class MovieLibrary extends Component {
@@ -20,8 +20,8 @@ class MovieLibrary extends Component {
     return (
       <div>
         <SearchBar />
-        <AddMovie />
-        <MovieList movies={movies} />
+        <AddMovie onClick={this.handleClick} />
+        <MovieList movies={movies}/>
       </div>
     );
   }
