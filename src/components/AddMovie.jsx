@@ -47,7 +47,7 @@ class AddMovie extends Component {
     this.setState({ genre: target.value });
   }
 
-  clickButton() {
+  clickButton(event) {
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -58,6 +58,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+    event.preventDefault();
   }
 
   render() {
