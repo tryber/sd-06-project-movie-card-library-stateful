@@ -32,7 +32,7 @@ class MovieLibrary extends Component {
       bookmarked: false,
       genre: newMoview.state.genre,
     };
-    this.setState({ movies: [...this.props.movies, myNewMovie] });
+    this.setState({ movies: [...this.state.movies, myNewMovie] });
   }
 
   onSearchTextChange({ target }) {
