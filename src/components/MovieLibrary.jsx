@@ -32,23 +32,23 @@ class MovieLibrary extends React.Component {
 
   filterBy() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    let whichFilterINeed = movies;
+    let filterBy = movies;
 
     if (bookmarkedOnly) {
-      whichFilterINeed = whichFilterINeed.filter((movie) => movie.bookmarked === true);
+      filterBy = filterBy.filter((movie) => movie.bookmarked === true);
     }
 
     if (selectedGenre) {
-      whichFilterINeed = whichFilterINeed.filter((movie) => movie.genre === selectedGenre);
+      filterBy = filterBy.filter((movie) => movie.genre === selectedGenre);
     }
 
     if (searchText) {
-      whichFilterINeed = whichFilterINeed.filter((movie) => movie.title.toLowerCase()
+      filterBy = filterBy.filter((movie) => movie.title.toLowerCase()
         .includes(searchText.toLowerCase()) || movie.subtitle.toLowerCase()
         .includes(searchText.toLowerCase()) || movie.storyline.toLowerCase()
         .includes(searchText.toLowerCase()));
     }
-    this.setState({ movies: whichFilterINeed });
+    this.setState({ movies: filterBy });
   }
 
   render() {
