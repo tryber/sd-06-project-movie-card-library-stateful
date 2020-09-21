@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
-
   textInput() {
     const { searchText, onSearchTextChange } = this.props;
     return (
@@ -66,7 +65,6 @@ class SearchBar extends Component {
             <p>Filtrar por gênero</p>
             {this.selectInput()}
           </label>
-
         </form>
       </div>
     );
