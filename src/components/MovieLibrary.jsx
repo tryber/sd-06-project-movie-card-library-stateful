@@ -4,9 +4,6 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor() {
-    super();
-  }
 
   handleClick(newMovie) {
     this.setState({ movies: this.state.movies.concat(newMovie) });
