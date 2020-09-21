@@ -4,16 +4,16 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   render() {
-    const {
-      movie: {
-        searchText,
-        onSearchTextChange,
-        bookmarkedOnly,
-        onBookmarkedChange,
-        selectedGenre,
-        onSelectedGenreChange,
-      },
-    } = this.props;
+    // const {
+    //   movie: {
+    //     searchText,
+    //     onSearchTextChange,
+    //     bookmarkedOnly,
+    //     onBookmarkedChange,
+    //     selectedGenre,
+    //     onSelectedGenreChange,
+    //   },
+    // } = this.props;
 
     return (
       <form data-testid="search-bar-form">
@@ -55,6 +55,6 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.propTypes = { movie: PropTypes.objectOf(PropTypes.any).isRequired };
+// SearchBar.propTypes = { movie: PropTypes.objectOf(PropTypes.any).isRequired };
 
 export default SearchBar;
