@@ -1,19 +1,14 @@
 import React from 'react';
 import './App.css';
-import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
 import Header from './components/Header';
-
-function onClick() {
-  console.log('oi');
-}
+import movies from './data';
+import MovieLibrary from './components/MovieLibrary';
 
 function App() {
   return (
     <div className="App">
       <Header />
-      <SearchBar />
-      <AddMovie onClick={onClick} />
+      <MovieLibrary movies={movies} />
     </div>
   );
 }
