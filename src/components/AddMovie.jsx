@@ -8,6 +8,7 @@ class AddMovie extends React.Component {
     super();
 
     this.eventHandler = this.eventHandler.bind(this);
+    this.addMovie = this.addMovie.bind(this);
 
     this.state = {
       subtitle: '',
@@ -22,6 +23,10 @@ class AddMovie extends React.Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
+  }
+
+  addMovie() {
+
   }
 
   render() {
@@ -89,7 +94,7 @@ class AddMovie extends React.Component {
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
-          <button onClick={this.eventHandler} data-testid="send-button">Adicionar filme</button>
+          <button onClick={this.addMovie} data-testid="send-button">Adicionar filme</button>
 
         </label>
       </form>
