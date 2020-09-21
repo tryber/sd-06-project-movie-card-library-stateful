@@ -15,7 +15,7 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
     this.handleState = this.handleState.bind(this);
-    this.filteringSearchChange = this.filteringSearchChange.bind(this);
+    this.filterBy = this.filterBy.bind(this);
   }
 
   onClick() {
@@ -26,18 +26,16 @@ class MovieLibrary extends React.Component {
     const { name } = event.target;
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({ [name]: value }, () => {
-      this.filteringSearchChange();
+      this.filterBy();
     });
   }
 
-  filteringSearchChange() {
+  filterBy() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     let whichFilterINeed = movies;
 
     if (bookmarkedOnly) {
       whichFilterINeed = whichFilterINeed.filter((movie) => movie.bookmarked === true);
-    } else {
-      whichFilterINeed = movies;
     }
 
     if (selectedGenre) {
