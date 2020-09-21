@@ -8,7 +8,7 @@ F
 
 Você deverá desenvolver uma aplicação que consiste em uma biblioteca de cartões de filmes dinâmica utilizando React. A biblioteca é composta por:
 
-* Um cabeçalho;
+* Um cabeçalho
 
 * Uma barra de busca, utilizada pra filtrar quais cartões serão exibidos na lista de cartões;
 
@@ -138,7 +138,7 @@ Esse componente renderizará uma barra com filtros acima da listagem de cartões
   - `bookmarkedOnly`, um boolean
   - `onBookmarkedChange`, uma callback
   - `selectedGenre`, uma string
-  - `onSelectedGenreChange`, uma callback
+  - `onSelectedGenreChange`, uma callback.
 
 O que será validado: 
   - Será validado se o componente `SearchBar` renderiza com sucesso 
