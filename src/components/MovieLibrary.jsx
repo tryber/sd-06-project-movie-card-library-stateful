@@ -14,11 +14,11 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
+  onSearchTextChange(event) {
+    const { name, value } = event.target;
     this.setState({ [name]: value });
   }
 
@@ -34,7 +34,7 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.handleChange}
+          onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
         />
