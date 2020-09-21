@@ -52,9 +52,7 @@ class MovieLibrary extends Component {
   onClick(newMovie) {
     let { movies } = this.state;
     movies = movies.concat([newMovie]);
-    this.setState({ 
-      movies: movies,
-    });
+    this.setState({ movies: movies });
   }
 
   render() {
