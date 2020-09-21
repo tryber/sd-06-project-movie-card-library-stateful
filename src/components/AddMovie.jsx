@@ -24,7 +24,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  submit() {
+  submit(event) {
+    event.preventDefault();
     this.props.onClick(this.state);
     this.setState({
       subtitle: '',
@@ -146,7 +147,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { submit } = this.props;
     return (
       <form data-testid="add-movie-form">
         {this.renderTitle()}
@@ -155,7 +155,7 @@ class AddMovie extends React.Component {
         {this.renderSinopse()}
         {this.renderRating()}
         {this.renderGenre()}
-        <button data-testid="send-button" onClick={submit}>
+        <button data-testid="send-button" onClick={this.props.submit}>
           Adicionar filme
         </button>
       </form>

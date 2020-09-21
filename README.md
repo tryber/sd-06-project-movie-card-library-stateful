@@ -514,7 +514,7 @@ Todos os compontens que recebem props devem ter suas proptypes corretamente decl
 
 ### ANTES DE COMEÇAR A DESENVOLVER:
 
-1. Clone o repositório
+1. Clone o repositóriohis.props.onClick(t)
   * `git clone git@github.com:tryber/sd-06-project-movie-card-library-stateful.git`.
   * Entre na pasta do repositório que você acabou de clonar:
     * `cd sd-06-project-movie-card-library-stateful`

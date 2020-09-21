@@ -14,6 +14,7 @@ class MovieLibrary extends React.Component {
     this.filteringCategory = this.filteringCategory.bind(this);
     this.filteringFavorites = this.filteringFavorites.bind(this);
     this.filteringMovies = this.filteringMovies.bind(this);
+    this.onClick = this.onClick.bind(this);
 
     this.state = {
       searchText: '',
@@ -22,6 +23,11 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
   }
+
+  onClick(movie) {
+    console.log(movie);
+    this.setState({ movies: [...this.state.movies, movie] })
+  };
 
   onSearchTextChange({ target }) {
     const { name, value } = target;
@@ -79,7 +85,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.submit} />
+        <AddMovie onClick={this.onClick}/>
       </div>
     );
   }
