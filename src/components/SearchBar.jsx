@@ -16,7 +16,8 @@ class SearchBar extends React.Component {
 
 
   filterByGenderSelect() {
-    const { selectedGenre, onSelectedGenreChange } = this.props;
+    const { selectedGenre } = this.props;
+    const { onSelectedGenreChange } = this.props;
     return (
       <div>
         <label data-testid="select-input-label" htmlFor="select">

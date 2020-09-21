@@ -16,8 +16,51 @@ class MovieLibrary extends Component {
     };
 
     this.handleAddMovie = this.handleAddMovie.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
   }
 
+  // filterSearchBar(target){
+  //    this.setState([name]: target.value)
+
+  // }
+
+
+  onBookmarkedChange({ target }) {
+    this.setState({ bookmarkedOnly: target.checked }, () => this.filterBookMarked());
+  }
+
+  onSelectedGenreChange({ target }) {
+    this.setState({ selectedGenre: target.value }, () => {
+      this.filterSearchBar();
+    });
+  }
+
+  onSearchTextChange({ target }) {
+    this.setState({ searchText: target.value }, () => {
+      this.filterSearchTextChange();
+    });
+  }
+
+  filterBookMarked() {
+    const { movies } = this.props;
+    const z = movies.filter((element) => element.bookmarked === this.state.bookmarkedOnly);
+    this.setState({ movies: z });
+  }
+
+  filterSearchTextChange() {
+    const { movies } = this.props;
+    const y = movies.filter(({ title, storyline, subtitle }) => storyline.includes(this.state.searchText) || title.includes(this.state.searchText) || subtitle.includes(this.state.searchText));
+    console.log(y);
+    this.setState({ movies: y });
+  }
+
+  filterSearchBar() {
+    const { movies } = this.props;
+    const x = movies.filter((element) => element.genre === this.state.selectedGenre);
+    this.setState({ movies: x });
+  }
 
   handleAddMovie(movie) {
     const { movies } = this.state;
@@ -26,16 +69,20 @@ class MovieLibrary extends Component {
 
   render() {
     const { movies } = this.state;
+    const { searchText } = this.state;
+    const { selectedGenre } = this.state;
+    const { bookmarkedOnly } = this.state;
+
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
-          searchText="oaaa"
-          onSearchTextChange={() => {}}
-          bookmarkedOnly={false}
-          onBookmarkedChange={() => {}}
-          selectedGenre="thirller"
-          onSelectedGenreChange={() => {}}
+          searchText={searchText}
+          onSearchTextChange={this.onSearchTextChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
         <AddMovie handleAddMovie={this.handleAddMovie} />

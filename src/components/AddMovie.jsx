@@ -32,7 +32,6 @@ class AddMovie extends React.Component {
   }
 
   handleChange({ target }) {
-    console.log('1', this.state);
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({ [name]: value });
@@ -40,10 +39,10 @@ class AddMovie extends React.Component {
 
 
   handleSubmit(e) {
-    e.preventDefault();
     const { handleAddMovie } = this.props;
     handleAddMovie(this.state);
     this.handleResetForm();
+    e.preventDefault();
   }
 
 
