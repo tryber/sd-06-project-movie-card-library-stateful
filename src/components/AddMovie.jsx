@@ -3,10 +3,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  constructor(props) {
-    super(props);
-    this.handleChange = this.handleChange.bind(this);
-    // this.addMovie = this.addMovie.bind(this);
+  constructor() {
+    super();
     this.state = {
       subtitle: '',
       title: '',
@@ -15,11 +13,12 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.saveNewMovie = this.saveNewMovie.bind(this);
   }
 
   handleChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const { name, value } = target;
     this.setState({ [name]: value });
   }
 
@@ -78,7 +77,10 @@ class AddMovie extends Component {
     );
   }
 
-  resetState() {
+  saveNewMovie(event){
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -89,16 +91,9 @@ class AddMovie extends Component {
     });
   }
 
-  saveNewMovie(event) {
-    event.preventDefault();
-    const { onClick } = this.props;
-    onClick(this.state);
-    this.resetState();
-  }
-
   saveButton() {
     return (
-      <button data-testid="send-button" onClick={this.saveNewMovie}>
+      <button data-testid="send-button" onClick={this.saveNewMovie} type="submit">
         Adicionar filme
       </button>
     );
