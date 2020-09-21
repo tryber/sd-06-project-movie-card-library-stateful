@@ -60,7 +60,7 @@ class AddMovie extends React.Component {
       <div>
         <form data-testid="add-movie-form" onSubmit={this.handleSubmit}>
           <label data-testid="title-input-label" htmlFor="title">
-              Titulo
+              Título
             <input
               data-testid="title-input"
               onChange={this.handleChange}
