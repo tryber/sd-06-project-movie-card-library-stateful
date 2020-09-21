@@ -14,6 +14,7 @@ class SearchBar extends Component {
         <input
           type="text"
           data-testid="text-input"
+          name="searchText"
           value={searchText}
           onChange={onSearchTextChange}
         />
@@ -32,6 +33,7 @@ class SearchBar extends Component {
         <input
           type="checkbox"
           data-testid="checkbox-input"
+          name="bookmarkedOnly"
           checked={bookmarkedOnly}
           onChange={onBookmarkedChange}
         />
@@ -49,6 +51,7 @@ class SearchBar extends Component {
       Filtrar por gênero
         <select
           data-testid="select-input"
+          name="selectedGenre"
           value={selectedGenre}
           onChange={onSelectedGenreChange}
         >

@@ -20,6 +20,8 @@ class MovieLibrary extends Component {
     // this.updateSelectedGenre = this.updateSelectedGenre.bind(this);
     // this.renderMovieList = this.renderMovieList.bind(this);
     // this.createMovie = this.createMovie.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.createMovie = this.createMovie.bind(this);
   }
 
   handleChange({ target }) {
@@ -33,10 +35,10 @@ class MovieLibrary extends Component {
   }
 
 
-  updateSearchText({ target }) {
-    const { value } = target;
-    this.setState(() => ({ searchText: value }));
-  }
+  // updateSearchText({ target }) {
+  //   const { value } = target;
+  //   this.setState(() => ({ searchText: value }));
+  // }
 
   // updateBookMarkedOnly({ target }) {
   //   const { value } = target;
@@ -49,43 +51,52 @@ class MovieLibrary extends Component {
   // }
 
   renderMovieList() {
-    // const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let moviesArray = this.props.movies;
-    if (this.state.bookmarkedOnly === 'checked') {
-      moviesArray = moviesArray.filter((movie) => movie.bookmarkedOnly === true);
+    if (bookmarkedOnly === true) {
+      moviesArray = moviesArray.filter((movie) => movie.bookmarked === true);
     }
-    if (this.state.selectedGenre.length > 0) {
-      moviesArray = moviesArray.filter((movie) => movie.genre === this.state.selectedGenre);
-      return moviesArray;
+    if (selectedGenre.length > 0) {
+      moviesArray = moviesArray.filter((movie) => movie.genre === selectedGenre);
+      // return moviesArray;
     }
-    if (this.state.searchText.length > 0) {
+    if (searchText.length > 0) {
       moviesArray = moviesArray.filter((movie) =>
-        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase())
-        || movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase())
-        || movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
+        movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
     }
     this.setState({ movies: moviesArray });
-    return moviesArray;
+    // return moviesArray;
   }
 
   render() {
-    // const { searchText, bookmarkedOnly, selectedGenre } = this.props;
-    // const { movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies } = this.state;
     return (
       <div className="container">
         <h2>My awesome movie Library </h2>
         <SearchBar
-          searchText={this.state.searchText}
+          searchText={searchText}
           onSearchTextChange={this.handleChange}
           // updateSearchText={(event) => this.updateSearchText(event)}
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookMarkedChange={this.handleChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.handleChange}
           // updateBookMarkedOnly={(event) => this.updateBookMarkedOnly(event)}
-          selectedGenre={this.state.selectedGenre}
-          onSelectedGenteChange={this.handleChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.handleChange}
           // updateSelectedGenre={(event) => this.updateSelectedGenre(event)}
+
+
+          // <SearchBar
+          // searchText={this.state.searchText}
+          // onSearchTextChange={this.handleChange}
+          // bookmarkedOnly={this.state.bookmarkedOnly}
+          // onBookmarkedChange={this.handleChange}
+          // selectedGenre={this.state.selectedGenre}
+          // onSelectedGenreChange={this.handleChange}
         />
-        <MovieList movies={this.state.movies} />
+        <MovieList movies={movies} />
         <AddMovie onClick={this.createMovie} />
       </div>
     );
