@@ -6,6 +6,7 @@ import Storyline from './Storyline';
 import NewRating from './NewRating';
 import Genre from './Genre';
 import AddButton from './AddButton';
+import PropTypes from 'prop-types';
 
 
 class AddMovie extends React.Component {
@@ -64,5 +65,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
