@@ -9,10 +9,10 @@ class AddMovie extends React.Component {
     this.state = {
       title: '',
       subtitle: '',
-      storyline: "",
+      storyline: '',
       rating: 0,
       imagePath: '',
-      genre: '',
+      genre: 'action',
     };
   }
 
@@ -21,24 +21,17 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleClick({ target}) {
+  handleClick({ target }) {
     const { onClick } = this.props;
-    onClick ();
-  }
-
-  title() {
-    return (
-      <label htmlFor="title" data-testid="title-input-label">
-        Título
-        <input
-          value={this.title}
-          name="title"
-          onChange={this.handle}
-          data-testid="title-input"
-          type="text"
-        />
-      </label>
-    );
+    this.setState = {
+      title: '',
+      subtitle: '',
+      storyline: '',
+      rating: 0,
+      imagePath: '',
+      genre: 'action',
+    };
+    onClick();
   }
 
   subtitulo() {
@@ -121,7 +114,7 @@ class AddMovie extends React.Component {
 
   button() {
     return (
-      <button type="submit" data-testid="send-button" onClick={this.handleClick}>
+      <button type="button" data-testid="send-button" onClick={this.handleClick}>
         Adicionar filme
       </button>
     );
