@@ -99,7 +99,13 @@ h2 {
   padding: 0 40px;
 }
 
-.search-bar-form input,select {
+.search-bar-form input {
+  border-radius: 6px;
+  border-style: none;
+  padding: 2px 10px;
+}
+
+.search-bar-form select {
   border-radius: 6px;
   border-style: none;
   padding: 2px 10px;
