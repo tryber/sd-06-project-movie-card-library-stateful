@@ -16,9 +16,11 @@ class AddMovie extends React.Component {
 
   render() {
     return (
-      <div>
-        <p>Testa se renderiza</p>
-      </div>
+     <form>
+       <label htmlFor="testing-form"> Digite algo se você me vê também:
+          <input type="text" id="fname" name="testing-form" />
+        </label>
+     </form>
     );
   }
 }
