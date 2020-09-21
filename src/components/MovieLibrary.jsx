@@ -44,14 +44,13 @@ class MovieLibrary extends Component {
   }
 
   filterSearchTextChange() {
+    const { searchText } = this.state;
     const { movies } = this.props;
-    const y = movies.filter(({ title, storyline, subtitle }) => {
-      storyline.includes(this.state.searchText)
-      || title.includes(this.state.searchText)
-      || subtitle.includes(this.state.searchText);
+    const y = movies.filter(({ title, storyline, subtitle }) => storyline.includes(searchText)
+    || title.includes(searchText)
+    || subtitle.includes(searchText));
     this.setState({ movies: y });
   }
-}
 
   filterSearchBar() {
     const { movies } = this.props;
