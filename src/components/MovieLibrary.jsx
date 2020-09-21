@@ -14,10 +14,12 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  onClick() {
-    console.log('oi');
+  handleChange({ target }) {
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
   render() {
@@ -32,11 +34,12 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
+          onSearchTextChange={this.handleChange}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
         />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick} />
+        <AddMovie />
       </div>
     );
   }
