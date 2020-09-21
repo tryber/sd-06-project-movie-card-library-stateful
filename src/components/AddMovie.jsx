@@ -146,6 +146,7 @@ class AddMovie extends React.Component {
   }
 
   render() {
+    const { submit } = this.props;
     return (
       <form data-testid="add-movie-form">
         {this.renderTitle()}
@@ -154,7 +155,7 @@ class AddMovie extends React.Component {
         {this.renderSinopse()}
         {this.renderRating()}
         {this.renderGenre()}
-        <button data-testid="send-button" onClick={this.submit}>
+        <button data-testid="send-button" onClick={submit}>
           Adicionar filme
         </button>
       </form>
@@ -162,6 +163,9 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  submit: PropTypes.func.isRequired,
+};
 
 export default AddMovie;

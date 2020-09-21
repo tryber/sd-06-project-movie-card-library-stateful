@@ -5,34 +5,11 @@ class SearchBar extends React.Component {
   constructor() {
     super();
 
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
     };
-  }
-
-  onSearchTextChange({ target }) {
-    const { name, value } = target;
-
-    this.setState({ [name]: value });
-  }
-
-  onBookmarkedChange({ target }) {
-    const { name } = target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-
-    this.setState({ [name]: value });
-  }
-
-  onSelectedGenreChange({ target }) {
-    const { name, value } = target;
-
-    this.setState({ [name]: value });
   }
 
   renderSelect() {
@@ -42,6 +19,7 @@ class SearchBar extends React.Component {
         Filtrar por gênero
         <select
           id="select"
+          name="selectedGenre"
           data-testid="select-input"
           value={selectedGenre}
           onChange={onSelectedGenreChange}
@@ -70,6 +48,7 @@ class SearchBar extends React.Component {
         <label htmlFor="text" data-testid="text-input-label">
           Inclui o texto:
           <input
+            name="searchText"
             id="text"
             value={searchText}
             onChange={onSearchTextChange}
@@ -79,6 +58,7 @@ class SearchBar extends React.Component {
         <label htmlFor="checkbox" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
+            name="bookmarkedOnly"
             id="checkbox"
             type="checkbox"
             checked={bookmarkedOnly}
