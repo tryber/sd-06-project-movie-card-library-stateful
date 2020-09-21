@@ -49,7 +49,7 @@ class MovieLibrary extends React.Component {
     if (value === '') {
       this.setState({ movies });
     } else {
-      const moviesFiltered = movies.filter(movie => (
+      const moviesFiltered = movies.filter((movie) => (
         movie.title.includes(value) ||
         movie.subtitle.includes(value) ||
         movie.storyline.includes(value)
@@ -63,7 +63,7 @@ class MovieLibrary extends React.Component {
     if (value === '') {
       this.setState({ movies });
     } else {
-      const moviesFiltered = movies.filter(movie => movie.genre === value);
+      const moviesFiltered = movies.filter((movie) => movie.genre === value);
       this.setState({ movies: moviesFiltered });
     }
   }
