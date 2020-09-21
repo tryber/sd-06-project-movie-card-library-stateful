@@ -4,17 +4,95 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
+/* as funções de busca e filtragem inspiradas by Matheus Coutinho*/
+
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
+    this.filterBySearchText = this.filterBySearchText.bind(this);
+    this.filterByBookedMarked = this.filterByBookedMarked.bind(this);
+    this.filterByGenre = this.filterByGenre.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
     };
-    console.log('Check if movies has been set');
-    console.log(this.state.movies);
+  }
+
+  filterByGenre(value) {
+    const filteredMovies = this.props.movies.filter((movie) =>
+      movie.genre === value,
+    );
+    return filteredMovies;
+  }
+
+  filterBySearchText(value) {
+    const filteredMovies = this.state.movies.filter((movie) =>
+      movie.title.toLowerCase().includes(value.toLowerCase()) ||
+      movie.subtitle.toLowerCase().includes(value.toLowerCase()) ||
+      movie.storyline.toLowerCase().includes(value.toLowerCase()),
+    );
+    return filteredMovies;
+  }
+
+  filterByBookedMarked() {
+    const filteredMovies = this.state.movies.filter((movie) =>
+      movie.bookmarked,
+    );
+    return filteredMovies;
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { name, value } = target;
+    this.setState(() => {
+      if (value !== '') {
+        return {
+          [name]: value,
+          movies: this.filterByGenre(value),
+        };
+      }
+      return {
+        [name]: value,
+        movies: this.props.movies,
+      };
+    });
+  }
+
+  onSearchTextChange({ target }) {
+    const { name, value } = target;
+    this.setState(() => {
+      if (value !== '') {
+        return {
+          [name]: value,
+          movies: this.filterBySearchText(value),
+        };
+      }
+      return {
+        [name]: value,
+        movies: this.props.movies,
+      };
+    });
+  }
+
+  onBookmarkedChange({ target }) {
+    const { name, checked } = target;
+
+    this.setState(() => {
+      if (checked) {
+        return {
+          [name]: checked,
+          movies: this.filterByBookedMarked(),
+        };
+      }
+      return {
+        [name]: checked,
+        movies: this.props.movies,
+      };
+    });
   }
 
   render() {
