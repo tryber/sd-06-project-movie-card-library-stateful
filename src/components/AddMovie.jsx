@@ -17,13 +17,13 @@ class AddMovie extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  onClick() {
+    console.log('onClick');
+  }
+
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
-  }
-
-  onClick() {
-    console.log('onClick')
   }
 
   handleClick(event) {

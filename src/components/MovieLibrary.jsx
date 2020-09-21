@@ -18,7 +18,7 @@ class MovieLibrary extends Component {
   }
 
   handleClick() {
-    alert('yo')
+    console.log('yo');
   }
 
   handleChange({ target }) {
