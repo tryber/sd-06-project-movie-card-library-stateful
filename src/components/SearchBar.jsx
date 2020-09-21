@@ -1,12 +1,11 @@
 // implement SearchBar component here
 import React from 'react';
+import Form from './Form';
 
 class SearchBar extends React.Component {
   render() {
     return (
-      <div>
-        corno correspondente
-      </div>
+      <Form />
     );
   }
 }
