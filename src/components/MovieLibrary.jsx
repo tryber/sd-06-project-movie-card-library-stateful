@@ -20,11 +20,6 @@ class MovieLibrary extends React.Component {
     console.log('oi');
   }
 
-  handleChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  }
-
   render() {
     const {
       searchText,
