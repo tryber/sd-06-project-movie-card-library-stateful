@@ -5,6 +5,7 @@ import Image from './Image';
 import Storyline from './Storyline';
 import NewRating from './NewRating';
 import Genre from './Genre';
+import AddButton from './AddButton';
 
 
 class AddMovie extends React.Component {
@@ -19,11 +20,24 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
+  }
+
+  handleClick(event) {
+    event.preventDefault();
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   render() {
@@ -43,6 +57,7 @@ class AddMovie extends React.Component {
         <Storyline onChange={this.handleChange} value={storyline} />
         <NewRating onChange={this.handleChange} value={rating} />
         <Genre onChange={this.handleChange} value={genre} />
+        <AddButton onClick={this.handleClick} />
       </form>
     );
   }
