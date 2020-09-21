@@ -24,7 +24,7 @@ class AddMovie extends Component {
     this.setState({ [name]: value });
   }
 
-  handleAddMovie() {
+  handleAddMovie(event) {
     this.props.onClick(this.state);
 
     this.setState({
@@ -35,6 +35,7 @@ class AddMovie extends Component {
       rating: 0,
       genre: 'action',
     });
+    event.preventDefault();
   }
 
   render() {
@@ -110,6 +111,6 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.shape.isRequired };
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
