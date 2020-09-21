@@ -99,7 +99,14 @@ class AddMovie extends React.Component {
             console.log(this.state);
             const inputs = document.querySelectorAll('input');
             const select = document.querySelector('select');
-            inputs.forEach(input =>  input.type !== 'number' ? input.value = '' : input.value = '0' );
+            inputs.forEach((input) => {
+              const formInput = input;
+              if (input.type !== 'number') {
+                formInput.value = '';
+              } else {
+                formInput.value = '0';
+              }
+            });
             select.value = 'action';
             onClick({
               title,
