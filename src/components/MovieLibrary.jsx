@@ -15,7 +15,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: movies,
-    }
+    };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
@@ -25,41 +25,41 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value }, () => {
       const newMovieWithText = this.props.movies
-        .filter(element => element.title.includes(target.value) ||
+        .filter((element) => element.title.includes(target.value) ||
         element.subtitle.includes(target.value) ||
-        element.storyline.includes(target.value))
+        element.storyline.includes(target.value));
       this.state.movies = newMovieWithText;
-    })
+    });
   }
 
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value }, () => {
       const newMovieWithGenre = this.props.movies
-        .filter(element => element.genre === target.value);
-        console.log(newMovieWithGenre)
-      this.state.movies = newMovieWithGenre
-    })
+        .filter((element) => element.genre === target.value);
+      // console.log(newMovieWithGenre)
+      this.state.movies = newMovieWithGenre;
+    });
   }
 
   onBookmarkedChange({ target }) {
     this.setState({ bookmarkedOnly: target.checked }, () => {
       const newMovieBookmarked = this.props.movies
-        .filter(element => element.bookmarked === target.checked);
-      this.state.movies = newMovieBookmarked
-    })
+        .filter((element) => element.bookmarked === target.checked);
+      this.state.movies = newMovieBookmarked;
+    });
   }
 
   onClick(newMovie) {
-    let { movies } = this.state
+    let { movies } = this.state;
     movies = movies.concat([newMovie]);
-    this.setState({
+    this.setState({ 
       movies: movies,
-    })
+    });
   }
 
   render() {
     const { movies } = this.state;
-    console.log(this.state)
+    console.log(this.state);
     return (
       <div>
         <h2> My awesome movie library </h2>
