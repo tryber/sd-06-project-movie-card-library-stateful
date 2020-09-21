@@ -30,7 +30,7 @@ Este repositório já contém um _template_ com um App React criado e configurad
 
 Esse projeto contém os seguintes `React Components`:
 
-   - Header
+   - Header.
    - MovieLibrary
    - SearchBar
    - MovieList
