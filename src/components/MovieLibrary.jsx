@@ -1,27 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import AddMovie from './AddMovie';
-import SearchBar from './SearchBar';
+import AddMovie from './AddMovie'
 import MovieList from './MovieList'
-import movies from '../data';
 
 class MovieLibrary extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchText: '',
-      bookmarkedOnly: false,
-      selectedGenre: '',
-      movies: props.movies,
-    };
-  }
+
 
   render() {
     return (
       <div>
-        <SearchBar />
-        <AddMovie onClick={this.handleClick} />
-        <MovieList movies={movies}/>
+        <AddMovie />
+        <MovieList movies={this.props.movies}/>
       </div>
     );
   }
