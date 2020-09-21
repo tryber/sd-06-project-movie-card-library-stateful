@@ -12,7 +12,7 @@ class AddMovie extends React.Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      genre: action,
+      genre: 'action',
     };
   }
 
@@ -45,6 +45,11 @@ class AddMovie extends React.Component {
             value={this.state.subtitle}
             onChange={this.onChange}
           />
+        </label>
+        <br />
+        <label data-testid="image-input-label">
+          Imagem
+          <input type="text" />
         </label>
       </form>
     );
