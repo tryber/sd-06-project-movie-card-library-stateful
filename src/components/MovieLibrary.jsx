@@ -23,8 +23,7 @@ class MovieLibrary extends Component {
   }
 
   onClick(newMovie) {
-    const getMovies = this.state.movies;
-    this.setState({ movies: getMovies.concat(newMovie) });
+    this.setState((previousState) => ({ movies: [...previousState.movies, newMovie] }));
   }
 
   onSearchTextChange({ target }) {
