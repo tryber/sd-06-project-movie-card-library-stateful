@@ -30,7 +30,7 @@ class MovieLibrary extends Component {
           element.storyline.includes(target.value));
       this.setState({ movies: newMovieWithText });
     }
-    )
+    );
   }
 
   onSelectedGenreChange({ target }) {
@@ -52,7 +52,7 @@ class MovieLibrary extends Component {
   onClick(newMovie) {
     let { movies } = this.state;
     movies = movies.concat([newMovie]);
-    this.setState({ movies: movies});
+    this.setState({ movies: movies });
   }
 
   render() {
@@ -76,11 +76,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.string).isRequired };
 
 export default MovieLibrary;
