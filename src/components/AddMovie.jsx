@@ -1,6 +1,7 @@
 import React from 'react';
 import Proptypes from 'prop-types';
 
+
 class AddMovie extends React.Component {
   constructor(props) {
     super(props);
@@ -25,18 +26,24 @@ class AddMovie extends React.Component {
     this.setState(({ [name]: value }));
   }
 
+  inputTitle() {
+    return (
+      <input
+        type="text"
+        data-testid="title-input"
+        name="title"
+        onChange={(event) => this.handleChange(event)}
+      />
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input-label">
           Título:
-          <input
-            type="text"
-            data-testid="title-input"
-            name="title"
-            onChange={(event) => this.handleChange(event)}
-          />
+          {this.inputTitle()}
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input-label">
             Subtítulo:
