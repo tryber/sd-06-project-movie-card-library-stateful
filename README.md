@@ -8,7 +8,7 @@ F
 
 Você deverá desenvolver uma aplicação que consiste em uma biblioteca de cartões de filmes dinâmica utilizando React. A biblioteca é composta por:
 
-* Um cabeçalho;
+* Um cabeçalho
 
 * Uma barra de busca, utilizada pra filtrar quais cartões serão exibidos na lista de cartões;
 
