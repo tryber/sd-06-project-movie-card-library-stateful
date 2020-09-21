@@ -1,6 +1,6 @@
 import React from 'react';
-import AddMovie from './AddMovie' 
-import MovieList from './MovieList'
+import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 
@@ -12,7 +12,7 @@ class MovieLibrary extends React.Component {
         <MovieList />
         <AddMovie />
       </div>
-    )
+    );
   }
 }
 
