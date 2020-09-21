@@ -66,5 +66,18 @@ class MovieLibrary extends React.Component {
     );
   }
 }
+const string = PropTypes.string;
+const number = PropTypes.number;
+const bool = PropTypes.bool;
+const obj = {
+  title: string,
+  subtitle: string,
+  storyline: string,
+  rating: number,
+  imagePath: string,
+  bookmarked: bool,
+  genre: string,
+};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.shape(obj)).isRequired };
 
 export default MovieLibrary;
