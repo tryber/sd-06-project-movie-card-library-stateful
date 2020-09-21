@@ -1,21 +1,20 @@
 // implement SearchBar component here
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      searchText: '',
-      onSearchTextChange: '',
-      bookmarkedOnly: false,
-      onBookmarkedChange: '',
-      selectedGenre: '',
-      onSelectedGenreChange: '',
-    };
-  }
-
   render() {
+    const {
+      movie: {
+        searchText,
+        onSearchTextChange,
+        bookmarkedOnly,
+        onBookmarkedChange,
+        selectedGenre,
+        onSelectedGenreChange,
+      },
+    } = this.props;
+
     return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label">
@@ -23,8 +22,8 @@ class SearchBar extends React.Component {
           <input
             data-testid="text-input"
             type="text"
-            value={this.state.searchText}
-            onChange={this.state.onSearchTextChange}
+            value={searchText}
+            onChange={onSearchTextChange}
           />
         </label>
         <br />
@@ -33,8 +32,8 @@ class SearchBar extends React.Component {
           <input
             data-testid="checkbox-input"
             type="checkbox"
-            checked={this.state.bookmarkedOnly}
-            onChange={this.state.onBookmarkedChange}
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
           />
         </label>
         <br />
@@ -42,8 +41,8 @@ class SearchBar extends React.Component {
           Filtrar por gênero
           <select
             data-testid="select-input"
-            value={this.state.selectedGenre}
-            onChange={this.state.onSelectedGenreChange}
+            value={selectedGenre}
+            onChange={onSelectedGenreChange}
           >
             <options data-testid="select-option" value="">Todos</options>
             <options data-testid="select-option" value="action">Ação</options>
@@ -55,4 +54,7 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = { movie: PropTypes.objectOf(PropTypes.any).isRequired };
+
 export default SearchBar;
