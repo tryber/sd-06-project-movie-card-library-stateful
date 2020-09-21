@@ -16,12 +16,28 @@ class MovieLibrary extends React.Component {
     };
 
     this.buttonFunction = this.buttonFunction.bind(this);
+    this.upDateSearchText = this.upDateSearchText.bind(this);
     this.upDateBookmarked = this.upDateBookmarked.bind(this);
     this.upDateSelectedGenre = this.upDateSelectedGenre.bind(this);
   }
 
   buttonFunction(value) {
     this.setState({ movies: this.state.movies.concat(value) });
+  }
+
+  upDateSearchText(event) {
+    this.setState({ searchText: event.target.value }, () => {
+      if (this.state.searchText === '') {
+        this.setState({ movies: this.props.movies });
+      } else {
+        const text = this.props.movies.filter((movie) => (
+          movie.title.toLowerCase().includes(this.state.searchText.toLowerCase())
+          || movie.subtitle.toLowerCase().includes(this.state.searchText.toLocaleLowerCase())
+          || movie.storyline.toLowerCase().includes(this.state.searchText.toLocaleLowerCase())
+        ));
+        this.setState({ movies: text });
+      }
+    });
   }
 
   upDateBookmarked(event) {
@@ -52,6 +68,8 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.upDateSearchText}
           bookmarkedOnly={this.state.bookmarkedOnly}
           onBookmarkedChange={this.upDateBookmarked}
           selectedGenre={this.state.selectedGenre}
