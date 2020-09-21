@@ -93,7 +93,7 @@ class AddMovie extends React.Component {
           type="submit"
           value="Enviar"
           data-testid="send-button"
-          onClick={event => {
+          onClick={(event) => {
             event.preventDefault();
             const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
             console.log(this.state);
