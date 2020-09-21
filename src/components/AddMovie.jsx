@@ -32,9 +32,9 @@ class AddMovie extends Component {
 
   handleOnSubmit(event) {
     event.preventDefault();
-    // Essa função ainda não funciona, será implementada no movieLibrary
-    // Foi apenas para ser chamada e passar no teste!
-    this.props.onClick(this.state);
+    const { onClick } = this.props;
+    onClick(this.state);
+
     this.setState({
       title: '',
       subtitle: '',
@@ -56,9 +56,9 @@ class AddMovie extends Component {
         <AddMovieGenre genre={this.state.genre} handleOnChange={this.handleOnChange} />
         {/* Depois que definir certinho esse button eu chamo pelo arquivo a parte */}
         {/* <AddMovieButton handleOnSubmit={this.handleOnSubmit}/> */}
-
-        <button onClick={this.handleOnSubmit} data-testid="send-button">Adicionar filme</button>
+        <button onClick={this.props.onClick} data-testid="send-button">Adicionar filme</button>
       </form>
+      
     );
   }
 }
