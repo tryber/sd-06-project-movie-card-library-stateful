@@ -13,6 +13,7 @@ class AddMovie extends React.Component {
     this.GetSubtitleElement = this.GetSubtitleElement.bind(this);
     this.GetTitleElement = this.GetTitleElement.bind(this);
     this.ResetState = this.ResetState.bind(this);
+    this.RenderMovie = this.RenderMovie.bind(this);
 
     this.state = {
       subtitle: '',
@@ -33,7 +34,11 @@ class AddMovie extends React.Component {
       rating: 0,
       genre: 'action',
     });
-    this.props.onClick();
+  }
+
+  RenderMovie() {
+    this.props.onClick(this.state);
+    this.ResetState();
   }
 
   ChangeState({ target }) {
@@ -142,7 +147,7 @@ class AddMovie extends React.Component {
 
 
   render() {
-    const { ResetState } = this;
+    const { RenderMovie } = this;
     return (
       <form data-testid="add-movie-form">
         <this.GetTitleElement /> <br />
@@ -154,7 +159,7 @@ class AddMovie extends React.Component {
         <button
           data-testid="send-button"
           type="button"
-          onClick={ResetState}
+          onClick={RenderMovie}
         >Adicionar filme</button>
       </form>
     );

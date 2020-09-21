@@ -39,7 +39,7 @@ class SearchBar extends React.Component {
           Inclui o texto
           <input
             id="search" data-testid="text-input"
-            type="text" name="serachText"
+            type="text" name="searchText"
             value={searchText} onChange={onSearchTextChange}
           />
         </label>
@@ -50,6 +50,7 @@ class SearchBar extends React.Component {
             id="favorite-checkbox" data-testid="checkbox-input"
             type="checkbox" name="bookmarkedOnly"
             checked={bookmarkedOnly} onChange={onBookmarkedChange}
+            value={bookmarkedOnly}
           />
         </label> <br />
         <this.GetDropdown />
