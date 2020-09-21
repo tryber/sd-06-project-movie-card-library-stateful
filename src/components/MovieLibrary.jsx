@@ -18,21 +18,19 @@ class MovieLibrary extends Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      newMovies: movies,
+      movies,
     };
   }
 
   onClickFunc(event) {
     const { movies } = this.props;
-    if (event) {
-      movies.push(event);
-    }
+    const newMovie = event;
     console.log(movies);
-    this.setState({
+    return this.setState({
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      newMovies: movies,
+      movies: movies.concat(newMovie),
     });
   }
 
@@ -47,7 +45,7 @@ class MovieLibrary extends Component {
       : undefined));
     this.setState({
       searchText: e,
-      newMovies: newMoviesList,
+      movies: newMoviesList,
     });
   }
 
@@ -60,13 +58,13 @@ class MovieLibrary extends Component {
       this.setState({
         bookmarkedOnly: true,
         selectedGenre: '',
-        newMovies: newMoviesList,
+        movies: newMoviesList,
       });
     } else {
       this.setState({
         bookmarkedOnly: false,
         selectedGenre: '',
-        newMovies: movies,
+        movies,
       });
     }
   }
@@ -79,14 +77,14 @@ class MovieLibrary extends Component {
     this.setState({
       bookmarkedOnly: false,
       selectedGenre: e,
-      newMovies: newMoviesList,
+      movies: newMoviesList,
     });
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, newMovies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
-      <div>
+      <div className="movie-library-container">
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
@@ -96,7 +94,7 @@ class MovieLibrary extends Component {
           selectedGenre={selectedGenre}
           onSelectedGenreChange={(event) => this.handleGenre(event)}
         />
-        <MovieList movies={newMovies} />
+        <MovieList movies={movies} />
         <AddMovie onClick={(event) => this.onClickFunc(event)} />
       </div>
     );

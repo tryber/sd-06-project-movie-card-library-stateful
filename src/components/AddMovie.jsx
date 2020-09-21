@@ -8,15 +8,17 @@ class AddMovie extends Component {
     this.newState = this.newState.bind(this);
     this.newRating = this.newRating.bind(this);
     this.returnState = this.returnState.bind(this);
+    this.newFavorite = this.newFavorite.bind(this);
     this.reset = this.reset.bind(this);
 
     this.state = {
-      subtitle: '',
       title: '',
-      imagePath: '',
+      subtitle: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
       genre: 'action',
+      bookmarked: false,
     };
   }
 
@@ -28,24 +30,33 @@ class AddMovie extends Component {
     this.setState({ [stateKey]: Number(target.value) });
   }
 
+  newFavorite({ target }, stateKey) {
+    if (target.value) {
+      this.setState({ [stateKey]: true });
+    } else {
+      this.setState({ [stateKey]: false });
+    }
+  }
+
   reset() {
     this.setState({
-      subtitle: '',
       title: '',
-      imagePath: '',
+      subtitle: '',
       storyline: '',
       rating: 0,
+      imagePath: '',
       genre: 'action',
+      bookmarked: true,
     });
   }
 
+  // if necessário para setar o estado, senão só retornaria o estado.
   returnState(event, myFunctReset) {
     const newState = this.state;
     if (event && myFunctReset) {
       this.setState(newState);
     }
     return newState;
-    // chama reset como callback de alguma forma. refazer a logica
   }
 
   renderTitle() {
@@ -143,20 +154,37 @@ class AddMovie extends Component {
     );
   }
 
+  renderFavorite() {
+    const { bookmarked } = this.state;
+    return (
+      <label htmlFor="favorite" data-testid="bookmarked-input-label">
+      Favorito
+        <input
+          type="checkbox"
+          id="favorite"
+          value={bookmarked}
+          data-testid="bookmarked-input"
+          onChange={(event) => this.newFavorite(event, 'bookmarked')}
+        />
+      </label>
+    );
+  }
+
   render() {
     const { onClick } = this.props;
     return (
-      <form data-testid="add-movie-form">
+      <form className="add-movie-form" data-testid="add-movie-form">
         {this.renderTitle()}
         {this.renderSubTitle()}
         {this.renderImage()}
         {this.renderStoryline()}
         {this.renderRate()}
         {this.renderGenero()}
+        {this.renderFavorite()}
         <button
           type="button"
           data-testid="send-button"
-          onClick={(event) => onClick(this.returnState(event, this.reset()))}
+          onClick={(newState) => onClick(this.returnState(newState, this.reset()))}
         >
           Adicionar filme
         </button>
