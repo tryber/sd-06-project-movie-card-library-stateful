@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-    }
+    };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -25,10 +25,10 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value }, () => {
       const newMovieWithText = this.state.movies
-        .filter(element => element.title.includes(this.state.searchText) ||
+        .filter((element) => element.title.includes(this.state.searchText) ||
           element.subtitle.includes(target.value) ||
           element.storyline.includes(target.value));
-      this.setState({ movies: newMovieWithText })
+      this.setState({ movies: newMovieWithText });
     }
     )
   }
@@ -36,7 +36,7 @@ class MovieLibrary extends Component {
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value }, () => {
       const newMovieWithGenre = this.state.movies
-        .filter(element => element.genre === this.state.selectedGenre);
+        .filter((element) => element.genre === this.state.selectedGenre);
       this.setState({ movies: newMovieWithGenre });
     });
   }
@@ -44,19 +44,19 @@ class MovieLibrary extends Component {
   onBookmarkedChange({ target }) {
     this.setState({ bookmarkedOnly: target.checked }, () => {
       const newMovieBookmarked = this.state.movies
-        .filter(element => element.bookmarked === this.state.bookmarkedOnly);
+        .filter((element) => element.bookmarked === this.state.bookmarkedOnly);
       this.setState({ movies: newMovieBookmarked });
     });
   }
 
   onClick(newMovie) {
-    let { movies } = this.state
+    let { movies } = this.state;
     movies = movies.concat([newMovie]);
-    this.setState({ movies: movies });
+    this.setState({ movies: movies});
   }
 
   render() {
-    const { movies } = this.state;
+    // const { movies } = this.state;
     console.log(this.state);
     return (
       <div>
@@ -76,11 +76,11 @@ class MovieLibrary extends Component {
   }
 }
 
-// MovieLibrary.propTypes = {
-//   searchText: PropTypes.string.isRequired,
-//   // bookmarkedOnly: PropTypes.boolean.isRequired,
-//   // selectedGenre:
-//   movies: PropTypes.array.isRequired,
-// };
+MovieLibrary.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 export default MovieLibrary;
