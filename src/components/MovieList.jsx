@@ -3,12 +3,6 @@ import Proptypes, { object } from 'prop-types';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
-  constructor(props) {
-    super(props);
-    const { movies } = this.props;
-    this.state = { movies };
-  }
-
   filterBookMarked(UnfilteredMovies, bookmarkedOnly) {
     if (bookmarkedOnly) {
       return UnfilteredMovies.filter((movie) => movie.bookmarked === true);
