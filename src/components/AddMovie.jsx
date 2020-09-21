@@ -16,10 +16,10 @@ class AddMovie extends React.Component {
     this.handleClick = this.handleClick.bind(this);
 	}
 	
-	handleChange({ target }) {
-    const { name, value } = target;
-    this.setState({ [name]: value });
-  }
+  handleChange({ target }) {
+  const { name, value } = target;
+  this.setState({ [name]: value });
+}
 
   handleClick(event) {
     event.preventDefault();

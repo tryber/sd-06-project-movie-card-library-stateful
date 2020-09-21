@@ -1,5 +1,4 @@
 import React from 'react';
-import SeachBar from './SearchBar';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
