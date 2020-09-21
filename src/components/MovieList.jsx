@@ -1,6 +1,5 @@
 import React from 'react';
-import movies from '../data';
-
+import Proptypes, { object } from 'prop-types';
 import MovieCard from './MovieCard';
 
 class MovieList extends React.Component {
@@ -39,4 +38,10 @@ class MovieList extends React.Component {
   }
 }
 
+MovieList.propTypes = {
+  movies: Proptypes.arrayOf(object).isRequired,
+  searchText: Proptypes.string.isRequired,
+  bookmarkedOnly: Proptypes.bool.isRequired,
+  selectedGenre: Proptypes.string.isRequired,
+};
 export default MovieList;
