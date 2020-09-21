@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
             movies: movies
         }
     }
-    nome=() => {
+    nome() {
         
     }
     render() {
