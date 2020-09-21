@@ -5,13 +5,13 @@ class SearchBar extends React.Component {
   renderFilterByGender() {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
-      <label htmlFor="genre">
+      <label htmlFor="genre" data-testid="select-input-label">
         Filtrar por gênero
         <select value={selectedGenre} onChange={onSelectedGenreChange} data-testid="select-input">
-          <option value="">Todos</option>
-          <option value="action">Ação</option>
-          <option value="comedy">Comédia</option>
-          <option value="thriller">Suspense</option>
+          <option data-testid="select-option" value="">Todos</option>
+          <option data-testid="select-option" value="action">Ação</option>
+          <option data-testid="select-option" value="comedy">Comédia</option>
+          <option data-testid="select-option" value="thriller">Suspense</option>
         </select>
       </label>
     );

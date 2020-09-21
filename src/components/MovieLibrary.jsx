@@ -16,6 +16,10 @@ class MovieLibrary extends React.Component {
     };
   }
 
+  onClick() {
+    console.log('oi');
+  }
+
   render() {
     const {
       searchText,
@@ -32,7 +36,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={selectedGenre}
         />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
