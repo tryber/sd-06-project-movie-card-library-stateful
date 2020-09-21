@@ -30,7 +30,7 @@ class AddMovie extends React.Component {
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input-label">
-            Título:
+          Título:
           <input
             type="text"
             data-testid="title-input"
@@ -87,7 +87,6 @@ class AddMovie extends React.Component {
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
-
         </label>
         <button
           type="submit"
@@ -96,7 +95,6 @@ class AddMovie extends React.Component {
           onClick={(event) => {
             event.preventDefault();
             const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-            console.log(this.state);
             const inputs = document.querySelectorAll('input');
             const select = document.querySelector('select');
             inputs.forEach((input) => {
