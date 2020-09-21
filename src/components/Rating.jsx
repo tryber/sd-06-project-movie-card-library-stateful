@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Rating extends React.Component {
   render() {
     return (
-      <div className="movie-cart-rating">
+      <div className="movie-cart-rating" data-testid="rating">
         <span className="rating">{this.props.rating}</span>
       </div>
     );
