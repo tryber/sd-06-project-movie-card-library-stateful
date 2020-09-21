@@ -1,3 +1,4 @@
+import { bool } from 'prop-types';
 import React from 'react';
 import SearchBar from './SearchBar';
 
@@ -6,11 +7,16 @@ import SearchBar from './SearchBar';
    declara as funçoes de mudança de estado */
 class MovieLibrary extends React.Component {
   construtor() {
-    super()
-      this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-      this.onSearchTextChange = this.onSearchTextChange.bind(this);
-      this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-  }
+    super();
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.state = {
+      searchtext: '',
+      bookemarks: bool,
+      selectedGenre: '',
+    };
+}
   render() {
     return (
       <div>
