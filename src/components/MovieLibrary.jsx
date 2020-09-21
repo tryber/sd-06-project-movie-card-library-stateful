@@ -20,23 +20,13 @@ class MovieLibrary extends React.Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.onSaveMovie = this.onSaveMovie.bind(this);
     this.OnSearchMovieBar = this.OnSearchMovieBar.bind(this);
+    this.OnSearchMovieGenre = this.OnSearchMovieGenre.bind(this);
   }
 
   onSearchTextChange({ target }) {
     const { value } = target;
     this.setState({ searchText: value });
-    this.OnSearchMovieBar(value)
-  }
-
-  OnSearchMovieBar(value) {
-    const { movies } = this.props;
-    let moviesFiltered = movies.filter((movie) => {
-      return movie.title.includes(value) ||
-        movie.subtitle.includes(value) ||
-        movie.storyline.includes(value);
-    });
-    this.setState({ movies: moviesFiltered });
-    
+    this.OnSearchMovieBar(value);
   }
 
   onBookmarkedChange({ target }) {
@@ -47,10 +37,35 @@ class MovieLibrary extends React.Component {
   onSelectedGenreChange({ target }) {
     const { value } = target;
     this.setState({ selectedGenre: value });
+    this.OnSearchMovieGenre(value);
   }
 
   onSaveMovie(obj) {
     this.setState((eA) => ({ movies: eA.movies.concat(obj) }));
+  }
+
+  OnSearchMovieBar(value) {
+    const { movies } = this.props;
+    if (value === '') {
+      this.setState({ movies });
+    } else {
+      const moviesFiltered = movies.filter(movie => (
+        movie.title.includes(value) ||
+        movie.subtitle.includes(value) ||
+        movie.storyline.includes(value)
+      ));
+      this.setState({ movies: moviesFiltered });
+    }
+  }
+
+  OnSearchMovieGenre(value) {
+    const { movies } = this.props;
+    if (value === '') {
+      this.setState({ movies });
+    } else {
+      const moviesFiltered = movies.filter(movie => movie.genre === value);
+      this.setState({ movies: moviesFiltered });
+    }
   }
 
   render() {
