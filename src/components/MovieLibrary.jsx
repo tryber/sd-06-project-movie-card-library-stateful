@@ -4,7 +4,7 @@ import AddMovie from './AddMovie';
 import MovieList from './MovieList';
 
 class MovieLibrary extends Component {
-  constructor(props) {
+  constructor() {
     super();
   }
 
