@@ -14,10 +14,14 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: props.movies,
     };
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.handleState = this.handleState.bind(this);
   }
 
-  onSearchTextChange(event) {
+  onClick() {
+    console.log('oi');
+  }
+
+  handleState(event) {
     const { name, value } = event.target;
     this.setState({ [name]: value });
   }
@@ -34,9 +38,11 @@ class MovieLibrary extends React.Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          onSearchTextChange={this.onSearchTextChange}
+          onSearchTextChange={this.handleState}
           bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.handleState}
           selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.handleState}
         />
         <MovieList movies={movies} />
         <AddMovie />
