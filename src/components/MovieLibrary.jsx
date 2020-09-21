@@ -29,7 +29,7 @@ class MovieLibrary extends Component {
           element.subtitle.includes(target.value) ||
           element.storyline.includes(target.value));
       this.setState({ movies: newMovieWithText });
-    }
+    },
     );
   }
 
@@ -51,8 +51,8 @@ class MovieLibrary extends Component {
 
   onClick(newMovie) {
     let { movies } = this.state;
-    movies = movies.concat([newMovie]);
-    this.setState({ movies: movies });
+    const moviesTwo = movies.concat([newMovie]);
+    this.setState({ movies: moviesTwo });
   }
 
   render() {
