@@ -41,20 +41,20 @@ class AddMovie extends React.Component {
       <div>
         <label htmlFor="subtitle-input" data-testid="subtitle-input-label">Subtítulo
         <input
-            type="text"
-            data-testid="subtitle-input"
-            name="subtitle"
-            value={this.state.subtitle}
-            onChange={this.handleChange}
-          />
+          type="text"
+          data-testid="subtitle-input"
+          name="subtitle"
+          value={this.state.subtitle}
+          onChange={this.handleChange}
+        />
         </label>
         <label htmlFor="storyline-input" data-testid="storyline-input-label">Sinopse
         <textarea
-            data-testid="storyline-input"
-            name="storyline"
-            value={this.state.storyline}
-            onChange={this.handleChange}
-          />
+          data-testid="storyline-input"
+          name="storyline"
+          value={this.state.storyline}
+          onChange={this.handleChange}
+        />
         </label>
       </div>
     );
@@ -64,21 +64,21 @@ class AddMovie extends React.Component {
       <div>
         <label htmlFor="rating-input" data-testid="rating-input-label">Avaliação
         <input
-            type="number"
-            data-testid="rating-input"
-            name="rating"
-            value={this.state.rating}
-            onChange={this.handleChange}
-          />
+          type="number"
+          data-testid="rating-input"
+          name="rating"
+          value={this.state.rating}
+          onChange={this.handleChange}
+        />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">Imagem
         <input
-            type="text"
-            data-testid="image-input"
-            name="imagePath"
-            value={this.state.imagePath}
-            onChange={this.handleChange}
-          />
+          type="text"
+          data-testid="image-input"
+          name="imagePath"
+          value={this.state.imagePath}
+          onChange={this.handleChange}
+        />
         </label>
       </div>
     );
@@ -104,12 +104,12 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label htmlFor="title-input" data-testid="title-input-label">Título
       <input
-            type="text"
-            data-testid="title-input"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleChange}
-          />
+        type="text"
+        data-testid="title-input"
+        name="title"
+        value={this.state.title}
+        onChange={this.handleChange}
+      />
         </label>
         {this.renderInputsOne()}
         {this.renderInputs()}
