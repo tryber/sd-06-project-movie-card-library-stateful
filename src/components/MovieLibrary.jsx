@@ -52,7 +52,14 @@ class MovieLibrary extends React.Component {
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar searchText={this.state.searchText} onSearchTextChange={this.handleChange} bookmarkedOnly={this.state.bookmarkedOnly} onBookmarkedChange={this.handleChange} selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.handleChange} />
+        <SearchBar
+          searchText={this.state.searchText}
+          onSearchTextChange={this.handleChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.handleChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.handleChange}
+        />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick} />
       </div>
