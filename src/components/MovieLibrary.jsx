@@ -37,9 +37,7 @@ class MovieLibrary extends React.Component {
   }
 
   onSaveMovie(obj) {
-    this.setState((eA, _props) => ({
-      movies: eA.movies.concat(obj)
-    }))
+    this.setState(eA => ({ movies: eA.movies.concat(obj), }));
   }
 
   render() {
