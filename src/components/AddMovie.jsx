@@ -29,7 +29,7 @@ class AddMovie extends React.Component {
     this.setState({
       subtitle: event.target.value,
       title: event.target.value,
-    })
+    });
   }
 
   render() {

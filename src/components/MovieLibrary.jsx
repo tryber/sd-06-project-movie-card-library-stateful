@@ -1,16 +1,11 @@
 import React from 'react';
 import AddMovie from './AddMovie';
-import SearchBar from './SearchBar';
+// import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
-
-
-  }
 
   onSelectedGenreChange({ target }) {
-    this.setState({})
+    this.setState({});
   }
   render() {
     // const movie = this.props;
