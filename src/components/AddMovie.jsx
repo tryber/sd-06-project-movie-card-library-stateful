@@ -16,6 +16,7 @@ class AddMovie extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -24,7 +25,10 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  newMovie() {
+  handleClick(event) {
+    event.preventDefault(); // function nativa do JS pra nao enviar formulario vazio.
+    const { onClick } = this.props;
+    onClick(this.state) // mandado essa function com o estado como parametro.
     this.setState({
       title: '',
       subtitle: '',
@@ -36,7 +40,6 @@ class AddMovie extends React.Component {
   }
 
   render() {
-    const { onClick } = this.props;
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -111,7 +114,7 @@ class AddMovie extends React.Component {
         <button
           type="button"
           data-testid="send-button"
-          onClick={onClick}
+          onClick={this.handleClick}
         >
           Adicionar filme
         </button>
