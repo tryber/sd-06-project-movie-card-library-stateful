@@ -25,7 +25,7 @@ class SearchBar extends Component {
             onChange={onSearchTextChange}
             maxLength="40"
             required="required"
-          ></input>
+          />
         </label>
         <label
           htmlFor="checkbox-input-label"
