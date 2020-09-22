@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
@@ -67,9 +68,9 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-const string = PropTypes.string.isRequired;
-const number = PropTypes.number.isRequired;
-const bool = PropTypes.bool.isRequired;
+const string = PropTypes.string;
+const number = PropTypes.number;
+const bool = PropTypes.bool;
 const obj = {
   title: string,
   subtitle: string,
