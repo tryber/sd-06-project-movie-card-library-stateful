@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-   render() {
+  render() {
     const {
       searchText,
       onSearchTextChange,
@@ -37,15 +37,19 @@ class SearchBar extends React.Component {
         <br />
         <label htmlFor="select-input" data-testid="select-input-label">
           Filtrar por gênero
-          <select
-            data-testid="select-input"
-            value={selectedGenre}
-            onChange={onSelectedGenreChange}
-          >
-            <option data-testid="select-option" value="">Todos</option>
-            <option data-testid="select-option" value="action">Ação</option>
-            <option data-testid="select-option" value="comedy">Comédia</option>
-            <option data-testid="select-option" value="thriller">Suspense</option>
+          <select data-testid="select-input" value={selectedGenre} onChange={onSelectedGenreChange}>
+            <option data-testid="select-option" value="">
+              Todos
+            </option>
+            <option data-testid="select-option" value="action">
+              Ação
+            </option>
+            <option data-testid="select-option" value="comedy">
+              Comédia
+            </option>
+            <option data-testid="select-option" value="thriller">
+              Suspense
+            </option>
           </select>
         </label>
       </form>
@@ -60,6 +64,23 @@ SearchBar.propTypes = {
   onBookmarkedChange: PropTypes.func,
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
+};
+
+function defaultProp() {
+  return {
+    onSearchTextChange: this.onSearchTextChange.bind(this),
+    onBookmarkedChange: this.onBookmarkedChange.bind(this),
+    onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
+  };
+}
+
+SearchBar.defaultProps = {
+  searchText: '',
+  onSearchTextChange: defaultProp,
+  bookmarkedOnly: false,
+  onBookmarkedChange: defaultProp,
+  selectedGenre: '',
+  onSelectedGenreChange: defaultProp,
 };
 
 export default SearchBar;
