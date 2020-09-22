@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   // criar funções para resolver o problema que o cc aponta de numero de caracteres
@@ -78,12 +78,12 @@ class SearchBar extends React.Component {
 }
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  bookmarkedOnly: PropTypes.bool.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
+  searchText: propTypes.string.isRequired,
+  onSearchTextChange: propTypes.func.isRequired,
+  bookmarkedOnly: propTypes.bool.isRequired,
+  onBookmarkedChange: propTypes.func.isRequired,
+  selectedGenre: propTypes.string.isRequired,
+  onSelectedGenreChange: propTypes.func.isRequired,
 };
 
 export default SearchBar;
