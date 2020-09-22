@@ -30,7 +30,8 @@ class MovieLibrary extends Component {
   //     filteredMovies = this.props.movies;
   //   }
   //   if (this.state.selectedGenre !== '') {
-  //     filteredMovies = filteredMovies.filter((movie) => movie.genre === this.state.selectedGenre);
+  //     filteredMovies = filteredMovies.filter((movie) =>
+  //       movie.genre === this.state.selectedGenre);
   //   }
   //   this.setState({ movies: filteredMovies });
   // }
