@@ -15,21 +15,7 @@ class MovieLibrary extends React.Component {
       selectedGenre: '',
       movies: this.props.movies,
       listMovies: this.props.movies,
-    }
-  };
-  moviesConditioned(key, value, type, movies) {
-    const arrayKeys = ['title', 'subtitle', 'storyline'];
-    let valueMovies = movies;
-    if (key === 'searchText' && value !== '') {
-      valueMovies = movies.filter((movie) => arrayKeys.some((key2) => 
-        movie[key2].toUpperCase().includes(value.toUpperCase())
-      ));
-    } else if (type === 'checkbox' && value !== false) {
-      valueMovies = movies.filter((movie) => movie.bookmarked);
-    } else if (key === 'selectedGenre' && value !== '') {
-      valueMovies = movies.filter((movie) => movie.genre === value);
-    }
-    return valueMovies;
+    };
   }
   onClick(stateAddMovie) {
     const newMovie = this.state.listMovies.concat(stateAddMovie);
@@ -38,6 +24,21 @@ class MovieLibrary extends React.Component {
       listMovies: newMovie,
     });
   }
+  moviesConditioned(key, value, type, movies) {
+    const arrayKeys = ['title', 'subtitle', 'storyline'];
+    let valueMovies = movies;
+    if (key === 'searchText' && value !== '') {
+      valueMovies = movies.filter((movie) => arrayKeys.some((key2) =>
+        movie[key2].toUpperCase().includes(value.toUpperCase()),
+      ));
+    } else if (type === 'checkbox' && value !== false) {
+      valueMovies = movies.filter((movie) => movie.bookmarked);
+    } else if (key === 'selectedGenre' && value !== '') {
+      valueMovies = movies.filter((movie) => movie.genre === value);
+    }
+    return valueMovies;
+  }
+
   handleChange({ target }) {
     const key = target.id;
     const value = target.type === 'checkbox' ? target.checked : target.value;
@@ -45,7 +46,7 @@ class MovieLibrary extends React.Component {
     const type = target.type;
     this.setState({
       [key]: value,
-      movies: this.moviesConditioned(key, value , type, movies),
+      movies: this.moviesConditioned(key, value, type, movies),
     });
   }
   render() {
@@ -66,9 +67,9 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-const string = PropTypes.string;
-const number = PropTypes.number;
-const bool = PropTypes.bool;
+const string = PropTypes.string.isRequired;
+const number = PropTypes.number.isRequired;
+const bool = PropTypes.bool.isRequired;
 const obj = {
   title: string,
   subtitle: string,
