@@ -59,10 +59,10 @@ class SearchBar extends Component {
           Mostrar somente favoritos
         </label>
         { this.renderInput('checkbox', 'showFavorites', false, onBookmarkedChange, 'checkbox-input') }
-        <label htmlFor="genre" data-testid="select-input-label">
+        <label htmlFor="selectedGenre" data-testid="select-input-label">
           Filtrar por gênero
         </label>
-        { this.renderSelect('genre', selectedGenre, onSelectedGenreChange, 'select-input') }
+        { this.renderSelect('selectedGenre', selectedGenre, onSelectedGenreChange, 'select-input') }
       </form>
     );
   }
