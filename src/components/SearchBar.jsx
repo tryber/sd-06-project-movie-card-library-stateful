@@ -8,8 +8,9 @@ class SearchBar extends Component {
       <div>
         <form data-testid="search-bar-form">
           <label
-          HTMLFor="SearchText"
-          data-testid="text-input-label">
+            HTMLFor="SearchText"
+            data-testid="text-input-label"
+          >
           Inclui o texto:
             <input
               type="text"
@@ -20,8 +21,8 @@ class SearchBar extends Component {
             />
           </label>
           <label
-          HTMLFor="bookmarkedOnly"
-          data-testid="checkbox-input-label"
+            HTMLFor="bookmarkedOnly"
+            data-testid="checkbox-input-label"
           >
           Mostrar somente favoritos
           <input
@@ -33,8 +34,8 @@ class SearchBar extends Component {
           />
           </label>
           <label
-          HTMLFor="selectedGenre"
-          data-testid="select-input-label"
+            HTMLFor="selectedGenre"
+            data-testid="select-input-label"
           >
           Filtrar por gênero
             <select
@@ -43,12 +44,12 @@ class SearchBar extends Component {
               data-testid="select-input"
               onChange={this.props.onSelectedGenreChange}
             >
-                <option value="" data-testid="select-option">Todos</option>
-                <option value="action" data-testid="select-option">Ação</option>
-                <option value="comedy" data-testid="select-option">Comédia</option>
-                <option value="thriller" data-testid="select-option">Suspense</option>
-              </select>
-            </label>
+              <option value="" data-testid="select-option">Todos</option>
+              <option value="action" data-testid="select-option">Ação</option>
+              <option value="comedy" data-testid="select-option">Comédia</option>
+              <option value="thriller" data-testid="select-option">Suspense</option>
+            </select>
+          </label>
         </form>
       </div>
     );
