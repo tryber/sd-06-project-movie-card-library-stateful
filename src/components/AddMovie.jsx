@@ -21,7 +21,7 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  refresh() {
+  refreshState() {
     const { onClick } = this.props;
     this.setState({
       subtitle: '',
@@ -141,7 +141,7 @@ class AddMovie extends React.Component {
         {this.renderRating()}
         {this.renderGenre()}
 
-        <button type="button" data-testid="send-button" onClick={() => this.refresh()}>
+        <button type="button" data-testid="send-button" onClick={() => this.refreshState()}>
           Adicionar filme
         </button>
       </form>
