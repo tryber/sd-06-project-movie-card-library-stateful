@@ -1,5 +1,5 @@
 import React from 'react';
-import AddMovie from './AddMovie';
+// import AddMovie from './AddMovie';
 // import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
