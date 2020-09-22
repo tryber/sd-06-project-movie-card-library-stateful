@@ -7,7 +7,7 @@ import Header from './components/Header';
 
 function App() {
   return (
-    
+
     <div className="App">
       <Header />
       <MovieLibrary movies={data} />
@@ -16,5 +16,3 @@ function App() {
 }
 
 export default App;
-
-// quer que eu passe move

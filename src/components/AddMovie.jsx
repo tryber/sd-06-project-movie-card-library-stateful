@@ -76,7 +76,7 @@ class AddMovie extends Component {
         Imagem
         <input
           type="text"
-          data-testid="image-input" 
+          data-testid="image-input"
           name="image"
           onChange={this.handleChange}
         />
@@ -133,7 +133,7 @@ class AddMovie extends Component {
           Adicionar filme
         </button>
       </form>
-     );
+      );
   }
 }
 
