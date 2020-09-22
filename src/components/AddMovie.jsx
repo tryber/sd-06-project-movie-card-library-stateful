@@ -15,12 +15,12 @@ class AddMovie extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handle = this.handle.bind(this);
   }
-}
 
   handle({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
+
   handleClick(event) {
     const { onClick } = this.props;
     event.preventDefault();
@@ -149,7 +149,7 @@ class AddMovie extends React.Component {
       </form>
     );
   }
-
+}
 AddMovie.protoTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
