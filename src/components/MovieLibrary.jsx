@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -12,37 +13,56 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies,
     };
-
-    this.changeText = this.changeText.bind(this);
-    this.changeBook = this.changeBook.bind(this);
-    this.changeGenre = this.changeGenre.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  changeText(event) {
-    this.setState({ searchText: event.target.value });
+  handleClick(newMovie) {
+    this.setState({ movies: this.state.movies.concat(newMovie) });
   }
 
-  changeBook() {
-    this.setState({ bookmarkedOnly: !this.state.bookmarkedOnly });
+  handleChange(event) {
+    const { name } = event.target;
+    const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
+    this.setState({ [name]: value }, () => { this.filteringChange(); });
   }
 
-  changeGenre(event) {
-    this.setState({ selectedGenre: event.target.value });
+  filteringChange() {
+    let moviesFiltered = this.props.movies;
+
+    if (this.state.bookmarkedOnly === true) {
+      moviesFiltered = moviesFiltered.filter((movie) => movie.bookmarked === true);
+    } else {
+      moviesFiltered = this.props.movies;
+    }
+
+    if (this.state.selectedGenre !== '') {
+      moviesFiltered = moviesFiltered.filter((movie) => movie.genre === this.state.selectedGenre);
+    }
+
+    if (this.state.searchText !== '') {
+      moviesFiltered = moviesFiltered.filter((movie) =>
+        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
+    }
+
+    this.setState({ movies: moviesFiltered });
   }
 
   render() {
-    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.props;
     return (
       <div>
+        <h2> My awesome movie library </h2>
         <SearchBar
-          searchText={searchText}
-          onSearchTextChange={this.changeText}
-          bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.changeBook}
-          selectedGenre={selectedGenre}
-          onSelectedGenreChange={this.changeGenre}
+          searchText={this.state.searchText}
+          onSearchTextChange={this.handleChange}
+          bookmarkedOnly={this.state.bookmarkedOnly}
+          onBookmarkedChange={this.handleChange}
+          selectedGenre={this.state.selectedGenre}
+          onSelectedGenreChange={this.handleChange}
         />
         <AddMovie onClick={this.handleClick} />
         <MovieList movies={movies} />
@@ -50,6 +70,7 @@ class MovieLibrary extends React.Component {
     );
   }
 }
-MovieLibrary.propTyoes = { movies: PropTypes.arrayOf.isRequired };
+
+MovieLibrary.propTypes = { movies: propTypes.arrayOf(propTypes.objectOf).isRequired };
 
 export default MovieLibrary;
