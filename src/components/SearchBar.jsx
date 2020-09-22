@@ -6,7 +6,7 @@ class SearchBar extends React.Component {
 
   render() {
     const { searchText, onSearchTextChange, bookmarkedOnly,
-      onBookmarkedChange, selectedGenre, onSelectedGenreChange, } = this.props;
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
 
     return (
       <div className="movie-card-header">
