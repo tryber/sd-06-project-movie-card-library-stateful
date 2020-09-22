@@ -4,16 +4,6 @@ import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
 
-  //   this.state = {
-  //   searchText: '',
-  //   // onSearchTextChange: callback,
-  //   bookmarkedOnly: false,
-  //   // onBookmarkedChange: callback,
-  //   selectedGenre: '',
-  //   // onSelectedGenreChange: callback,
-  // };
-
-
   render() {
     const {
       searchText,
@@ -70,8 +60,6 @@ class SearchBar extends React.Component {
   }
 }
 
-export default SearchBar;
-
 SearchBar.PropTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
@@ -86,7 +74,7 @@ function defProp() {
     onSearchTextChange: this.onSearchTextChange.bind(this),
     onBookmarkedChange: this.onBookmarkedChange.bind(this),
     onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
-  }
+  };
 }
 
 SearchBar.defaultProps = {
@@ -97,3 +85,5 @@ SearchBar.defaultProps = {
   selectedGenre: '',
   onSelectedGenreChange: defProp,
 };
+
+export default SearchBar;
