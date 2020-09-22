@@ -16,10 +16,13 @@ class MovieLibrary extends React.Component {
     };
     this.handleState = this.handleState.bind(this);
     this.filterBy = this.filterBy.bind(this);
+    this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
-  onClick() {
-    console.log('oi');
+  handleAddMovie(newMovie) {
+    console.log(newMovie);
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, (newMovie)] });
   }
 
   handleState(event) {
@@ -70,7 +73,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.handleState}
         />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick} />
+        <AddMovie onClick={this.handleAddMovie} />
       </div>
     );
   }
