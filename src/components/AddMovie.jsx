@@ -31,7 +31,7 @@ class AddMovie extends Component {
     });
 
     document.querySelectorAll('input').forEach((element) => {
-      const e =element; 
+      const e = element;
       if (e.type === 'number') {
         e.value = 0;
       } else {
@@ -46,14 +46,20 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-      <label data-testid="title-input-label">
+      <label
+        HTMLFor="title"
+        data-testid="title-input-label"
+      >
       Título
      <input type="text"
      data-testid="title-input"
      onChange={this.handleChange}
      name="title">{title}</input>
       </label>
-      <label data-testid="subtitle-input-label">
+      <label
+        HTMLFor="subtitle"
+        data-testid="subtitle-input-label"
+      >
       Subtítulo
      <input
         type="text"
@@ -62,7 +68,10 @@ class AddMovie extends Component {
         onChange={this.handleChange}
      >{subtitle}</input>
       </label>
-      <label data-testid="image-input-label">
+      <label
+        HTMLFor="image"
+        data-testid="image-input-label"
+      >
       Imagem
      <input
         type="text"
@@ -71,7 +80,10 @@ class AddMovie extends Component {
         onChange={this.handleChange}
      >{imagePath}</input>
       </label>
-      <label data-testid="storyline-input-label">
+      <label
+        HTMLFor="storyline"
+        data-testid="storyline-input-label"
+      >
       Sinopse
      <textarea
         data-testid="storyline-input"
@@ -79,7 +91,10 @@ class AddMovie extends Component {
         onChange={this.handleChange}
      >{storyline}</textarea>
       </label>
-      <label data-testid="rating-input-label">
+      <label
+        HTMLFor="rating" 
+        data-testid="rating-input-label"
+      >
       Avaliação
      <input
         type="number"
@@ -89,7 +104,10 @@ class AddMovie extends Component {
         defaultValue="0"
      >{rating}</input>
       </label>
-      <label data-testid="genre-input-label">
+      <label
+        HTMLFor="genre"
+        data-testid="genre-input-label"
+      >
           Gênero
         <select
           value={this.props.genre}
