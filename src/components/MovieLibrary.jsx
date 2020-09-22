@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
@@ -19,9 +19,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    this.setState((previousState) => ({
-      movies: [...previousState.movies, newMovie],
-    }));
+    this.setState((previousState) => ({movies: [...previousState.movies, newMovie],}));
   }
   render() {
     return (

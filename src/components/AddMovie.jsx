@@ -21,9 +21,7 @@ class AddMovie extends Component {
   handleAreaChange({ target }) {
     const { name } = target;
     const value = target.value;
-    this.setState({
-      [name]: value,
-    });
+    this.setState({[name]: value,});
   }
 
   sendMovie(currentState, onClick) {
@@ -40,14 +38,11 @@ class AddMovie extends Component {
 
   render() {
     const { onClick } = this.props;
-    const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">
           Título
-          <input
-            type="text"
+          <input type="text"
             id="title-input"
             data-testid="title-input"
             name="title"
@@ -58,8 +53,7 @@ class AddMovie extends Component {
 
         <label data-testid="subtitle-input-label">
           Subtítulo
-          <input
-            type="text"
+          <input type="text"
             id="subtitle-input-label"
             data-testid="subtitle-input"
             name="subtitle"
@@ -70,8 +64,7 @@ class AddMovie extends Component {
 
         <label data-testid="image-input-label">
           Imagem
-          <input
-            type="img"
+          <input type="img"
             id="image-input-label"
             data-testid="image-input"
             name="imagePath"
@@ -82,8 +75,7 @@ class AddMovie extends Component {
 
         <label data-testid="storyline-input-label">
           Sinopse
-          <input
-            type="text"
+          <input type="text"
             id="storyline-input-label"
             data-testid="storyline-input"
             name="storyline"
@@ -94,8 +86,7 @@ class AddMovie extends Component {
 
         <label data-testid="rating-input-label">
           Avaliação
-          <input
-            type="number"
+          <input type="number"
             id="rating-input-label"
             data-testid="rating-input"
             name="rating"
