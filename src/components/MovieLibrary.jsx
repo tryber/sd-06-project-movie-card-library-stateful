@@ -17,8 +17,21 @@ class MovieLibrary extends Component {
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.filterMovies = this.filterMovies.bind(this);
     this.addMovie = this.addMovie.bind(this);
+  }
+
+  onBookmarkedChange({ target }) {
+    this.setState({ bookmarkedOnly: target.checked },
+      () => this.filterBookmarked(target.checked));
+  }
+
+  filterBookmarked(isItBookMarked) {
+    const originalList = this.state.movies;
+    const filteredMovies = originalList.filter((movie) => movie.bookmarked === isItBookMarked);
+
+    this.setState({ movies: filteredMovies });
   }
 
   filterMovies(value, isItCheckBox) {
@@ -42,11 +55,10 @@ class MovieLibrary extends Component {
   }
 
   handleTextChange({ target }) {
-    const isItCheckBox = target.type === 'checkbox';
-    const value = isItCheckBox ? target.checked : target.value;
+    const value = target.value;
     const name = target.name;
 
-    this.setState({ [name]: value }, () => this.filterMovies(value, isItCheckBox));
+    this.setState({ [name]: value }, () => this.filterMovies(value));
   }
 
   addMovie(childState) {
@@ -62,7 +74,7 @@ class MovieLibrary extends Component {
         bookmarkedOnly={bookmarkedOnly}
         selectedGenre={selectedGenre}
         onSearchTextChange={this.handleTextChange}
-        onBookmarkedChange={this.handleTextChange}
+        onBookmarkedChange={this.onBookmarkedChange}
         onSelectedGenreChange={this.handleTextChange}
       />
       <MovieList movies={movies} />
