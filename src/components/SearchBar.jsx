@@ -13,10 +13,10 @@ class SearchBar extends Component {
     } = this.props;
 
     return (
-      <form data-testid="search-bar-form">
+      <form htmlFor="search-bar-form" data-testid="search-bar-form">
         <label data-testid="text-input-label">
           Inclui o texto:
-          <input data-testid="text-input"
+          <input htmlFor="text-input" data-testid="text-input"
             type="text"
             name="searchText"
             value={searchText}
@@ -25,19 +25,19 @@ class SearchBar extends Component {
             required="required"
           ></input>
         </label>
-        <label data-testid="checkbox-input-label">
+        <label htmlFor="checkbox-input-label" data-testid="checkbox-input-label">
           Mostrar somente favoritos
-          <input data-testid="checkbox-input"
+          <input htmlFor="checkbox-input" data-testid="checkbox-input"
             type="checkbox"
             name="name"
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
           />
         </label>
-        <label data-testid="select-input-label">
+        <label htmlFor="select-input-label" data-testid="select-input-label">
           Filtrar por gênero
           <select
-            data-testid="select-input"
+            htmlFor="select-input" data-testid="select-input"
             value={selectedGenre}
             onChange={onSelectedGenreChange}
           >

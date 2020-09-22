@@ -19,7 +19,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(newMovie) {
-    this.setState((previousState) => ({movies: [...previousState.movies, newMovie],}));
+    this.setState((previousState) => ({ movies: [...previousState.movies, newMovie] }));
   }
   render() {
     return (
