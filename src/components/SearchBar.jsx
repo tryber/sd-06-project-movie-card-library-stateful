@@ -22,30 +22,43 @@ class SearchBar extends React.Component {
     );
   }
 
+  renderFormInputText() {
+    const { searchText, onSearchTextChange } = this.props;
+    return (
+      <label htmlFor="text" data-testid="text-input-label">
+        Inclui o texto:
+        <input
+          name="searchText"
+          type="text"
+          value={searchText}
+          onChange={onSearchTextChange}
+          data-testid="text-input"
+        />
+      </label>
+    );
+  }
+
+  renderFormInputCheckbox() {
+    const { bookmarkedOnly, onBookmarkedChange } = this.props;
+    return (
+      <label htmlFor="checkbox" data-testid="checkbox-input-label">
+        Mostrar somente favoritos
+        <input
+          name="bookmarkedOnly"
+          type="checkbox"
+          checked={bookmarkedOnly}
+          onChange={onBookmarkedChange}
+          data-testid="checkbox-input"
+        />
+      </label>
+    );
+  }
+
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label htmlFor="text" data-testid="text-input-label">
-          Inclui o texto:
-          <input
-            name="searchText"
-            type="text"
-            value={searchText}
-            onChange={onSearchTextChange}
-            data-testid="text-input"
-          />
-        </label>
-        <label htmlFor="checkbox" data-testid="checkbox-input-label">
-          Mostrar somente favoritos
-          <input
-            name="bookmarkedOnly"
-            type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
-            data-testid="checkbox-input"
-          />
-        </label>
+        {this.renderFormInputText()}
+        {this.renderFormInputCheckbox()}
         {this.renderSelect()}
       </form>
     );
