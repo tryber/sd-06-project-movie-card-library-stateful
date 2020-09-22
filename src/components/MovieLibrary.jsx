@@ -26,29 +26,26 @@ class MovieLibrary extends React.Component {
 
   onClick(movie) {
     console.log(movie);
-    this.setState({ movies: [...this.state.movies, movie] })
-  };
+    this.setState({ movies: [...this.state.movies, movie] });
+  }
 
   onSearchTextChange({ target }) {
     const { name, value } = target;
 
-    this.setState({ [name]: value });
-    this.filteringMovies();
+    this.setState({ [name]: value }, () => this.filteringMovies());
   }
 
   onBookmarkedChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({ [name]: value });
-    this.filteringFavorites();
+    this.setState({ [name]: value }, () => this.filteringFavorites());
   }
 
   onSelectedGenreChange({ target }) {
     const { name, value } = target;
 
-    this.setState({ [name]: value });
-    this.filteringCategory();
+    this.setState({ [name]: value }, () => this.filteringCategory());
   }
 
   filteringMovies() {
@@ -60,16 +57,16 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: newMovies });
   }
 
-  filteringCategory() {
-    const { movies } = this.state;
-    const newCategory = (movies.filter((movie) => movie.genre === this.state.selectedGenre));
-    this.setState({ movies: newCategory });
-  }
-
   filteringFavorites() {
     const { movies } = this.state;
     const newFavorites = (movies.filter((movie) => movie.bookmarked === this.state.bookmarkedOnly));
     this.setState({ movies: newFavorites });
+  }
+
+  filteringCategory() {
+    const { movies } = this.state;
+    const newCategory = (movies.filter((movie) => movie.genre === this.state.selectedGenre));
+    this.setState({ movies: newCategory });
   }
 
   render() {
@@ -85,7 +82,7 @@ class MovieLibrary extends React.Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
