@@ -3,7 +3,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  render() {
+   render() {
     const {
       searchText,
       onSearchTextChange,
@@ -15,7 +15,7 @@ class SearchBar extends React.Component {
 
     return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label">
+        <label htmlFor="text-input" data-testid="text-input-label">
           Inclui o texto:
           <input
             data-testid="text-input"
@@ -25,7 +25,7 @@ class SearchBar extends React.Component {
           />
         </label>
         <br />
-        <label data-testid="checkbox-input-label">
+        <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
           Mostrar somente favoritos
           <input
             data-testid="checkbox-input"
@@ -35,17 +35,17 @@ class SearchBar extends React.Component {
           />
         </label>
         <br />
-        <label data-testid="select-input-label">
+        <label htmlFor="select-input" data-testid="select-input-label">
           Filtrar por gênero
           <select
             data-testid="select-input"
             value={selectedGenre}
             onChange={onSelectedGenreChange}
           >
-            <options data-testid="select-option" value="">Todos</options>
-            <options data-testid="select-option" value="action">Ação</options>
-            <options data-testid="select-option" value="comedy">Comédia</options>
-            <options data-testid="select-option" value="thriller">Suspense</options>
+            <option data-testid="select-option" value="">Todos</option>
+            <option data-testid="select-option" value="action">Ação</option>
+            <option data-testid="select-option" value="comedy">Comédia</option>
+            <option data-testid="select-option" value="thriller">Suspense</option>
           </select>
         </label>
       </form>
@@ -53,6 +53,13 @@ class SearchBar extends React.Component {
   }
 }
 
-SearchBar.propTypes = { movie: PropTypes.objectOf(PropTypes.any).isRequired };
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange: PropTypes.func,
+};
 
 export default SearchBar;
