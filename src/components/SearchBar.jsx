@@ -5,14 +5,8 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
 
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
-      selectedGenre,
-      onSelectedGenreChange,
-    } = this.props;
+    const { searchText, onSearchTextChange, bookmarkedOnly,
+      onBookmarkedChange, selectedGenre, onSelectedGenreChange, } = this.props;
 
     return (
       <div className="movie-card-header">
