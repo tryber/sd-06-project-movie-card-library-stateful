@@ -16,15 +16,24 @@ class MovieLibrary extends Component {
     };
   }
 
-  filterMovies() {
-    let filteredMovies = this.props.movies;
-    if (this.state.searchText !== '') {
-      moviesFiltered = moviesFiltered.filter((movie) =>
-        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
-        movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
-        movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
-    }
-  }
+  // filterMovies() {
+  //   let filteredMovies = this.props.movies;
+  //   if (this.state.searchText !== '') {
+  //     filteredMovies = filteredMovies.filter((movie) =>
+  //       movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+  //       movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+  //       movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
+  //   }
+  //   if (this.state.bookmarkedOnly === true) {
+  //     filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
+  //   } else {
+  //     filteredMovies = this.props.movies;
+  //   }
+  //   if (this.state.selectedGenre !== '') {
+  //     filteredMovies = filteredMovies.filter((movie) => movie.genre === this.state.selectedGenre);
+  //   }
+  //   this.setState({ movies: filteredMovies });
+  // }
 
   render() {
     return (

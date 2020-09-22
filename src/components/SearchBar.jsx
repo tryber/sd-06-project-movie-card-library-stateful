@@ -2,6 +2,14 @@ import React from 'react';
 import PropType from 'prop-types';
 
 class SearchBar extends React.Component {
+  constructor() {
+    super();
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
   onSearchTextChange({ target }) {
     this.setState({ [target.name]: target.value });
   }
@@ -18,15 +26,24 @@ class SearchBar extends React.Component {
       <form data-testid="search-bar-form" className="search-bar-form">
         <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto:
-          <input type="text" value={searchText}
-            onChange={onSearchTextChange} data-testid="text-input" name="searchText"
+          <input
+            type="text"
+            value={searchText}
+            onChange={onSearchTextChange}
+            data-testid="text-input"
+            name="searchText"
           />
         </label>
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
           Mostrar somente favoritos:
-          <input type="checkbox" className="text-input"
-          onChange={onBookmarkedChange} data-testid="checkbox-input" value={bookmarkedOnly}
-          checked="bookmarkedOnly" name="bookmarkedOnly"
+          <input
+            type="checkbox"
+            className="text-input"
+            onChange={onBookmarkedChange}
+            data-testid="checkbox-input"
+            value={bookmarkedOnly}
+            checked="bookmarkedOnly"
+            name="bookmarkedOnly"
           />
         </label>
         <label data-testid="select-input-label" htmlFor="select-input">
