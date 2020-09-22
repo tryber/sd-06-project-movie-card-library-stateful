@@ -8,9 +8,7 @@ class MovieLibrary extends Component {
   constructor(props) {
     super(props);
     const { movies } = this.props;
-
     this.onClick =this.onClick.bind(this);
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -19,28 +17,22 @@ class MovieLibrary extends Component {
     }
   }
   onClick(currentState){
-
     const { movies } = this.state;
-// (estadoAnterior) => ({ meuEstado: estadoAnterior })
     this.setState(
       () => ({
       movies: [...movies, currentState]
     }))
-    
-
   }
 
-  render(){
+  render() {
    const { movies } = this.state;
    return (
-  
-  <div>
-    <SearchBar />
-    <AddMovie movies={movies} onClick={this.onClick} />
-    <MovieList movies={movies} />
-
-  </div>
-     );
+    <div>
+      <SearchBar />
+      <AddMovie movies={movies} onClick={this.onClick} />
+      <MovieList movies={movies} />
+    </div>
+  );
   }
 }
 
