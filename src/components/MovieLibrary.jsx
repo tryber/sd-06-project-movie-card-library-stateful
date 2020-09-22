@@ -6,16 +6,12 @@ class MovieLibrary extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    };
+
   }
 
+  onSelectedGenreChange({ target }) {
+    this.setState({})
+  }
   render() {
     // const movie = this.props;
     // const { title, subtitle, storyline, rating, imagePath } = movie;
