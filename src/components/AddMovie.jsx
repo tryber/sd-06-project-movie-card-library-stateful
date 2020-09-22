@@ -36,14 +36,6 @@ class AddMovie extends React.Component {
   }
   render() {
     const { onClick } = this.props;
-    const textareaCodeClimatBug = {
-      id: "storyline",
-      ty: "text",
-      te: "storyline-input",
-      on: this.handleChange,
-      va: this.state.storyline,
-    };
-    const { id, ty, te, on, va} = textareaCodeClimatBug;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -79,8 +71,13 @@ class AddMovie extends React.Component {
           </label>
           <label htmlFor="storyline" data-testid="storyline-input-label">
             Sinopse
-            <textarea id={id} type={ty} data-testid={te} onChange={on} value={va}>              
-            </textarea>
+            <textarea
+              id="storyline"
+              type="text"
+              data-testid="storyline-input"
+              onChange={this.handleChange}
+              value={this.state.storyline}
+            />              
           </label>
           <label htmlFor="rating" data-testid="rating-input-label">
             Avaliação
