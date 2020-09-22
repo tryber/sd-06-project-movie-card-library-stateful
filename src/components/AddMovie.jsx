@@ -100,7 +100,8 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="genero" data-testid="genre-input-label">
           Gênero
-          <select name="genre"
+          <select
+            name="genre"
             id="genero"
             value={this.state.genre}
             data-testid="genre-input"
