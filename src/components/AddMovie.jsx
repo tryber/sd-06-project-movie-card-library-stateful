@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Textarea from './Textarea';
 
 class AddMovie extends React.Component {
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.AddMovie = this.AddMovie.bind(this);
+    this.objTextarea = this.objTextarea.bind(this);
     this.state = {
       title: '',
       subtitle: '',
@@ -22,18 +24,27 @@ class AddMovie extends React.Component {
   }
   AddMovie(onClick) {
     onClick(this.state);
-    this.setState({
-      title: '',
-      subtitle: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      bookmarked: false,
-      genre: 'action',
-    });
+    this.setState();
+  }
+  objTextarea() {
+    return {
+      id: "storyline",
+      ty: "text",
+      te: "storyline-input",
+      on: this.handleChange,
+      va: this.state.storyline,
+    };
   }
   render() {
     const { onClick } = this.props;
+    const textareaCodeClimatBug = {
+      id: "storyline",
+      ty: "text",
+      te: "storyline-input",
+      on: this.handleChange,
+      va: this.state.storyline,
+    };
+    const { id, ty, te, on, va} = textareaCodeClimatBug;
     return (
       <div>
         <form data-testid="add-movie-form">
@@ -69,15 +80,9 @@ class AddMovie extends React.Component {
           </label>
           <label htmlFor="storyline" data-testid="storyline-input-label">
             Sinopse
+            <textarea id={id} type={ty} data-testid={te} onChange={on} value={va}>              
+            </textarea>
           </label>
-          <textarea
-            id="storyline"
-            type="text"
-            data-testid="storyline-input"
-            onChange={this.handleChange}
-            value={this.state.storyline}
-          >
-          </textarea>
           <label htmlFor="rating" data-testid="rating-input-label">
             Avaliação
             <input

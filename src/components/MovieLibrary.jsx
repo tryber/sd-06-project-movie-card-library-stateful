@@ -39,7 +39,6 @@ class MovieLibrary extends React.Component {
     }
     return valueMovies;
   }
-
   handleChange({ target }) {
     const key = target.id;
     const value = target.type === 'checkbox' ? target.checked : target.value;
