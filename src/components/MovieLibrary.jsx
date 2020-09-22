@@ -22,7 +22,7 @@ class MovieLibrary extends React.Component {
   handleAddMovie(newMovie) {
     console.log(newMovie);
     const { movies } = this.state;
-    this.setState({ movies: [...movies, (newMovie)] });
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   handleState(event) {
