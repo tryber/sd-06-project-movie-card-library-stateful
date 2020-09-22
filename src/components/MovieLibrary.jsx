@@ -23,29 +23,6 @@ class MovieLibrary extends Component {
     };
   }
 
-  filterByGenre(value) {
-    const filteredMovies = this.props.movies.filter((movie) =>
-      movie.genre === value,
-    );
-    return filteredMovies;
-  }
-
-  filterBySearchText(value) {
-    const filteredMovies = this.state.movies.filter((movie) =>
-      movie.title.toLowerCase().includes(value.toLowerCase()) ||
-      movie.subtitle.toLowerCase().includes(value.toLowerCase()) ||
-      movie.storyline.toLowerCase().includes(value.toLowerCase()),
-    );
-    return filteredMovies;
-  }
-
-  filterByBookedMarked() {
-    const filteredMovies = this.state.movies.filter((movie) =>
-      movie.bookmarked,
-    );
-    return filteredMovies;
-  }
-
   onSelectedGenreChange({ target }) {
     const { name, value } = target;
     this.setState(() => {
@@ -93,6 +70,28 @@ class MovieLibrary extends Component {
         movies: this.props.movies,
       };
     });
+  }
+  filterByGenre(value) {
+    const filteredMovies = this.props.movies.filter((movie) =>
+      movie.genre === value,
+    );
+    return filteredMovies;
+  }
+
+  filterBySearchText(value) {
+    const filteredMovies = this.state.movies.filter((movie) =>
+      movie.title.toLowerCase().includes(value.toLowerCase()) ||
+      movie.subtitle.toLowerCase().includes(value.toLowerCase()) ||
+      movie.storyline.toLowerCase().includes(value.toLowerCase()),
+    );
+    return filteredMovies;
+  }
+
+  filterByBookedMarked() {
+    const filteredMovies = this.state.movies.filter((movie) =>
+      movie.bookmarked,
+    );
+    return filteredMovies;
   }
 
   render() {
