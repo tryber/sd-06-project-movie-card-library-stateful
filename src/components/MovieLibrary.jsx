@@ -21,12 +21,25 @@ class MovieLibrary extends Component {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
 
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => {
+      const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+      const filteredMovies = movies.filter(movie => { if(bookmarkedOnly) movie.bookmarked; })
+      .filter(movie => movie.genre === selectedGenre)
+      .filter(movie => {
+        if (searchText !== '') {
+          movie.title.toLowerCase().includes(searchText.toLowerCase()) ||
+          movie.subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
+          movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+        }
+      });
+
+    this.setState({ movies: filteredMovies });
+    })
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { movies } = this.state;
+    const { movies } = this.props;
 
     return (
       <section>
