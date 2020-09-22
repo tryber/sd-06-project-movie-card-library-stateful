@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -18,6 +18,7 @@ class MovieLibrary extends React.Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.clickAddMovie = this.clickAddMovie.bind(this);
   }
 
   // essa função vai do pai (MovieLibrary) para o filho (SearchBar), via props, para pegar o valor
@@ -25,7 +26,7 @@ class MovieLibrary extends React.Component {
   handleChange({ target }) {
     const { name } = target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
-    this.setState({ [name]: value }, () => { this.choosingMyMovies() });
+    this.setState({ [name]: value }, () => { this.choosingMyMovies(); });
   }
 
   // essa função vai filtrar os filmes escolhidos, de acordo com as opções de
@@ -53,6 +54,11 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: myMovies });
   }
 
+  clickAddMovie(newAddMovie) {
+    const { movies } = this.props;
+    this.setState({ movies: movies.concat(newAddMovie) });
+  }
+
   render() {
     const { movies } = this.props;
     return (
@@ -63,12 +69,12 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre} onSelectedGenreChange={this.handleChange}
         />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie onClick={this.clickAddMovie} />
       </div>
     );
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
+MovieLibrary.propTypes = { movies: propTypes.arrayOf(propTypes.object).isRequired };
 
 export default MovieLibrary;
