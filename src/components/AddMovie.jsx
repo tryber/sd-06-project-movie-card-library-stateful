@@ -28,22 +28,23 @@ class AddMovie extends Component {
       storyline: "",
       rating: 0,
       gender: 'action',
-    })
+    });
 
     document.querySelectorAll('input').forEach((element) => {
-      if (element.type === 'number') {
-        element.value = 0;
+      const e =element; 
+      if (e.type === 'number') {
+        e.value = 0;
       } else {
-        element.value = '';
+        e.value = '';
       }
     });
     document.querySelectorAll('select').value = 'action';
   }
-  
+
   render() {
     const { title, subtitle, imagePath, storyline, rating } = this.props;
     const { onClick } = this.props;
-     return (
+    return (
       <form data-testid="add-movie-form">
       <label data-testid="title-input-label">
       Título
@@ -117,6 +118,13 @@ class AddMovie extends Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { 
+  onClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath:PropTypes.string.isRequired,
+  storyline: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+};
 
 export default AddMovie;
