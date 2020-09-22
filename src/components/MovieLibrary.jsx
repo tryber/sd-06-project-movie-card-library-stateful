@@ -7,6 +7,17 @@ import movies from '../data';
 
 
 class MovieLibrary extends React.Component {
+  constructor(props) {
+    super();
+
+    this.state = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: props.movies,
+    };
+  }
+
   render() {
     return (
       <div>
