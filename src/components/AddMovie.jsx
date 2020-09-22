@@ -133,7 +133,7 @@ class AddMovie extends Component {
           Adicionar filme
         </button>
       </form>
-      );
+    );
   }
 }
 
