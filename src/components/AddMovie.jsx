@@ -6,7 +6,6 @@ class AddMovie extends React.Component {
     super();
     this.handleChange = this.handleChange.bind(this);
     this.AddMovie = this.AddMovie.bind(this);
-    this.objTextarea = this.objTextarea.bind(this);
     this.state = {
       title: '',
       subtitle: '',
