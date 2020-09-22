@@ -16,7 +16,7 @@ class SearchBar extends Component {
     return (
       <section>
         <form data-testid="search-bar-form">
-          <label htmlFor="text-input" data-testid="text-input-label" > Inclui o Texto </label>
+          <label htmlFor="text-input" data-testid="text-input-label" >Inclui o texto</label>
           <input
             id="text-input"
             data-testid="text-input"
@@ -33,8 +33,9 @@ class SearchBar extends Component {
             data-testid="checkbox-input"
             name="bookmarkedOnly"
             type="checkbox"
-            value={bookmarkedOnly}
+            checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
+            
           />
           <label htmlFor="select-input" data-testid="select-input-label" >
             Filtrar por gênero
