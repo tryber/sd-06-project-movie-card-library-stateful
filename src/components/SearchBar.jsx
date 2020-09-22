@@ -35,7 +35,6 @@ class SearchBar extends Component {
             type="checkbox"
             checked={bookmarkedOnly}
             onChange={onBookmarkedChange}
-            
           />
           <label htmlFor="select-input" data-testid="select-input-label" >
             Filtrar por gênero
