@@ -9,26 +9,30 @@ class SearchBar extends Component {
         <form data-testid="search-bar-form">
           <label data-testid="text-input-label">
           Inclui o texto:
-            <input 
-            type="text" 
-            value={this.props.searchText} 
-            data-testid="text-input" 
-            onChange={this.props.onSearchTextChange} />
+            <input
+              type="text"
+              name="SearchText"
+              value={this.props.searchText} 
+              data-testid="text-input"
+              onChange={this.props.onSearchTextChange}
+            />
             </label>
             <label data-testid="checkbox-input-label">
             Mostrar somente favoritos
-            <input 
-              type="checkbox" 
-              checked={this.props.bookmarkedOnly} 
-              data-testid="checkbox-input" 
-              onChange={this.props.onBookmarkedChange} 
+            <input
+              type="checkbox"
+              name="bookmarkedOnly"
+              checked={this.props.bookmarkedOnly}
+              data-testid="checkbox-input"
+              onChange={this.props.onBookmarkedChange}
             />
             </label>
             <label data-testid="select-input-label">
             Filtrar por gênero
-              <select 
-                value={this.props.selectedGenre} 
-                data-testid="select-input" 
+              <select
+                value={this.props.selectedGenre}
+                name="selectedGenre"
+                data-testid="select-input"
                 onChange={this.props.onSelectedGenreChange}
               >
               <option value="" data-testid="select-option">Todos</option>
@@ -39,11 +43,17 @@ class SearchBar extends Component {
             </label>
         </form>
       </div>
-
     );
   }
 }
 
-
+SearchBar.propTypes = {
+  searchText: PropTypes.string,
+  onSearchTextChange: PropTypes.func,
+  bookmarkedOnly: PropTypes.bool,
+  onBookmarkedChange: PropTypes.func,
+  selectedGenre: PropTypes.string,
+  onSelectedGenreChange:  PropTypes.func,
+}
 
 export default SearchBar;
