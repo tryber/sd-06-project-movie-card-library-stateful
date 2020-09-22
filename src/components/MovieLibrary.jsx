@@ -7,13 +7,15 @@ import movies from '../data';
 import PropTypes from 'prop-types';
 
 class MovieLibrary extends React.Component {
-  constructor(props) {
+  // constructor(props) {
+  constructor() {
     super();
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: props.movies,
+      // movies: props.movies,
+      movies: this.props,
     };
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -58,6 +60,6 @@ class MovieLibrary extends React.Component {
   }
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf.isRequired };
 
 export default MovieLibrary;
