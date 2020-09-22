@@ -1,26 +1,29 @@
-import { bool } from 'prop-types';
 import React from 'react';
+import PropTypes from 'prop-types';
+import AddMovie from './AddMovie';
+import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
-/* passar como propriedade os estados e as funçoes de mudança de estado */
-/* declarar os estados searchtext bookemarks select genre
-   declara as funçoes de mudança de estado */
 class MovieLibrary extends React.Component {
-  construtor() {
-    super();
-    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  constructor(props) {
+    super(props);
+    const { movies } = this.props;
+
     this.state = {
       searchtext: '',
-      bookemarks: bool,
+      bookmarkedOnly: false,
       selectedGenre: '',
-    };
-}
+      movies:
+    }
+  }
+
   render() {
     return (
       <div>
+        <h2> My awesome movie library</h2>
         <SearchBar />
+        <MovieList movies={this.movies} />
+        <AddMovie />
       </div>
     );
   }

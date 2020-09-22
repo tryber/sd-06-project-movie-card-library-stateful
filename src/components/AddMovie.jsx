@@ -2,10 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-    this.handle = this.handle.bind(this);
+  constructor(props) {
+    super(props);
     this.state = {
       title: '',
       subtitle: '',
@@ -14,15 +12,19 @@ class AddMovie extends React.Component {
       imagePath: '',
       genre: 'action',
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.handle = this.handle.bind(this);
   }
+}
 
   handle({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
-
-  handleClick({ target }) {
+  handleClick(event) {
     const { onClick } = this.props;
+    event.preventDefault();
+    onClick(this.state);
     this.setState = {
       title: '',
       subtitle: '',
@@ -31,7 +33,6 @@ class AddMovie extends React.Component {
       imagePath: '',
       genre: 'action',
     };
-    onClick();
   }
 
   title() {
@@ -148,8 +149,6 @@ class AddMovie extends React.Component {
       </form>
     );
   }
-}
-
 
 AddMovie.protoTypes = { onClick: PropTypes.func.isRequired };
 
