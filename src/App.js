@@ -4,7 +4,7 @@ import movies from './data';
 import Header from './components/Header';
 // import MovieList from './components/MovieList';
 // import SearchBar from './components/SearchBar';
-import AddMovie from './components/AddMovie';
+// import AddMovie from './components/AddMovie';
 import MovieLibrary from './components/MovieLibrary'
 
 function App() {

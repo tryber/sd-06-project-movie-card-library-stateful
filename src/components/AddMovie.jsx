@@ -29,7 +29,7 @@ class AddMovie extends React.Component {
   handleClick(event) {
     event.preventDefault();
     const { onClick } = this.props;
-    onClick(this.state)
+    onClick(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -41,11 +41,10 @@ class AddMovie extends React.Component {
   }
 
   render() {
-
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
-          Título
+          Títulos
           <input
             data-testid="title-input"
             id="title"
@@ -64,7 +63,6 @@ class AddMovie extends React.Component {
             name="subtitle"
             value={this.state.subtitle}
             onChange={this.eventHandler}
-            data-testid="subtitle-input"
           />
         </label>
         <label htmlFor="image-input" data-testid="image-input-label">
@@ -102,7 +100,8 @@ class AddMovie extends React.Component {
         </label>
         <label htmlFor="genero" data-testid="genre-input-label">
           Gênero
-          <select name="genre" id="genero"
+          <select name="genre"
+            id="genero"
             value={this.state.genre}
             data-testid="genre-input"
             onChange={this.eventHandler}
@@ -120,7 +119,7 @@ class AddMovie extends React.Component {
 
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired }
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
 
