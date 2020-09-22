@@ -57,6 +57,14 @@ class SearchBar extends React.Component {
   }
 }
 
+function defaultProp() {
+  return {
+    onSearchTextChange: this.onSearchTextChange.bind(this),
+    onBookmarkedChange: this.onBookmarkedChange.bind(this),
+    onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
+  };
+}
+
 SearchBar.propTypes = {
   searchText: PropTypes.string,
   onSearchTextChange: PropTypes.func,
@@ -65,14 +73,6 @@ SearchBar.propTypes = {
   selectedGenre: PropTypes.string,
   onSelectedGenreChange: PropTypes.func,
 };
-
-function defaultProp() {
-  return {
-    onSearchTextChange: this.onSearchTextChange.bind(this),
-    onBookmarkedChange: this.onBookmarkedChange.bind(this),
-    onSelectedGenreChange: this.onSelectedGenreChange.bind(this),
-  };
-}
 
 SearchBar.defaultProps = {
   searchText: '',
