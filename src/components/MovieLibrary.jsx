@@ -7,7 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -51,6 +51,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieList.propTypes = { movies: PropTypes.arrayOf(PropTypes.objectOf).isRequired };
+MovieList.propTypes = { movies: PropTypes.objectOf.isRequired };
 
 export default MovieLibrary;
