@@ -11,7 +11,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filterMovies = this.filterMovies.bind(this);
+    this.UpdateProp = this.UpdateProp.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -26,42 +26,69 @@ class MovieLibrary extends Component {
     this.setState((past) => ({ movies: [...past.movies, NEW_MOVIE] }));
   }
 
-  onSearchTextChange(event = { target: this.searchText }) {
-    const { target } = event;
-    this.setState(target.type === 'checkbox'
-      ? { [target.name]: target.checked }
-      : { [target.name]: target.value });
+  onSearchTextChange({ target }) {
+    const { value } = target;
+    console.log(value);
+    this.setState((_, props) => value
+      ? {
+        movies: props.movies.filter((movie) =>
+          movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value))
+      }
+      : { movies: props.movies }
+    );
+    this.UpdateProp(false, '', value);
+  }
+
+  UpdateProp(bookmarkedOnly = false, selectedGenre = '', searchText = '') {
+    this.setState({ searchText, selectedGenre, bookmarkedOnly, });
+  }
+
+  ResetAndFilter() {
+    this.setState({ movies: this.props.movies }, () => {
+    });
   }
 
   onSelectedGenreChange({ target }) {
-    const { movies } = this.state;
-    const { name, value } = target;
-    this.setState({ [name]: value });
-    this.setState({ movies: movies.filter((movie) => movie.genre === value) });
-    // this.filterMovies();
+    const { value } = target;
+    this.setState((_, props) => value
+      ? { movies: props.movies.filter((movie) => movie.genre === value) }
+      : { movies: props.movies }
+    );
+    this.UpdateProp(false, value, '');
   }
 
   onBookmarkedChange({ target }) {
     const { checked } = target;
-    const { movies, bookmarkedOnly } = this.state;
-    this.setState({ bookmarkedOnly: checked });// bookmarkedOnly
-    this.setState({ movies: movies.filter((movie) => movie.bookmarked === bookmarkedOnly) });
+    this.setState((_, props) => checked
+      ? { movies: props.movies.filter((movie) => movie.bookmarked === checked) }
+      : { movies: props.movies },
+    );
+    this.UpdateProp(checked, '', '');
+
+
+
+    /* if (!checked) {
+    } else {
+      this.ResetAndFilter('bookmarked', checked, name);
+    } */
+    /* this.setState({ movies: movies.filter((movie) => movie.bookmarked === bookmarkedOnly) }); */
     // this.filterMovies();
   }
 
-  filterMovies() {
+  /* filterMovies() {
     this.setState({ movies: this.props.movies });
-    /* const { movies, bookmarkedOnly, selectedGenre } = this.state; */
-  }
+    const { movies, bookmarkedOnly, selectedGenre } = this.state;
+  } */
 
   render() {
-    const { movies, bookmarkedOnly, selectedGenre } = this.state;
+    const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange, onClick } = this;
     return (
       <div>
         <h2> My awesome movie library </h2>
         <SearchBar
           onSearchTextChange={onSearchTextChange}
+          searchText={searchText}
           onBookmarkedChange={onBookmarkedChange}
           bookmarkedOnly={bookmarkedOnly}
           onSelectedGenreChange={onSelectedGenreChange}
@@ -69,7 +96,7 @@ class MovieLibrary extends Component {
         />
         <MovieList movies={movies} />
         <AddMovie onClick={onClick} />
-      </div>
+      </div >
     );
   }
 
@@ -82,17 +109,16 @@ class MovieLibrary extends Component {
 
 MovieLibrary.propTypes = {
   movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  /* subtitle: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-  checked: PropTypes.bool.isRequired,
-  title: PropTypes.string.isRequired,
-  imagePath: PropTypes.string.isRequired,
-  storyline: PropTypes.string.isRequired,
-  rating: PropTypes.number.isRequired,
-  genre: PropTypes.string.isRequired, */
+  /* 32: Arrow function used ambiguously with a conditional expression. [eslint]
+35: Line 35 exceeds the maximum line length of 100. [eslint]
+35: Missing trailing comma. [eslint]
+37: Missing trailing comma. [eslint]
+42: UpdateProp should be placed after onBookmarkedChange [eslint]
+43: Unexpected trailing comma. [eslint]
+53: Arrow function used ambiguously with a conditional expression. [eslint]
+55: Missing trailing comma. [eslint]
+62: Arrow function used ambiguously with a conditional expression. [eslint]
+67: More than 2 blank lines not allowed. [eslint] */
 };
 
 export default MovieLibrary;
