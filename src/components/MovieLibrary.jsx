@@ -15,7 +15,7 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
     this.handleState = this.handleState.bind(this);
-    this.filterBy = this.filterBy.bind(this);
+    this.handleFilter = this.handleFilter.bind(this);
     this.handleAddMovie = this.handleAddMovie.bind(this);
   }
 
@@ -29,29 +29,29 @@ class MovieLibrary extends React.Component {
     const { name } = event.target;
     const value = event.target.type === 'checkbox' ? event.target.checked : event.target.value;
     this.setState({ [name]: value }, () => {
-      this.filterBy();
+      this.handleFilter();
     });
   }
 
-  filterBy() {
+  handleFilter() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
-    let filterBy = movies;
+    let moviesArray = movies;
 
     if (bookmarkedOnly) {
-      filterBy = filterBy.filter((movie) => movie.bookmarked === true);
+      moviesArray = moviesArray.filter((movie) => movie.bookmarked === true);
     }
 
     if (selectedGenre) {
-      filterBy = filterBy.filter((movie) => movie.genre === selectedGenre);
+      moviesArray = moviesArray.filter((movie) => movie.genre === selectedGenre);
     }
 
     if (searchText) {
-      filterBy = filterBy.filter((movie) => movie.title.toLowerCase()
+      moviesArray = moviesArray.filter((movie) => movie.title.toLowerCase()
         .includes(searchText.toLowerCase()) || movie.subtitle.toLowerCase()
         .includes(searchText.toLowerCase()) || movie.storyline.toLowerCase()
         .includes(searchText.toLowerCase()));
     }
-    this.setState({ movies: filterBy });
+    this.setState({ movies: moviesArray });
   }
 
   render() {
