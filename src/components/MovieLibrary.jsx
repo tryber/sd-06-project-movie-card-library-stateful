@@ -16,6 +16,16 @@ class MovieLibrary extends Component {
     };
   }
 
+  filterMovies() {
+    let filteredMovies = this.props.movies;
+    if (this.state.searchText !== '') {
+      moviesFiltered = moviesFiltered.filter((movie) =>
+        movie.title.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.subtitle.toLowerCase().includes(this.state.searchText.toLowerCase()) ||
+        movie.storyline.toLowerCase().includes(this.state.searchText.toLowerCase()));
+    }
+  }
+
   render() {
     return (
       <div>
