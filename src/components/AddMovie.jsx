@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Textarea from './Textarea';
 
 class AddMovie extends React.Component {
   constructor() {
