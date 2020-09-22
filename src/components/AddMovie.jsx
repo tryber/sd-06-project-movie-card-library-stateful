@@ -46,69 +46,81 @@ class AddMovie extends Component {
     const { onClick } = this.props;
     return (
       <form data-testid="add-movie-form">
-      <label
-        HTMLFor="title"
-        data-testid="title-input-label"
+        <label
+          HTMLFor="title"
+          data-testid="title-input-label"
+        >
+        Título
+      <input
+        type="text"
+        data-testid="title-input"
+        onChange={this.handleChange}
+        name="title"
       >
-      Título
-     <input type="text"
-     data-testid="title-input"
-     onChange={this.handleChange}
-     name="title">{title}</input>
+      {title}
+      </input>
       </label>
       <label
         HTMLFor="subtitle"
         data-testid="subtitle-input-label"
       >
       Subtítulo
-     <input
+      <input
         type="text"
         data-testid="subtitle-input"
         name="subtitle"
         onChange={this.handleChange}
-     >{subtitle}</input>
+      >
+      {subtitle}
+      </input>
       </label>
       <label
         HTMLFor="image"
         data-testid="image-input-label"
       >
       Imagem
-     <input
+      <input
         type="text"
         data-testid="image-input" 
         name="image"
         onChange={this.handleChange}
-     >{imagePath}</input>
+      >
+      {imagePath}
+      </input>
       </label>
       <label
         HTMLFor="storyline"
         data-testid="storyline-input-label"
       >
       Sinopse
-     <textarea
+      <textarea
         data-testid="storyline-input"
         name="storyline"
         onChange={this.handleChange}
-     >{storyline}</textarea>
+      >
+      {storyline}
+      </textarea>
       </label>
       <label
         HTMLFor="rating" 
         data-testid="rating-input-label"
       >
       Avaliação
-     <input
+      <input
         type="number"
         data-testid="rating-input"
         name="rating"
         onChange={this.handleChange}
         defaultValue="0"
-     >{rating}</input>
+      >
+      {rating}
+      </input>
       </label>
       <label
         HTMLFor="genre"
         data-testid="genre-input-label"
       >
-          Gênero
+      Gênero
         <select
           value={this.props.genre}
           data-testid="genre-input"
@@ -121,7 +133,7 @@ class AddMovie extends Component {
         </select>
       </label>
       <button
-      type="submit"
+        type="submit"
         data-testid="send-button"
         onClick={(event)=> {
           event.preventDefault()
