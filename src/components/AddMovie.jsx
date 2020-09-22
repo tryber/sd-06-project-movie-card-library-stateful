@@ -28,7 +28,7 @@ class AddMovie extends React.Component {
   handleClick(event) {
     event.preventDefault(); // function nativa do JS pra nao enviar formulario vazio.
     const { onClick } = this.props;
-    onClick(this.state) // mandado essa function com o estado como parametro.
+    onClick(this.state); // mandado essa function com o estado como parametro.
     this.setState({
       title: '',
       subtitle: '',
@@ -99,23 +99,20 @@ class AddMovie extends React.Component {
         <br />
         <label htmlFor="genre-input" data-testid="genre-input-label">
           Gênero
-          <select
-            data-testid="genre-input"
-            name="genre"
-            value={genre}
-            onChange={this.handleChange}
-          >
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
+          <select data-testid="genre-input" name="genre" value={genre} onChange={this.handleChange}>
+            <option data-testid="genre-option" value="action">
+              Ação
+            </option>
+            <option data-testid="genre-option" value="comedy">
+              Comédia
+            </option>
+            <option data-testid="genre-option" value="thriller">
+              Suspense
+            </option>
           </select>
         </label>
         <br />
-        <button
-          type="button"
-          data-testid="send-button"
-          onClick={this.handleClick}
-        >
+        <button type="button" data-testid="send-button" onClick={this.handleClick}>
           Adicionar filme
         </button>
       </form>
@@ -124,5 +121,6 @@ class AddMovie extends React.Component {
 }
 
 AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+// é obrigatorio que venha essa function como prop, por isso usei o isRequired
 
 export default AddMovie;
