@@ -1,12 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// const inputSearch = {
-//   onChange: 'onSearchTextChange',
-//   name: 'searchtext',
-//   value: 'searchText',
-// };
-
 
 class SearchBar extends React.Component {
 
@@ -18,11 +12,10 @@ class SearchBar extends React.Component {
   selectedGenre: '',
   // onSelectedGenreChange: callback,
 };
-}
+
 
 render() {
-  // const { searchText, onSearchTextChange, bookmarkedOnly,
-  //   onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+
   const {
     searchText,
     onSearchTextChange,
@@ -78,8 +71,6 @@ render() {
 }
 
 export default SearchBar;
-
-// data-testid="add-movie-form"
 
 SearchBar.propTypes = {
   searchText: PropTypes.string,

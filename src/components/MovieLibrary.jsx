@@ -4,19 +4,19 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
 
-  onSelectedGenreChange({ target }) {
-    this.setState({});
-  }
-  render() {
-    // const movie = this.props;
-    // const { title, subtitle, storyline, rating, imagePath } = movie;
-    return (
-      <div>
-        <SearchBar />
-        <AddMovie />
-      </div>
-    );
-  }
+  // onSelectedGenreChange({ target }) {
+  //   this.setState({});
+  // }
+  // render() {
+  //   // const movie = this.props;
+  //   // const { title, subtitle, storyline, rating, imagePath } = movie;
+  //   return (
+  //     <div>
+  //       <SearchBar />
+  //       <AddMovie />
+  //     </div>
+  //   );
+  // }
 }
 
 export default MovieLibrary;
