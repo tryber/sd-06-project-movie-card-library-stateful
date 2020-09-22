@@ -1,15 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const inputSearch = {
-  onChange: 'onSearchTextChange',
-  name: 'searchtext',
-  value: 'searchText',
-};
+// const inputSearch = {
+//   onChange: 'onSearchTextChange',
+//   name: 'searchtext',
+//   value: 'searchText',
+// };
 
 
 class SearchBar extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
@@ -19,29 +19,40 @@ class SearchBar extends React.Component {
       // onBookmarkedChange: callback,
       selectedGenre: '',
       // onSelectedGenreChange: callback,
-    }
+    };
   }
-
-
 
   render() {
     // const { searchText, onSearchTextChange, bookmarkedOnly,
     //   onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
 
     return (
       <div className="movie-card-header">
         <form id="search-bar-form" data-testid="search-bar-form">
-          <label htmlFor="text-input-label" data-testid="text-input-label">
+          <label htmlFor="text-input-label"
+            data-testid="text-input-label">
             Inclui o texto
-            <input type="text" value={searchText} onChange={onSearchTextChange} data-testid="text-input" />
+            <input type="text"
+              value={searchText}
+              onChange={onSearchTextChange}
+              data-testid="text-input"
+            />
           </label>
-          <label htmlFor="checkbox-input" data-testid="checkbox-input-label">
+          <label htmlFor="checkbox-input"
+            data-testid="checkbox-input-label">
             Mostrar somente favoritos
             <input
               data-testid="checkbox-input"
-              type="checkbox" checked={bookmarkedOnly}
-              onChange={onBookmarkedChange} data-testid="checkbox-input"
+              type="checkbox"
+              checked={bookmarkedOnly}
+              onChange={onBookmarkedChange}
+              data-testid="checkbox-input"
             />
           </label>
           <label htmlFor="select" data-testid="select-input-label">
