@@ -21,7 +21,14 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, onBookmarkedChange, onSelectedGenreChange, onSearchTextChange } = this.props;
+    const {
+      searchText,
+      bookmarkedOnly,
+      selectedGenre,
+      onBookmarkedChange,
+      onSelectedGenreChange,
+      onSearchTextChange
+    } = this.props;
     return (
       <form data-testid="search-bar-form" className="search-bar-form">
         <label data-testid="text-input-label" htmlFor="text-input">
