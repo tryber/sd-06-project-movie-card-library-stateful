@@ -2,24 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends Component {
-  constructor(props){
-  super(props);
-  this.handleChange = this.handleChange.bind(this);
-  this.state = {
-    subtitle: "",
-    title: "",
-    imagePath: "",
-    storyline: "",
-    rating: 0,
-    gender: 'action',
-    }
+  constructor(props) {
+    super(props);
+    this.handleChange = this.handleChange.bind(this);
+    this.state = {
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
+      rating: 0,
+      gender: 'action',
+    };
   }
 
   handleChange({ target }) {
-   const { name, value } = target;
-   this.setState({
-     [name]: value
-   })
+    const { name, value } = target;
+    this.setState({ [name]: value });
   }
 
   clearClick() {
