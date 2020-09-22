@@ -20,11 +20,7 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
+    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange,
     } = this.props;
     return (
       <form data-testid="search-bar-form">
