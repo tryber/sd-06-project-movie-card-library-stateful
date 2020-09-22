@@ -25,15 +25,6 @@ class AddMovie extends React.Component {
     onClick(this.state);
     this.setState();
   }
-  objTextarea() {
-    return {
-      id: "storyline",
-      ty: "text",
-      te: "storyline-input",
-      on: this.handleChange,
-      va: this.state.storyline,
-    };
-  }
   render() {
     const { onClick } = this.props;
     return (
