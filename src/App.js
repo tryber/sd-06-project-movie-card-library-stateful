@@ -1,23 +1,56 @@
 import React from 'react';
 import './App.css';
+import movies from './data.js';
 
 import Header from './components/Header';
-import SearchBar from './components/SearchBar.jsx';
+import AddMovie from './components/AddMovie.jsx';
+import MovieLibrary from './components/MovieLibrary.jsx'
 
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <SearchBar
-        searchText=""
-        onSearchTextChange=""
-        bookmarkedOnly=""
-        onBookmarkedChange=""
-        selectedGenre=""
-        onSelectedGenreChange=""
-      />
-    </div>
-  );
+class App extends React.Component {
+  constructor() {
+    super();
+
+    this.state = {
+      movies: movies,
+    }
+
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(prop) {
+    // movies.push(prop);
+    console.log(movies);
+
+    this.setState({
+      movies: movies.push(prop)
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <Header />
+        <AddMovie onClick={this.onClick} />
+        <MovieLibrary movies={movies} />
+      </div>
+    );
+  }
 }
+
+// function onClick(prop) {
+//   movies.push(prop);
+//   console.log(movies);
+
+// }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <Header />
+//       <AddMovie onClick={onClick} />
+//       <MovieLibrary movies={movies} />
+//     </div>
+//   );
+// }
 
 export default App;

@@ -17,38 +17,36 @@ class AddMovie extends React.Component {
 
     this.changeRating = this.changeRating.bind(this);
     this.addNewMovie = this.addNewMovie.bind(this);
+    this.changeGenre = this.changeGenre.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   changeRating(event) {
+    console.log(event.target.value)
     this.setState({ rating: event.target.value });
-    console.log(this);
   }
 
   changeGenre(event) {
+    console.log(event.target.value)
     this.setState({ genre: event.target.value });
-    console.log(event);
+  }
+
+  handleChange(event) {
+    const name = event.target.id.split('-')[1];
+    console.log(name);
+
+    this.setState({
+      [name]: event.target.value,
+    });
   }
 
   addNewMovie(event) {
     event.preventDefault();
 
-    // sets states
-    const titleInput = document.getElementById('movie-title');
-    const subtitleInput = document.getElementById('movie-subtitle');
-    const imageInput = document.getElementById('movie-image');
-    const storylineInput = document.getElementById('movie-story');
-    const ratingInput = document.getElementById('movie-rating');
-    const genreInput = document.getElementById('movie-genre');
+    // console.log(this.state)
 
     const { onClick } = this.props;
     onClick(this.state);
-
-    titleInput.value = '';
-    subtitleInput.value = '';
-    imageInput.value = '';
-    storylineInput.value = '';
-    ratingInput.value = 0;
-    genreInput.value = 'action';
   }
 
   render() {
@@ -56,26 +54,26 @@ class AddMovie extends React.Component {
       <div>
         <form data-testid="add-movie-form">
           <label htmlFor="movie-title" data-testid="title-input-label">Título</label>
-          <input type="text" id="movie-title" data-testid="title-input" defaultValue="" />
+          <input type="text" id="movie-title" data-testid="title-input" defaultValue="" onChange={this.handleChange} />
 
           <label htmlFor="movie-subtitle" data-testid="subtitle-input-label">Subtítulo</label>
-          <input type="text" id="movie-subtitle" data-testid="subtitle-input" defaultValue="" />
+          <input type="text" id="movie-subtitle" data-testid="subtitle-input" defaultValue="" onChange={this.handleChange} />
 
           <label htmlFor="movie-image" data-testid="image-input-label">Imagem</label>
-          <input type="text" id="movie-image" data-testid="image-input" />
+          <input type="text" id="movie-image" data-testid="image-input" onChange={this.handleChange} />
 
           <label htmlFor="movie-story" data-testid="storyline-input-label">Sinopse</label>
-          <input type="textarea" id="movie-story" data-testid="storyline-input" />
+          <input type="textarea" id="movie-story" data-testid="storyline-input" onChange={this.handleChange} />
 
           <label htmlFor="movie-rating" data-testid="rating-input-label">Avaliação</label>
           <input
             type="number" id="movie-rating" data-testid="rating-input"
-            defaultValue="0" onChange={this.changeRating}
+            defaultValue="0" onChange={this.changeRating} min="0" max="5"
           />
 
           <label htmlFor="movie-genre" data-testid="genre-input-label">Gênero</label>
-          <select id="movie-genre" data-testid="genre-input" onChange={this.changeGenre}>
-            <option value="action" data-testid="genre-option" selected>Ação</option>
+          <select id="movie-genre" data-testid="genre-input" onChange={this.changeGenre} defaultValue="action">
+            <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>
           </select>
