@@ -2,10 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
+  constructor(){
+    super();
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onBookMarkedChange = this.onBookMarkedChange.bind(this);
+  }
 
-  onSearchTextChange = ({ target }) => this.setState({ [target.name]: target.value });
-  onSelectedGenreChange = ({ target }) => this.setState({ [target.name]: target.checked });
-  onBookMarkedChange = ({ target }) => this.setState({ [target.name]: targe.value })
+  onSearchTextChange({ target }) {
+    this.setState({ [target.name]: target.value });
+  }
+  onSelectedGenreChange({ target }) { 
+    this.setState({ [target.name]: target.checked });
+  }
+  onBookMarkedChange({ target }) {
+    this.setState({ [target.name]: targe.value });
+  }
 
   render() {
     const {
