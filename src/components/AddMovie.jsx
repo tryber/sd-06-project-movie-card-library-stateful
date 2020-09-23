@@ -38,48 +38,31 @@ class AddMovie extends React.Component {
 
   render() {
     const { title, subtitle, imagePath, storyline, rating, genre } = this.state;
-
     return (
       <form className="SearchBar" data-testid="add-movie-form">
         <div className="labels">
           <Labels />
         </div>
         <div className="inputs">
-          <input
-            className="tipoInput"
-            data-testid="title-input"
-            name="title"
-            onChange={this.handleChange}
-            value={title}
+          <input 
+            className="tipoInput" data-testid="title-input" name="title"
+            onChange={this.handleChange} value={title}
           />
           <input
-            className="tipoInput"
-            data-testid="subtitle-input"
-            name="subtitle"
-            onChange={this.handleChange}
-            value={subtitle}
+            className="tipoInput" data-testid="subtitle-input" name="subtitle"
+            onChange={this.handleChange} value={subtitle}
           />
           <input
-            className="tipoInput"
-            data-testid="image-input"
-            name="imagePath"
-            onChange={this.handleChange}
-            value={imagePath}
+            className="tipoInput" data-testid="image-input" name="imagePath"
+            onChange={this.handleChange} value={imagePath}
           />
           <textarea
-            className="tipoInput"
-            data-testid="storyline-input"
-            name="storyline"
-            onChange={this.handleChange}
-            value={storyline}
+            className="tipoInput" data-testid="storyline-input" name="storyline"
+            onChange={this.handleChange} value={storyline}
           />
           <input
-            className="tipoInput"
-            data-testid="rating-input"
-            name="rating"
-            type="number"
-            onChange={this.handleChange}
-            value={rating}
+            className="tipoInput" data-testid="rating-input" name="rating"
+            type="number" onChange={this.handleChange} value={rating}
           /> 
           <select className="tipoInput" data-testid="genre-input" name="genre" value={genre} onChange={this.handleChange}>
             <option data-testid="genre-option" value="action">Ação</option>
