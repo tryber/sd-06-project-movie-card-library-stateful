@@ -1,7 +1,9 @@
+/* eslint-disable react/destructuring-assignment */
 import React, { Component } from 'react';
-import SearchBar from './SearchBar';
+import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieCard from './MovieCard';
+import SearchBar from './SearchBar';
 
 
 class MovieLibrary extends Component {
@@ -47,8 +49,8 @@ class MovieLibrary extends Component {
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
-    const filteredMovies = this.props.movies.
-      filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
+    const filteredMovies = this.props.movies
+      .filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
   || movie.subtitle.toLowerCase().indexOf(this.state.searchText) !== -1
   || movie.storyline.toLowerCase().indexOf(this.state.searchText) !== -1));
     return (
@@ -71,5 +73,7 @@ class MovieLibrary extends Component {
     );
   }
 }
+MovieLibrary.propTypes = { filter: PropTypes.func.isRequired, movies: PropTypes.string.isRequired };
+
 
 export default MovieLibrary;

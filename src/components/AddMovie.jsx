@@ -1,3 +1,4 @@
+/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -36,16 +37,11 @@ export default class AddMovie extends React.Component {
       <div>
         <form onSubmit={this.addMovie}>
           <label data-testid="title-input-label">Título</label>
-          <input value={this.props.title} type="text" name="title" data-testid="title-input"
-            onChange={this.handleChange}
-          />
+          <input value={this.props.title} type="text" name="title" data-testid="title-input" onChange={this.handleChange} />
           <label data-testid="subtitle-input-label">Subtítulo</label>
-          <input name="subtitle" value={this.state.subtitle} type="text" onChange={this.handleChange}
-            data-testid="subtitle-input"
-          />
+          <input name="subtitle" value={this.state.subtitle} type="text" onChange={this.handleChange} data-testid="subtitle-input" />
           <label data-testid="image-input-label">Imagem</label>
-          <input name="imagePath" value={this.state.imagePath} type="text"
-            onChange={this.handleChange} data-testid="image-input" />
+          <input name="imagePath" value={this.state.imagePath} type="text" onChange={this.handleChange} data-testid="image-input" />
           <label data-testid="storyline-input-label">Sinopse</label>
           <textarea data-testid="storyline-input" name="storyline" value={this.state.storyline} type="text" onChange={this.handleChange} />
           <label data-testid="rating-input-label">Avaliação</label>
@@ -63,7 +59,6 @@ export default class AddMovie extends React.Component {
   }
 }
 AddMovie.propTypes = {
-  // onClick: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,
   movies: PropTypes.string.isRequired,
 };
