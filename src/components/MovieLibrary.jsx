@@ -45,7 +45,9 @@ class MovieLibrary extends React.Component {
       filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
     filteredMovies = filteredMovies
-      .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
+      .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase()));
     return filteredMovies;
   }
 
