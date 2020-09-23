@@ -47,7 +47,8 @@ class AddMovie extends React.Component {
           id="title"
           value={this.state.title}
           onChange={this.handleFormInputsChange}
-          data-testid="title-input"/>
+          data-testid="title-input"
+        />
       </div>
     );
   }
@@ -95,8 +96,8 @@ class AddMovie extends React.Component {
           rows="10"
           value={this.state.storyline}
           onChange={this.handleFormInputsChange}
-          data-testid="storyline-input">
-        </textarea>
+          data-testid="storyline-input"
+        />
       </div>
     );
   }
