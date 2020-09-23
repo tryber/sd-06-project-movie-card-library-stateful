@@ -8,7 +8,7 @@ class SearchBar extends React.Component {
       onSearchTextChange,
       bookmarkedOnly,
       onBookmarkedChange,
-      //   selectedGenre,
+      selectedGenre,
     } = this.props;
     return (
       <form data-testid="search-bar-form">
@@ -47,7 +47,7 @@ SearchBar.propTypes = {
   onSearchTextChange: PropTypes.func.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
-  //   selectedGenre: PropTypes.string.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
 };
 
 export default SearchBar;
