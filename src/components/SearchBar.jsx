@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  constructor(){
+  constructor() {
     super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -12,11 +12,11 @@ class SearchBar extends React.Component {
   onSearchTextChange({ target }) {
     this.setState({ [target.name]: target.value });
   }
-  onSelectedGenreChange({ target }) { 
+  onSelectedGenreChange({ target }) {
     this.setState({ [target.name]: target.checked });
   }
   onBookMarkedChange({ target }) {
-    this.setState({ [target.name]: targe.value });
+    this.setState({ [target.name]: target.value });
   }
 
   render() {
@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
       selectedGenre,
       onBookMarkedChange,
       onSearchTextChange,
-      onSelectedGenreChange
+      onSelectedGenreChange,
     } = this.props;
     return (
       <form data-testid="search-bar-form" className="search-bar-form">
@@ -73,7 +73,7 @@ class SearchBar extends React.Component {
 
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string, isRequired,
+  searchText: PropTypes.string.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
   onBookmarkedChange: PropTypes.func.isRequired,
