@@ -41,7 +41,7 @@ class AddMovie extends React.Component {
       title,
       subtitle,
       imagePath,
-      storyLine,
+      storyline,
       rating,
       genre,
     } = this.state;
@@ -81,7 +81,7 @@ class AddMovie extends React.Component {
           Sinopse:
           <textarea
             data-testid="storyline-input"
-            value={storyLine}
+            value={storyline}
             onChange={this.onChangeHandler}
             name="storyline"
           />
@@ -105,10 +105,11 @@ class AddMovie extends React.Component {
             value={genre}
             onChange={this.onChangeHandler}
             name="genre"
-          />
+          >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
         </label>
         <button type="submit" data-testid="send-button" onClick={this.onClickHandler}>
           Adicionar filme
