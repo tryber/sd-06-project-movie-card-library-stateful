@@ -40,9 +40,15 @@ class MovieLibrary extends React.Component {
   }
 
   onSelectedGenreChange(event) {
-    this.setState({
-      onSelectedGenreChange: event.target.value,
-    })
+    this.setState({ selectedGenre: event.target.value }, () => {
+      if (this.state.selectedGenre === '') {
+        this.setState({ movies: this.props.movies });
+      } else {
+        const moviesByGenre = this.props.movies
+          .filter(movie => movie.genre === this.state.selectedGenre);
+        this.setState({ movies: moviesByGenre });
+      }
+    });
   }
 
   render() {
