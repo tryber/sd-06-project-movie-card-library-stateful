@@ -22,6 +22,15 @@ class MovieLibrary extends React.Component {
   onSearchTextChange(event) {
     this.setState({
       searchText: event.target.value,
+    }, () => {
+      const searchText = this.state.searchText.toLowerCase();
+      const filteredMovies = this.props.movies
+        .filter(movie => (
+          movie.title.toLowerCase().includes(searchText) ||
+          movie.subtitle.toLowerCase().includes(searchText) ||
+          movie.storyline.toLowerCase().includes(searchText)
+        ));
+      this.setState({ movies: filteredMovies });
     });
   }
 
