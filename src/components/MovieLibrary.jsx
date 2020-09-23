@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
   constructor() {
@@ -11,7 +12,11 @@ class MovieLibrary extends React.Component {
     };
   }
   render() {
-    return 'OI';
+    return (
+      <div>
+        <SearchBar searchText={this.state.searchText} />
+      </div>
+    )
   }
 }
 
