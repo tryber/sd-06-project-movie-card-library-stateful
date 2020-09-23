@@ -35,7 +35,7 @@ class MovieLibrary extends React.Component {
           return movie;
         }
         return null;
-      })
+      }),
     });
   }
 
@@ -46,7 +46,7 @@ class MovieLibrary extends React.Component {
   async onSelectedGenreChange(event) {
     this.setState({
       movies: this.props.movies
-        .filter((movie) => movie.genre.includes(event.target.value))
+        .filter((movie) => movie.genre.includes(event.target.value)),
     });
   }
 

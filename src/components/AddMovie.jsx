@@ -35,7 +35,7 @@ class AddMovie extends React.Component {
     const name = event.target.id.split('-')[1];
     console.log(name);
 
-    this.setState({ [name]: event.target.value, });
+    this.setState({ [name]: event.target.value });
   }
 
   addNewMovie(event) {
