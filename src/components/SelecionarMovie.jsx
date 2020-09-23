@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SelecionarMovie extends Component {
   render() {
     const { genero, acao } = this.props;
     return (
-      <select 
+      <select
         className="tipoInput" data-testid="genre-input" name="genre"
         value={genero} onChange={acao}
       >
@@ -15,5 +16,10 @@ class SelecionarMovie extends Component {
     );
   }
 }
+
+SelecionarMovie.propTypes = {
+  genero: PropTypes.string.isRequired,
+  acao: PropTypes.func.isRequire
+};
 
 export default SelecionarMovie;
