@@ -17,11 +17,18 @@ class MovieLibrary extends Component {
   }
 
   render() {
-    const { movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     return (
       <div>
         <h2> My awesome movie library </h2>
-        <SearchBar />
+        <SearchBar
+          searchText={searchText}
+          // onSearchTextChange=
+          bookmarkedOnly={bookmarkedOnly}
+          // onBookmarkedChange=
+          selectedGenre={selectedGenre}
+          // onSelectedGenreChange=
+        />
         <MovieList movies={movies} />
         <AddMovie />
       </div>

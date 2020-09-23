@@ -167,7 +167,7 @@ class AddMovie extends Component {
   render() {
     return (
       <div>
-        <form data-testid="add-movie-form">
+        <form data-testid="add-movie-form" className="add-movie">
           {this.inputTitle()}
           {this.inputSubtitle()}
           {this.inputImagePath()}

@@ -85,4 +85,11 @@ body {
 .search-bar-form {
   display: inline-grid;
   margin-top: 10px;
+  text-align: -webkit-center;
+  width: -webkit-fill-available;
+}
+
+.add-movie {
+  display: grid;
+  justify-content: center;
 }
