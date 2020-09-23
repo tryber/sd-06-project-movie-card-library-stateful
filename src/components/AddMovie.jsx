@@ -42,13 +42,16 @@ class AddMovie extends Component {
   inputSubtitle() {
     const { subtitle } = this.state;
     return (
-      <input
-        onChange={this.handlerChangeSubtitle}
-        id="subtitle"
-        name="subtitle"
-        value={subtitle}
-        data-testid="subtitle-input"
-      />
+      <label data-testid="subtitle-input-label" htmlFor="subtitle">
+        <p>Subtítulo</p>
+        <input
+          onChange={this.handlerChangeSubtitle}
+          id="subtitle"
+          name="subtitle"
+          value={subtitle}
+          data-testid="subtitle-input"
+        />
+      </label>
     );
   }
 
@@ -59,13 +62,16 @@ class AddMovie extends Component {
   inputTitle() {
     const { title } = this.state;
     return (
-      <input
-        data-testid="title-input"
-        value={title}
-        type="text"
-        name="title"
-        onChange={this.handlerChangeTitle}
-      />
+      <label data-testid="title-input-label" htmlFor="title">
+        <p>Título</p>
+        <input
+          data-testid="title-input"
+          value={title}
+          type="text"
+          name="title"
+          onChange={this.handlerChangeTitle}
+        />
+      </label>
     );
   }
 
@@ -76,13 +82,16 @@ class AddMovie extends Component {
   inputImagePath() {
     const { imagePath } = this.state;
     return (
-      <input
-        data-testid="image-input"
-        value={imagePath}
-        type="text"
-        name="image"
-        onChange={this.handlerChangeImagePath}
-      />
+      <label data-testid="image-input-label" htmlFor="image">
+        <p>Imagem</p>
+        <input
+          data-testid="image-input"
+          value={imagePath}
+          type="text"
+          name="image"
+          onChange={this.handlerChangeImagePath}
+        />
+      </label>
     );
   }
 
@@ -159,18 +168,9 @@ class AddMovie extends Component {
     return (
       <div>
         <form data-testid="add-movie-form">
-          <label data-testid="title-input-label" htmlFor="title">
-            <p>Título</p>
-            {this.inputTitle()}
-          </label>
-          <label data-testid="subtitle-input-label" htmlFor="subtitle">
-            <p>Subtítulo</p>
-            {this.inputSubtitle()}
-          </label>
-          <label data-testid="image-input-label" htmlFor="image">
-            <p>Imagem</p>
-            {this.inputImagePath()}
-          </label>
+          {this.inputTitle()}
+          {this.inputSubtitle()}
+          {this.inputImagePath()}
           <label data-testid="storyline-input-label" htmlFor="storyline">
             <p>Sinopse</p>
             {this.inputStoryLine()}
@@ -183,7 +183,9 @@ class AddMovie extends Component {
             <p>Gênero</p>
             {this.inputGenre()}
           </label>
-          <button type="button" data-testid="send-button" onClick={this.buttonAddMovie}>Adicionar filme</button>
+          <button type="button" onClick={this.buttonAddMovie} data-testid="send-button">
+            <p>Adicionar filme</p>
+          </button>
         </form>
       </div>
     );
