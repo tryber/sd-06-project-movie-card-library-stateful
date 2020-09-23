@@ -25,7 +25,7 @@ export default class AddMovie extends React.Component {
 
 	addMovie(event) {
 		event.preventDefault();
-		const movies = this.state.movies
+		const { movies } = this.props
 		movies.push(event);
 		this.setState({
 			movies: movies,
