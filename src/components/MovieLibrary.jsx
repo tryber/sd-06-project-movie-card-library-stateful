@@ -4,8 +4,15 @@ import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+
+    this.setState = {
+      searchText: '',
+      bookmarkedOnly: false,
+      selectedGenre: '',
+      movies: this.props.movies,
+    };
   }
 
   render() {
