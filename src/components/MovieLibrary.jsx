@@ -1,8 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import PropTypes from 'prop-types';
+
 
 class MovieLibrary extends React.Component {
 
