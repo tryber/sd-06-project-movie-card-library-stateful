@@ -98,7 +98,7 @@ class AddMovie extends React.Component {
       />
     );
   }
-  
+
   selectGenre() {
     const { genre } = this.state;
     return (
