@@ -24,7 +24,7 @@ class MovieLibrary extends Component {
 
   filteredGenre(event) {
     const { movies } = this.props;
-    if (event == '') {
+    if (event === '') {
       this.setState({ movies: this.props.movies });
     } else {
       this.setState({

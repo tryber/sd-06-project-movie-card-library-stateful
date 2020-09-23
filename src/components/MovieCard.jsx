@@ -1,5 +1,6 @@
 import React from 'react';
 import Rating from './Rating';
+import PropTypes from 'prop-types';
 
 class MovieCard extends React.Component {
   render() {
@@ -22,5 +23,10 @@ class MovieCard extends React.Component {
     );
   }
 }
+MovieCard.propTypes = {
+  // onClick: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  movie: PropTypes.string.isRequired,
+};
 
 export default MovieCard;
