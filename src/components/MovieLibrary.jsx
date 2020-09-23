@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: this.props,
-    }
+    };
   }
 
 
