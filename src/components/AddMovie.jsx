@@ -1,6 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import Labels from './Labels';
+import Selecionar from './SelecionarMovie.jsx'
 
 class AddMovie extends React.Component {
   constructor() {
@@ -44,7 +45,7 @@ class AddMovie extends React.Component {
           <Labels />
         </div>
         <div className="inputs">
-          <input className="tipoInput" data-testid="title-input" name="title" 
+          <input className="tipoInput" data-testid="title-input" name="title"
           onChange={this.handleChange} value={title} />
           <input className="tipoInput" data-testid="subtitle-input" name="subtitle"
           onChange={this.handleChange} value={subtitle} />
@@ -54,12 +55,7 @@ class AddMovie extends React.Component {
           onChange={this.handleChange} value={storyline} />
           <input className="tipoInput" data-testid="rating-input" name="rating"
           type="number" onChange={this.handleChange} value={rating} />
-          <select className="tipoInput" data-testid="genre-input" name="genre"
-          value={genre} onChange={this.handleChange}>
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
-          </select>
+          <Selecionar value={genre} onChange={this.handleChange} />
         </div>
         <button className="btnAdicionar" data-testid="send-button" type="submit" onClick={this.handleClick}>
           Adicionar filme
