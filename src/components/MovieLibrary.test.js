@@ -36,13 +36,13 @@ const movies = [
 ];
 
 
-describe('Verifica o componente <MovieLibrary />', () => {
+describe.only('Verifica o componente <MovieLibrary />', () => {
   it('Será validado se o componente é renderizado com sucesso', () => {
     render(<MovieLibrary movies={movies} />);
   });
 });
 
-describe('Verifica o estado inicial do component <MovieLibrary />', () => {
+describe.only('Verifica o estado inicial do component <MovieLibrary />', () => {
 
   
   it('Será validado se o `searchText` é inicializado com uma string vazia', () => {
@@ -70,7 +70,7 @@ describe('Verifica o estado inicial do component <MovieLibrary />', () => {
   });
 });
 
-describe('Verifica se o componente <MovieLibrary /> renderiza o componente <SearchBar />', () => {
+describe.only('Verifica se o componente <MovieLibrary /> renderiza o componente <SearchBar />', () => {
   it('Será validado se um componente `SearchBar` é renderizado', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const searchBar = getAllByTestId('search-bar-form');
