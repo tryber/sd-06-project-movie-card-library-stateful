@@ -57,7 +57,7 @@ class AddMovie extends React.Component {
             className="tipoInput" data-testid="image-input" name="imagePath"
             onChange={this.handleChange} value={imagePath}
           />
-          <textarea 
+          <textarea
             className="tipoInput" data-testid="storyline-input" name="storyline"
             onChange={this.handleChange} value={storyline}
           />
@@ -67,7 +67,7 @@ class AddMovie extends React.Component {
           />
           <Selecionar value={genre} onChange={this.handleChange} />
         </div>
-        <button 
+        <button
           className="btnAdicionar" data-testid="send-button" type="submit" 
           onClick={this.handleClick}
         >
