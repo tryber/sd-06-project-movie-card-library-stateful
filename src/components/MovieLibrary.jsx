@@ -28,6 +28,14 @@ class MovieLibrary extends React.Component {
   onBookmarkedChange(event) {
     this.setState({
       bookmarkedOnly: event.target.checked,
+    }, () => {
+      if (this.state.bookmarkedOnly === true) {
+        const bookmarkedMovies = this.props.movies
+          .filter(movie => movie.bookmarked === true);
+        this.setState({ movies: bookmarkedMovies });
+      } else {
+        this.setState({ movies: this.props.movies })
+      }
     });
   }
 
@@ -49,7 +57,7 @@ class MovieLibrary extends React.Component {
           selectedGenre={this.state.selectedGenre}
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <MovieList movies={this.props.movies} />
+        <MovieList movies={this.state.movies} />
         <AddMovie />
         
         
