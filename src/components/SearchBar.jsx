@@ -1,3 +1,5 @@
+/* eslint-disable react/destructuring-assignment */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -6,14 +8,10 @@ class SearchBar extends React.Component {
     return (
       <div>
         <label data-testid="text-input-label">Inclui o texto:</label>
-        <input data-testid="text-input" value={this.props.searchText}
-          onChange={this.props.onSearchTextChange} type="text"
-        />
+        <input data-testid="text-input" value={this.props.searchText} onChange={this.props.onSearchTextChange} type="text" />
         <form data-testid="search-bar-form">
           <label data-testid="checkbox-input-label">Mostrar somente favoritos</label>
-          <input data-testid="checkbox-input" type="checkbox" checked={this.props.bookmarkedOnly}
-            onChange={this.props.onBookmarkedChange}
-          />
+          <input data-testid="checkbox-input" type="checkbox" checked={this.props.bookmarkedOnly} onChange={this.props.onBookmarkedChange} />
           <label data-testid="select-input-label"> Filtrar por gênero</label>
           <select data-testid="select-input" value={this.props.selectedGenre} onChange={this.props.onSelectedGenreChange}>
             <option data-testid="select-option" value="">Todos</option>
