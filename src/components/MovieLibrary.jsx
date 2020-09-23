@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieCard from './MovieCard';
@@ -9,12 +8,8 @@ class MovieLibrary extends Component {
   constructor(props) {
     super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    // this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
-    // this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    //  this.filteredText = this.filteredText.bind(this);
     this.filteredCheckBox = this.filteredCheckBox.bind(this);
     this.filteredGenre = this.filteredGenre.bind(this);
-    // this.onClickAddMovie = this.onClickAddMovie.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -39,7 +34,6 @@ class MovieLibrary extends Component {
       });
     }
   }
-  // - Quando o estado para `selectedGenre` não é vazio, deve ser renderizado somente filmes com o mesmo gênero;
 
   filteredCheckBox(event) {
     const { movies } = this.props;
@@ -50,25 +44,11 @@ class MovieLibrary extends Component {
     });
   }
 
-  // filteredText(event){
-  //   const {movies} = this.props
-  //   this.setState({
-  //     movies:movies
-  //     .filter((movie) => {
-  //       const { title, subtitle, storyline } = movie;
-  //       return (
-  //         title.includes(event)
-  //         || subtitle.includes(event)
-  //         || storyline.includes(event))})
-  //     .map((movie) => movie)
-  //   });
-  // }
-
-
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
-    const filteredMovies = this.props.movies.filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
+    const filteredMovies = this.props.movies.
+      filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
   || movie.subtitle.toLowerCase().indexOf(this.state.searchText) !== -1
   || movie.storyline.toLowerCase().indexOf(this.state.searchText) !== -1));
     return (
