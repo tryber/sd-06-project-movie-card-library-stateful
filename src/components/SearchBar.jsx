@@ -36,7 +36,8 @@ class SearchBar extends Component {
             type="checkbox"
             name="bookmarkedOnly"
             data-testid="checkbox-input"
-            checked value={bookmarkedOnly}
+            checked={bookmarkedOnly}
+            value="true"
             onChange={onBookmarkedChange}
           />
 
