@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -25,34 +26,43 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value });
     const inputVal = target.value.toUpperCase();
-    const filterInputVal = this.props.movies.filter((e) =>
-      e.title.toUpperCase().includes(inputVal) ||
-      e.subtitle.toUpperCase().includes(inputVal) ||
-      e.storyline.toUpperCase().includes(inputVal),
-    );
-    return target.value === '' ? this.setState({ movies: this.props.movies }) :
-    this.setState({ movies: filterInputVal });
+    const filterInputVal = this.props.movies.filter((e) => e.title.toUpperCase().includes(inputVal)
+      || e.subtitle.toUpperCase().includes(inputVal)
+      || e.storyline.toUpperCase().includes(inputVal));
+    return target.value === '' ? this.setState({ movies: this.props.movies })
+      : this.setState({ movies: filterInputVal });
   }
 
   onSelectedGenreChange({ target }) {
     this.setState({ selectedGenre: target.value });
     const filterGenre = this.props.movies.filter((e) => e.genre === target.value);
-    return target.value === '' ? this.setState({ movies: this.props.movies }) :
-    this.setState({ movies: filterGenre });
+    return target.value === '' ? this.setState({ movies: this.props.movies })
+      : this.setState({ movies: filterGenre });
   }
 
   onBookmarkedChange({ target }) {
     this.setState({ bookmarkedOnly: target.checked });
     const favorite = this.props.movies.filter((e) => e.bookmarked === true);
-    return target.checked === true ?
-    this.setState({ movies: favorite }) :
-    this.setState({ movies: this.props.movies });
+    return target.checked === true
+      ? this.setState({ movies: favorite })
+      : this.setState({ movies: this.props.movies });
   }
 
-  onClick() {
+  onClick(movieItem) {
+    const newMovie = {
+      title: movieItem.state.title,
+      subtitle: movieItem.state.subtitle,
+      storyline: movieItem.state.storyline,
+      rating: movieItem.state.rating,
+      imagePath: movieItem.state.imagePath,
+      bookmarked: false,
+      genre: movieItem.state.genre,
+    };
+    this.setState({ movies: [...this.state.movies, newMovie] });
   }
 
   render() {
+    console.log(this.state.movies);
     return (
       <div>
         <h2> My awesome movie library </h2>
