@@ -18,8 +18,8 @@ class SelecionarMovie extends Component {
 }
 
 SelecionarMovie.propTypes = {
-  genero: PropTypes.string,
-  acao: PropTypes.func
+  genero: PropTypes.string.isRequired,
+  acao: PropTypes.func.isRequired
 }
 
 export default SelecionarMovie;
