@@ -6,16 +6,16 @@ class MovieCard extends React.Component {
     const { movie } = this.props;
     const { title, subtitle, storyline, rating, imagePath, checkbox } = movie;
     return (
-      <div className="movie-card" data-testid='movie-card'>
+      <div className="movie-card" data-testid="movie-card">
         <img alt="Movie Cover" className="movie-card-image" src={imagePath} />
         <div className="movie-card-body">
-        <div className="movie-card-header-check">
-        <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
-        <input className="movie-card-checkbox" type="checkbox">{checkbox}</input>
-        </div>
+          <div className="movie-card-header-check">
+            <h4 data-testid="movie-card-title" className="movie-card-title">{title}</h4>
+            <input className="movie-card-checkbox" type="checkbox">{checkbox}</input>
+          </div>
           <h5 className="movie-card-subtitle">{subtitle}</h5>
           <p className="movie-card-storyline">{storyline}</p>
-         
+
         </div>
         <Rating rating={rating} />
       </div>
