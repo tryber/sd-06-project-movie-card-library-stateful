@@ -55,7 +55,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(prop) {
-    // this.state.movies.push(prop); 
+    // this.state.movies.push(prop);
     console.log(this.props.movies);
     const newMovies = this.state.movies;
     newMovies.push(prop);
