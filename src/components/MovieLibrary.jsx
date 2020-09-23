@@ -2,6 +2,7 @@ import React from 'react';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
+import PropTypes from 'prop-types';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -79,11 +80,11 @@ class MovieLibrary extends React.Component {
         />
         <MovieList movies={this.state.movies} />
         <AddMovie onClick={this.onClick}/>
-        
-        
       </div>
     );
   }
 }
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;

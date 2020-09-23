@@ -1,10 +1,5 @@
-/*
-  props recebidas:
-    - onClick, uma callback
-  
-  O form deve apresentar o att data-testid="add-movie-form"
-*/
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -158,5 +153,7 @@ class AddMovie extends React.Component {
     );
   }
 }
+
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired}
 
 export default AddMovie;
