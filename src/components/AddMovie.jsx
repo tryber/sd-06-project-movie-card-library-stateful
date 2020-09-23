@@ -71,7 +71,7 @@ class AddMovie extends React.Component {
           Imagem:
           <input
             type="text"
-            data-testid="image-imput"
+            data-testid="image-input"
             value={imagePath}
             onChange={this.onChangeHandler}
             name="imagePath"
