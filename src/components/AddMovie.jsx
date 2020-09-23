@@ -44,27 +44,18 @@ class AddMovie extends React.Component {
           <Labels />
         </div>
         <div className="inputs">
-          <input 
-            className="tipoInput" data-testid="title-input" name="title"
-            onChange={this.handleChange} value={title}
-          />
-          <input
-            className="tipoInput" data-testid="subtitle-input" name="subtitle"
-            onChange={this.handleChange} value={subtitle}
-          />
-          <input
-            className="tipoInput" data-testid="image-input" name="imagePath"
-            onChange={this.handleChange} value={imagePath}
-          />
-          <textarea
-            className="tipoInput" data-testid="storyline-input" name="storyline"
-            onChange={this.handleChange} value={storyline}
-          />
-          <input
-            className="tipoInput" data-testid="rating-input" name="rating"
-            type="number" onChange={this.handleChange} value={rating}
-          /> 
-          <select className="tipoInput" data-testid="genre-input" name="genre" value={genre} onChange={this.handleChange}>
+          <input className="tipoInput" data-testid="title-input" name="title" 
+          onChange={this.handleChange} value={title} />
+          <input className="tipoInput" data-testid="subtitle-input" name="subtitle"
+          onChange={this.handleChange} value={subtitle} />
+          <input className="tipoInput" data-testid="image-input" name="imagePath"
+          onChange={this.handleChange} value={imagePath} />
+          <textarea className="tipoInput" data-testid="storyline-input" name="storyline"
+          onChange={this.handleChange} value={storyline} />
+          <input className="tipoInput" data-testid="rating-input" name="rating"
+          type="number" onChange={this.handleChange} value={rating} />
+          <select className="tipoInput" data-testid="genre-input" name="genre"
+          value={genre} onChange={this.handleChange}>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
