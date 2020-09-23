@@ -43,7 +43,7 @@ class AddMovie extends React.Component {
       imagePath,
       storyLine,
       rating,
-      genre
+      genre,
     } = this.state;
     return (
       <form data-testid="add-movie-form">
@@ -112,12 +112,13 @@ class AddMovie extends React.Component {
           <option data-testid="genre-option" value="comedy">Comédia</option>
           <option data-testid="genre-option" value="thriller">Suspense</option>
         </label>
-        <button type="submit" data-testid="send-button" onClick={this.onClickHandler}>Adicionar filme</button>
+        <button type="submit"
+          data-testid="send-button" onClick={this.onClickHandler}>Adicionar filme</button>
       </form>
     );
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
+AddMovie.propTypes = { onClick: propTypes.func.isRequired };
 
 export default AddMovie;

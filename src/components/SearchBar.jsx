@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class SearchBar extends React.Component {
 
   onSearchTextChange = ({ target }) => this.setState({ [target.name]: target.value });
-  onSelectedGenreChange = ({ target }) => this.setState({ [targe.name]: target.checked });
+  onSelectedGenreChange = ({ target }) => this.setState({ [target.name]: target.checked });
   onBookMarkedChange = ({ target }) => this.setState({ [target.name]: targe.value })
 
   render() {

@@ -8,24 +8,24 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super();
-    const { movies } = this.props
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
       movies: props.movies,
-    }
+    };
   }
 
   render() {
     return (
       <div>
         <h2>My awesome movie library</h2>
-        <SearchBar 
-        searchText={this.searchText}
-        bookmarkedOnly={this.bookmarkedOnly}
-        selectedGenre={this.selectedGenre}
-        />        
+        <SearchBar
+          searchText={this.searchText}
+          bookmarkedOnly={this.bookmarkedOnly}
+          selectedGenre={this.selectedGenre}
+        />
         <MovieList movies={this.state.movies} />
         <AddMovie />
       </div>
