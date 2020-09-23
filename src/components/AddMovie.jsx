@@ -1,7 +1,7 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import Labels from './Labels';
-import Selecionar from './SelecionarMovie.jsx'
+import Selecionar from './SelecionarMovie.jsx';
 
 class AddMovie extends React.Component {
   constructor() {
@@ -45,16 +45,26 @@ class AddMovie extends React.Component {
           <Labels />
         </div>
         <div className="inputs">
-          <input className="tipoInput" data-testid="title-input" name="title"
-          onChange={this.handleChange} value={title} />
-          <input className="tipoInput" data-testid="subtitle-input" name="subtitle"
-          onChange={this.handleChange} value={subtitle} />
-          <input className="tipoInput" data-testid="image-input" name="imagePath"
-          onChange={this.handleChange} value={imagePath} />
-          <textarea className="tipoInput" data-testid="storyline-input" name="storyline"
-          onChange={this.handleChange} value={storyline} />
-          <input className="tipoInput" data-testid="rating-input" name="rating"
-          type="number" onChange={this.handleChange} value={rating} />
+          <input
+            className="tipoInput" data-testid="title-input" name="title"
+            onChange={this.handleChange} value={title}
+          />
+          <input
+            className="tipoInput" data-testid="subtitle-input" name="subtitle"
+            onChange={this.handleChange} value={subtitle}
+          />
+          <input
+            className="tipoInput" data-testid="image-input" name="imagePath"
+            onChange={this.handleChange} value={imagePath}
+          />
+          <textarea 
+            className="tipoInput" data-testid="storyline-input" name="storyline"
+            onChange={this.handleChange} value={storyline}
+          />
+          <input
+            className="tipoInput" data-testid="rating-input" name="rating"
+            type="number" onChange={this.handleChange} value={rating}
+          />
           <Selecionar value={genre} onChange={this.handleChange} />
         </div>
         <button className="btnAdicionar" data-testid="send-button" type="submit" onClick={this.handleClick}>
