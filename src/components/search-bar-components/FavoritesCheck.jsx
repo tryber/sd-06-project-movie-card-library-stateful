@@ -22,11 +22,6 @@ class FavoritesCheck extends React.Component {
 FavoritesCheck.propTypes = {
   checked: PropTypes.bool,
   onChange: PropTypes.func,
-};
-
-FavoritesCheck.defaultProps = {
-  checked: false,
-  onChange: undefined,
-};
+}.isRequired;
 
 export default FavoritesCheck;

@@ -15,6 +15,24 @@ class MovieLibrary extends React.Component {
       movies,
     };
     this.handleAddMovieClick = this.handleAddMovieClick.bind(this);
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+  }
+
+  onSearchTextChange({ target }) {
+    const { value } = target;
+    this.setState({ searchText: value });
+  }
+
+  onBookmarkedChange({ target }) {
+    const { value } = target;
+    this.setState({ bookmarkedOnly: value });
+  }
+
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState({ selectedGenre: value });
   }
 
   handleAddMovieClick() {
@@ -29,6 +47,9 @@ class MovieLibrary extends React.Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
+          onSearchTextChange={this.onSearchTextChange}
+          onBookmarkedChange={this.onBookmarkedChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={movies} />
         <AddMovie onClick={this.handleAddMovieClick} />
