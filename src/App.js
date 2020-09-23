@@ -10,16 +10,13 @@ class App extends React.Component {
     super();
 
     this.state = { movies };
-
   }
 
-
-
   render() {
+    // console.log(movies);
     return (
       <div className="App">
         <Header />
-        
         <MovieLibrary movies={movies} />
       </div>
     );

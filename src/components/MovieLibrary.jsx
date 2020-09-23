@@ -3,13 +3,16 @@ import Proptypes from 'prop-types';
 
 import SearchBar from './SearchBar.jsx';
 import MovieList from './MovieList';
-import movies from '../data.js';
+// import movies from '../data.js';
 import AddMovie from './AddMovie.jsx';
 
 class MovieLibrary extends React.Component {
 
   constructor(props) {
     super();
+
+    // console.log(props.movies)
+    const { movies } = props;
 
     this.state = {
       searchText: '',
@@ -28,7 +31,7 @@ class MovieLibrary extends React.Component {
     // const keys = Object.keys(this.props.movies[0]);
 
     this.setState({
-      movies: this.props.movies.filter((movie) => {
+      movies: this.state.movies.filter((movie) => {
         if (
           movie.title.includes(event.target.value) ||
           movie.subtitle.includes(event.target.value) ||
@@ -53,10 +56,12 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(prop) {
-    // movies.push(prop);
-    console.log(movies);
+    // this.state.movies.push(prop);
+    console.log(this.props.movies);
+    const newMovies = this.state.movies;
+    newMovies.push(prop);
 
-    this.setState({ movies: movies.push(prop) });
+    this.setState({ movies: newMovies });
   }
 
   render() {
