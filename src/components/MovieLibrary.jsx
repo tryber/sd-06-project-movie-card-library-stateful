@@ -26,8 +26,7 @@ class MovieLibrary extends React.Component {
     this.setState({ searchText: value });
   }
 
-  onBookmarkedChange({ target }) {
-    const { value } = target;
+  onBookmarkedChange() {
     this.setState({ bookmarkedOnly: true });
   }
 
@@ -40,12 +39,13 @@ class MovieLibrary extends React.Component {
     const { movies, bookmarkedOnly, searchText, selectedGenre } = this.state;
     let filteredMovies = movies;
     if (bookmarkedOnly === true) {
-      filteredMovies = filteredMovies.filter(movie => movie.bookmarked === bookmarkedOnly);
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === bookmarkedOnly);
     }
     if (selectedGenre !== '') {
-      filteredMovies = filteredMovies.filter(movie => movie.genre === selectedGenre);
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
-    filteredMovies = filteredMovies.filter(movie => movie.title.toLowerCase().includes(searchText.toLowerCase()));
+    filteredMovies = filteredMovies
+      .filter((movie) => movie.title.toLowerCase().includes(searchText.toLowerCase()));
     return filteredMovies;
   }
 
