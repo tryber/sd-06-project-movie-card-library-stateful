@@ -2,22 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-  }
-
   showTextInput() {
     const { searchText, onSearchTextChange } = this.props;
     return (
       <div>
-        <label for="textField" data-testid="text-input-label">Inclui o texto:</label>
+        <label htmlFor="textField" data-testid="text-input-label">Inclui o texto:</label>
         <input
-              name="textField" 
-              id="textField"
-              data-testid="text-input"
-              type="text"
-              value={searchText}
-              onChange={onSearchTextChange}/>
+          name="textField"
+          id="textField"
+          data-testid="text-input"
+          type="text"
+          value={searchText}
+          onChange={onSearchTextChange}
+        />
       </div>
     );
   }
@@ -26,14 +23,18 @@ class SearchBar extends React.Component {
     const { bookmarkedOnly, onBookmarkedChange } = this.props;
     return (
       <div>
-        <label for="checkboxField" data-testid="checkbox-input-label">Mostrar somente favoritos</label>
+        <label
+          htmlFor="checkboxField"
+          data-testid="checkbox-input-label">Mostrar somente favoritos
+        </label>
           <input
             name="checkboxField"
             id="checkboxField"
             data-testid="checkbox-input"
             type="checkbox"
             checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}/>
+            onChange={onBookmarkedChange}
+          />
       </div>
     );
   }
@@ -42,7 +43,7 @@ class SearchBar extends React.Component {
     const { selectedGenre, onSelectedGenreChange } = this.props;
     return (
       <div>
-        <label for="selectField" data-testid="select-input-label">Filtrar por gênero</label>
+        <label htmlFor="selectField" data-testid="select-input-label">Filtrar por gênero</label>
           <select
             data-testid="select-input"
             name=""

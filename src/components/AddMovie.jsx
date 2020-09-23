@@ -20,9 +20,7 @@ class AddMovie extends React.Component {
 
   handleFormInputsChange({ target }) {
     const { name, value } = target;
-    this.setState({
-      [name]: value,
-    })
+    this.setState({ [name]: value });
   }
 
   handleAddMovieClick(event) {
@@ -42,7 +40,7 @@ class AddMovie extends React.Component {
   showTitleInput() {
     return (
       <div>
-        <label for="title" data-testid="title-input-label">Título</label>
+        <label htmlFor="title" data-testid="title-input-label">Título</label>
         <input
           type="text"
           name="title"
@@ -57,14 +55,15 @@ class AddMovie extends React.Component {
   showSubtitleInput() {
     return (
       <div>
-        <label for="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
+        <label htmlFor="subtitle" data-testid="subtitle-input-label">Subtítulo</label>
         <input
           type="text"
           name="subtitle"
           id="subtitle"
           value={this.state.subtitle}
           onChange={this.handleFormInputsChange}
-          data-testid="subtitle-input"/>
+          data-testid="subtitle-input"
+        />
       </div>
     );
   }
@@ -72,14 +71,15 @@ class AddMovie extends React.Component {
   showImageInput() {
     return (
       <div>
-        <label for="imagePath" data-testid="image-input-label">Imagem</label>
+        <label htmlFor="imagePath" data-testid="image-input-label">Imagem</label>
         <input
           type="text"
           name="imagePath"
           id="imagePath"
           value={this.state.imagePath}
           onChange={this.handleFormInputsChange}
-          data-testid="image-input"/>
+          data-testid="image-input"
+        />
       </div>
     );
   }
@@ -87,7 +87,7 @@ class AddMovie extends React.Component {
   showStorylineInput() {
     return (
       <div>
-        <label for="storyline" data-testid="storyline-input-label">Sinopse</label>
+        <label htmlFor="storyline" data-testid="storyline-input-label">Sinopse</label>
         <textarea
           name="storyline"
           id="storyline"
@@ -95,7 +95,8 @@ class AddMovie extends React.Component {
           rows="10"
           value={this.state.storyline}
           onChange={this.handleFormInputsChange}
-          data-testid="storyline-input"></textarea>
+          data-testid="storyline-input">
+        </textarea>
       </div>
     );
   }
@@ -103,14 +104,15 @@ class AddMovie extends React.Component {
   showRatingInput() {
     return (
       <div>
-        <label for="rating" data-testid="rating-input-label">Avaliação</label>
+        <label htmlFor="rating" data-testid="rating-input-label">Avaliação</label>
         <input
           type="number"
           name="rating"
           id="rating"
           value={this.state.rating}
           onChange={this.handleFormInputsChange}
-          data-testid="rating-input"/>
+          data-testid="rating-input"
+        />
       </div>
     );
   }
@@ -118,16 +120,17 @@ class AddMovie extends React.Component {
   showSelectGenreInput() {
     return (
       <div>
-        <label for="genre" data-testid="genre-input-label">Gênero</label>
+        <label htmlFor="genre" data-testid="genre-input-label">Gênero</label>
         <select
           name="genre"
           id="genre"
           value={this.state.genre}
           onChange={this.handleFormInputsChange}
-          data-testid="genre-input">
-            <option value="action" data-testid="genre-option">Ação</option>
-            <option value="comedy" data-testid="genre-option">Comédia</option>
-            <option value="thriller" data-testid="genre-option">Suspense</option>
+          data-testid="genre-input"
+        >
+          <option value="action" data-testid="genre-option">Ação</option>
+          <option value="comedy" data-testid="genre-option">Comédia</option>
+          <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
       </div>
     );
@@ -154,6 +157,6 @@ class AddMovie extends React.Component {
   }
 }
 
-AddMovie.propTypes = { onClick: PropTypes.func.isRequired}
+AddMovie.propTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
