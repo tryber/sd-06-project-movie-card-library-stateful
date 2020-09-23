@@ -5,29 +5,29 @@ class AddMovie extends Component {
   constructor() {
     super();
     this.state = {
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
       rating: 0,
-      genre: 'action',
+      genre: "action",
     };
 
     this.handleClick = this.handleClick.bind(this);
   }
-handleClick(event) {
-  event.preventDefault();
-  const { onClick } = this.props;
-  onClick(this.state);
-  this.setState({
-    subtitle: '',
-    title: '',
-    imagePath: '',
-    storyline: '',
-    rating: 0,
-    genre: 'action',
-  });
-}
+  handleClick(event) {
+    event.preventDefault();
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: "",
+      title: "",
+      imagePath: "",
+      storyline: "",
+      rating: 0,
+      genre: "action",
+    });
+  }
   render() {
     return (
       <div>
@@ -72,24 +72,34 @@ handleClick(event) {
           <input
             type="number"
             rating={this.state.rating}
-            data-testid="rating-input"            
+            data-testid="rating-input"
             onChange={this.setState.rating}
           />
 
-          <select 
-          data-testid="genre-input" 
-          genre={this.state.genre} 
-          onChange={this.setState.genre}
+          <select
+            data-testid="genre-input"
+            genre={this.state.genre}
+            onChange={this.setState.genre}
           >
-            <label data-testid="genre-input-label">
-            Gênero
-            </label>
-            <option data-testid="genre-option" value="action">Ação</option>
-            <option data-testid="genre-option" value="comedy">Comédia</option>
-            <option data-testid="genre-option" value="thriller">Suspense</option>
+            <label data-testid="genre-input-label">Gênero</label>
+            <option data-testid="genre-option" value="action">
+              Ação
+            </option>
+            <option data-testid="genre-option" value="comedy">
+              Comédia
+            </option>
+            <option data-testid="genre-option" value="thriller">
+              Suspense
+            </option>
           </select>
 
-          <button data-testid="send-button" onClick={this.handleClick} type="submit">Adicionar filme</button>
+          <button
+            data-testid="send-button"
+            onClick={this.handleClick}
+            type="submit"
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
