@@ -83,10 +83,10 @@ body {
 }
 
 .search-bar-form {
-  display: inline-grid;
+  display: grid;
   margin-top: 10px;
-  text-align: -webkit-center;
-  width: -webkit-fill-available;
+  text-align: center;
+  width: auto;
 }
 
 .add-movie {
