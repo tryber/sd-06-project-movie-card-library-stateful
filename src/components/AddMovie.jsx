@@ -22,12 +22,12 @@ class AddMovie extends React.Component {
   }
 
   changeRating(event) {
-    console.log(event.target.value)
+    // console.log(event.target.value);
     this.setState({ rating: event.target.value });
   }
 
   changeGenre(event) {
-    console.log(event.target.value)
+    // console.log(event.target.value);
     this.setState({ genre: event.target.value });
   }
 
@@ -35,9 +35,7 @@ class AddMovie extends React.Component {
     const name = event.target.id.split('-')[1];
     console.log(name);
 
-    this.setState({
-      [name]: event.target.value,
-    });
+    this.setState({ [name]: event.target.value, });
   }
 
   addNewMovie(event) {
@@ -54,16 +52,28 @@ class AddMovie extends React.Component {
       <div>
         <form data-testid="add-movie-form">
           <label htmlFor="movie-title" data-testid="title-input-label">Título</label>
-          <input type="text" id="movie-title" data-testid="title-input" defaultValue="" onChange={this.handleChange} />
+          <input
+            type="text" id="movie-title" data-testid="title-input"
+            defaultValue="" onChange={this.handleChange}
+          />
 
           <label htmlFor="movie-subtitle" data-testid="subtitle-input-label">Subtítulo</label>
-          <input type="text" id="movie-subtitle" data-testid="subtitle-input" defaultValue="" onChange={this.handleChange} />
+          <input
+            type="text" id="movie-subtitle" data-testid="subtitle-input"
+            defaultValue="" onChange={this.handleChange}
+          />
 
           <label htmlFor="movie-image" data-testid="image-input-label">Imagem</label>
-          <input type="text" id="movie-image" data-testid="image-input" onChange={this.handleChange} />
+          <input
+            type="text" id="movie-image" data-testid="image-input"
+            onChange={this.handleChange}
+          />
 
           <label htmlFor="movie-story" data-testid="storyline-input-label">Sinopse</label>
-          <input type="textarea" id="movie-story" data-testid="storyline-input" onChange={this.handleChange} />
+          <input
+            type="textarea" id="movie-story" data-testid="storyline-input"
+            onChange={this.handleChange}
+          />
 
           <label htmlFor="movie-rating" data-testid="rating-input-label">Avaliação</label>
           <input
@@ -72,7 +82,10 @@ class AddMovie extends React.Component {
           />
 
           <label htmlFor="movie-genre" data-testid="genre-input-label">Gênero</label>
-          <select id="movie-genre" data-testid="genre-input" onChange={this.changeGenre} defaultValue="action">
+          <select
+            id="movie-genre" data-testid="genre-input"
+            onChange={this.changeGenre} defaultValue="action"
+          >
             <option value="action" data-testid="genre-option">Ação</option>
             <option value="comedy" data-testid="genre-option">Comédia</option>
             <option value="thriller" data-testid="genre-option">Suspense</option>

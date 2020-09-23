@@ -10,9 +10,7 @@ class App extends React.Component {
   constructor() {
     super();
 
-    this.state = {
-      movies: movies,
-    }
+    this.state = { movies: movies, };
 
     this.onClick = this.onClick.bind(this);
   }
@@ -21,10 +19,8 @@ class App extends React.Component {
     // movies.push(prop);
     console.log(movies);
 
-    this.setState({
-      movies: movies.push(prop)
-    });
-  }
+    this.setState({ movies: movies.push(prop) });
+  };
 
   render() {
     return (
@@ -36,21 +32,5 @@ class App extends React.Component {
     );
   }
 }
-
-// function onClick(prop) {
-//   movies.push(prop);
-//   console.log(movies);
-
-// }
-
-// function App() {
-//   return (
-//     <div className="App">
-//       <Header />
-//       <AddMovie onClick={onClick} />
-//       <MovieLibrary movies={movies} />
-//     </div>
-//   );
-// }
 
 export default App;

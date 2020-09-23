@@ -1,4 +1,5 @@
 import React from 'react';
+import Proptypes from 'prop-types';
 
 import SearchBar from './SearchBar.jsx';
 import MovieList from './MovieList';
@@ -9,14 +10,12 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super();
 
-    const { movies } = props;
-
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
-    }
+      movies: props.movies,
+    };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -27,7 +26,7 @@ class MovieLibrary extends React.Component {
     // const keys = Object.keys(this.props.movies[0]);
 
     this.setState({
-      movies: this.props.movies.filter(movie => {
+      movies: this.props.movies.filter((movie) => {
         if (
           movie.title.includes(event.target.value) ||
           movie.subtitle.includes(event.target.value) ||
@@ -35,22 +34,18 @@ class MovieLibrary extends React.Component {
         ) {
           return movie;
         }
+        return null;
       }),
     });
   }
 
-  onBookmarkedChange(event) {
-    this.setState({
-      movies: this.state.movies.filter(movie => movie.bookmarked === true),
-    });
+  onBookmarkedChange() {
+    this.setState({ movies: this.state.movies.filter((movie) => movie.bookmarked === true) });
   }
 
   async onSelectedGenreChange(event) {
-    // const newMovies = this.props.movies.filter(movie => movie.genre.includes(event.target.value));
 
-    this.setState({
-      movies: this.props.movies.filter(movie => movie.genre.includes(event.target.value)),
-    });
+    this.setState({ movies: this.props.movies.filter((movie) => movie.genre.includes(event.target.value)) });
   }
 
   render() {
@@ -67,7 +62,11 @@ class MovieLibrary extends React.Component {
         <MovieList movies={this.state.movies} />
       </div>
     );
-  };
+  }
+}
+
+MovieLibrary.propTypes = {
+  movies: Proptypes.array,
 }
 
 export default MovieLibrary;
