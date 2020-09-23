@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import './data.js';
 import Header from './components/Header';
 import MovieLibrary from './components/MovieLibrary';
-
+import movies from './data';
 
 function App() {
   return (
