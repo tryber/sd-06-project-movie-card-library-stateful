@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -71,6 +72,11 @@ class MovieLibrary extends Component {
       };
     });
   }
+
+  onClick(newMovie) {
+    this.setState({ movies: [...this.state.movies, newMovie] });
+  }
+
   filterByGenre(value) {
     const filteredMovies = this.props.movies.filter((movie) =>
       movie.genre === value,
