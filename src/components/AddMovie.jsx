@@ -44,11 +44,12 @@ export default class AddMovie extends React.Component {
             data-testid="subtitle-input"
           />
           <label data-testid="image-input-label">Imagem</label>
-          <input name="imagePath" value={this.state.imagePath} type="text" onChange={this.handleChange} data-testid="image-input" />
+          <input name="imagePath" value={this.state.imagePath} type="text"
+            onChange={this.handleChange} data-testid="image-input" />
           <label data-testid="storyline-input-label">Sinopse</label>
           <textarea data-testid="storyline-input" name="storyline" value={this.state.storyline} type="text" onChange={this.handleChange} />
           <label data-testid="rating-input-label">Avaliação</label>
-          <input name="rating" data-testid="rating-input" value={this.state.rating}type="number" onChange={this.handleChange}/>
+          <input name="rating" data-testid="rating-input" value={this.state.rating}type="number" onChange={this.handleChange} />
           <label data-testid="genre-input-label">Gênero</label>
           <select data-testid="select-input" value={this.state.genre} onChange={this.genreChanger}>
             <option data-testid="genre-option" value="action">Ação</option>
