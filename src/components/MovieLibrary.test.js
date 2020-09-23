@@ -51,7 +51,7 @@ describe('Verifica o estado inicial do component <MovieLibrary />', () => {
     expect(searchText).toHaveValue('');
   });
   
-  it.('Será validado se o `bookmarkedOnly` é inicializado com o boleano `falso`', () => {
+  it('Será validado se o `bookmarkedOnly` é inicializado com o boleano `falso`', () => {
     const { getByTestId } = render(<MovieLibrary movies={movies} />);
     const bookmarkedOnly = getByTestId('checkbox-input');
     expect(bookmarkedOnly).not.toBeChecked();
@@ -71,7 +71,7 @@ describe('Verifica o estado inicial do component <MovieLibrary />', () => {
 });
 
 describe('Verifica se o componente <MovieLibrary /> renderiza o componente <SearchBar />', () => {
-  it.skip('Será validado se um componente `SearchBar` é renderizado', () => {
+  it('Será validado se um componente `SearchBar` é renderizado', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const searchBar = getAllByTestId('search-bar-form');
     expect(searchBar).toHaveLength(1);
