@@ -8,7 +8,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super(props);
-    const { movies } = this.props;
+    // const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -25,8 +25,8 @@ class MovieLibrary extends React.Component {
           bookmarkedOnly={this.bookmarkedOnly}
           selectedGenre={this.selectedGenre}
         />
-        <MovieList movies={this.state.movies} />
         <AddMovie />
+        <MovieList movies={this.state.movies} />
       </div>
     );
   }
