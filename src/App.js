@@ -4,13 +4,13 @@ import movies from './data.js';
 
 import Header from './components/Header';
 import AddMovie from './components/AddMovie.jsx';
-import MovieLibrary from './components/MovieLibrary.jsx'
+import MovieLibrary from './components/MovieLibrary.jsx';
 
 class App extends React.Component {
   constructor() {
     super();
 
-    this.state = { movies: movies, };
+    this.state = { movies };
 
     this.onClick = this.onClick.bind(this);
   }
@@ -20,7 +20,7 @@ class App extends React.Component {
     console.log(movies);
 
     this.setState({ movies: movies.push(prop) });
-  };
+  }
 
   render() {
     return (
