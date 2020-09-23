@@ -38,14 +38,14 @@ class AddMovie extends React.Component {
     this.setState({ [name]: event.target.value });
   }
 
-  async addNewMovie(event) {
+  addNewMovie(event) {
     event.preventDefault();
 
     // console.log(this.state)
     const { onClick } = this.props;
-    await onClick(this.state);
+    onClick(this.state);
 
-    await this.setState({
+    this.setState({
       subtitle: '',
       title: '',
       imagePath: '',
@@ -78,8 +78,8 @@ class AddMovie extends React.Component {
           />
 
           <label htmlFor="movie-storyline" data-testid="storyline-input-label">Sinopse</label>
-          <input
-            type="textarea" id="movie-storyline" data-testid="storyline-input"
+          <textarea
+            type="textarea" name="storyline" id="movie-storyline" data-testid="storyline-input"
             value={this.state.storyline} onChange={this.handleChange}
           />
 
