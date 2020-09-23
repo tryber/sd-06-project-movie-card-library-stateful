@@ -117,7 +117,11 @@ class AddMovie extends Component {
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
-        <button className="btn_form" data-testid="send-button" onClick={this.handleClick}>Adicionar filme</button>
+        <button
+          className="btn_form"
+          data-testid="send-button"
+          onClick={this.handleClick}
+        >Adicionar filme</button>
       </form>
     );
   }
