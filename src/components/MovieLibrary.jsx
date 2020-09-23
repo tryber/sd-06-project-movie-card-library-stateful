@@ -13,9 +13,13 @@ class MovieLibrary extends React.Component {
       searchtext: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: '',
-    };
-  }
+      movies:
+    };//erro ??
+
+    this.searchtext = this.searchtext.bind(this);
+    this.bookmarkedOnly = this.bookmarkedOnly.bind(this);
+    this.selectedGenre = this.selectedGenre.bind(this);
+  };
 
   render() {
     return (
