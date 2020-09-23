@@ -12,13 +12,12 @@ class MovieLibrary extends React.Component {
     super();
 
     // console.log(props.movies)
-    const { movies } = props;
 
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: movies,
+      movies: props.movies,
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
