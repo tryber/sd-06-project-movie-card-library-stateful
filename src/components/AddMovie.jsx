@@ -79,8 +79,7 @@ class AddMovie extends React.Component {
         </label>
         <label data-testid="storyline-input-label" htmlFor="storyline-input">
           Sinopse:
-          <input
-            type="text"
+          <textarea
             data-testid="storyline-input"
             value={storyLine}
             onChange={this.onChangeHandler}
@@ -90,7 +89,7 @@ class AddMovie extends React.Component {
         <label data-testid="rating-input-label" htmlFor="rating-input">
           Avaliação:
           <input
-            type="text"
+            type="number"
             data-testid="rating-input"
             value={rating}
             onChange={this.onChangeHandler}
@@ -102,7 +101,6 @@ class AddMovie extends React.Component {
         <label data-testid="genre-input-label" htmlFor="genre-input">
           Gênero:
           <select
-            type="text"
             data-testid="genre-input"
             value={genre}
             onChange={this.onChangeHandler}
