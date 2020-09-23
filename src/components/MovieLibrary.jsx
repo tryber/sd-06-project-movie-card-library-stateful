@@ -51,8 +51,9 @@ class MovieLibrary extends React.Component {
     return filteredMovies;
   }
 
-  handleAddMovieClick() {
-    console.log('holdplace function');
+  handleAddMovieClick(movieObject) {
+    const { movies: previousMovies } = this.state;
+    this.setState({ movies: [...previousMovies, movieObject] });
   }
 
   render() {
