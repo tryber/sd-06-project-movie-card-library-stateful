@@ -1,4 +1,4 @@
-/* eslint-disable react/destructuring-assignment */
+
 import React from 'react';
 import PropTypes from 'prop-types';
 import Rating from './Rating';
