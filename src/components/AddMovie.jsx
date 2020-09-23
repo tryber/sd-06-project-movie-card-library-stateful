@@ -42,7 +42,12 @@ class AddMovie extends React.Component {
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label" htmlFor="title-input">
           Título
-          <input data-testid="title-input" name="title" onChange={this.handleChange} value={title} />
+          <input
+            data-testid="title-input"
+            name="title"
+            onChange={this.handleChange}
+            value={title}
+          />
         </label>
         <label data-testid="subtitle-input-label" htmlFor="subtitle-input">
           Subtítulo
