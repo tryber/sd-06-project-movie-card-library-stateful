@@ -38,6 +38,9 @@ class MovieLibrary extends Component {
       movie.bookmarked === this.state.bookmarkedOnly);
       if (this.state.bookmarkedOnly) {
         this.setState({ movies: bookMarked });
+      } else {
+        const { movies } = this.props;
+        this.setState({ movies });
       }
     });
   }
@@ -48,6 +51,9 @@ class MovieLibrary extends Component {
         const genreMovies = this.state.movies.filter((movie) =>
         movie.genre === this.state.selectedGenre);
         this.setState({ movies: genreMovies });
+      } else {
+        const { movies } = this.props;
+        this.setState({ movies });
       }
     });
   }
