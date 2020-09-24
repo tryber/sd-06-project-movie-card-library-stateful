@@ -14,6 +14,40 @@ class MovieLibrary extends Component {
       selectedGenre: '',
       movies: props.movies,
     };
+    this.handlerChangeSearchText = this.handlerChangeSearchText.bind(this);
+    this.handlerChangeBookmarkedOnly = this.handlerChangeBookmarkedOnly.bind(this);
+    this.onClick = this.onClick.bind(this);
+  }
+
+  onClick(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: movies.concat(newMovie) });
+  }
+
+  handlerChangeSearchText(event) {
+    this.setState({ searchText: event.target.value }, () => {
+      const { movies } = this.props;
+      const { searchText } = this.state;
+      const filterMovies = movies.filter((movie) => (
+        movie.title.toLowerCase().includes(searchText.toLowerCase()) ||
+        movie.subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
+        movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+      ));
+      this.setState({ movies: filterMovies });
+    });
+  }
+
+  handlerChangeBookmarkedOnly(event) {
+    this.setState({ bookmarkedOnly: event.target.checked }, () => {
+      const { movies } = this.props;
+      const { bookmarkedOnly } = this.state;
+      if (bookmarkedOnly === true) {
+        const favoriteMovies = movies.filter((movie) => movie.bookmarked === true);
+        this.setState({ movies: favoriteMovies });
+      } else {
+        this.setState({ movies: { movies } });
+      }
+    });
   }
 
   render() {
@@ -23,9 +57,9 @@ class MovieLibrary extends Component {
         <h2> My awesome movie library </h2>
         <SearchBar
           searchText={searchText}
-          // onSearchTextChange=
+          onSearchTextChange={this.handlerChangeSearchText}
           bookmarkedOnly={bookmarkedOnly}
-          // onBookmarkedChange=
+          onBookmarkedChange={this.handlerChangeBookmarkedOnly}
           selectedGenre={selectedGenre}
           // onSelectedGenreChange=
         />
