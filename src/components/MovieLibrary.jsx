@@ -29,20 +29,37 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target }) {
     const { value } = target;
     const VALUE_LOWER_CASE = value.toLowerCase();
-    this.setState((_, props) => value
-      ? {
-        movies: props.movies.filter((movie) =>
-          movie.title.toLowerCase().includes(VALUE_LOWER_CASE)
-          || movie.subtitle.toLowerCase().includes(VALUE_LOWER_CASE)
-          || movie.storyline.toLowerCase().includes(VALUE_LOWER_CASE))
-      }
-      : { movies: props.movies }
-    );
+    this.setState((_, props) => (
+      (value)
+        ? {
+          movies: props.movies.filter((movie) =>
+            movie.title.toLowerCase().includes(VALUE_LOWER_CASE)
+            || movie.subtitle.toLowerCase().includes(VALUE_LOWER_CASE)
+            || movie.storyline.toLowerCase().includes(VALUE_LOWER_CASE)),
+        }
+        : { movies: props.movies }
+    ));
     this.UpdateProp(false, '', value);
   }
 
-  UpdateProp(bookmarkedOnly = false, selectedGenre = '', searchText = '') {
-    this.setState({ searchText, selectedGenre, bookmarkedOnly, });
+  onSelectedGenreChange({ target }) {
+    const { value } = target;
+    this.setState((_, props) => (
+      (value)
+        ? { movies: props.movies.filter((movie) => movie.genre === value) }
+        : { movies: props.movies }
+    ));
+    this.UpdateProp(false, value, '');
+  }
+
+  onBookmarkedChange({ target }) {
+    const { checked } = target;
+    this.setState((_, props) => (
+      (checked)
+        ? { movies: props.movies.filter((movie) => movie.bookmarked === checked) }
+        : { movies: props.movies }
+    ));
+    this.UpdateProp(checked, '', '');
   }
 
   ResetAndFilter() {
@@ -50,37 +67,9 @@ class MovieLibrary extends Component {
     });
   }
 
-  onSelectedGenreChange({ target }) {
-    const { value } = target;
-    this.setState((_, props) => value
-      ? { movies: props.movies.filter((movie) => movie.genre === value) }
-      : { movies: props.movies }
-    );
-    this.UpdateProp(false, value, '');
+  UpdateProp(bookmarkedOnly = false, selectedGenre = '', searchText = '') {
+    this.setState({ searchText, selectedGenre, bookmarkedOnly });
   }
-
-  onBookmarkedChange({ target }) {
-    const { checked } = target;
-    this.setState((_, props) => checked
-      ? { movies: props.movies.filter((movie) => movie.bookmarked === checked) }
-      : { movies: props.movies },
-    );
-    this.UpdateProp(checked, '', '');
-
-
-
-    /* if (!checked) {
-    } else {
-      this.ResetAndFilter('bookmarked', checked, name);
-    } */
-    /* this.setState({ movies: movies.filter((movie) => movie.bookmarked === bookmarkedOnly) }); */
-    // this.filterMovies();
-  }
-
-  /* filterMovies() {
-    this.setState({ movies: this.props.movies });
-    const { movies, bookmarkedOnly, selectedGenre } = this.state;
-  } */
 
   render() {
     const { movies, searchText, bookmarkedOnly, selectedGenre } = this.state;
@@ -103,18 +92,6 @@ class MovieLibrary extends Component {
   }
 }
 
-MovieLibrary.propTypes = {
-  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
-  /* 32: Arrow function used ambiguously with a conditional expression. [eslint]
-35: Line 35 exceeds the maximum line length of 100. [eslint]
-35: Missing trailing comma. [eslint]
-37: Missing trailing comma. [eslint]
-42: UpdateProp should be placed after onBookmarkedChange [eslint]
-43: Unexpected trailing comma. [eslint]
-53: Arrow function used ambiguously with a conditional expression. [eslint]
-55: Missing trailing comma. [eslint]
-62: Arrow function used ambiguously with a conditional expression. [eslint]
-67: More than 2 blank lines not allowed. [eslint] */
-};
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
