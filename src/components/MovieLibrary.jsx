@@ -28,11 +28,13 @@ class MovieLibrary extends Component {
 
   onSearchTextChange({ target }) {
     const { value } = target;
-    console.log(value);
+    const VALUE_LOWER_CASE = value.toLowerCase();
     this.setState((_, props) => value
       ? {
         movies: props.movies.filter((movie) =>
-          movie.title.includes(value) || movie.subtitle.includes(value) || movie.storyline.includes(value))
+          movie.title.toLowerCase().includes(VALUE_LOWER_CASE)
+          || movie.subtitle.toLowerCase().includes(VALUE_LOWER_CASE)
+          || movie.storyline.toLowerCase().includes(VALUE_LOWER_CASE))
       }
       : { movies: props.movies }
     );
@@ -99,12 +101,6 @@ class MovieLibrary extends Component {
       </div >
     );
   }
-
-
-  /* async insertMovie() {
-    await recordData()
-      .then(resetState());
-  } */
 }
 
 MovieLibrary.propTypes = {
