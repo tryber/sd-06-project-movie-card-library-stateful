@@ -30,9 +30,9 @@ class MovieLibrary extends Component {
       const { movies } = this.props;
       const { searchText } = this.state;
       const filterMovies = movies.filter((movie) => (
-        movie.title.toLowerCase().includes(searchText.toLowerCase()) ||
-        movie.subtitle.toLowerCase().includes(searchText.toLowerCase()) ||
-        movie.storyline.toLowerCase().includes(searchText.toLowerCase())
+        movie.title.toLowerCase().includes(searchText.toLowerCase())
+        || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
+        || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
       ));
       this.setState({ movies: filterMovies });
     });
