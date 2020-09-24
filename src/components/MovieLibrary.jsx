@@ -2,7 +2,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './style.css';
-import MoviesArray from '../data';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 import MovieList from './MovieList';
@@ -15,17 +14,17 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.filterMoviesByTitle = this.filterMoviesByTitle.bind(this);
     this.onclick = this.onclick.bind(this);
-
+    const { movies } = this.props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: MoviesArray,
+      movies,
     };
   }
   onSearchTextChange({ target }) {
     this.setState({ searchText: target.value }, () => {
-      const filterMovies = MoviesArray.filter((movie) =>
+      const filterMovies = this.state.movies.filter((movie) =>
       movie.title.includes(this.state.searchText) ||
       movie.subtitle.includes(this.state.searchText) ||
       movie.storyline.includes(this.state.searchText));
@@ -35,12 +34,10 @@ class MovieLibrary extends Component {
   onBookmarkedChange({ target }) {
     const { name, checked } = target;
     this.setState({ [name]: checked }, () => {
-      const bookMarked = MoviesArray.filter((movie) =>
+      const bookMarked = this.state.movies.filter((movie) =>
       movie.bookmarked === this.state.bookmarkedOnly);
       if (this.state.bookmarkedOnly) {
         this.setState({ movies: bookMarked });
-      } else {
-        this.setState({ movies: MoviesArray });
       }
     });
   }
@@ -48,11 +45,9 @@ class MovieLibrary extends Component {
     const { name, value } = target;
     this.setState({ [name]: value }, () => {
       if (this.state.selectedGenre !== '') {
-        const genreMovies = MoviesArray.filter((movie) =>
+        const genreMovies = this.state.movies.filter((movie) =>
         movie.genre === this.state.selectedGenre);
         this.setState({ movies: genreMovies });
-      } else {
-        this.setState({ movies: MoviesArray });
       }
     });
   }
