@@ -27,17 +27,33 @@ class MovieLibrary extends Component {
   }
 
   onBookmarkedChange({ target }) {
+    const { movies } = this.props;
     const { name, checked } = target;
-    this.setState({ [name]: checked });
+    this.setState({ [name]: checked }, () => {
+      if (checked === true) {
+        const checkMovies = movies
+          .filter((movie) => movie.bookmarked === true);
+        this.setState({ movies: checkMovies });
+      } else {
+        this.setState({ movies });
+      }
+    });
   }
 
   onSelectedGenreChange({ target }) {
+    const { movies } = this.props;
     const { name, value } = target;
-    this.setState({ [name]: value });
+    this.setState({ [name]: value }, () => {
+      if (value !== '') {
+        const checkMovies = movies
+          .filter((movie) => movie.genre === value);
+        this.setState({ movies: checkMovies });
+      }
+    });
   }
 
   filteringFilmsTitle() {
-    const { movies, searchText } = this.state;
+    const { searchText, movies } = this.state;
     const filteringFilm = movies
       .filter((movie) => movie.title.includes(searchText)
         || movie.subtitle.includes(searchText)
