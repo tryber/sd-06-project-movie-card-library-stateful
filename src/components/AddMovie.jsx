@@ -79,7 +79,7 @@ class AddMovie extends React.Component {
           Avaliação
           <input
             data-testid="rating-input"
-            name="rating" 
+            name="rating"
             type="number"
             value={rating}
             onChange={this.handleChange}
