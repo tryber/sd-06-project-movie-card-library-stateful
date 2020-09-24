@@ -22,7 +22,7 @@ class MovieLibrary extends Component {
   onSearchTextChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value }, () => {
-      this.filteringFilmsTitle();
+      this.filteringFilmsTitle(name);
     });
   }
 
@@ -38,7 +38,10 @@ class MovieLibrary extends Component {
 
   filteringFilmsTitle() {
     const { movies, searchText } = this.state;
-    const filteringFilm = movies.filter((movie) => movie.title.includes(searchText));
+    const filteringFilm = movies
+      .filter((movie) => movie.title.includes(searchText)
+        || movie.subtitle.includes(searchText)
+        || movie.storyline.includes(searchText));
     this.setState({ movies: filteringFilm });
   }
 
