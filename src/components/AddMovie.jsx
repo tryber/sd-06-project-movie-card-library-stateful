@@ -33,7 +33,7 @@ export default class AddMovie extends React.Component {
         <form>
           <label data-testid="title-input-label" htmlFor="title-input-label">
             Título
-            <input data-testid="title-input-label" value={this.props.title} type="text" name="title" data-testid="title-input" onChange={(e) => this.handleChange('title', e)} />
+            <input value={this.props.title} type="text" name="title" data-testid="title-input" onChange={(e) => this.handleChange('title', e)} />
           </label>
           <label data-testid="subtitle-input-label">
             Subtítulo
