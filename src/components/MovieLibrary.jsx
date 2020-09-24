@@ -4,7 +4,7 @@ import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
 
-/* as funções de busca e filtragem inspiradas by Matheus Coutinho*/
+/*  as funções de busca e filtragem inspiradas by Matheus Coutinho*/
 
 class MovieLibrary extends Component {
   constructor(props) {
