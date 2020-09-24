@@ -1,0 +1,14 @@
+.form-addMovie , .form-SearchBar {
+  display: flex;
+  flex-direction: column;
+  padding: 3%;
+}
+
+.textSearch , .select , .title , .subtitle , .imagePath , .sinopse , .rating , .genre {
+  margin-right: 80%;
+}
+
+.btn_form {
+  margin-right: 90%;
+  margin-top: 2%;
+}
