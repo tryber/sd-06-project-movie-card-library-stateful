@@ -31,14 +31,18 @@ export default class AddMovie extends React.Component {
     return (
       <div>
         <form>
-          <label data-testid="title-input-label">Título</label>
-          <input value={this.props.title} type="text" name="title" data-testid="title-input" onChange={(e) => this.handleChange('title', e)} />
-
-          <label data-testid="subtitle-input-label">Subtítulo</label>
-          <input name="subtitle" value={this.state.subtitle} type="text" onChange={(e) => this.handleChange('subtitle', e)} data-testid="subtitle-input" />
-
-          <label data-testid="image-input-label">Imagem</label>
-          <input name="imagePath" value={this.state.imagePath} type="text" onChange={(e) => this.handleChange('imagePath', e)} data-testid="image-input" />
+          <label data-testid="title-input-label">
+            Título
+            <input value={this.props.title} type="text" name="title" data-testid="title-input" onChange={(e) => this.handleChange('title', e)} />
+          </label>
+          <label data-testid="subtitle-input-label">
+            Subtítulo
+            <input name="subtitle" value={this.state.subtitle} type="text" onChange={(e) => this.handleChange('subtitle', e)} data-testid="subtitle-input" />
+          </label>
+          <label data-testid="image-input-label">
+            Imagem
+            <input name="imagePath" value={this.state.imagePath} type="text" onChange={(e) => this.handleChange('imagePath', e)} data-testid="image-input" />
+          </label>
 
 
           <label data-testid="storyline-input-label">Sinopse</label>
