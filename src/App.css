@@ -81,3 +81,15 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.search-bar-form {
+  display: grid;
+  margin-top: 10px;
+  text-align: center;
+  width: auto;
+}
+
+.add-movie {
+  display: grid;
+  justify-content: center;
+}
