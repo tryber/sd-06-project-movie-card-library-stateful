@@ -186,13 +186,13 @@ describe('Verifica se o componente <MovieLibrary /> renderiza o componente <Movi
 });
 
 describe('Verifica se o componente <MovieLibrary /> renderiza o componente <AddMovie />', () => {
-  it.skip('Será validado se o componente `AddMovie` é renderizado com sucesso', () => {
+  it('Será validado se o componente `AddMovie` é renderizado com sucesso', () => {
     const { getAllByTestId } = render(<MovieLibrary movies={movies} />);
     const addMovieForm = getAllByTestId('add-movie-form');
     expect(addMovieForm).toHaveLength(1);
   });
 
-  it.skip('Será validado se é possível adicionar um novo filme a lista de filmes', () => {
+  it('Será validado se é possível adicionar um novo filme a lista de filmes', () => {
     const { getByTestId, getAllByTestId } = render(<MovieLibrary movies={movies} />);
 
     const newMovie = {
