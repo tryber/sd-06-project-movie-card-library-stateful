@@ -35,14 +35,14 @@ class AddMovie extends Component {
     this.buttonAddMovie = this.buttonAddMovie.bind(this);
   }
 
-  // handlerChangeSubtitle(event) {
-  //   this.setState({ subtitle: event.target.value });
-  // }
-  handlerChangeSubtitle = (event) => {
-    this.setState({ 
-      subtitle: event.target.value
-    });
+  handlerChangeSubtitle(event) {
+    this.setState({ subtitle: event.target.value });
   }
+  // handlerChangeSubtitle = (event) => {
+  //   this.setState({
+  //     subtitle: event.target.value
+  //   });
+  // }
 
   inputSubtitle() {
     const { subtitle } = this.state;
@@ -59,14 +59,15 @@ class AddMovie extends Component {
       </label>
     );
   }
-  // handlerChangeTitle(event) {
-  //   this.setState({ title: event.target.value });
-  // }
-  handlerChangeTitle = (event) => {
-    this.setState({ 
-      title: event.target.value
-    });
+
+  handlerChangeTitle(event) {
+    this.setState({ title: event.target.value });
   }
+  // handlerChangeTitle = (event) => {
+  //   this.setState({
+  //     title: event.target.value
+  //   });
+  // }
 
   inputTitle() {
     const { title } = this.state;
@@ -83,14 +84,15 @@ class AddMovie extends Component {
       </label>
     );
   }
-  // handlerChangeImagePath(event) {
-  //   this.setState({ imagePath: event.target.value });
-  // }
-  handlerChangeImagePath = (event) => {
-    this.setState({ 
-      imagePath: event.target.value
-    });
+
+  handlerChangeImagePath(event) {
+    this.setState({ imagePath: event.target.value });
   }
+  // handlerChangeImagePath = (event) => {
+  //   this.setState({
+  //     imagePath: event.target.value
+  //   });
+  // }
 
   inputImagePath() {
     const { imagePath } = this.state;
@@ -107,14 +109,15 @@ class AddMovie extends Component {
       </label>
     );
   }
-  // handlerChangeStoryLine(event) {
-  //   this.setState({ storyline: event.target.value });
-  // }
-  handlerChangeStoryLine = (event) => {
-    this.setState({ 
-      storyline: event.target.value
-    });
+
+  handlerChangeStoryLine(event) {
+    this.setState({ storyline: event.target.value });
   }
+  // handlerChangeStoryLine = (event) => {
+  //   this.setState({
+  //     storyline: event.target.value
+  //   });
+  // }
 
   inputStoryLine() {
     const { storyline } = this.state;
@@ -128,14 +131,15 @@ class AddMovie extends Component {
       />
     );
   }
-  // handlerChangeRatinge(event) {
-  //   this.setState({ rating: event.target.value });
-  // }
-  handlerChangeRatinge = (event) => {
-    this.setState({ 
-      rating: event.target.value
-    });
+
+  handlerChangeRatinge(event) {
+    this.setState({ rating: event.target.value });
   }
+  // handlerChangeRatinge = (event) => {
+  //   this.setState({
+  //     rating: event.target.value
+  //   });
+  // }
 
   inputRating() {
     const { rating } = this.state;
@@ -149,14 +153,15 @@ class AddMovie extends Component {
       />
     );
   }
-  // handlerChangeGenre(event) {
-  //   this.setState({ genre: event.target.value });
-  // }
-  handlerChangeGenre = (event) => {
-    this.setState({ 
-      genre: event.target.value
-    });
+
+  handlerChangeGenre(event) {
+    this.setState({ genre: event.target.value });
   }
+  // handlerChangeGenre = (event) => {
+  //   this.setState({
+  //     genre: event.target.value
+  //   });
+  // }
 
   inputGenre() {
     const { genre } = this.state;
