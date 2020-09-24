@@ -33,6 +33,14 @@ exclude_patterns:
 - "**/*.test.js"
 - "src/serviceWorker.js"
 - "src/index.css"
+- "/node_modules"
+- "*.test.js"
+- "src/components/AddMovie.test.js"
+- "src/components/Header.test.js"
+- "src/components/MovieCard.test.js"
+- "src/components/MovieList.test.js"
+- "src/components/Rating.test.js"
+- "src/components/SearchBar.test.js"
 plugins:
   csslint:
     enabled: true
