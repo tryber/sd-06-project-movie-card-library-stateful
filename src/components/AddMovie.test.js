@@ -71,6 +71,7 @@ describe('Verifica o input de título do componente <AddMovie />', () => {
     expect(titleInputLabel).toHaveTextContent('Título');
   });
 
+
   it('Será validado se o estado inicial do titulo é "", ou seja, uma string vazia', () => {
     expect(titleInput).toHaveValue(initialState.title);
   });
@@ -182,7 +183,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
     expect(genreInputLabel).toBeInTheDocument();
     expect(genreInputLabel).toHaveTextContent('Gênero');
   });
-
 
   it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
     genreOptions.forEach((option, index) => {
