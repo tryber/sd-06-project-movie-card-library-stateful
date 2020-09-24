@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export default class AddMovie extends React.Component {
   constructor(props) {
     super(props);
-    this.addMovie = this.addMovie.bind(this);
+    // this.addMovie = this.addMovie.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       subtitle: '',
@@ -17,42 +17,42 @@ export default class AddMovie extends React.Component {
     };
   }
 
-  handleChange(data) {
-    const { state } = this;
-    const { name } = data.target;
-    state[name] = data.target.value;
-    this.setState({ state });
+  handleChange(name, e) {
+    this.setState({ [name]: e.target.value }, () => console.log('state', this.state));
   }
 
-  addMovie(event) {
-    event.preventDefault();
-    const { movies } = this.props;
-    movies.push(event);
-    this.setState({ movies });
-    console.log(this.state);
+  teste() {
+    const { onClick } = this.props;
+    onClick(this.state); // desgraça de uma callback
+    console.log('console log addmovie');
   }
 
   render() {
     return (
       <div>
-        <form onSubmit={this.addMovie}>
+        <form>
           <label data-testid="title-input-label">Título</label>
-          <input value={this.props.title} type="text" name="title" data-testid="title-input" onChange={this.handleChange} />
+          <input value={this.props.title} type="text" name="title" data-testid="title-input" onChange={(e) => this.handleChange('title', e)} />
+
           <label data-testid="subtitle-input-label">Subtítulo</label>
-          <input name="subtitle" value={this.state.subtitle} type="text" onChange={this.handleChange} data-testid="subtitle-input" />
+          <input name="subtitle" value={this.state.subtitle} type="text" onChange={(e) => this.handleChange('subtitle', e)} data-testid="subtitle-input" />
+
           <label data-testid="image-input-label">Imagem</label>
-          <input name="imagePath" value={this.state.imagePath} type="text" onChange={this.handleChange} data-testid="image-input" />
+          <input name="imagePath" value={this.state.imagePath} type="text" onChange={(e) => this.handleChange('imagePath', e)} data-testid="image-input" />
+
+
           <label data-testid="storyline-input-label">Sinopse</label>
-          <textarea data-testid="storyline-input" name="storyline" value={this.state.storyline} type="text" onChange={this.handleChange} />
+          <textarea data-testid="storyline-input" name="storyline" value={this.state.storyline} type="text" onChange={(e) => this.handleChange('storyline', e)} />
           <label data-testid="rating-input-label">Avaliação</label>
-          <input name="rating" data-testid="rating-input" value={this.state.rating}type="number" onChange={this.handleChange} />
+          <input name="rating" data-testid="rating-input" value={this.state.rating} type="number" onChange={(e) => this.handleChange('rating', e)} />
           <label data-testid="genre-input-label">Gênero</label>
-          <select data-testid="select-input" value={this.state.genre} onChange={this.genreChanger}>
+          <select name="genre" data-testid="select-input" value={this.state.genre} onChange={(e) => this.handleChange('genre', e)}>
             <option data-testid="genre-option" value="action">Ação</option>
             <option data-testid="genre-option" value="comedy">Comédia</option>
             <option data-testid="genre-option" value="thriller">Suspense</option>
           </select>
-          <button type="submit" data-testid="send-button">Adicionar filme</button>
+
+          <button type="button" data-testid="send-button" onClick={() => this.teste()}>Adicionar filme</button>
         </form>
       </div>
     );
@@ -60,5 +60,5 @@ export default class AddMovie extends React.Component {
 }
 AddMovie.propTypes = {
   title: PropTypes.string.isRequired,
-  movies: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
