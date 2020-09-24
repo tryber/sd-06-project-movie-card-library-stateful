@@ -9,6 +9,7 @@ class AddMovie extends Component {
     this.resetState = this.resetState.bind(this);
     this.saveMovie = this.saveMovie.bind(this);
 
+
     this.state = {
       subtitle: '',
       title: '',

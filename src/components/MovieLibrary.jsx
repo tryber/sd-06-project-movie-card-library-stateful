@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
 import AddMovie from './AddMovie';
-import movies from '../data'
+import movies from '../data';
 
 class MovieLibrary extends Component {
   constructor(props) {
@@ -80,7 +80,7 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={filteredMovies} />
-        <AddMovie onClick={this.onClick}/>
+        <AddMovie onClick={this.onClick} />
       </div>
     );
   }
@@ -94,8 +94,8 @@ MovieLibrary.defaultProps = {
     storyline: '',
     rating: 0,
     imagePath: '',
-  })
-}
+  }),
+};
 
 MovieLibrary.propTypes = {
   movies: PropTypes.shape({
