@@ -14,7 +14,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.filterMovies = this.filterMovies.bind(this);
+    this.movieFilter = this.movieFilter.bind(this);
 
     this.state = {
       searchText: '',
@@ -43,30 +43,30 @@ class MovieLibrary extends Component {
     this.setState({ selectedGenre: target.value });
   }
 
-  filterMovies() {
-    let output = this.state.movies;
+  movieFilter() {
+    let filterResult = this.state.movies;
     if (this.state.bookmarkedOnly === true) {
-      output = output.filter((movie) => movie.bookmarked === true);
+      filterResult = filterResult.filter((movie) => movie.bookmarked === true);
     }
     if (this.state.selectedGenre !== '') {
-      output = output.filter((movie) => movie.genre === this.state.selectedGenre);
+      filterResult = filterResult.filter((movie) => movie.genre === this.state.selectedGenre);
     }
     if (this.state.searchText !== '') {
       const { searchText } = this.state;
-      const textLC = searchText.toLowerCase();
-      output = output.filter((movie) => (
-        movie.title.toLowerCase().includes(textLC) ||
-        movie.subtitle.toLowerCase().includes(textLC) ||
-        movie.storyline.toLowerCase().includes(textLC)
+      const textLower = searchText.toLowerCase();
+      filterResult = filterResult.filter((movie) => (
+        movie.title.toLowerCase().includes(textLower) ||
+        movie.subtitle.toLowerCase().includes(textLower) ||
+        movie.storyline.toLowerCase().includes(textLower)
       ));
     }
 
-    return output;
+    return filterResult;
   }
 
 
   render() {
-    const filteredMovies = this.filterMovies();
+    const filteredMovies = this.movieFilter();
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
 
     return (
