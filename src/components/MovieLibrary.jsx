@@ -65,7 +65,7 @@ class MovieLibrary extends React.Component {
   render() {
     return (
       <div>
-        <AddMovie onClick={this.onClick} />
+        <AddMovie onClick={this.onClicks} />
         <SearchBar
           searchText={this.state.searchText}
           onSearchTextChange={this.onSearchTextChange}
