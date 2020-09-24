@@ -30,24 +30,26 @@ let genreInputLabel;
 let genreOptions;
 let sendButton;
 
+
 beforeEach(() => {
-  const { getAllByTestId, getByTestId } = render(<AddMovie onClick={onClick} />);
-  form = getAllByTestId('add-movie-form');
-  titleInput = getByTestId('title-input');
-  titleInputLabel = getByTestId('title-input-label');
-  subtitleInput = getByTestId('subtitle-input');
-  subtitleInputLabel = getByTestId('subtitle-input-label');
-  imageInput = getByTestId('image-input');
-  imageInputLabel = getByTestId('image-input-label');
-  storylineInput = getByTestId('storyline-input');
-  storylineInputLabel = getByTestId('storyline-input-label');
-  ratingInput = getByTestId('rating-input');
-  ratingInputLabel = getByTestId('rating-input-label');
-  genreInput = getByTestId('genre-input');
-  genreInputLabel = getByTestId('genre-input-label');
-  genreOptions = getAllByTestId('genre-option');
-  sendButton = getByTestId('send-button');
+  const { queryAllByTestId, queryByTestId } = render(<AddMovie onClick={onClick} />);
+  form = queryAllByTestId('add-movie-form');
+  titleInput = queryByTestId('title-input');
+  titleInputLabel = queryByTestId('title-input-label');
+  subtitleInput = queryByTestId('subtitle-input');
+  subtitleInputLabel = queryByTestId('subtitle-input-label');
+  imageInput = queryByTestId('image-input');
+  imageInputLabel = queryByTestId('image-input-label');
+  storylineInput = queryByTestId('storyline-input');
+  storylineInputLabel = queryByTestId('storyline-input-label');
+  ratingInput = queryByTestId('rating-input');
+  ratingInputLabel = queryByTestId('rating-input-label');
+  genreInput = queryByTestId('genre-input');
+  genreInputLabel = queryByTestId('genre-input-label');
+  genreOptions = queryAllByTestId('genre-option');
+  sendButton = queryByTestId('send-button');
 });
+
 
 describe('Verifica o componente <AddMovie />', () => {
   it('Será validado se o componente renderiza', () => {
@@ -182,9 +184,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
   });
 
 
-
-
-
   it('Será validado se todas as opções no select tem o texto e o valor esperados, que são, respectivamente: Ação e action, Comédia e comedy, Suspense e thriller', () => {
     genreOptions.forEach((option, index) => {
       expect(option).toHaveTextContent(options[index].text);
@@ -203,10 +202,6 @@ describe('Verifica o select de gênero do componente <AddMovie />', () => {
 });
 
 describe('Verifica botão de criar filme do componente <AddMovie />', () => {
-
-
-
-
   it('Será validado se o texto do botão é "Adicionar filme"', () => {
     expect(sendButton).toHaveTextContent('Adicionar filme');
   });
@@ -217,6 +212,7 @@ describe('Verifica botão de criar filme do componente <AddMovie />', () => {
     fireEvent.change(storylineInput, { target: { value: 'The boy who lived.' } });
     event.type(storylineInput, 'The boy who lived.');
     event.type(ratingInput, '3.5');
+
     event.click(sendButton);
 
     expect(onClick).toHaveBeenCalled();
