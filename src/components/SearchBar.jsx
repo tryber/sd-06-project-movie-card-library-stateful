@@ -19,23 +19,23 @@ class SearchBar extends React.Component {
     );
   }
   render() {
-      const {
-        searchText,
-        onSearchTextChange,
-        bookmarkedOnly,
-        onBookmarkedChange,
+    const {
+      searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
     } = this.props;
 
-      return (
+    return (
       <form data-testid="search-bar-form">
-        <label data-testid="text-input-label" htmlFor="text-input">
-          Inclui o texto
-          <input
-            data-testid="text-input"
-            name="searchText"
-            onChange={onSearchTextChange}
-            value={searchText}
-          />
+      <label data-testid="text-input-label" htmlFor="text-input">
+        Inclui o texto
+      <input
+        data-testid="text-input"
+        name="searchText"
+        onChange={onSearchTextChange}
+        value={searchText}
+      />
         </label>
         <label data-testid="checkbox-input-label" htmlFor="checkbox-input">
         Mostrar somente favoritos
@@ -52,7 +52,7 @@ class SearchBar extends React.Component {
         </label>
       </form>
     );
-    }
+  }
 }
 
 SearchBar.propTypes = {
