@@ -18,13 +18,12 @@ export default class AddMovie extends React.Component {
   }
 
   handleChange(name, e) {
-    this.setState({ [name]: e.target.value }, () => console.log('state', this.state));
+    this.setState({ [name]: e.target.value });
   }
 
   teste() {
     const { onClick } = this.props;
     onClick(this.state); // desgraça de uma callback
-    console.log('console log addmovie');
   }
 
   render() {
