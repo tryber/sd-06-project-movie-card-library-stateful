@@ -10,6 +10,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onClick = this.onClick.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -51,7 +52,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onClick = (newMovie) => {
+  onClick (newMovie) {
     this.setState({ movies: this.state.movies.concat(newMovie) });
   }
 
