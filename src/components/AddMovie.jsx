@@ -21,9 +21,8 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleClick(event) { // erro ??
-    const { onClick } = this.props;
-    event.preventDefault();
+  handleClick(event) {
+    const { onClick } = event.target;
     onClick(this.state);
     this.setState = {
       title: '',
@@ -35,21 +34,6 @@ class AddMovie extends React.Component {
     };
   }
 
-  title() {
-    return (
-      <label htmlFor="title" data-testid="title-input-label">
-       Título
-        <input
-          value={this.title}
-          name="title"
-          onChange={this.handle}
-          data-testid="title-input"
-          type="text"
-        />
-      </label>
-    );
-  }
-
   subtitulo() {
     return (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
@@ -59,6 +43,21 @@ class AddMovie extends React.Component {
           name="subtitle"
           onChange={this.handle}
           data-testid="subtitle-input"
+          type="text"
+        />
+      </label>
+    );
+  }
+
+  title() {
+    return (
+      <label htmlFor="title" data-testid="title-input-label">
+       Título
+        <input
+          value={this.title}
+          name="title"
+          onChange={this.handle}
+          data-testid="title-input"
           type="text"
         />
       </label>
@@ -104,7 +103,7 @@ class AddMovie extends React.Component {
           name="rating"
           onChange={this.handle}
           data-testid="rating-input"
-          type="text"
+          type="number"
         />
       </label>
     );
@@ -130,7 +129,7 @@ class AddMovie extends React.Component {
 
   button() {
     return (
-      <button onClick={this.handleClick} type="button" data-testid="send-button">
+      <button onClick={() => this.handleClick} type="button" data-testid="send-button">
         Adicionar filme
       </button>
     );
@@ -150,6 +149,7 @@ class AddMovie extends React.Component {
     );
   }
 }
-AddMovie.protoTypes = { onClick: PropTypes.func.isRequired };
 
 export default AddMovie;
+
+AddMovie.protoTypes = { onClick: PropTypes.func.isRequired };
