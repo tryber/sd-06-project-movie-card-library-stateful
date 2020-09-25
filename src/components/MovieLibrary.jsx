@@ -14,14 +14,54 @@ class MovieLibrary extends React.Component {
       movies: props.movies,
     };
   }
+
+  onSearchTextChange = ({ target }) => {
+    this.setState({ searchText: target.value }, () => {
+      if(this.state.searchText === '') {
+        this.setState({ movies: this.props.movies});
+      } else {
+        const textFiltered = this.props.movies.filter((movie) => movie.title.includes(target.value) || movie.subtitle.includes(target.value) || movie.storyline.includes(target.value));
+        this.setState({ movies: textFiltered })
+      }
+    });
+  }
+
+  onBookmarkedChange = ({ target }) => {
+    this.setState({ bookmarkedOnly: target.checked }, () => {
+      if(this.state.bookmarkedOnly === true) {
+        const favoritesFiltered = this.props.movies.filter((movie) => movie.bookmarked === true);
+        this.setState({ movies: favoritesFiltered });
+      } else {
+        this.setState({ movies: this.props.movies });
+      }
+    });
+  }
+
+  onSelectedGenreChange = ({ target }) => {
+    this.setState({ selectedGenre: target.value }, () => {
+      if (this.state.selectedGenre === '') {
+        this.setState({ movies: this.props.movies })
+      } else {
+        const genreFiltered = this.props.movies.filter((movie) => movie.genre === target.value);
+        this.setState({ movies: genreFiltered })
+      }
+    });
+  }
+
+  onClick = (newMovie) => {
+    this.setState({ movies: this.state.movies.concat(newMovie) });
+  }
+
   render() {
     return (
       <div>
         <SearchBar
           searchText={this.searchText}
-          bookmarkedOnly={this.bookmarkedOnly} selectedGenre={this.selectedGenre}
+          bookmarkedOnly={this.bookmarkedOnly} selectedGenre={this.selectedGenre} onSearchTextChange={this.onSearchTextChange}
+          onBookmarkedChange={this.onBookmarkedChange}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
-        <AddMovie />
+        <AddMovie onClick={this.onClick}/>
         <MovieList movies={this.state.movies} />
       </div>
     );

@@ -19,6 +19,7 @@ class AddMovie extends Component {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
+
   handleCLick() {
     const { onClick } = this.props;
     onClick(this.state);
@@ -31,6 +32,7 @@ class AddMovie extends Component {
       genre: '',
     });
   }
+  
   render() {
     return (
       <form data-testid="add-movie-form">
