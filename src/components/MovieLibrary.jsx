@@ -15,6 +15,7 @@ class MovieLibrary extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.filterSearchByTitle = this.filterSearchByTitle.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -41,6 +42,11 @@ class MovieLibrary extends Component {
       filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
     this.setState({ movies: filteredMovies });
+  }
+
+  handleClick(newMovie) {
+    const { movies } = this.state;
+    this.setState({ movies: [...movies, newMovie] });
   }
 
   render() {
