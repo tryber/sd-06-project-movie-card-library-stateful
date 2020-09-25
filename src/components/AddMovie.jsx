@@ -42,7 +42,8 @@ class AddMovie extends Component {
           Título
           <input
             data-testid="title-input"
-            name="title" value={title}
+            name="title"
+            value={title}
             onChange={this.handleChange}
           />
         </label>
@@ -50,7 +51,8 @@ class AddMovie extends Component {
           Subtítulo
           <input
             data-testid="subtitle-input"
-            name="subtitle" value={subtitle}
+            name="subtitle"
+            value={subtitle}
             onChange={this.handleChange}
           />
         </label>
@@ -58,7 +60,8 @@ class AddMovie extends Component {
           Imagem
           <input
             data-testid="image-input"
-            name="imagePath" value={imagePath}
+            name="imagePath"
+            value={imagePath}
             onChange={this.handleChange}
           />
         </label>
@@ -66,7 +69,8 @@ class AddMovie extends Component {
           Sinopse
           <textarea
             data-testid="storyline-input"
-            name="storyline" value={storyline}
+            name="storyline"
+            value={storyline}
             onChange={this.handleChange}
           />
         </label>
@@ -74,7 +78,8 @@ class AddMovie extends Component {
           Avaliação
           <input
             data-testid="rating-input"
-            name="rating" type="number"
+            name="rating"
+            type="number"
             value={rating}
             onChange={this.handleChange}
           />
@@ -83,7 +88,8 @@ class AddMovie extends Component {
           Gênero
           <select
             data-testid="genre-input"
-            name="genre" value={genre}
+            name="genre"
+            value={genre}
             onChange={this.handleChange}
           >
             <option data-testid="genre-option" value="action">Ação</option>
