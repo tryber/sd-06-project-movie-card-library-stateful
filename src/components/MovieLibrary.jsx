@@ -7,7 +7,6 @@ import MovieList from './MovieList';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super();
-
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.state = {
       searchText: '',
