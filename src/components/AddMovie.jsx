@@ -42,7 +42,7 @@ class AddMovie extends Component {
 
   renderInput() {
     return (
-      <label htmlFor="title-input" data-testid="title-input-label">
+      <label htmlFor="title-input" data-testid="title-input-label" className="form-element">
         Título
         <input
           id="title-input"
@@ -51,6 +51,7 @@ class AddMovie extends Component {
           data-testid="title-input"
           value={this.state.title}
           onChange={this.onChange}
+          className="form-element"
         />
       </label>
     );
@@ -58,7 +59,7 @@ class AddMovie extends Component {
 
   renderSubtitle() {
     return (
-      <label htmlFor="subtitle-input" data-testid="subtitle-input-label">
+      <label htmlFor="subtitle-input" data-testid="subtitle-input-label" className="form-element">
         Subtítulo
         <input
           id="subtitle-input"
@@ -67,6 +68,7 @@ class AddMovie extends Component {
           name="subtitle"
           value={this.state.subtitle}
           onChange={this.onChange}
+          className="form-element"
         />
       </label>
     );
@@ -74,7 +76,7 @@ class AddMovie extends Component {
 
   renderImageInput() {
     return (
-      <label htmlFor="image-input" data-testid="image-input-label">
+      <label htmlFor="image-input" data-testid="image-input-label" className="form-element">
         Imagem
         <input
           id="image-input"
@@ -83,6 +85,7 @@ class AddMovie extends Component {
           name="imagePath"
           value={this.state.imagePath}
           onChange={this.onChange}
+          className="form-element"
         />
       </label>
     );
@@ -90,7 +93,7 @@ class AddMovie extends Component {
 
   renderSinopse() {
     return (
-      <label htmlFor="textarea" data-testid="storyline-input-label">
+      <label htmlFor="textarea" data-testid="storyline-input-label" className="form-element">
         Sinopse
         <input
           id="textarea"
@@ -98,6 +101,7 @@ class AddMovie extends Component {
           name="storyline"
           value={this.state.storyline}
           onChange={this.onChange}
+          className="form-element"
         />
       </label>
     );
@@ -105,7 +109,7 @@ class AddMovie extends Component {
 
   renderRating() {
     return (
-      <label htmlFor="rating-input" data-testid="rating-input-label">
+      <label htmlFor="rating-input" data-testid="rating-input-label" className="form-element">
         Avaliação
         <input
           id="rating-input"
@@ -114,6 +118,7 @@ class AddMovie extends Component {
           name="rating"
           value={this.state.rating}
           onChange={this.onChange}
+          className="form-element"
         />
       </label>
     );
@@ -121,7 +126,7 @@ class AddMovie extends Component {
 
   renderGenre() {
     return (
-      <label htmlFor="select" data-testid="genre-input-label">
+      <label htmlFor="select" data-testid="genre-input-label" className="form-element">
         Gênero
         <select
           id="select"
@@ -129,6 +134,7 @@ class AddMovie extends Component {
           name="genre"
           value={this.state.genre}
           onChange={this.onChange}
+          className="form-element"
         >
           <option data-testid="genre-option" value="action">Ação</option>
           <option data-testid="genre-option" value="comedy">Comédia</option>
@@ -149,7 +155,7 @@ class AddMovie extends Component {
   render() {
     return (
       <div>
-        <form data-testid="add-movie-form">
+        <form data-testid="add-movie-form" className="movie-form">
           {this.renderInput()}
           {this.renderSubtitle()}
           {this.renderImageInput()}

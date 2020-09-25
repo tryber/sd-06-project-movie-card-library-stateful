@@ -81,3 +81,14 @@ body {
   justify-content: flex-end;
   padding: 12px 20px;
 }
+
+.movie-form {
+  background-color: #6c757d;
+  color: #f8f9fa;
+  margin: 10px;
+}
+
+.form-element {
+  font-size: 20px;
+  margin: 15px;
+}
