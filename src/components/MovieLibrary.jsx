@@ -8,6 +8,8 @@ class MovieLibrary extends React.Component {
   constructor(props) {
     super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -27,7 +29,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onBookmarkedChange = ({ target }) => {
+  onBookmarkedChange ({ target }) {
     this.setState({ bookmarkedOnly: target.checked }, () => {
       if(this.state.bookmarkedOnly === true) {
         const favoritesFiltered = this.props.movies.filter((movie) => movie.bookmarked === true);
@@ -38,7 +40,7 @@ class MovieLibrary extends React.Component {
     });
   }
 
-  onSelectedGenreChange = ({ target }) => {
+  onSelectedGenreChange ({ target }) {
     this.setState({ selectedGenre: target.value }, () => {
       if (this.state.selectedGenre === '') {
         this.setState({ movies: this.props.movies })
