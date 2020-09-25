@@ -11,6 +11,7 @@ class MovieLibrary extends Component {
     super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.filteredCheckBox = this.filteredCheckBox.bind(this);
     this.filteredGenre = this.filteredGenre.bind(this);
     this.state = {
@@ -28,6 +29,11 @@ class MovieLibrary extends Component {
   onSelectedGenreChange(event) {
     this.setState({ selectedGenre: event.target.value });
   }
+
+  onBookmarkedChange(event) {
+    this.setState({ bookmarkedOnly: event.target.checked });
+  }
+
 
   filteredGenre(event) {
     const { movies } = this.props;
@@ -55,14 +61,11 @@ class MovieLibrary extends Component {
     const { movies } = this.props;
     movies.push(stateDoAddMovie);
     this.setState({ movies });
-    console.log(this.state);
   }
 
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
-
-    console.log(this.state.selectedGenre);
     const filteredMovies = this.props.movies
       .filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
   || movie.subtitle.toLowerCase().indexOf(this.state.searchText) !== -1
