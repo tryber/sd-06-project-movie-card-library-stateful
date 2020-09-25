@@ -5,17 +5,18 @@ import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 
 class MovieLibrary extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies:
-    }
-    onSearchTextChange = onSearchTextChange.bind(this);
-    onBookmarkedChange = onBookmarkedChange.bind(this);
+      movies: props.movies,
+    };
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
   }
+
   render() {
     const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
     const { onSearchTextChange, onBookmarkedChange } = this.state;
