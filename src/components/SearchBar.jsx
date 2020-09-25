@@ -18,12 +18,12 @@ class SearchBar extends React.Component {
       </select>
     );
   }
-  render() {
-    const {
-      searchText,
-      onSearchTextChange,
-      bookmarkedOnly,
-      onBookmarkedChange,
+    render() {
+      const {
+        searchText,
+        onSearchTextChange,
+        bookmarkedOnly,
+        onBookmarkedChange,
     } = this.props;
 
     return (
