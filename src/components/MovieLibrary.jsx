@@ -31,7 +31,7 @@ export default class MovieLibrary extends Component {
 
   onBookmarkedChange(event) {
     this.setState({ bookmarkedOnly: event.target.checked });
-    // this.filteredGenre(this.state.bookmarkedOnly);
+    this.filteredGenre(this.state.bookmarkedOnly);
   }
 
   onSelectedGenreChange(event) {
@@ -79,8 +79,8 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
-    const { onSearchTextChange, onBookmarkedChange, onSelectedGenreChange } = this;
+    const { searchText, bookmarkedOnly } = this.state;
+    const { onSearchTextChange } = this;
     const filteredMovies = this.props.movies
       .filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
   || movie.subtitle.toLowerCase().indexOf(this.state.searchText) !== -1
