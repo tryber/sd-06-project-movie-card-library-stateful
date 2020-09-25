@@ -60,7 +60,13 @@ export default class AddMovie extends React.Component {
             </select>
           </label>
 
-          <button type="button" data-testid="send-button" onClick={() => this.teste()}>Adicionar filme</button>
+          <button
+            type="button"
+            data-testid="send-button"
+            onClick={() => this.teste()}
+          >
+            Adicionar filme
+          </button>
         </form>
       </div>
     );
