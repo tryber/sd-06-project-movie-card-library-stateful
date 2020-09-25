@@ -7,6 +7,8 @@ import MovieList from './MovieList';
 class MovieLibrary extends React.Component {
   constructor(props) {
     super();
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -15,7 +17,7 @@ class MovieLibrary extends React.Component {
     };
   }
 
-  onSearchTextChange = ({ target }) => {
+  onSearchTextChange ({ target }) {
     this.setState({ searchText: target.value }, () => {
       if(this.state.searchText === '') {
         this.setState({ movies: this.props.movies});
