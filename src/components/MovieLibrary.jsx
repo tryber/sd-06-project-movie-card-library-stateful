@@ -25,7 +25,7 @@ class MovieLibrary extends Component {
 
   filterSearchByTitle() {
     const { movies } = this.props;
-    const { searchText } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     let filteredMovies = movies;
     if (searchText !== '') {
       filteredMovies = filteredMovies.filter((movie) => (
@@ -33,6 +33,12 @@ class MovieLibrary extends Component {
         || movie.subtitle.toLowerCase().includes(searchText.toLowerCase())
         || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
       ));
+    }
+    // if (bookmarkedOnly === true) {
+    //   filteredMovies = filteredMovies.filter((movie) => movie.bookmarkedOnly === true);
+    // }
+    if (selectedGenre !== '') {
+      filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
     this.setState({ movies: filteredMovies });
   }
