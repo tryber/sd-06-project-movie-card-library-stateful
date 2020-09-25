@@ -34,9 +34,9 @@ class MovieLibrary extends Component {
         || movie.storyline.toLowerCase().includes(searchText.toLowerCase())
       ));
     }
-    // if (bookmarkedOnly === true) {
-    //   filteredMovies = filteredMovies.filter((movie) => movie.bookmarkedOnly === true);
-    // }
+    if (bookmarkedOnly === true) {
+      filteredMovies = filteredMovies.filter((movie) => movie.bookmarked === true);
+    }
     if (selectedGenre !== '') {
       filteredMovies = filteredMovies.filter((movie) => movie.genre === selectedGenre);
     }
