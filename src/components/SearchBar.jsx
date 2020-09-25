@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -29,9 +28,10 @@ class SearchBar extends React.Component {
     const { searchText, bookmarkedOnly, onSearchTextChange, onBookmarkedChange } = this.props;
     return (
       <form data-testid="search-bar-form">
-        <label 
+        <label
           data-testid="text-input-label"
-          htmlFor="inputSearch">
+          htmlFor="inputSearch"
+        >
           Inclui o texto
           <input
             id="inputSearch"
@@ -44,7 +44,8 @@ class SearchBar extends React.Component {
         <input
           type="submit"
           value="Submit"
-	/> <br />
+	      />
+        <br/>
         <label
           data-testid="checkbox-input-label"
           htmlFor="checkFavorite">
@@ -57,7 +58,8 @@ class SearchBar extends React.Component {
             onChange={onBookmarkedChange}
             value={bookmarkedOnly}
           />
-        </label> <br />
+        </label>
+        <br/>
         <this.GetSelect />
       </form>
     );
