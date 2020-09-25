@@ -4,9 +4,10 @@ import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import MovieCard from './MovieCard';
 import SearchBar from './SearchBar';
+// import MovieList from './MovieList';
 
 
-class MovieLibrary extends Component {
+export default class MovieLibrary extends Component {
   constructor(props) {
     super();
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
@@ -14,6 +15,7 @@ class MovieLibrary extends Component {
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.filteredCheckBox = this.filteredCheckBox.bind(this);
     this.filteredGenre = this.filteredGenre.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -24,16 +26,28 @@ class MovieLibrary extends Component {
 
   onSearchTextChange(event) {
     this.setState({ searchText: event.target.value });
-  }
-
-  onSelectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value });
+    // this.filteredText(this.state.searchText);
   }
 
   onBookmarkedChange(event) {
     this.setState({ bookmarkedOnly: event.target.checked });
+    // this.filteredGenre(this.state.bookmarkedOnly);
   }
 
+  onSelectedGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value });
+    this.filteredGenre(this.state.selectedGenre);
+  }
+
+  filteredText(filter) {
+    const { movies } = this.props;
+    this.setState({
+      movies: movies.filter((movie) => {
+        const { title, subtitle, storyline } = movie;
+        return (title.includes(filter) || subtitle.includes(filter) || storyline.includes(filter));
+      }).map((movie) => movie),
+    });
+  }
 
   filteredGenre(event) {
     const { movies } = this.props;
@@ -47,6 +61,7 @@ class MovieLibrary extends Component {
       });
     }
   }
+
 
   filteredCheckBox(event) {
     const { movies } = this.props;
@@ -77,9 +92,9 @@ class MovieLibrary extends Component {
           searchText={searchText}
           onSearchTextChange={onSearchTextChange}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={onBookmarkedChange}
-          selectedGenre={selectedGenre}
-          onSelectedGenreChange={onSelectedGenreChange}
+          onBookmarkedChange={this.onBookmarkedChange}
+          selectedGenre={this.selectedGenre}
+          onSelectedGenreChange={this.onSelectedGenreChange}
         />
 
         <div data-testid="movie-list" className="movie-list">
@@ -95,6 +110,3 @@ class MovieLibrary extends Component {
   }
 }
 MovieLibrary.propTypes = { filter: PropTypes.func.isRequired, movies: PropTypes.string.isRequired };
-
-
-export default MovieLibrary;
