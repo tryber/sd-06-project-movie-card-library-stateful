@@ -31,12 +31,21 @@ body {
   border-radius: 3px;
   display: flex;
   flex-direction: column;
-  height: 450px;
+  height: 500px;
   margin: 5px;
   overflow: hidden;
   width: 300px;
 }
 
+.movie-card-header-check {
+  background-color: white;
+  display: inline-flex;
+  padding-right: 10px;
+}
+
+.movie-card-checkbox {
+  margin: 0 10px 0 50px;
+}
 
 .movie-card-image {
   width: 100%;
