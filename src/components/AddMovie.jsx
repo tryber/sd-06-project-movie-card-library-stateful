@@ -3,8 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 export default class AddMovie extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.handleChange = this.handleChange.bind(this);
     this.state = {
       subtitle: '',
@@ -23,7 +23,6 @@ export default class AddMovie extends React.Component {
   callBack() {
     const { onClick } = this.props;
     onClick(this.state);
-    console.log(this.state);
     this.setState({
       subtitle: '',
       title: '',
@@ -32,6 +31,7 @@ export default class AddMovie extends React.Component {
       rating: '0',
       genre: 'action',
     });// desgraça de uma callback
+    console.log(this.state);
   }
 
   render() {
@@ -62,10 +62,10 @@ export default class AddMovie extends React.Component {
           </label>
           <label data-testid="genre-input-label" htmlFor="genre-input-label">
             Gênero
-            <select name="genre" id="select-input" data-testid="select-input" value={genre} onChange={(e) => this.handleChange('genre', e)}>
-              <option data-testid="genre-option" value="action">Ação</option>
-              <option data-testid="genre-option" value="comedy">Comédia</option>
-              <option data-testid="genre-option" value="thriller">Suspense</option>
+            <select name="genre" id="genre-input" data-testid="genre-input" value={genre} onChange={(e) => this.handleChange('genre', e)}>
+              <option name="action" data-testid="genre-option" value="action">Ação</option>
+              <option name="comedy" data-testid="genre-option" value="comedy">Comédia</option>
+              <option name="thriller" data-testid="genre-option" value="thriller">Suspense</option>
             </select>
           </label>
 

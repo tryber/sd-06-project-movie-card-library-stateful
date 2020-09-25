@@ -79,7 +79,7 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly } = this.state;
+    const { searchText, bookmarkedOnly} = this.state;
     const { onSearchTextChange } = this;
     const filteredMovies = this.props.movies
       .filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
@@ -109,4 +109,7 @@ export default class MovieLibrary extends Component {
     );
   }
 }
-MovieLibrary.propTypes = { filter: PropTypes.func.isRequired, movies: PropTypes.string.isRequired };
+MovieLibrary.propTypes = {
+  filter: PropTypes.func.isRequired,
+  movies: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
