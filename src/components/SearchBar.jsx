@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   constructor(props) {
@@ -41,10 +42,12 @@ class SearchBar extends React.Component {
             onChange={onSearchTextChange}
           />
         </label>
-        <input type="submit" value="Submit"/><br/>
+        <input type="submit" value="Submit"/>
+        <br />
         <label
           data-testid="checkbox-input-label"
-          htmlFor="checkFavorite">
+          htmlFor="checkFavorite"
+        >
           Mostrar somente favoritos
           <input
             id="checkFavorite"
@@ -55,7 +58,7 @@ class SearchBar extends React.Component {
             value={bookmarkedOnly}
           />
         </label>
-        <br/>
+        <br />
         <this.GetSelect />
       </form>
     );
