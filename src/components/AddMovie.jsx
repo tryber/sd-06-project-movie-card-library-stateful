@@ -32,7 +32,7 @@ class AddMovie extends Component {
       genre: '',
     });
   }
-  
+
   render() {
     return (
       <form data-testid="add-movie-form">
