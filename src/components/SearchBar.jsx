@@ -18,7 +18,7 @@ class SearchBar extends React.Component {
       </select>
     );
   }
-    render() {
+  render() {
       const {
         searchText,
         onSearchTextChange,
@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
         onBookmarkedChange,
     } = this.props;
 
-    return (
+      return (
       <form data-testid="search-bar-form">
         <label data-testid="text-input-label" htmlFor="text-input">
           Inclui o texto
@@ -52,7 +52,7 @@ class SearchBar extends React.Component {
         </label>
       </form>
     );
-  }
+    }
 }
 
 SearchBar.propTypes = {
