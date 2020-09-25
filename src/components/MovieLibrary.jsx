@@ -79,7 +79,7 @@ export default class MovieLibrary extends Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly} = this.state;
+    const { searchText, bookmarkedOnly } = this.state;
     const { onSearchTextChange } = this;
     const filteredMovies = this.props.movies
       .filter((movie) => (movie.title.toLowerCase().indexOf(this.state.searchText) !== -1
