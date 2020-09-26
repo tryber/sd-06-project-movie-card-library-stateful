@@ -16,8 +16,27 @@ class MovieLibrary extends React.Component {
     };
   }
 
+
+  filterMovie() {
+    const { searchText, movies, bookmarkedOnly, selectedGenre } = this.state;
+    let newMovie = movies;
+    if (searchText) {
+      newMovie = newMovie.filter((movie) => movie.title.includes(searchText.toLowerCase())
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText));
+
+      if (bookmarkedOnly) {
+        newMovie = newMovie.filter((movie) => movie.rating === bookmarkedOnly);
+      }
+      if (selectedGenre) {
+        newMovie = newMovie.filter((movie) => movie.genre === selectedGenre);
+      }
+    }
+    return newMovie;
+  }
+
   render() {
-    const { searchText, bookmarkedOnly, selectedGenre, movies } = this.state;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <h2>My awesome movie library</h2>
@@ -25,11 +44,11 @@ class MovieLibrary extends React.Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
-          onSearchTextChange={(e) => console.log(e.target.value)}
-          /* onBookmarkedChange={onBookmarkedChange}
-          onSelectedGenreChange={onSelectedGenreChange} */
+          onSearchTextChange={(e) => this.setState({ searchText: e.target.value })}
+          onBookmarkedChange={(e) => this.setState({ bookmarkedOnly: e.target.checked })}
+          onSelectedGenreChange={(e) => this.setState({ selectedGenre: e.target.value })}
         />
-        <MovieList movies={movies} />
+        <MovieList movies={this.filterMovie()} />
         <AddMovie />
       </div>
     );
