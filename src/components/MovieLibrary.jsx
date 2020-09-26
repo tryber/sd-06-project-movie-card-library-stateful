@@ -24,13 +24,13 @@ class MovieLibrary extends React.Component {
       newMovie = newMovie.filter((movie) => movie.title.includes(searchText.toLowerCase())
       || movie.subtitle.includes(searchText)
       || movie.storyline.includes(searchText));
-
-      if (bookmarkedOnly) {
-        newMovie = newMovie.filter((movie) => movie.rating === bookmarkedOnly);
-      }
-      if (selectedGenre) {
-        newMovie = newMovie.filter((movie) => movie.genre === selectedGenre);
-      }
+    }
+    if (bookmarkedOnly) {
+      newMovie = newMovie.filter((movie) => movie.bookmarkedOnly === true);
+      console.log(newMovie, bookmarkedOnly);
+    }
+    if (selectedGenre) {
+      newMovie = newMovie.filter((movie) => movie.genre === selectedGenre);
     }
     return newMovie;
   }
