@@ -42,7 +42,7 @@ class SearchBar extends React.Component {
             onChange={onSearchTextChange}
           />
         </label>
-        <input type="submit" value="Submit"/>
+        <input type="submit" value="Submit" />
         <br />
         <label
           data-testid="checkbox-input-label"
