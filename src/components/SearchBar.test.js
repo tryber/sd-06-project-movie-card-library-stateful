@@ -38,7 +38,7 @@ describe('Verifica o componente <SearchBar />', () => {
   });
 });
 
-describe('Verifica o Form dentro do componente <SearchBar />', () => {
+describe'Verifica o Form dentro do componente <SearchBar />', () => {
   beforeEach(() => beforeEachUnitTest());
 
 
