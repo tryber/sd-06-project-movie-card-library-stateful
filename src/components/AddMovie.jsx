@@ -30,7 +30,7 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       imagePath: '',
-      genre: 'action',
+      genre: '',
     };
   }
 
@@ -129,7 +129,7 @@ class AddMovie extends React.Component {
 
   button() {
     return (
-      <button onClick={() => this.handleClick} type="button" data-testid="send-button">
+      <button onClick={() => this.handleClick} type="submit" data-testid="send-button">
         Adicionar filme
       </button>
     );

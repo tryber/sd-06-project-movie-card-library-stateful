@@ -16,7 +16,6 @@ class MovieLibrary extends React.Component {
     };
   }
 
-
   filterMovie() {
     const { searchText, movies, bookmarkedOnly, selectedGenre } = this.state;
     let newMovie = movies;
@@ -26,13 +25,15 @@ class MovieLibrary extends React.Component {
       || movie.storyline.includes(searchText));
     }
     if (bookmarkedOnly) {
-      newMovie = newMovie.filter((movie) => movie.bookmarkedOnly === true);
-      console.log(newMovie, bookmarkedOnly);
+      newMovie = newMovie.filter((movie) => movie.bookmarked);
     }
     if (selectedGenre) {
       newMovie = newMovie.filter((movie) => movie.genre === selectedGenre);
     }
     return newMovie;
+  }
+
+  addNewMovie() {
   }
 
   render() {
