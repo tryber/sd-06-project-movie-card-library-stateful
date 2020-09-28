@@ -18,7 +18,7 @@ class MovieLibrary extends Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
-    this.searchFilter = this.searchFilter.bind(this);    
+    this.searchFilter = this.searchFilter.bind(this);
   }
   onBookmarkedChange() {
     this.setState({ bookmarkedOnly: true });
