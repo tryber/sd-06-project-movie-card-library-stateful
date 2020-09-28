@@ -7,8 +7,7 @@ import AddMovie from './AddMovie';
 class MovieLibrary extends Component {
   constructor(props) {
     super();
-    const { movies } = props
-    
+    const { movies } = props;
     this.state = {
       searchText: '',
       bookmarkedOnly: false,
@@ -21,7 +20,6 @@ class MovieLibrary extends Component {
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
     this.searchFilter = this.searchFilter.bind(this);    
   }
-
   onBookmarkedChange() {
     this.setState({ bookmarkedOnly: true });
   }
