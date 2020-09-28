@@ -21,25 +21,26 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
-  handleClick(event) {
-    const { onClick } = event.target;
+  handleClick() {
+    const { onClick } = this.props;
     onClick(this.state);
-    this.setState = {
+    this.setState({
       title: '',
       subtitle: '',
       storyline: '',
       rating: 0,
       imagePath: '',
       genre: '',
-    };
+    });
   }
 
   subtitulo() {
+    const { subtitle } = this.state;
     return (
       <label htmlFor="subtitle" data-testid="subtitle-input-label">
        Subtítulo
         <input
-          value={this.subtitle}
+          value={subtitle}
           name="subtitle"
           onChange={this.handle}
           data-testid="subtitle-input"
@@ -50,11 +51,12 @@ class AddMovie extends React.Component {
   }
 
   title() {
+    const { title } = this.state;
     return (
       <label htmlFor="title" data-testid="title-input-label">
        Título
         <input
-          value={this.title}
+          value={title}
           name="title"
           onChange={this.handle}
           data-testid="title-input"
@@ -65,11 +67,12 @@ class AddMovie extends React.Component {
   }
 
   image() {
+    const { image } = this.state;
     return (
       <label htmlFor="imagePath" data-testid="image-input-label">
       Imagem
         <input
-          value={this.image}
+          value={image}
           name="imagePath"
           onChange={this.handle}
           data-testid="image-input"
@@ -80,11 +83,12 @@ class AddMovie extends React.Component {
   }
 
   sinopse() {
+    const { storyline } = this.state;
     return (
       <label htmlFor="storyline" data-testid="storyline-input-label">
         Sinopse
         <input
-          value={this.storyline}
+          value={storyline}
           name="storyline"
           onChange={this.handle}
           data-testid="storyline-input"
@@ -95,11 +99,12 @@ class AddMovie extends React.Component {
   }
 
   classificacao() {
+    const { rating } = this.state;
     return (
       <label htmlFor="rating" data-testid="rating-input-label">
         Avaliação
         <input
-          value={this.rating}
+          value={rating}
           name="rating"
           onChange={this.handle}
           data-testid="rating-input"
@@ -110,13 +115,14 @@ class AddMovie extends React.Component {
   }
 
   genre() {
+    const { genre } = this.state;
     return (
       <label htmlFor="genre" data-testid="genre-input-label">
         Gênero
         <select
           name="genre"
           data-testid="genre-input"
-          value={this.genre}
+          value={genre}
           onChange={this.handle}
         >
           <option data-testid="genre-option" value="action">Ação</option>
@@ -129,7 +135,7 @@ class AddMovie extends React.Component {
 
   button() {
     return (
-      <button onClick={() => this.handleClick} type="submit" data-testid="send-button">
+      <button onClick={this.handleClick} type="submit" data-testid="send-button">
         Adicionar filme
       </button>
     );
