@@ -8,13 +8,13 @@ class SearchBar extends React.Component {
   }
 
   GetSelect() {
-    const { handleChange, selectedGenre } = this.props;
+    const { onSelectedGenreChange, selectedGenre } = this.props;
     return (
       <label data-testid="select-input-label" htmlFor="dropdown" >
         Filtrar por gênero
         <select
           id="dropdown" data-testid="select-input" name="selectedGenre"
-          value={selectedGenre} onChange={handleChange}
+          value={selectedGenre} onChange={onSelectedGenreChange}
         >
           <option data-testid="select-option" value="">Todos</option>
           <option data-testid="select-option" value="action">Ação</option>
@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, handleChange } = this.props;
+    const { searchText, bookmarkedOnly, onSearchTextChange, onBookmarkedChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label
@@ -39,7 +39,7 @@ class SearchBar extends React.Component {
             data-testid="text-input"
             type="text" name="searchText"
             value={searchText}
-            onChange={handleChange}
+            onChange={onSearchTextChange}
           />
         </label>
         <input type="submit" value="Submit" />
@@ -53,7 +53,8 @@ class SearchBar extends React.Component {
             id="checkFavorite"
             data-testid="checkbox-input"
             type="checkbox"
-            onChange={handleChange}
+            checked={bookmarkedOnly}
+            onChange={onBookmarkedChange}
             value={bookmarkedOnly}
           />
         </label>
@@ -68,7 +69,9 @@ SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   selectedGenre: PropTypes.string.isRequired,
-  handleChange: PropTypes.func.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
