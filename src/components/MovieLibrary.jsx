@@ -6,7 +6,8 @@ import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super(props);
+    super();
+    this.handleChange = this.handleChange.bind(this);
 
     this.state = {
       searchText: '',
@@ -15,9 +16,18 @@ class MovieLibrary extends Component {
       movies: props.movies,
     };
   }
+
+  handleChange({ target }) {
+		const { name } = target;
+		const value = target.type === 'checkbox' ? target.checked : target.value;
+		this.setState({
+			[name]: value,
+		});
+	}
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.props;
+    console.log(this.state.movies)
     return (
       <div>
         <h2> My awesome movie library </h2>
@@ -25,6 +35,7 @@ class MovieLibrary extends Component {
           searchText={searchText}
           bookmarkedOnly={bookmarkedOnly}
           selectedGenre={selectedGenre}
+          handleChange={this.handleChange}
         />
         <MovieList movies={movies} />
         <AddMovie />

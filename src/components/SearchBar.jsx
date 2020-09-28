@@ -2,19 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.GetSelect = this.GetSelect.bind(this);
   }
 
   GetSelect() {
-    const { onSelectedGenreChange, selectedGenre } = this.props;
+    const { handleChange, selectedGenre } = this.props;
     return (
       <label data-testid="select-input-label" htmlFor="dropdown" >
         Filtrar por gênero
         <select
           id="dropdown" data-testid="select-input" name="selectedGenre"
-          value={selectedGenre} onChange={onSelectedGenreChange}
+          value={selectedGenre} onChange={handleChange}
         >
           <option data-testid="select-option" value="">Todos</option>
           <option data-testid="select-option" value="action">Ação</option>
@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    const { searchText, bookmarkedOnly, onSearchTextChange, onBookmarkedChange } = this.props;
+    const { searchText, bookmarkedOnly, handleChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label
@@ -39,7 +39,7 @@ class SearchBar extends React.Component {
             data-testid="text-input"
             type="text" name="searchText"
             value={searchText}
-            onChange={onSearchTextChange}
+            onChange={handleChange}
           />
         </label>
         <input type="submit" value="Submit" />
@@ -53,8 +53,7 @@ class SearchBar extends React.Component {
             id="checkFavorite"
             data-testid="checkbox-input"
             type="checkbox"
-            checked={bookmarkedOnly}
-            onChange={onBookmarkedChange}
+            onChange={handleChange}
             value={bookmarkedOnly}
           />
         </label>
@@ -69,9 +68,7 @@ SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   bookmarkedOnly: PropTypes.bool.isRequired,
   selectedGenre: PropTypes.string.isRequired,
-  onSelectedGenreChange: PropTypes.func.isRequired,
-  onSearchTextChange: PropTypes.func.isRequired,
-  onBookmarkedChange: PropTypes.func.isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default SearchBar;
