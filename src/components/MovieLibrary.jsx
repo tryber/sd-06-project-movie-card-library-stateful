@@ -18,16 +18,12 @@ class MovieLibrary extends Component {
   }
 
   handleChange({ target }) {
-		const { name } = target;
-		const value = target.type === 'checkbox' ? target.checked : target.value;
-		this.setState({
-			[name]: value,
-		});
+	  	const value = (target.type === 'checkbox' ? target.checked : target.value);
+	  	this.setState({	[target.name]: value });
 	}
   render() {
     const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     const { movies } = this.props;
-    console.log(this.state.movies)
     return (
       <div>
         <h2> My awesome movie library </h2>
