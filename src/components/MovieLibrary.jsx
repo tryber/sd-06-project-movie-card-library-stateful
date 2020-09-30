@@ -13,8 +13,45 @@ class MovieLibrary extends Component {
       searchText: "",
       bookmarkedOnly: false,
       selectedGenre: "",
-      movies: movies,
+      movies: movies, // original movie list
     }
+
+    this.onSearchTextChange = this.onSearchTextChange.bind(this);
+    this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
+  }
+
+  onSearchTextChange(event) {
+    this.setState({ searchText: event.target.value });
+  }
+
+  onBookmarkedChange(event) {
+    this.setState({ bookmarkedOnly: event.target.checked });
+  }
+
+  onSelectedGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value });
+  }
+
+  filtered() {
+    if (this.state.bookmarkedOnly === true) {
+      return this.state.movies.filter((movie) => movie.bookmarked === true);
+    }
+    if (this.state.selectedGenre !== '') {
+      return this.state.movies.filter((movie) => movie.genre === this.state.selectedGenre);
+    }
+    if (this.state.searchText !== '') {
+      return this.state.movies.filter((movie) =>
+        movie.title.includes(this.state.searchText) ||
+        movie.subtitle.includes(this.state.searchText) ||
+        movie.storyline.includes(this.state.searchText),
+      );
+    }
+    return this.state.movies;
+  }
+
+  addMovie(callback) {
+    this.setState({ movies: [...this.state.movies, callback] });
   }
 
   onClick = () => {
@@ -26,14 +63,6 @@ class MovieLibrary extends Component {
       rating: 0,
       genre: "action",
     }
-  }
-
-  updateSearchText = () => {
-    // d
-  }
-
-  updateBookmarkedOnly = () => {
-
   }
 
   render() {
