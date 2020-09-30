@@ -1,20 +1,18 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 import MovieList from './MovieList';
 import SearchBar from './SearchBar';
 import AddMovie from './AddMovie';
 
 class MovieLibrary extends Component {
   constructor(props) {
-    super();
-    const { movies } = props;
-
+    super(props);
     this.state = {
-      searchText: "",
+      searchText: '',
       bookmarkedOnly: false,
-      selectedGenre: "",
-      movies: movies, // original movie list
-    }
+      selectedGenre: '',
+      movies: this.props.movies, // original movie list
+    };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onSelectedGenreChange = this.onSelectedGenreChange.bind(this);
@@ -50,19 +48,8 @@ class MovieLibrary extends Component {
     return this.state.movies;
   }
 
-  addMovie(callback) {
-    this.setState({ movies: [...this.state.movies, callback] });
-  }
-
-  onClick = () => {
-    this.setState = {
-      subtitle: "",
-      title: "",
-      imagePath: "",
-      storyline: "",
-      rating: 0,
-      genre: "action",
-    }
+  addMovie(newMovie) {
+    this.setState({ movies: [...this.state.movies, newMovie] });
   }
 
   render() {
@@ -78,10 +65,12 @@ class MovieLibrary extends Component {
           onSelectedGenreChange={this.onSelectedGenreChange}
         />
         <MovieList movies={this.filtered()} />
-        <AddMovie onClick={this.addMovie()}/>
+        <AddMovie onClick={this.addMovie} />
       </div>
     );
   }
 }
 
 export default MovieLibrary;
+
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
