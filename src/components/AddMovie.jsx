@@ -1,9 +1,9 @@
 import React from 'react'
 
 class AddMovie extends React.Component {
-  constructor() {
+  constructor(props) {
     super()
-    const { onClick } = this.props;
+    const { onClick } = props;
 
     this.state = {
       subtitle: "",
@@ -17,10 +17,16 @@ class AddMovie extends React.Component {
 
   render() {
     const handleChange = (e) => {
+      console.log(e.target.value)
       this.setState({
         [e.target.id]: e.target.value
       })
     }
+
+    const handleClick = () => {
+      //
+    }
+
 
     return (
       <form data-testid="add-movie-form">
@@ -72,23 +78,41 @@ class AddMovie extends React.Component {
           data-testid="rating-input"
         ></input>
 
+        <label
+          htmlFor="genre"
+          data-testid="genre-input-label"
+        >Gênero</label>
         <select
           id="genre"
           htmlFor="genre-input"
           value={this.state.genre}
           onChange={(e) => handleChange(e)}
-          data-testid="genre-input-label"
+          data-testid="genre-input"
         >
           <option value="action" data-testid="genre-option">Ação</option>
           <option value="comedy" data-testid="genre-option">Comédia</option>
           <option value="thriller" data-testid="genre-option">Suspense</option>
         </select>
 
-        <button>
-
+        <button
+          onClick={() => {
+            this.setState({
+              subtitle: "",
+              title: "",
+              imagePath: "",
+              storyline: "",
+              rating: 0,
+              genre: "action",
+            }, this.props.onClick)
+          }}
+          data-testid="send-button"
+        >
+          Adicionar filme
         </button>
       </form>
     )
   }
   
 }
+
+export default AddMovie;
