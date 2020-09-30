@@ -3,7 +3,6 @@ import React from 'react'
 class AddMovie extends React.Component {
   constructor(props) {
     super()
-    const { onClick } = props;
 
     this.state = {
       subtitle: "",
@@ -15,19 +14,15 @@ class AddMovie extends React.Component {
     }
   }
 
+  handleChange(e) {
+    const { name, value } = e.target;
+    if (name === 'rating') {
+      return this.setState({ [name]: Number(value) });
+    }
+    return this.setState({ [name]: value });
+  }
+  
   render() {
-    const handleChange = (e) => {
-      console.log(e.target.value)
-      this.setState({
-        [e.target.id]: e.target.value
-      })
-    }
-
-    const handleClick = () => {
-      //
-    }
-
-
     return (
       <form data-testid="add-movie-form">
         <label data-testid="title-input-label">Título</label>
