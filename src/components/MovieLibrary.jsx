@@ -56,7 +56,7 @@ class MovieLibrary extends React.Component {
   }
 
   onClick(movie) {
-   this.setState((previousState) => ({ movies: [...previousState.movies, movie] }));
+    this.setState((previousState) => ({ movies: [...previousState.movies, movie] }));
   }
 
   render() {
@@ -80,4 +80,3 @@ class MovieLibrary extends React.Component {
 MovieLibrary.propTypes = { movies: PropTypes.arrayOf(PropTypes.object).isRequired };
 
 export default MovieLibrary;
-
