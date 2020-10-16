@@ -12,6 +12,7 @@ class MovieLibrary extends React.Component {
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
     this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onClick = this.onClick.bind(this);
+
     this.state = {
       searchText: '',
       bookmarkedOnly: false,

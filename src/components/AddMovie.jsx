@@ -15,7 +15,6 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      bookmarked: false,
     };
   }
 
@@ -27,7 +26,7 @@ class AddMovie extends React.Component {
     this.setState({ rating: Number(event.target.value) });
   }
 
-  rereset(actualState, callOnClick) {
+  reset(actualState, callOnClick) {
     callOnClick(actualState);
     this.setState({
       subtitle: '',
@@ -36,7 +35,6 @@ class AddMovie extends React.Component {
       storyline: '',
       rating: 0,
       genre: 'action',
-      bookmarked: false,
     });
   }
 
@@ -78,7 +76,7 @@ class AddMovie extends React.Component {
         </label>
         <label data-testid="storyline-input-label" htmlFor="sin">
           Sinopse
-          <input
+          <textarea
             id="sin"
             data-testid="storyline-input"
             value={storyline}
