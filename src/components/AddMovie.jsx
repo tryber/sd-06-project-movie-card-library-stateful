@@ -27,8 +27,8 @@ class AddMovie extends React.Component {
     this.setState({ rating: Number(event.target.value) });
   }
 
-  reset(beforeState, onClick) {
-    onClick(beforeState);
+  rereset(actualState, callOnClick) {
+    callOnClick(actualState);
     this.setState({
       subtitle: '',
       title: '',

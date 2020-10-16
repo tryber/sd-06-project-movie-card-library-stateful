@@ -47,17 +47,19 @@ class MovieLibrary extends React.Component {
     const element = event.target.value;
     const { movies } = this.props;
     let filterMovies = movies;
-    if (element !== '') {
-      filterMovies = movies.filter((movie) => movie.title === element
-        || movie.subtitle === element
-        || movie.storyline === element);
+    if (element.length !== '') {
+      filterMovies = movies.filter((movie) => movie.title.includes(element)
+        || movie.subtitle.includes(element)
+        || movie.storyline.includes(element));
     }
     this.setState({ movies: filterMovies });
   }
 
   onClick(movie) {
-    this.setState((previousState) => ({ movies: [...previousState.movies, movie] }));
+    this.setState((previousState) => ({ movies: previousState.movies.concat(movie) }));
   }
+
+  // ({ movies: [...previousState.movies, movie] }));
 
   render() {
     const { bookmarkedOnly, selectedGenre, searchText, movies } = this.state;
