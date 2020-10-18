@@ -22,20 +22,20 @@ class MovieLibrary extends React.Component {
     this.filterGenre = this.filterGenre.bind(this);
   }
 
-  filterText() {
-    const { movies, searchText } = this.state;
-    const moviesSearch = movies.filter((movie) => {
-      return (movie.title.includes(searchText)
-      || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText))
-    });
-    this.setState({ movies: moviesSearch });
-  }
-
   onSearchTextChange({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value }, () => this.filterText());
   }
+
+  filterText() {
+    const { movies, searchText } = this.state;
+    const moviesSearch = movies.filter((movie) => movie.title.includes(searchText)
+      || movie.subtitle.includes(searchText)
+      || movie.storyline.includes(searchText)
+    );
+    this.setState({ movies: moviesSearch });
+  }
+
   bookmarkedOnlyChange() {
     this.setState({ bookmarkedOnly: !this.state.bookmarkedOnly });
   }
@@ -47,9 +47,9 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: filtered });
   }
 
-    onselectedGenreChange(event) {
-      this.setState({ selectedGenre: event.target.value }, () => this.filterGenre());
-    }
+  onselectedGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value }, () => this.filterGenre());
+  }
 
   newMovie(novoEstado) {
     this.setState({ movies: [...this.state.movies, novoEstado] });
