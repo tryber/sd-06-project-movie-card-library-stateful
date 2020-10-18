@@ -13,23 +13,16 @@ class AddMovie extends React.Component {
       genre: 'action',
     };
     this.change = this.change.bind(this);
-    this.reset = this.reset.bind(this);
+    this.addMovie = this.addMovie.bind(this);
   }
 
   change(evento) {
-    this.setState({ [evento.target.name]: evento.target.value });
+    const { name, value } = evento.target;
+    this.setState({ [name]: value });
   }
 
-  /* tem que dar um name igual ao state inicial para cada input
-  e chamar essa mesma função em todas elas fazer a função que
-  chama a função de onclick que será passada como props e chamar
-  no botão que ainda não está criado
- */
-
-  // mas quem é onClick, o que ela vai fazer?
-  // como consigo adc o filme na tela?
-
-  reset() {
+  addMovie(event) {
+    event.preventDefault();
     const { onClick } = this.props;
     onClick(this.state);
     this.setState({
@@ -41,12 +34,6 @@ class AddMovie extends React.Component {
       genre: 'action',
     });
   }
-
-/*   handleAddMovie(event){
-    event.preventDefault()
-    const {onClick} = this.props
-    onClick()
-  } */
 
   renderSelect() {
     const { genre } = this.state;
@@ -105,7 +92,7 @@ class AddMovie extends React.Component {
           />
         </label>
         {this.renderSelect()}
-        <button onClick={this.reset} data-testid="send-button">Adicionar filme
+        <button type="submit" onClick={this.addMovie} data-testid="send-button">Adicionar filme
         </button>
       </form>
     );

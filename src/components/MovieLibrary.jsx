@@ -11,23 +11,63 @@ class MovieLibrary extends React.Component {
       searchText: '',
       bookmarkedOnly: false,
       selectedGenre: '',
-      movies: this.props.movies,
+      movies: props.movies,
     };
+    this.searchTextChange = this.searchTextChange.bind(this);
+    this.bookmarkedOnlyChange = this.bookmarkedOnlyChange.bind(this);
+    this.selectedGenreChange = this.selectedGenreChange.bind(this);
+    this.newMovie = this.newMovie.bind(this);
+    this.filterText = this.filterText.bind(this);
   }
+
+  filterText() {
+    const { movies, searchText } = this.state;
+    const moviesSearch = movies.filter(movie => movie.title.includes(searchText));
+    this.setState({
+      movies: moviesSearch
+    });
+  }
+
+  searchTextChange(event) {
+    this.setState({
+      searchText: event.target.value,
+    }, () => this.filterText());
+
+  }
+
+  bookmarkedOnlyChange() {
+    this.setState({
+      bookmarkedOnly: !this.state.bookmarkedOnly,
+    });
+  }
+
+  selectedGenreChange(event) {
+    this.setState({
+      selectedGenre: event.target.value,
+    })
+  }
+
+  newMovie(novoEstado) {
+    this.setState({
+      movies: [...this.state.movies, novoEstado],
+    });
+  }
+
   render() {
     const { movies } = this.props;
+    const { searchText, bookmarkedOnly, selectedGenre } = this.state;
     return (
       <div>
         <SearchBar
-          searchText={this.state.searchText}
-          onSearchTextChange
-          bookmarkedOnly={this.state.bookmarkedOnly}
-          onBookmarkedChange
-          selectedGenre={this.state.selectedGenre}
-          onSelectedGenreChange
+          searchText={searchText}
+          onSearchTextChange={this.searchTextChange}
+          bookmarkedOnly={bookmarkedOnly}
+          onBookmarkedChange={this.bookmarkedOnlyChange}
+          selectedGenre={selectedGenre}
+          onSelectedGenreChange={this.selectedGenreChange}
         />
         <MovieList movies={movies} />
-        <AddMovie />
+        <AddMovie onClick={this.newMovie} />
       </div>
     );
   }
