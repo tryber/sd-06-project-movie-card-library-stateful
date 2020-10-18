@@ -37,6 +37,14 @@ export default class AddMovie extends React.Component {
   }
 
   render() {
+    const {
+      title,
+      subtitle,
+      imagePath,
+      storyline,
+      rating,
+      genre,
+    } = this.state;
     return (
       <form data-testid="add-movie-form">
         <label htmlFor="title" data-testid="title-input-label">
@@ -45,7 +53,7 @@ Título
           <input
             type="text"
             name="title"
-            value={this.state.title}
+            value={title}
             onChange={this.handleChange}
             data-testid="title-input"
           />
@@ -56,7 +64,7 @@ Subtítulo
           <input
             type="text"
             name="subtitle"
-            value={this.state.subtitle}
+            value={subtitle}
             onChange={this.handleChange}
             data-testid="subtitle-input"
           />
@@ -67,7 +75,7 @@ Imagem
           <input
             type="text"
             name="imagePath"
-            value={this.state.imagePath}
+            value={imagePath}
             onChange={this.handleChange}
             data-testid="image-input"
           />
@@ -78,7 +86,7 @@ Sinopse
           <textarea
             type="text"
             name="storyline"
-            value={this.state.storyline}
+            value={storyline}
             onChange={this.handleChange}
             data-testid="storyline-input"
           />
@@ -89,7 +97,7 @@ Avaliação
           <input
             type="number"
             name="rating"
-            value={this.state.rating}
+            value={rating}
             onChange={this.handleChange}
             data-testid="rating-input"
           />
@@ -99,7 +107,7 @@ Avaliação
 Gênero
           <select
             name="genre"
-            value={this.state.genre}
+            value={genre}
             onChange={this.handleChange}
             data-testid="genre-input"
           >
