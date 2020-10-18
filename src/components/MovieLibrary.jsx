@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
-import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -33,15 +32,15 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value }, () => this.filterGenre());
   }
 
+  onBookmarkedChange() {
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: !bookmarkedOnly }, () => this.favoriteMovies());
+  }
+
   filterGenre() {
     const { selectedGenre, movies } = this.state;
     const filtered = movies.filter((movie) => movie.genre === selectedGenre);
     this.setState({ movies: filtered });
-  }
-
-  onBookmarkedChange() {
-    const { bookmarkedOnly } = this.state;
-    this.setState({ bookmarkedOnly: !bookmarkedOnly }, () => this.favoriteMovies());
   }
 
   favoriteMovies() {
