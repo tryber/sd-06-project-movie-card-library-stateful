@@ -27,10 +27,6 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value }, () => this.filterText());
   }
 
-  bookmarkedOnlyChange() {
-    this.setState({ bookmarkedOnly: !this.state.bookmarkedOnly });
-  }
-
   filterGenre() {
     const { selectedGenre, movies } = this.state;
     const filtered = movies.filter((movie) => movie.genre === selectedGenre);
@@ -41,12 +37,15 @@ class MovieLibrary extends React.Component {
     this.setState({ selectedGenre: event.target.value }, () => this.filterGenre());
   }
 
+  bookmarkedOnlyChange() {
+    this.setState({ bookmarkedOnly: !this.state.bookmarkedOnly });
+  }
+
   filterText() {
     const { movies, searchText } = this.state;
     const moviesSearch = movies.filter((movie) => movie.title.includes(searchText)
       || movie.subtitle.includes(searchText)
-      || movie.storyline.includes(searchText)
-    );
+      || movie.storyline.includes(searchText));
     this.setState({ movies: moviesSearch });
   }
 
