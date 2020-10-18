@@ -22,35 +22,24 @@ class MovieLibrary extends React.Component {
 
   filterText() {
     const { movies, searchText } = this.state;
-    const moviesSearch = movies.filter(movie => movie.title.includes(searchText));
-    this.setState({
-      movies: moviesSearch
-    });
+    const moviesSearch = movies.filter((movie) => movie.title.includes(searchText));
+    this.setState({movies: moviesSearch});
   }
 
   searchTextChange(event) {
-    this.setState({
-      searchText: event.target.value,
-    }, () => this.filterText());
-
+    this.setState({searchText: event.target.value}, () => this.filterText());
   }
 
   bookmarkedOnlyChange() {
-    this.setState({
-      bookmarkedOnly: !this.state.bookmarkedOnly,
-    });
+    this.setState({bookmarkedOnly: !this.state.bookmarkedOnly});
   }
 
   selectedGenreChange(event) {
-    this.setState({
-      selectedGenre: event.target.value,
-    })
+    this.setState({selectedGenre: event.target.value});
   }
 
   newMovie(novoEstado) {
-    this.setState({
-      movies: [...this.state.movies, novoEstado],
-    });
+    this.setState({movies: [...this.state.movies, novoEstado]});
   }
 
   render() {

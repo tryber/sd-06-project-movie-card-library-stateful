@@ -15,6 +15,6 @@ function App() {
   );
 }
 
-MovieLibrary.propTypes = { movies: PropTypes.array.isRequired };
+MovieLibrary.propTypes = { movies: PropTypes.arrayOf.isRequired };
 
 export default App;
