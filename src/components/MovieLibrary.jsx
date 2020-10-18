@@ -27,14 +27,14 @@ class MovieLibrary extends React.Component {
     this.setState({ [name]: value }, () => this.filterText());
   }
 
+  onselectedGenreChange(event) {
+    this.setState({ selectedGenre: event.target.value }, () => this.filterGenre());
+  }
+
   filterGenre() {
     const { selectedGenre, movies } = this.state;
     const filtered = movies.filter((movie) => movie.genre === selectedGenre);
     this.setState({ movies: filtered });
-  }
-
-  onselectedGenreChange(event) {
-    this.setState({ selectedGenre: event.target.value }, () => this.filterGenre());
   }
 
   bookmarkedOnlyChange() {
