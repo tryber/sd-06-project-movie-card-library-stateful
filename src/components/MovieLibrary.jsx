@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import AddMovie from './AddMovie';
 import SearchBar from './SearchBar';
 import MovieList from './MovieList';
+import movies from '../data';
 
 class MovieLibrary extends React.Component {
   constructor(props) {
@@ -15,11 +16,12 @@ class MovieLibrary extends React.Component {
     };
 
     this.onSearchTextChange = this.onSearchTextChange.bind(this);
-    this.bookmarkedOnlyChange = this.bookmarkedOnlyChange.bind(this);
+    this.onBookmarkedChange = this.onBookmarkedChange.bind(this);
     this.onselectedGenreChange = this.onselectedGenreChange.bind(this);
     this.newMovie = this.newMovie.bind(this);
     this.filterText = this.filterText.bind(this);
     this.filterGenre = this.filterGenre.bind(this);
+    this.favoriteMovies = this.favoriteMovies.bind(this);
   }
 
   onSearchTextChange({ target }) {
@@ -37,8 +39,16 @@ class MovieLibrary extends React.Component {
     this.setState({ movies: filtered });
   }
 
-  bookmarkedOnlyChange() {
-    this.setState({ bookmarkedOnly: !this.state.bookmarkedOnly });
+  onBookmarkedChange() {
+    const { bookmarkedOnly } = this.state;
+    this.setState({ bookmarkedOnly: !bookmarkedOnly }, () => this.favoriteMovies());
+  }
+
+  favoriteMovies() {
+    const { movies, bookmarkedOnly } = this.state;
+    const favorites = movies.filter((movie) => movie.bookmarked === true);
+    if (bookmarkedOnly === true) this.setState({ movies: favorites });
+    else this.setState({ movies: this.props.movies });
   }
 
   filterText() {
@@ -61,7 +71,7 @@ class MovieLibrary extends React.Component {
           searchText={searchText}
           onSearchTextChange={this.onSearchTextChange}
           bookmarkedOnly={bookmarkedOnly}
-          onBookmarkedChange={this.bookmarkedOnlyChange}
+          onBookmarkedChange={this.onBookmarkedChange}
           selectedGenre={selectedGenre}
           onSelectedGenreChange={this.onselectedGenreChange}
         />
