@@ -6,16 +6,16 @@ class AddMovie extends React.Component {
 
     this.state = {
       // genre: 'action',
-      // imagePath: '',
+      imagePath: '',
       // rating: 0,
-      // storyline: '',
-      // subtitle: '',
+      storyline: '',
+      subtitle: '',
       title: '',
     };
-    this.handleChange = this.handleChange.bind(this);
+    this.onChangeEvent = this.onChangeEvent.bind(this);
   }
 
-  handleChange({ target }) {
+  onChangeEvent({ target }) {
     const { name, value } = target;
     this.setState({ [name]: value });
   }
@@ -23,39 +23,51 @@ class AddMovie extends React.Component {
   render() {
     const { subtitle, title } = this.state;
     const { imagePath } = this.state;
+    const { storyline } = this.state;
 
     return (
       <form data-testid="add-movie-form">
-        <label data-testid="title-input-label" htmlFor="text-input">
+        <label data-testid="title-input-label" htmlFor="title">
           Título
           <input
             data-testid="title-input"
             name="title"
-            onChange={this.handleChange}
+            onChange={this.onChangeEvent}
             type="text"
             value={title}
           />
         </label>
 
-        <label data-testid="subtitle-input-label" htmlFor="text-input">
+        <label data-testid="subtitle-input-label" htmlFor="subtitle">
           Subtítulo
           <input
             data-testid="subtitle-input"
             name="subtitle"
-            onChange={this.handleChange}
+            onChange={this.onChangeEvent}
             type="text"
             value={subtitle}
           />
         </label>
 
-        <label data-testid="image-input-label" htmlFor="text-input">
+        <label data-testid="image-input-label" htmlFor="imagePath">
           Imagem
           <input
             data-testid="image-input"
             name="imagePath"
-            onChange={this.handleChange}
+            onChange={this.onChangeEvent}
             type="text"
             value={imagePath}
+          />
+        </label>
+
+        <label data-testid="storyline-input-label" htmlFor="storyline">
+          Sinopse
+          <input
+            data-testid="storyline-input"
+            name="storyline"
+            onChange={this.onChangeEvent}
+            type="text"
+            value={storyline}
           />
         </label>
       </form>
