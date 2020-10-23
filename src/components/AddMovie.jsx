@@ -7,7 +7,7 @@ class AddMovie extends React.Component {
     this.state = {
       // genre: 'action',
       imagePath: '',
-      // rating: 0,
+      rating: 0,
       storyline: '',
       subtitle: '',
       title: '',
@@ -24,6 +24,7 @@ class AddMovie extends React.Component {
     const { subtitle, title } = this.state;
     const { imagePath } = this.state;
     const { storyline } = this.state;
+    const { rating } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -68,6 +69,17 @@ class AddMovie extends React.Component {
             onChange={this.onChangeEvent}
             type="text"
             value={storyline}
+          />
+        </label>
+
+        <label data-testid="rating-input-label" htmlFor="rating">
+        Avaliação
+          <input
+            data-testid="rating-input"
+            name="rating"
+            onChange={this.onChangeEvent}
+            type="number"
+            value={rating}
           />
         </label>
       </form>
