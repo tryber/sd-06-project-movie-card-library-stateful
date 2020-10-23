@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 
 class AddMovie extends React.Component {
@@ -5,14 +6,16 @@ class AddMovie extends React.Component {
     super(props);
 
     this.state = {
-      // genre: 'action',
+      genre: 'action',
       imagePath: '',
       rating: 0,
       storyline: '',
       subtitle: '',
       title: '',
     };
+
     this.onChangeEvent = this.onChangeEvent.bind(this);
+    this.onClickEvent = this.onClickEvent.bind(this);
   }
 
   onChangeEvent({ target }) {
@@ -20,11 +23,27 @@ class AddMovie extends React.Component {
     this.setState({ [name]: value });
   }
 
+  onClickEvent() {
+    const { onClick } = this.props;
+
+    onClick(this.state);
+
+    this.setState({
+      genre: 'action',
+      imagePath: '',
+      rating: 0,
+      storyline: '',
+      subtitle: '',
+      title: '',
+    });
+  }
+
   render() {
     const { subtitle, title } = this.state;
     const { imagePath } = this.state;
     const { storyline } = this.state;
     const { rating } = this.state;
+    const { genre } = this.state;
 
     return (
       <form data-testid="add-movie-form">
@@ -82,6 +101,23 @@ class AddMovie extends React.Component {
             value={rating}
           />
         </label>
+
+        <label data-testid="genre-input-label" htmlFor="genre">
+          Gênero
+          <select
+            data-testid="genre-input"
+            name="genre"
+            onChange={this.onChangeEvent}
+            type="text"
+            value={genre}
+          >
+            <option data-testid="genre-option" value="action">Ação</option>
+            <option data-testid="genre-option" value="comedy">Comédia</option>
+            <option data-testid="genre-option" value="thriller">Suspense</option>
+          </select>
+        </label>
+
+        <button data-testid="send-button" onClick={this.onClickEvent} type="submit">Adicionar filme</button>
       </form>
     );
   }
