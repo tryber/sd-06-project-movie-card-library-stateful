@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class AddMovie extends React.Component {
-
   constructor() {
     super();
     this.handleChange = this.handleChange.bind(this);
@@ -23,14 +22,17 @@ class AddMovie extends React.Component {
 
   refreshState() {
     const { onClick } = this.props;
-    this.setState({
-      subtitle: '',
-      title: '',
-      imagePath: '',
-      storyline: '',
-      rating: 0,
-      genre: 'action',
-    }, onClick);
+    this.setState(
+      {
+        subtitle: '',
+        title: '',
+        imagePath: '',
+        storyline: '',
+        rating: 0,
+        genre: 'action',
+      },
+      onClick,
+    );
   }
 
   renderTitle() {
@@ -123,9 +125,15 @@ class AddMovie extends React.Component {
           onChange={this.handleChange}
           data-testid="genre-input"
         >
-          <option data-testid="genre-option" value="action">Ação</option>
-          <option data-testid="genre-option" value="comedy">Comédia</option>
-          <option data-testid="genre-option" value="thriller">Suspense</option>
+          <option data-testid="genre-option" value="action">
+            Ação
+          </option>
+          <option data-testid="genre-option" value="comedy">
+            Comédia
+          </option>
+          <option data-testid="genre-option" value="thriller">
+            Suspense
+          </option>
         </select>
       </label>
     );
@@ -134,14 +142,18 @@ class AddMovie extends React.Component {
   render() {
     return (
       <form data-testid="add-movie-form">
-        {this.renderTitle()}
-        {this.renderSubtitle()}
-        {this.renderStoryline()}
-        {this.renderImage()}
-        {this.renderRating()}
-        {this.renderGenre()}
+        {this.renderTitle() }
+        {this.renderSubtitle() }
+        {this.renderStoryline() }
+        {this.renderImage() }
+        {this.renderRating() }
+        {this.renderGenre() }
 
-        <button type="button" data-testid="send-button" onClick={() => this.refreshState()}>
+        <button
+          type="button"
+          data-testid="send-button"
+          onClick={() => this.refreshState()}
+        >
           Adicionar filme
         </button>
       </form>
